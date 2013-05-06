@@ -402,16 +402,21 @@ body.lightbox-open{
 	width: 100%;
 	background: #fff;
 	z-index: 3;
-	border-bottom: 1px solid #dedede;
+	-webkit-box-shadow: 0px 0px 2px rgba(0,0,0,0.30);
+	-moz-box-shadow: 0px 0px 2px rgba(0,0,0,0.30);
+	box-shadow: 0px 0px 2px rgba(0,0,0,0.30);
 }
 #sidebar{
 	position: fixed;
-	right: 0px;
+	right: 10px;
 	bottom: 0;
 	width: 360px;
 	height: 100%;
 	background: #fff;
 	z-index: 2;
+	-webkit-box-shadow: 0px 0px 2px rgba(0,0,0,0.30);
+	-moz-box-shadow: 0px 0px 2px rgba(0,0,0,0.30);
+	box-shadow: 0px 0px 2px rgba(0,0,0,0.30);
 }
 #map,
 #topbar,
@@ -517,7 +522,7 @@ body.lightbox-open{
 
 /*minimized sidebar*/
 #sidebar.minimized{
-	height: 250px;
+	height: 250px !important;
 }
 #sidebar.minimized .sidebar-content{
 	padding-top:0px;
@@ -537,12 +542,10 @@ body.lightbox-open{
 }
 /*sidebar content */
 #sidebar .sidebar-content{
-	padding-top:100px;/*topbar height*/
+	/*padding-top:110px;topbar height*/
 }
 #sidebar .sidebar-content .result{
-
 	border-bottom: 1px solid #dedede;
-	border-top: 1px solid #dedede;/*superposé*/
 	padding-left: 14px;
 }
 #sidebar .sidebar-content .result .picto.minimize-sidebar{
@@ -944,6 +947,7 @@ body.lightbox-open{
 		position: static;
 		min-width: 320px;
 		width: 100%;
+		height: auto !important;
 		margin: auto;
 		margin-bottom: 5px;
 	}

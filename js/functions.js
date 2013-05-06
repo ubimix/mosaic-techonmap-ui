@@ -278,7 +278,8 @@ jQuery(document).ready(function() {
 	/*redimensionne sidebar en fonction de la taille de la fenêtre*/
 	function getSidebarHeight(){
 		var h = jQuery(window).height();
-		jQuery('.maximized .sidebar-content').height(h-200); /*200 = topbar + "propulsé par la fonderie"*/
+		jQuery('.maximized#sidebar').height(h-110); /*110 = topbar + top marge*/
+		jQuery('.maximized .sidebar-content').height(h-210); /*210 = topbar +top marge + resultat + "propulsé par la fonderie"*/
 	}
 	jQuery(window).resize(function(){
 		getSidebarHeight();
