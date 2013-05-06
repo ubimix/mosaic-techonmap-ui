@@ -193,7 +193,8 @@ jQuery(document).ready(function() {
 			left : '+='+jQuery('.slidable-mask').width()
 		},400);
 		currentSlidable--;
-		slideUpdateHeight();
+			slideUpdateHeight();
+
 	}
 	function slideUpdateHeight(ajout){
 		ajout = ajout || 0;/*default 0*/
