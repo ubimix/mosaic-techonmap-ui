@@ -806,9 +806,7 @@ body.lightbox-open{
 #map .leaflet-popup-tip-container{
 	display: none;
 }
-.leaflet-popup-close-button{
-	display: none;
-}
+
 .leaflet-popup-content {
 	color: #777777;
 	font-size: 13px;
