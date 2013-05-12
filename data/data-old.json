@@ -1,0 +1,1309 @@
+{
+    "points" : [
+    {
+        "name": "Agoranov",
+        "type": [
+            "incubator"
+        ],
+        "description": "Agoranov accompagne votre projet de cr\u00E9ation d'entreprise innovante et vous offre un environnement s\u00E9curis\u00E9 et convivial, facilitant l'acc\u00E8s aux comp\u00E9tences, outils et infrastructures indispensables au succ\u00E8s et \u00E0 la croissance de votre entreprise.",
+        "id": "www.agoranov.com",
+        "url": "http://www.agoranov.com",
+        "address": "96 bis boulevard Raspail",
+        "postcode": "75006",
+        "city": "Paris",
+        "lat": "48.8463334928",
+        "lng": "2.32821764225",
+        "twitter": ""
+    },
+    {
+        "name": "Alambik",
+        "type": [
+            "incubator"
+        ],
+        "description": "The Non Profit Organization Alambik 2.0 was created to provide a unique and friendly Open minded and Ambitious Environnement to all Entrepreneurs wishing to grow in Europe and Worlwide respecting the values such as solidarity, altruism and exchange, and open minded.",
+        "id": "alambik.eu",
+        "url": "http://alambik.eu",
+        "address": "54 rue de Paradis",
+        "postcode": "75010",
+        "city": "Paris",
+        "lat": "48.8757613964",
+        "lng": "2.34926653039",
+        "twitter": "CuveeStartups"
+    },
+    {
+        "name": "Blue Factory",
+        "type": [
+            "incubator"
+        ],
+        "description": "Au c\u0153ur de la communaut\u00E9 ESCP Europe, la Blue Factory est un incubateur de startups dans lequel une trentaine d\u2019entrepreneurs travaillent tous les jours pour cr\u00E9er demain. Des entrepreneurs passionn\u00E9s par leur projet, dans tous les domaines, et que la Blue Factory aide \u00E0 acc\u00E9l\u00E9rer.",
+        "id": "blue-factory.eu",
+        "url": "http://blue-factory.eu",
+        "address": "81 avenue de la R\u00E9publique",
+        "postcode": "75011",
+        "city": "Paris",
+        "lat": "48.8641349586",
+        "lng": "2.38143473401",
+        "twitter": "BlueFactory_"
+    },
+    {
+        "name": "Creatis",
+        "type": [
+            "incubator"
+        ],
+        "description": "[CREATIS - r\u00E9sidence d\u2019entrepreneurs culturels] accueille \u00E0 la Ga\u00EEt\u00E9 lyrique 20 entreprises du secteur (start-ups) en privil\u00E9giant les candidatures li\u00E9es au num\u00E9rique.",
+        "id": "www.gaite-lyrique.net-residencecreatis",
+        "url": "http://www.gaite-lyrique.net/residencecreatis",
+        "address": "3 bis rue Papin",
+        "postcode": "75003",
+        "city": "Paris",
+        "lat": "48.8668382735",
+        "lng": "2.35400432694",
+        "twitter": "gaitelyrique"
+    },
+    {
+        "name": "Creative Valley",
+        "type": [
+            "incubator"
+        ],
+        "description": "Vous d\u00E9sirez lancer votre entreprise innovante, vous cherchez des locaux \u00E9quip\u00E9s, vous cherchez du conseil et des services ? Rejoignez le premier cr\u00E9ative center du Kremlin Bic\u00EAtre.",
+        "id": "creative-valley.fr",
+        "url": "http://creative-valley.fr",
+        "address": "11 rue Carnot",
+        "postcode": "94270",
+        "city": "Le Kremlin Bic\u00EAtre",
+        "lat": "48.808293906",
+        "lng": "2.36588180989",
+        "twitter": ""
+    },
+    {
+        "name": "Dojoboost",
+        "type": [
+            "incubator"
+        ],
+        "description": "The Dojoboost startup accelerator takes up to 50 startups each year during two sessions. We help entrepreneurs take an idea, build their product, find their first clients, and get funded.",
+        "id": "www.dojoboost.com",
+        "url": "http://www.dojoboost.com",
+        "address": "41 boulevard Saint Martin",
+        "postcode": "75010",
+        "city": "Paris",
+        "lat": "48.8686530647",
+        "lng": "2.357137036",
+        "twitter": "dojoboost"
+    },
+    {
+        "name": "Dojocrea",
+        "type": [
+            "incubator"
+        ],
+        "description": "Dojocrea, le plus important incubateur priv\u00E9 en France vous apporte toutes les ressources logistiques, de services et de networking, sous forme d'offres claires, simples et flexibles, dans un cadre solidaire, s\u00E9curisant et convivial.",
+        "id": "www.dojocrea.fr",
+        "url": "http://www.dojocrea.fr",
+        "address": "24 rue B\u00E9ranger",
+        "postcode": "75003",
+        "city": "Paris",
+        "lat": "48.8666459717",
+        "lng": "2.36339375748",
+        "twitter": "dojocrea"
+    },
+    {
+        "name": "Efrei Entrepreneurs",
+        "type": [
+            "incubator"
+        ],
+        "description": "Efrei entrepreneurs est membre fondateur de IES ! (incubator de l\u2019Enseignement Sup\u00E9rieur). En parall\u00E8le de l\u2019h\u00E9bergement et de l\u2019accompagnement, cette structure propose \u00E0 ses incub\u00E9s, des sessions de formations anim\u00E9es par des professionnels de l\u2019entreprise \u00E0 m\u00EAme de leur apporter un \u00E9clairage sur leurs projets et de r\u00E9pondre aux questions les plus fr\u00E9quentes.",
+        "id": "incubateur.efrei.fr",
+        "url": "http://incubateur.efrei.fr",
+        "address": "33 bis impasse Victor Hugo",
+        "postcode": "94800",
+        "city": "Villejuif",
+        "lat": "48.7903472524",
+        "lng": "2.36374004854",
+        "twitter": "EFREI_incubator"
+    },
+    {
+        "name": "ESSEC Ventures",
+        "type": [
+            "incubator"
+        ],
+        "description": "L\u2019incubateur est destin\u00E9 aux \u00E9tudiants qui ont un projet de cr\u00E9ation d\u2019entreprises. Situ\u00E9 sur le campus de Cergy-Pontoise, les \u00E9tudiants acc\u00E8dent \u00E0 du coaching, aux conseils des partenaires d\u2019Essec Ventures, \u00E0 des bureaux et \u00E0 un soutien logistique et administratif.",
+        "id": "www.essec.fr-lessec-essec-ventures",
+        "url": "http://www.essec.fr/lessec/essec-ventures/",
+        "address": "Avenue Bernard Hirsch",
+        "postcode": "95000",
+        "city": "Cergy",
+        "lat": "49.0330005494",
+        "lng": "2.07879915051",
+        "twitter": "essecventures"
+    },
+    {
+        "name": "Explolab Factory",
+        "type": [
+            "incubator"
+        ],
+        "description": "ExploLab Factory est un incubateur priv\u00E9. A la diff\u00E9rence des incubateurs publics, les processus de d\u00E9cision (et d\u2019allocation de fonds) sont tr\u00E8s rapides. Pas besoin de r\u00E9diger un business plan pr\u00E9cis (et totalement faux), il suffit de renseigner un formulaire et de nous convaincre.",
+        "id": "explolab.com-factory",
+        "url": "http://explolab.com/factory/",
+        "address": "12 place de S\u00E9oul",
+        "postcode": "75014",
+        "city": "Paris",
+        "lat": "48.8363921836",
+        "lng": "2.31805708989",
+        "twitter": "explolab"
+    },
+    {
+        "name": "Fullbooster",
+        "type": [
+            "incubator"
+        ],
+        "description": "Entreprise membre de fullsixgroup, Fullbooster est un incubateur de startups num\u00E9riques qui vise \u00E0 d\u00E9tecter les id\u00E9es et les projets les plus pertinents afin d'acc\u00E9l\u00E9rer leur d\u00E9veloppement.",
+        "id": "www.full-booster.com",
+        "url": "http://www.full-booster.com",
+        "address": "157 rue Anatole France",
+        "postcode": "92300",
+        "city": "Levallois Perret",
+        "lat": "48.8986429502",
+        "lng": "2.2787299914",
+        "twitter": "FullBooster"
+    },
+    {
+        "name": "Incuballiance",
+        "type": [
+            "incubator"
+        ],
+        "description": "Incuballiance soutient la cr\u00E9ation et le d\u00E9veloppement de soci\u00E9t\u00E9s innovantes associ\u00E9es \u00E0 la recherche publique. Elle accueille et accompagne les projets de cr\u00E9ation d\u2019entreprises innovantes pour leur permettre d\u2019atteindre, le plus rapidement possible et dans les meilleures conditions, le stade d\u2019entreprise \u00E0 fort potentiel de d\u00E9veloppement. ",
+        "id": "www.incuballiance.fr",
+        "url": "http://www.incuballiance.fr",
+        "address": "86 rue de Paris",
+        "postcode": "91400",
+        "city": "Orsay",
+        "lat": "48.6962127898",
+        "lng": "2.19463295288",
+        "twitter": "IncubAlliance"
+    },
+    {
+        "name": "Incubateur Centrale Paris",
+        "type": [
+            "incubator"
+        ],
+        "description": "L'incubateur de l\u2019\u00C9cole Centrale Paris accueille et soutient des startups innovantes, \u00E0 un stade tr\u00E8s pr\u00E9coce, port\u00E9es ou non par des centraliens et des projets issus des labos de l'Ecole.",
+        "id": "www.centraleparis-incubateur.fr",
+        "url": "http://www.centraleparis-incubateur.fr",
+        "address": "Grande Voie des Vignes",
+        "postcode": "92295",
+        "city": "Ch\u00E2tenay-Malabry",
+        "lat": "48.7660119556",
+        "lng": "2.28645999751",
+        "twitter": ""
+    },
+    {
+        "name": "Incubateur Descartes",
+        "type": [
+            "incubator"
+        ],
+        "description": "L\u2019Incubateur Descartes est une structure d\u2019aide \u00E0 l\u2019\u00E9mergence et l\u2019accompagnement de projets de cr\u00E9ation d\u2019entreprises innovantes \u00E0 forte valeur ajout\u00E9e technologique. D\u00E9di\u00E9 \u00E0 la ville durable et aux services num\u00E9riques, il ambitionne de devenir l'incubateur du grand Est parisien, de la Cit\u00E9 Descartes \u00E0 Cr\u00E9teil. ",
+        "id": "www.incubateur-descartes.com",
+        "url": "http://www.incubateur-descartes.com",
+        "address": "23 rue Alfred Nobel",
+        "postcode": "77420",
+        "city": "Champs-sur-Marne",
+        "lat": "48.8374792283",
+        "lng": "2.58964469412",
+        "twitter": "InfoDescartes"
+    },
+    {
+        "name": "Incubateur du Centquatre",
+        "type": [
+            "incubator"
+        ],
+        "description": "L\u2019incubateur du Centquatre est une structure de soutien \u00E0 la cr\u00E9ation et au d\u00E9veloppement d\u2019entreprises innovantes, au croisement des probl\u00E9matiques artistiques et technologiques. Fonctionnant en \u00E9troit partenariat avec Agoranov, l'incubateur du Centquatre offre un cadre et des conditions propices \u00E0 la maturation de projets.",
+        "id": "www.104.fr-les_espaces-equipements-l_incubateur.html",
+        "url": "http://www.104.fr/les_espaces/equipements/l_incubateur.html",
+        "address": "104 rue d'Aubervilliers",
+        "postcode": "75019",
+        "city": "Paris",
+        "lat": "48.8904522976",
+        "lng": "2.3684927096",
+        "twitter": "CENTQUATRE"
+    },
+    {
+        "name": "Incubateur HEC",
+        "type": [
+            "incubator"
+        ],
+        "description": "L\u2019incubateur HEC vise \u00E0 r\u00E9pondre au besoin d\u2019accompagnement des nombreuses entreprises cr\u00E9\u00E9es par des \u00E9tudiants, des jeunes dipl\u00F4m\u00E9s et des participants issus des diverses formations du campus.",
+        "id": "www.hec.fr-incubateur-hec",
+        "url": "http://www.hec.fr/incubateur-hec/",
+        "address": "1 rue de la Lib\u00E9ration",
+        "postcode": "78350",
+        "city": "Jouy-en-Josas",
+        "lat": "48.7620423751",
+        "lng": "2.16991370992",
+        "twitter": "incubateurhec"
+    },
+    {
+        "name": "Incubateur Novancia",
+        "type": [
+            "incubator"
+        ],
+        "description": "Centre d'entra\u00EEnement \u00E0 la cr\u00E9ation d'entreprises et acc\u00E9l\u00E9rateur de projets, l'incubateur de Novancia accueille et accompagne les porteurs de projet \u00E0 fort potentiel de croissance, quel que soit leur secteur d'activit\u00E9s, dans les phases de validation du projet, construction et lancement de l'entreprise, puis lev\u00E9e de fonds.",
+        "id": "www.novancia.fr--Creez-votre-entreprise-avec-l-.html",
+        "url": "http://www.novancia.fr/-Creez-votre-entreprise-avec-l-.html",
+        "address": "8 avenue de la porte de Champerret",
+        "postcode": "75017",
+        "city": "Paris",
+        "lat": "48.8862603411",
+        "lng": "2.28712016701",
+        "twitter": "Novancia"
+    },
+    {
+        "name": "Labo de l'\u00E9dition",
+        "type": [
+            "incubator"
+        ],
+        "description": "L\u2019incubateur du labo de l\u2019\u00E9dition fait partie des incubateurs anim\u00E9s par le laboratoire Paris Region Innovation dans le cadre de Paris incubator.",
+        "id": "labodeledition.com-incubateur",
+        "url": "http://labodeledition.com/incubateur/",
+        "address": "2 rue Saint M\u00E9dard",
+        "postcode": "75005",
+        "city": "Paris",
+        "lat": "48.8435477276",
+        "lng": "2.35147118787",
+        "twitter": "labodeledition"
+    },
+    {
+        "name": "L'Acc\u00E9l\u00E9rateur",
+        "type": [
+            "incubator"
+        ],
+        "description": "Cr\u00E9\u00E9 et anim\u00E9 par des serial entrepreneurs aguerris, l\u2019Acc\u00E9l\u00E9rateur a pour mission d\u2019aider les start-ups \u00E0 d\u00E9coller. ",
+        "id": "laccelerateur.fr",
+        "url": "http://laccelerateur.fr",
+        "address": "6 rue Saulnier",
+        "postcode": "75009",
+        "city": "Paris",
+        "lat": "48.8746924205",
+        "lng": "2.34444011464",
+        "twitter": "IncubateurCentr"
+    },
+    {
+        "name": "Le Camping",
+        "type": [
+            "incubator"
+        ],
+        "description": "Cr\u00E9\u00E9 et anim\u00E9 par l\u2019association Silicon Sentier, Le Camping h\u00E9berge des start-ups web s\u00E9lectionn\u00E9es sur dossiers pour leur permettre de prototyper leur projet, de se faire coacher par des mentors, et de f\u00E9d\u00E9rer des communaut\u00E9s d\u2019utilisateurs pour valider le produit.",
+        "id": "www.lecamping.org",
+        "url": "http://www.lecamping.org",
+        "address": "28 place de la Bourse",
+        "postcode": "75002",
+        "city": "Paris",
+        "lat": "48.868886492",
+        "lng": "2.34019657611",
+        "twitter": "lecamping"
+    },
+    {
+        "name": "NeuillyLab",
+        "type": [
+            "incubator"
+        ],
+        "description": "NeuillyLab est un espace de travail, d\u2019\u00E9changes et d\u2019animation \u00E9conomique d\u00E9di\u00E9 aux cr\u00E9ateurs d\u2019entreprises. Il a pour vocation d\u2019apporter des services de conseil et d\u2019accompagnement aux porteurs de projets.",
+        "id": "www.neuillylab.com",
+        "url": "http://www.neuillylab.com",
+        "address": "171 avenue Charles de Gaulle",
+        "postcode": "92200",
+        "city": "Neuilly-sur-Seine",
+        "lat": "48.8849609003",
+        "lng": "2.26088470825",
+        "twitter": "Neuillylab"
+    },
+    {
+        "name": "Paris incubator",
+        "type": [
+            "incubator"
+        ],
+        "description": "Pilot\u00E9 par le Laboratoire Paris R\u00E9gion Innovation, Paris incubator anime plusieurs programmes d'incubation th\u00E9matiques et des lieux d'h\u00E9bergement associ\u00E9s. La structure met son expertise au service des cr\u00E9ateurs d\u2019entreprises innovantes et les accompagne dans leurs projets en phase d\u2019amor\u00E7age puis de d\u00E9collage.",
+        "id": "www.parisincubateurs.com",
+        "url": "http://www.parisincubateurs.com",
+        "address": "24 rue de l'Est",
+        "postcode": "75020",
+        "city": "Paris",
+        "lat": "48.8711116362",
+        "lng": "2.39360368284",
+        "twitter": "Paris_Incub"
+    },
+    {
+        "name": "Paris Innovation Belleville",
+        "type": [
+            "incubator"
+        ],
+        "description": "H\u00F4tel d'entreprises faisant partie des lieux d'h\u00E9bergement propos\u00E9s par Paris incubator dans le cadre de ses programmes d'incubation.",
+        "id": "www.parisincubateurs.com-sites_incubateur-get_site-25",
+        "url": "http://www.parisincubateurs.com/sites_incubateur/get_site/25",
+        "address": "24 rue de l'Est",
+        "postcode": "75020",
+        "city": "Paris",
+        "lat": "48.8711130538",
+        "lng": "2.39360067747",
+        "twitter": "Paris_Incub"
+    },
+    {
+        "name": "Paris Innovation Bourse",
+        "type": [
+            "incubator"
+        ],
+        "description": "H\u00F4tel d'entreprises faisant partie des lieux d'h\u00E9bergement propos\u00E9s par Paris incubator dans le cadre de ses programmes d'incubation.",
+        "id": "www.parisincubateurs.com-sites_incubateur-get_site-28",
+        "url": "http://www.parisincubateurs.com/sites_incubateur/get_site/28",
+        "address": "5 rue d'Uz\u00E8s, 75002 Paris",
+        "postcode": "75002",
+        "city": "Paris",
+        "lat": "48.8704933574",
+        "lng": "2.34499397724",
+        "twitter": "Paris_Incub"
+    },
+    {
+        "name": "Paris Innovation Br\u00FBlon-C\u00EEteaux",
+        "type": [
+            "incubator"
+        ],
+        "description": "L\u2019h\u00F4tel d\u2019entreprises Paris Innovation Br\u00FBlon-C\u00EEteaux vous propose des espaces \u00E0 louer dans le secteur de l\u2019innovation, des nouvelles technologies, de l\u2019artisanat et de la d\u00E9coration int\u00E9rieure.",
+        "id": "www.rivp.fr-index.php-post-Paris-Innovation-Brulon-Citeaux-12eme",
+        "url": "http://www.rivp.fr/index.php/post/Paris-Innovation-Brulon-Citeaux-12eme",
+        "address": "8 passage Br\u00FBlon",
+        "postcode": "75012",
+        "city": "Paris",
+        "lat": "48.8496458771",
+        "lng": "2.38015956897",
+        "twitter": ""
+    },
+    {
+        "name": "Paris Innovation Mass\u00E9na",
+        "type": [
+            "incubator"
+        ],
+        "description": "H\u00F4tel d'entreprises faisant partie des lieux d'h\u00E9bergement propos\u00E9s par Paris incubator dans le cadre de ses programmes d'incubation.",
+        "id": "www.parisincubateurs.com-sites_incubateur-get_site-27",
+        "url": "http://www.parisincubateurs.com/sites_incubateur/get_site/27",
+        "address": "15 rue Jean-Baptiste Berlier",
+        "postcode": "75013",
+        "city": "Paris",
+        "lat": "48.8256125445",
+        "lng": "2.38355542125",
+        "twitter": "Paris_Incub"
+    },
+    {
+        "name": "Paris Innovation R\u00E9union",
+        "type": [
+            "incubator"
+        ],
+        "description": "H\u00F4tel d'entreprises faisant partie des lieux d'h\u00E9bergement propos\u00E9s par Paris incubator dans le cadre de ses programmes d'incubation.",
+        "id": "www.parisincubateurs.com-sites_incubateur-get_site-26",
+        "url": "http://www.parisincubateurs.com/sites_incubateur/get_site/26",
+        "address": "80 rue des Haies",
+        "postcode": "75020",
+        "city": "Paris",
+        "lat": "48.8548011299",
+        "lng": "2.40365334818",
+        "twitter": "Paris_Incub"
+    },
+    {
+        "name": "Paris Pionni\u00E8res",
+        "type": [
+            "incubator"
+        ],
+        "description": "Acteur \u00E9conomique francilien au service des femmes cr\u00E9atrices d\u2019entreprises innovantes, Paris Pionni\u00E8res s'appuie sur une \u00E9quipe de professionnels qui vous conseille, vous accompagne et vous propose des bureaux pour votre entreprise, de l\u2019id\u00E9e jusqu\u2019\u00E0 sa troisi\u00E8me ann\u00E9e d\u2019existence.",
+        "id": "www.parispionnieres.org",
+        "url": "http://www.parispionnieres.org",
+        "address": "26 rue du Chemin Vert",
+        "postcode": "75011",
+        "city": "Paris",
+        "lat": "48.8583007364",
+        "lng": "2.37253254362",
+        "twitter": ""
+    },
+    {
+        "name": "Paris R\u00E9gion Innovation Nord Express",
+        "type": [
+            "incubator"
+        ],
+        "description": "H\u00F4tel d'entreprises faisant partie des lieux d'h\u00E9bergement propos\u00E9s par Paris incubator dans le cadre de ses programmes d'incubation.",
+        "id": "www.parisincubateurs.com-sites_incubateur-get_site-30",
+        "url": "http://www.parisincubateurs.com/sites_incubateur/get_site/30",
+        "address": "110-122 rue des Poissonniers",
+        "postcode": "75018",
+        "city": "Paris",
+        "lat": "48.89389998",
+        "lng": "2.35413136226",
+        "twitter": "Paris_Incub"
+    },
+    {
+        "name": "ParisTech Entrepreneurs",
+        "type": [
+            "incubator"
+        ],
+        "description": "T\u00E9l\u00E9com ParisTech soutient la cr\u00E9ation d\u2019entreprises innovantes en donnant un acc\u00E8s privil\u00E9gi\u00E9 \u00E0 ses dipl\u00F4m\u00E9s \u00E0 cet incubateurs de start-up. Elle y accompagne les porteurs de projets de cr\u00E9ation, pour passer d\u2019une id\u00E9e \u00E0 une entreprise \u00E9conomiquement viable et \u00E0 fort potentiel de d\u00E9veloppement.",
+        "id": "entrepreneurs.telecom-paristech.fr",
+        "url": "http://entrepreneurs.telecom-paristech.fr",
+        "address": "9 rue Dareau",
+        "postcode": "75014",
+        "city": "Paris",
+        "lat": "48.8314185836",
+        "lng": "2.33841666041",
+        "twitter": "IncubParisTech"
+    },
+    {
+        "name": "Peego Start'Up",
+        "type": [
+            "incubator"
+        ],
+        "description": "Peego Start'Up est l'incubateur de l'Universit\u00E9 Paris Dauphine. Il est ouvert aux \u00E9tudiants ou jeunes dipl\u00F4m\u00E9s des \u00E9tablissements de Peego porteurs d'un projet. Dans le cas d'un projet port\u00E9 par une \u00E9quipe, au moins l'un des membres doit r\u00E9pondre \u00E0 ces crit\u00E8res.",
+        "id": "www.peego.dauphine.fr",
+        "url": "http://www.peego.dauphine.fr",
+        "address": "Place de la D\u00E9fense, Tour Eve",
+        "postcode": "92800",
+        "city": "La D\u00E9fense",
+        "lat": "48.8860486276",
+        "lng": "2.23734414854",
+        "twitter": ""
+    },
+    {
+        "name": "P\u00E9pini\u00E8re 27",
+        "type": [
+            "incubator"
+        ],
+        "description": "Premi\u00E8re p\u00E9pini\u00E8re priv\u00E9e de France, au coeur de Paris. Cr\u00E9\u00E9e par des entrepreneurs, pour des entrepreneurs. Sur 3 800 m\u00B2 divis\u00E9s en 2 sites face-\u00E0-face, la P\u00E9pini\u00E8re 27 dispose de 2 000 m\u00B2 de surface nette \u00E0 louer de fa\u00E7on modulable.",
+        "id": "www.pepiniere27.fr",
+        "url": "http://www.pepiniere27.fr",
+        "address": "27-28 rue du Chemin Vert",
+        "postcode": "75011",
+        "city": "Paris",
+        "lat": "48.8583337582",
+        "lng": "2.37264291659",
+        "twitter": "pepiniere27"
+    },
+    {
+        "name": "Scientip\u00F4le Initiative",
+        "type": [
+            "incubator"
+        ],
+        "description": "Scientip\u00F4le Initiative accueille des projets et jeunes entreprises innovantes existantes (qui ont moins de trois ann\u00E9es d'activit\u00E9) de la r\u00E9gion Ile-de-France.",
+        "id": "www.scientipole-initiative.org",
+        "url": "http://www.scientipole-initiative.org",
+        "address": "Campus Universitaire d'Orsay",
+        "postcode": "91800",
+        "city": "Orsay",
+        "lat": "48.7023509855",
+        "lng": "2.17365147566",
+        "twitter": "ScientInitiativ"
+    },
+    {
+        "name": "Telecom SudParis Entrepreneurs",
+        "type": [
+            "incubator"
+        ],
+        "description": "L\u2019incubateur T\u00E9l\u00E9com SudParis Entrepreneurs  est une structure qui favorise l\u2019\u00E9mergence de jeunes entreprises TIC \u00E0 fort potentiel d\u2019innovation, de d\u00E9veloppement et de cr\u00E9ation d\u2019emploi.",
+        "id": "www.telecom-sudparis.eu-p_fr_incubateur_mot-directeur_8378.html",
+        "url": "http://www.telecom-sudparis.eu/p_fr_incubateur_mot-directeur_8378.html",
+        "address": "9 rue Charles Fourier",
+        "postcode": "91000",
+        "city": "Evry",
+        "lat": "48.6254452975",
+        "lng": "2.44327080543",
+        "twitter": "TelecomSudParis"
+    },
+    {
+        "name": "123 Venture",
+        "type": [
+            "investor"
+        ],
+        "description": "123Venture est une soci\u00E9t\u00E9 de gestion ind\u00E9pendante avec plus de 800M\u20AC investis dans le capital-investissement et l'immobilier.",
+        "id": "www.123venture.com",
+        "url": "http://www.123venture.com",
+        "address": "42 avenue Raymond Poincar\u00E9",
+        "postcode": "75016",
+        "city": "Paris",
+        "lat": "48.8660780386",
+        "lng": "2.28640702631",
+        "twitter": "123Venture"
+    },
+    {
+        "name": "360\u00B0 Capital Partners",
+        "type": [
+            "investor"
+        ],
+        "description": "360\u00B0 Capital Partners regroupe des investisseurs dynamiques et agiles, profond\u00E9ment passionn\u00E9s par la cr\u00E9ation de soci\u00E9t\u00E9s durables et offrant aux entrepreneurs un soutien de tous les instants.",
+        "id": "www.360capitalpartners.com",
+        "url": "http://www.360capitalpartners.com",
+        "address": "68 boulevard de S\u00E9bastopol",
+        "postcode": "75003",
+        "city": "Paris",
+        "lat": "48.8642652567",
+        "lng": "2.35170997145",
+        "twitter": "360CP"
+    },
+    {
+        "name": "Banexi Ventures Partners",
+        "type": [
+            "investor"
+        ],
+        "description": "Banexi Ventures Partners is a French independent managing company. Banexi Ventures Partners invests through Venture Capital Funds, in early stage companies with high growth potential and high technology in 3 different sectors : Internet, Electronic, and Medical Technologies.",
+        "id": "www.banexiventures.com",
+        "url": "http://www.banexiventures.com",
+        "address": "13-15 rue Taitbout",
+        "postcode": "75009",
+        "city": "Paris",
+        "lat": "48.872630327",
+        "lng": "2.3357025512",
+        "twitter": ""
+    },
+    {
+        "name": "Elaia Partners",
+        "type": [
+            "investor"
+        ],
+        "description": "Cr\u00E9\u00E9e en 2002, ELAIA Partners est une soci\u00E9t\u00E9 ind\u00E9pendante de capital investissement focalis\u00E9e sur l'Economie Num\u00E9rique.",
+        "id": "www.elaia.com",
+        "url": "http://www.elaia.com",
+        "address": "54 rue de Ponthieu",
+        "postcode": "75008",
+        "city": "Paris",
+        "lat": "48.8717942529",
+        "lng": "2.30609679835",
+        "twitter": "Elaia_Partners"
+    },
+    {
+        "name": "IdInvest Partners",
+        "type": [
+            "investor"
+        ],
+        "description": "Avec plus de 3 milliards d'euros sous gestion, Idinvest Partners est aujourd'hui l'un des leaders en Europe du financement et de l'investissement dans des entreprises de taille moyenne non cot\u00E9es.",
+        "id": "www.idinvest.com",
+        "url": "http://www.idinvest.com",
+        "address": "117 avenue des Champs Elys\u00E9es",
+        "postcode": "75008",
+        "city": "Paris",
+        "lat": "48.8724734694",
+        "lng": "2.29881497767",
+        "twitter": ""
+    },
+    {
+        "name": "Investessor",
+        "type": [
+            "investor"
+        ],
+        "description": "Les Angels d'Investessor accompagnent et financent des startups innovantes de tous secteurs d\u2019activit\u00E9 en \u00CEle-de-France.",
+        "id": "www.investessor.fr",
+        "url": "http://www.investessor.fr",
+        "address": "146 rue du Ch\u00E2teau",
+        "postcode": "92100",
+        "city": "Boulogne Billancourt",
+        "lat": "48.8418089651",
+        "lng": "2.23776135087",
+        "twitter": "investessor"
+    },
+    {
+        "name": "ISAI Capital",
+        "type": [
+            "investor"
+        ],
+        "description": "ISAI est un fonds d'entrepreneurs qui rassemble plus de 70 entrepreneurs et qui a pour vocation de financer et accompagner des soci\u00E9t\u00E9s Internet \u00E0 fort potentiel.",
+        "id": "www.isai.fr",
+        "url": "http://www.isai.fr",
+        "address": "10 bis avenue de la Grande Arm\u00E9e",
+        "postcode": "75017",
+        "city": "Paris",
+        "lat": "48.8749012333",
+        "lng": "2.2923871809",
+        "twitter": "isai_fr"
+    },
+    {
+        "name": "IT Angels",
+        "type": [
+            "investor"
+        ],
+        "description": "IT Angels finance l'excellence et l'innovation dans le secteur IT en France.",
+        "id": "www.itangels.fr",
+        "url": "http://www.itangels.fr",
+        "address": "110 rue des Poissonniers",
+        "postcode": "75018",
+        "city": "Paris",
+        "lat": "48.8939158519",
+        "lng": "2.35393142262",
+        "twitter": "Itangelsparis"
+    },
+    {
+        "name": "Ja\u00EFna Capital",
+        "type": [
+            "investor"
+        ],
+        "description": "Ja\u00EFna Capital associe la rigueur de gestion des fonds priv\u00E9s \u00E0 la flexibilit\u00E9 des processus de business angels afin d\u2019\u00EAtre r\u00E9actif aux opportunit\u00E9s d\u2019investissement.",
+        "id": "www.jaina.fr",
+        "url": "http://www.jaina.fr",
+        "address": "1 rue Fran\u00E7ois 1er",
+        "postcode": "75008",
+        "city": "Paris",
+        "lat": "48.8653097516",
+        "lng": "2.30926093211",
+        "twitter": "jainacapital"
+    },
+    {
+        "name": "Kima Ventures",
+        "type": [
+            "investor"
+        ],
+        "description": "The Kima Ventures fund was started in 2010 by entrepreneurs for entrepreneurs. Our goal is to support and finance innovative companies with seed capital all over the world.",
+        "id": "www.kimaventures.com",
+        "url": "http://www.kimaventures.com",
+        "address": "8 rue de la ville l'Ev\u00E8que",
+        "postcode": "75008",
+        "city": "Paris",
+        "lat": "48.8713063274",
+        "lng": "2.32142890555",
+        "twitter": "kimaventures"
+    },
+    {
+        "name": "Orkos Capital",
+        "type": [
+            "investor"
+        ],
+        "description": "Orkos Capital is a private equity management company created in 2006. The members of the Orkos Capital team started working together in the early 1990\u2019s and have been acting as an independent team since 1999.",
+        "id": "www.orkoscapital.com",
+        "url": "http://www.orkoscapital.com",
+        "address": "2 rue Fl\u00E9chier",
+        "postcode": "75009",
+        "city": "Paris",
+        "lat": "48.8761982508",
+        "lng": "2.33923088275",
+        "twitter": ""
+    },
+    {
+        "name": "P.I.Nk",
+        "type": [
+            "investor"
+        ],
+        "description": "P.I.Nk est une soci\u00E9t\u00E9 d\u2019investissement, cr\u00E9\u00E9e en 2009 par faberNovel, dont l\u2019objectif est de r\u00E9pondre au manque de capital amor\u00E7age sur le march\u00E9 europ\u00E9en.",
+        "id": "www.pinkbyfaber.com",
+        "url": "http://www.pinkbyfaber.com",
+        "address": "17 rue du Faubourg du Temple",
+        "postcode": "75010",
+        "city": "Paris",
+        "lat": "48.8683878029",
+        "lng": "2.36594704635",
+        "twitter": ""
+    },
+    {
+        "name": "Paris Angels Capital",
+        "type": [
+            "investor"
+        ],
+        "description": "S.A. d\u2019Investissement regroupant 50 Business Angels membres de l\u2019association Paris Business Angels et dot\u00E9e d\u2019une capacit\u00E9 d\u2019investissement de 3 millions d\u2019euros.",
+        "id": "www.parisbusinessangels.com-def-pac",
+        "url": "http://www.parisbusinessangels.com/def-pac/",
+        "address": "16 rue de Turbigo",
+        "postcode": "75002",
+        "city": "Paris",
+        "lat": "48.8638628133",
+        "lng": "2.34905737595",
+        "twitter": ""
+    },
+    {
+        "name": "Paris Business Angels",
+        "type": [
+            "investor"
+        ],
+        "description": "Paris Business Angels est une association Loi 1901  cr\u00E9\u00E9e en 2004 qui r\u00E9unit plus de 150 membres \u00AB Business Angels \u00BB de la r\u00E9gion Parisienne. Sa vocation est de contribuer au d\u00E9veloppement de jeunes entreprises innovantes \u00E0 fort potentiel de croissance.",
+        "id": "www.parisbusinessangels.com",
+        "url": "http://www.parisbusinessangels.com",
+        "address": "16 rue de Turbigo",
+        "postcode": "75002",
+        "city": "Paris",
+        "lat": "48.8638584562",
+        "lng": "2.3490552968",
+        "twitter": "Paris_BA"
+    },
+    {
+        "name": "Partech International Partners",
+        "type": [
+            "investor"
+        ],
+        "description": "A leading investor in high growth companies. Established since 1982 in Europe and Silicon Valley, our partners collaborate throughout the investment lifecycle of our portfolio companies.",
+        "id": "www.partechventures.com",
+        "url": "http://www.partechventures.com",
+        "address": "12 rue de Penthi\u00E8vre",
+        "postcode": "75008",
+        "city": "Paris",
+        "lat": "48.8730059515",
+        "lng": "2.31641146456",
+        "twitter": "partechventures"
+    },
+    {
+        "name": "Serena Capital",
+        "type": [
+            "investor"
+        ],
+        "description": "Serena Capital is a management company launched in 2008 by a trio of entrepreneurs turned venture capitalists - Marc Fournier, Philippe Hayat and Xavier Lorphelin.",
+        "id": "www.serenacapital.com",
+        "url": "http://www.serenacapital.com",
+        "address": "21 rue Auber",
+        "postcode": "75009",
+        "city": "Paris",
+        "lat": "48.8733304943",
+        "lng": "2.3276041451",
+        "twitter": "serenacap"
+    },
+    {
+        "name": "Sofinnova Partners",
+        "type": [
+            "investor"
+        ],
+        "description": "Sofinnova Partners est une soci\u00E9t\u00E9 de capital-risque ind\u00E9pendante, leader europ\u00E9en dans le financement de jeunes soci\u00E9t\u00E9s, de spin-offs ou d'op\u00E9rations de retournement dans les technologies et les sciences de la vie ainsi que les cleantechs.",
+        "id": "www.sofinnova.fr",
+        "url": "http://www.sofinnova.fr",
+        "address": "17 rue de Sur\u00E8ne",
+        "postcode": "75008",
+        "city": "Paris",
+        "lat": "48.8709301716",
+        "lng": "2.32068474301",
+        "twitter": ""
+    },
+    {
+        "name": "Ventech",
+        "type": [
+            "investor"
+        ],
+        "description": "Ventech s'associe depuis 1998 avec les meilleurs entrepreneurs dans les secteurs des Technologies de l'Information et des Sciences de la Vie.",
+        "id": "www.ventech.fr",
+        "url": "http://www.ventech.fr",
+        "address": "5-7 rue de Monttessuy",
+        "postcode": "75007",
+        "city": "Paris",
+        "lat": "48.8595273287",
+        "lng": "2.29951958737",
+        "twitter": "Ventech_VC"
+    },
+    {
+        "name": "Artlab digitalarti",
+        "type": [
+            "third-place"
+        ],
+        "description": "Le Artlab est un lieu de recherche, de d\u00E9veloppement et de prototypage accueillant des artistes num\u00E9riques. Son but est de rassembler des artistes et des techniciens dans une d\u00E9marche cr\u00E9ative et collaborative. L'approche est multidisciplinaire, au carrefour entre la possibilit\u00E9 de la technologie et l'inspiration des artistes.",
+        "id": "www.digitalarti.com",
+        "url": "http://www.digitalarti.com",
+        "address": "13 rue des Ecluse Saint-Martin",
+        "postcode": "75010",
+        "city": "Paris",
+        "lat": "48.8767820205",
+        "lng": "2.36671480787",
+        "twitter": "digitalarti_fr"
+    },
+    {
+        "name": "BlackBoxe",
+        "type": [
+            "third-place"
+        ],
+        "description": "La Black Boxe est un atelier ouvert, sur le mod\u00E8le des hackerspaces. H\u00E9berg\u00E9 au Th\u00E9\u00E2tre de Verre, ce lieu met l\u2019accent sur les connexions entre l\u2019art et la technologie en g\u00E9n\u00E9ral. ",
+        "id": "blackboxe.fr",
+        "url": "http://blackboxe.fr",
+        "address": "17 avenue de la Chapelle",
+        "postcode": "75018",
+        "city": "Paris",
+        "lat": "48.8915346922",
+        "lng": "2.35968328184",
+        "twitter": ""
+    },
+    {
+        "name": "Caf\u00E9 Craft",
+        "type": [
+            "third-place"
+        ],
+        "description": "A deux pas du Canal Saint-Martin, Craft est un lieu con\u00E7u pour les travailleurs nomades, qui carburent au caf\u00E9. Les grandes tables sont munies de prises \u00E9lectriques et r\u00E9seau pour faciliter l'utilisation de son ordinateur portable. Le Wi-Fi est gratuit. On peut m\u00EAme y d\u00E9jeuner tout en continuant de travailler.",
+        "id": "www.cafe-craft.com",
+        "url": "http://www.cafe-craft.com",
+        "address": "24 rue des Vinaigriers",
+        "postcode": "75010",
+        "city": "Paris",
+        "lat": "48.8732272977",
+        "lng": "2.3631519691",
+        "twitter": "Cafe_Craft"
+    },
+    {
+        "name": "Community space",
+        "type": [
+            "third-place"
+        ],
+        "description": "Espace de coworking parisien d\u00E9di\u00E9 aux entrepreneurs de l'\u00E9conomie num\u00E9rique. Il regroupe des personnes ayant choisi de mutualiser un lieu de travail, des id\u00E9es et des bonnes pratiques, des collaborations r\u00E9guli\u00E8res et des moments de convivialit\u00E9.",
+        "id": "wiki.coworking.com-w-page-23035552-CommunitySpace",
+        "url": "http://wiki.coworking.com/w/page/23035552/CommunitySpace",
+        "address": "70 rue Amelot",
+        "postcode": "75011",
+        "city": "Paris",
+        "lat": "48.8603010938",
+        "lng": "2.36808293331",
+        "twitter": "Community_Space"
+    },
+    {
+        "name": "Digital Non Sense",
+        "type": [
+            "third-place"
+        ],
+        "description": "DNS est un hacklab sur Paris dans le 17eme arrondissement orient\u00E9 code, hack, reverse engineering, crypto et open source (Free, Libre, Open Source).",
+        "id": "www.digitalnonsense.org",
+        "url": "http://www.digitalnonsense.org",
+        "address": "123 rue de Tocqueville",
+        "postcode": "75017",
+        "city": "Paris",
+        "lat": "48.8892218771",
+        "lng": "2.30511976157",
+        "twitter": ""
+    },
+    {
+        "name": "Dojo R\u00E9publique",
+        "type": [
+            "third-place"
+        ],
+        "description": "Dojo R\u00E9publique fait partie de Dojocr\u00E9a, un r\u00E9seau de p\u00E9pini\u00E8res d'entreprise proposant des bureaux pas chers en coworking sur Paris.",
+        "id": "www.dojocrea.fr-dojo_republique.html",
+        "url": "http://www.dojocrea.fr/dojo_republique.html",
+        "address": "24 rue B\u00E9ranger",
+        "postcode": "75003",
+        "city": "Paris",
+        "lat": "48.8666419032",
+        "lng": "2.36339133705",
+        "twitter": "Dojocrea"
+    },
+    {
+        "name": "Dojo Saint Martin",
+        "type": [
+            "third-place"
+        ],
+        "description": "Dojo Saint Martin fait partie de Dojocr\u00E9a, un r\u00E9seau de p\u00E9pini\u00E8res d'entreprise proposant des bureaux pas chers en coworking sur Paris.",
+        "id": "www.dojocrea.fr-dojo_saintmartin.html",
+        "url": "http://www.dojocrea.fr/dojo_saintmartin.html",
+        "address": "41 boulevard Saint Martin",
+        "postcode": "75003",
+        "city": "Paris",
+        "lat": "48.8686560298",
+        "lng": "2.35713583137",
+        "twitter": "Dojocrea"
+    },
+    {
+        "name": "Dojo Saint Maur",
+        "type": [
+            "third-place"
+        ],
+        "description": "Dojo Saint Maur fait partie de Dojocr\u00E9a, un r\u00E9seau de p\u00E9pini\u00E8res d'entreprise proposant des bureaux pas chers en coworking sur Paris.",
+        "id": "www.dojocrea.fr-dojo_saintmaur.html",
+        "url": "http://www.dojocrea.fr/dojo_saintmaur.html",
+        "address": "77 avenue de la R\u00E9publique",
+        "postcode": "75011",
+        "city": "Paris",
+        "lat": "48.864398742",
+        "lng": "2.38004633757",
+        "twitter": "Dojocrea"
+    },
+    {
+        "name": "Dojo Voltaire",
+        "type": [
+            "third-place"
+        ],
+        "description": "Dojo Voltaire fait partie de Dojocr\u00E9a, un r\u00E9seau de p\u00E9pini\u00E8res d'entreprise proposant des bureaux pas chers en coworking sur Paris.",
+        "id": "www.dojocrea.fr-dojo_vacquerie.html",
+        "url": "http://www.dojocrea.fr/dojo_vacquerie.html",
+        "address": "4 rue de la Vacquerie",
+        "postcode": "75011",
+        "city": "Paris",
+        "lat": "48.8574298444",
+        "lng": "2.38546687628",
+        "twitter": "Dojocrea"
+    },
+    {
+        "name": "Electrolab",
+        "type": [
+            "third-place"
+        ],
+        "description": "L'Electrolab est un hacker space install\u00E9 dans la zone industrielle de Nanterre d\u00E9di\u00E9 aux projets ayant une forte connotation \u00E9lectronique et/ou m\u00E9canique.",
+        "id": "www.electrolab.fr",
+        "url": "http://www.electrolab.fr",
+        "address": "75 boulevard du Couchant",
+        "postcode": "92000",
+        "city": "Nanterre",
+        "lat": "48.8950976685",
+        "lng": "2.19570634678",
+        "twitter": ""
+    },
+    {
+        "name": "Fabelier",
+        "type": [
+            "third-place"
+        ],
+        "description": "Le but de ce lab est de concevoir les formes d'interaction, de d\u00E9finir la structure technique et de trouver les bonnes m\u00E9thodes pour d\u00E9finir de nouvelles id\u00E9es. En tant que laboratoire, nous pouvons cr\u00E9er des prototypes avec des outils simples.  ",
+        "id": "fabelier.org",
+        "url": "http://fabelier.org",
+        "address": "24 rue du Faubourg Saint Jacques",
+        "postcode": "75014",
+        "city": "Paris",
+        "lat": "48.8375088337",
+        "lng": "2.3388988191",
+        "twitter": "fabelier"
+    },
+    {
+        "name": "Faclab",
+        "type": [
+            "third-place"
+        ],
+        "description": "Lieu ouvert \u00E0 tous au sein de l\u2019Universit\u00E9 de Cergy-Pontoise, sur le site de Gennevilliers, le FacLab met \u00E0 votre disposition les machines, l\u2019infrastructure, le soutien n\u00E9cessaire \u00E0 la r\u00E9alisation de votre projet, que ce soit l\u2019acc\u00E8s au \u00AB Do It Yourself \u00BB, s\u2019approprier les nouvelles technologies, ou bien s\u2019inscrire dans une d\u00E9marche d\u2019apprentissage et de partage.",
+        "id": "www.faclab.org",
+        "url": "http://www.faclab.org",
+        "address": "Avenue Marcel Paul, ZAC des Barbanniers",
+        "postcode": "92230",
+        "city": "Gennevilliers",
+        "lat": "48.9255257618",
+        "lng": "2.29327986309",
+        "twitter": "FacLabUcp"
+    },
+    {
+        "name": "Greenspace Paris",
+        "type": [
+            "third-place"
+        ],
+        "description": "Espace et esprit de coworking pour les entrepreneurs et les entreprises de tous secteurs d'activit\u00E9s au centre de Paris. 200m2 d'open space sur une r\u00E9sidence d'entrepreneurs de 900 m2 au total.",
+        "id": "greenspace-paris.com",
+        "url": "http://greenspace-paris.com",
+        "address": "28 rue du Chemin Vert",
+        "postcode": "75011",
+        "city": "Paris",
+        "lat": "48.8583351242",
+        "lng": "2.37264169392",
+        "twitter": "GreenspaceParis"
+    },
+    {
+        "name": "HackEns",
+        "type": [
+            "third-place"
+        ],
+        "description": "HackEns est un club du COF de l'\u00C9cole Normale Sup\u00E9rieure de la rue d'Ulm. Le but du club est de rassembler des gens motiv\u00E9s pour travailler sur des projets de type hackerspace ou fablab.",
+        "id": "hackens.org",
+        "url": "http://hackens.org",
+        "address": "45 rue d'Ulm",
+        "postcode": "75005",
+        "city": "Paris",
+        "lat": "48.841840204",
+        "lng": "2.34403537796",
+        "twitter": ""
+    },
+    {
+        "name": "Ici Montreuil",
+        "type": [
+            "third-place"
+        ],
+        "description": "Espace de coworking / idealab de 1700m2 au service des cr\u00E9ateurs ( artistes, artisans, entrepreneurs et start-ups de la cr\u00E9ation), en plein coeur de Montreuil.",
+        "id": "www.madeinmontreuil.com",
+        "url": "http://www.madeinmontreuil.com",
+        "address": "135 boulevard Chanzy",
+        "postcode": "93100",
+        "city": "Montreuil",
+        "lat": "48.8589680589",
+        "lng": "2.42630455191",
+        "twitter": "ICIMontreuil"
+    },
+    {
+        "name": "La Cantine",
+        "type": [
+            "third-place"
+        ],
+        "description": "La Cantine est le premier espace de travail collaboratif en r\u00E9seau cr\u00E9\u00E9 en 2008 \u00E0 Paris, reli\u00E9 \u00E0 d\u2019autres structures en France, en r\u00E9gion, ou \u00E0 l\u2019\u00E9tranger, et soutenu par la R\u00E9gion Ile-de-France et la Ville de Paris.",
+        "id": "lacantine.org",
+        "url": "http://lacantine.org",
+        "address": "151 rue Montmartre",
+        "postcode": "75002",
+        "city": "Paris",
+        "lat": "48.8708143943",
+        "lng": "2.34272954775",
+        "twitter": "lacantine"
+    },
+    {
+        "name": "La Manufacture",
+        "type": [
+            "third-place"
+        ],
+        "description": "Espace d\u00E9di\u00E9 aux sc\u00E9naristes, \u00E9crivains, auteurs jeunesse, traducteurs, journaliste, pigistes, correcteurs, situ\u00E9 entre la gare de Lyon et Bastille. La Manufacture a ouvert au sein de l'Etablissement Culturel Solidaire le 100 E.C.S. qui est dans un vaste ensemble industriel de 1500m2 accueillant aussi des artistes plasticiens.",
+        "id": "la-manufacture.tumblr.com",
+        "url": "http://la-manufacture.tumblr.com",
+        "address": "100 rue de Charenton",
+        "postcode": "75012",
+        "city": "Paris",
+        "lat": "48.8476750102",
+        "lng": "2.37705605244",
+        "twitter": ""
+    },
+    {
+        "name": "La Paillasse",
+        "type": [
+            "third-place"
+        ],
+        "description": "Le Bio-Hackerspace \"La Paillasse\" est un groupe de personnes passionn\u00E9es par la biologie chacun dans son champ d'expertise. C'est un laboratoire de recherche de la soci\u00E9t\u00E9 civile en collaboration avec le priv\u00E9, la recherche et le secteur acad\u00E9mique.",
+        "id": "www.lapaillasse.org",
+        "url": "http://www.lapaillasse.org",
+        "address": "6bis rue L\u00E9on Geffroy",
+        "postcode": "94400",
+        "city": "Vitry sur Seine",
+        "lat": "48.7755561964",
+        "lng": "2.40938450068",
+        "twitter": "lapaillasse"
+    },
+    {
+        "name": "La Poussinade",
+        "type": [
+            "third-place"
+        ],
+        "description": "La Poussinade, c'est l'histoire de 5 poussins entrepreneurs qui ont d\u00E9cid\u00E9 de s'unir dans un m\u00EAme lieu pour vivre la grande aventure de la cr\u00E9ation d'entreprise !",
+        "id": "www.la-poussinade.fr",
+        "url": "http://www.la-poussinade.fr",
+        "address": "4 rue Poussin",
+        "postcode": "75016",
+        "city": "Paris",
+        "lat": "48.8490103762",
+        "lng": "2.2659594873",
+        "twitter": "LaPoussinade"
+    },
+    {
+        "name": "La Ruche",
+        "type": [
+            "third-place"
+        ],
+        "description": "Espace collectif de travail et de cr\u00E9ation pour entreprendre autrement \u00E0 Paris. Ouverte \u00E0 toute personne proposant une r\u00E9ponse innovante \u00E0 un d\u00E9fi social ou \u00E9cologique, sa vision est de concilier \u00E9conomie et d\u00E9veloppement humain.",
+        "id": "www.la-ruche.net",
+        "url": "http://www.la-ruche.net",
+        "address": "84 quai de Jemappes",
+        "postcode": "75010",
+        "city": "Paris",
+        "lat": "48.87242302",
+        "lng": "2.36490513311",
+        "twitter": "HappyRuche"
+    },
+    {
+        "name": "Labo de l'\u00E9dition",
+        "type": [
+            "third-place"
+        ],
+        "description": "Cette structure hybride de 500m2 situ\u00E9e dans le quartier latin comprend une plateforme d'animation et de rencontres incluant un espace de coworking et un incubateur de jeunes entreprises innovantes, en synergie l'un avec l'autre. Des \u00E9v\u00E9nements priv\u00E9s peuvent investir les espaces collectifs du Labo.",
+        "id": "labodeledition.com",
+        "url": "http://labodeledition.com",
+        "address": "2 rue Saint-M\u00E9dard",
+        "postcode": "75003",
+        "city": "Paris",
+        "lat": "48.843549929",
+        "lng": "2.35147170051",
+        "twitter": "labodeledition"
+    },
+    {
+        "name": "Lawomatic",
+        "type": [
+            "third-place"
+        ],
+        "description": "Espace de co-working regroupant de multiples professions, le Lawomatic accueille des esprits innovants de tous horizons qui partagent un m\u00EAme objectif : cr\u00E9er un r\u00E9seau de comp\u00E9tences afin de d\u00E9velopper les \u00E9changes et de g\u00E9n\u00E9rer des synergies communes.",
+        "id": "www.lawomatic.fr",
+        "url": "http://www.lawomatic.fr",
+        "address": "20 rue Jean Moinon",
+        "postcode": "75010",
+        "city": "Paris",
+        "lat": "48.8741227071",
+        "lng": "2.37169025602",
+        "twitter": "lawomatic"
+    },
+    {
+        "name": "Le Laptop",
+        "type": [
+            "third-place"
+        ],
+        "description": "Espace de coworking pr\u00E8s des Buttes-Chaumont dans une arri\u00E8re cour charmante plut\u00F4t d\u00E9di\u00E9 aux sp\u00E9cialistes passionn\u00E9s d'id\u00E9es, d'images, de textes, de sons, d'objets interactifs, qui revendiquent un besoin de travailler de mani\u00E8re ponctuelle ou permanente dans un cadre calme et atypique.",
+        "id": "www.lelaptop.com",
+        "url": "http://www.lelaptop.com",
+        "address": "6 rue Arthur Rozier",
+        "postcode": "75019",
+        "city": "Paris",
+        "lat": "48.8773954602",
+        "lng": "2.3907766887",
+        "twitter": "Le_Laptop"
+    },
+    {
+        "name": "Le Loop",
+        "type": [
+            "third-place"
+        ],
+        "description": "Le Loop est un genre de hackerspace un peu particulier, dans le sens o\u00F9 celui-ci ne se d\u00E9fini plus par rapport \u00E0 son lieu, \u00E9tant lui-m\u00EAme sans lieu fixe, mais d\u00E9pendant du lieu pouvant lui offrir l'espace n\u00E9cessaire \u00E0 son fonctionnement.",
+        "id": "www.leloop.org",
+        "url": "http://www.leloop.org",
+        "address": "Obis Avenue Lucien Descaves",
+        "postcode": "75014",
+        "city": "Paris",
+        "lat": "48.8172452972",
+        "lng": "2.33226483796",
+        "twitter": "Le_Loop"
+    },
+    {
+        "name": "Le Tank",
+        "type": [
+            "third-place"
+        ],
+        "description": "Espace de coworking d\u00E9di\u00E9 aux ind\u00E9pendants, freelances et cr\u00E9ateurs d'entreprise de l'univers num\u00E9rique et de la communication.",
+        "id": "www.spintank.fr-a-propos-le-tank",
+        "url": "http://www.spintank.fr/a-propos/le-tank/",
+        "address": "50 rue de Montreuil",
+        "postcode": "75011",
+        "city": "Paris",
+        "lat": "48.8504432459",
+        "lng": "2.38898414991",
+        "twitter": "spintank"
+    },
+    {
+        "name": "L'Etablisienne",
+        "type": [
+            "third-place"
+        ],
+        "description": "Un lieu\u00A0 unique d\u00E9di\u00E9 au faire-soi m\u00EAme, \u00E0 l\u2019ameublement et \u00E0 l\u2019habitat. Un atelier en self-service, une boutique, un d\u00E9p\u00F4t-vente, un espace d\u00E9tente pour vous inspirer et vous documenter. L'Etablisienne propose des \u00E9tablis et des postes de travail \u00E0 louer \u00E0 l'heure ou \u00E0 la journ\u00E9e.",
+        "id": "www.letablisienne.com",
+        "url": "http://www.letablisienne.com",
+        "address": "88 boulevard de Picpus",
+        "postcode": "75012",
+        "city": "Paris",
+        "lat": "48.8461915022",
+        "lng": "2.40138758506",
+        "twitter": "L_Etablisienne"
+    },
+    {
+        "name": "Media village",
+        "type": [
+            "third-place"
+        ],
+        "description": "Lieu atypique dans le 18\u00E8me ouvert aux entreprises qui souhaitent louer des bureaux  et partager une ambiance professionnelle sans compter les autres services mis \u00E0 disposition (cuisine, salle de gym, etc).",
+        "id": "www.mediavillage.fr",
+        "url": "http://www.mediavillage.fr",
+        "address": "8 rue Myrha",
+        "postcode": "75018",
+        "city": "Paris",
+        "lat": "48.8873219799",
+        "lng": "2.35563624952",
+        "twitter": ""
+    },
+    {
+        "name": "Mutinerie",
+        "type": [
+            "third-place"
+        ],
+        "description": "Espace de coworking implant\u00E9 dans le 19\u00E8me en mars 2012. Il a \u00E9t\u00E9 cr\u00E9\u00E9 par des jeunes qui pensent qu'une nouvelle classe de travailleurs ind\u00E9pendants est en train d'\u00E9merger avec de nouveaux besoins et cherchant une meilleure qualit\u00E9 de vie en conciliant travail et int\u00E9r\u00EAt personnel.",
+        "id": "www.mutinerie.org",
+        "url": "http://www.mutinerie.org",
+        "address": "29 rue de Meaux",
+        "postcode": "75019",
+        "city": "Paris",
+        "lat": "48.8795636548",
+        "lng": "2.37174802678",
+        "twitter": "MutinerieCrew"
+    },
+    {
+        "name": "Next & CoWorking",
+        "type": [
+            "third-place"
+        ],
+        "description": "Espace d\u00E9di\u00E9 au sein d'un centre de formation continue, ouvert gratuitement le soir de 18h00 \u00E0 22h00 aux stagiaires, clients mais aussi \u00E0 toute personne ext\u00E9rieure sur r\u00E9servation.",
+        "id": "next-coworking.com",
+        "url": "http://next-coworking.com",
+        "address": "55 avenue Hoche",
+        "postcode": "75008",
+        "city": "Paris",
+        "lat": "48.8746889241",
+        "lng": "2.29772884948",
+        "twitter": "next_coworking"
+    },
+    {
+        "name": "Rueil 92 Coworking",
+        "type": [
+            "third-place"
+        ],
+        "description": "A mi-chemin entre la p\u00E9pini\u00E8re d'entreprise et le tiers-lieu estampill\u00E9 \"coworking\", Rueil 92 Coworking c'est tout d'abord un espace de travail collaboratif regroupant plusieurs soci\u00E9t\u00E9s et professionnels ind\u00E9pendants fortement li\u00E9s.",
+        "id": "www.rueil-92-coworking.com",
+        "url": "http://www.rueil-92-coworking.com",
+        "address": "9-15 avenue Paul Doumer",
+        "postcode": "92500",
+        "city": "Rueil-Malmaison",
+        "lat": "48.8835409177",
+        "lng": "2.19085187087",
+        "twitter": "RueilCoworking"
+    },
+    {
+        "name": "Soleilles cowork",
+        "type": [
+            "third-place"
+        ],
+        "description": "Soleilles Cowork est un espace de travail collaboratif de 250 m\u00B2 en plein c\u0153ur de Paris dans un quartier central entre la Bourse et le Palais-Royal. Ce lieu modulable permet d'organiser r\u00E9unions, conf\u00E9rences, travail en \u00E9quipe. Des animations r\u00E9guli\u00E8res et des \u00E9v\u00E9nements sont \u00E9galement propos\u00E9s.",
+        "id": "www.soleillescowork.com",
+        "url": "http://www.soleillescowork.com",
+        "address": "13 rue Vivienne",
+        "postcode": "75002",
+        "city": "Paris",
+        "lat": "48.8681461165",
+        "lng": "2.33960742836",
+        "twitter": "SoleillesCowork"
+    },
+    {
+        "name": "Studios singuliers",
+        "type": [
+            "third-place"
+        ],
+        "description": "Espace de coworking situ\u00E9 \u00E0 Paris 18\u00E8me, mettant \u00E0 disposition un espace de travail collaboratif et un r\u00E9seau d\u2019\u00E9changes professionnels au coeur de l\u2019h\u00F4tel d\u2019entreprises Paris R\u00E9gion Innovation Nord Express.",
+        "id": "www.studios-singuliers.fr",
+        "url": "http://www.studios-singuliers.fr",
+        "address": "110 rue des Poissonniers",
+        "postcode": "75018",
+        "city": "Paris",
+        "lat": "48.8939116128",
+        "lng": "2.35393029866",
+        "twitter": "stdsinguliers"
+    },
+    {
+        "name": "T\u00E9l\u00E9centre de la CCPGM",
+        "type": [
+            "third-place"
+        ],
+        "description": "Premi\u00E8re cyber-base de la R\u00E9gion parisienne a avoir ouvert un espace d\u00E9di\u00E9 au t\u00E9l\u00E9travail.",
+        "id": "cc-pgm.fr-telecentre",
+        "url": "http://cc-pgm.fr/telecentre/index.htm",
+        "address": "6 rue du G\u00E9n\u00E9ral de Gaulle",
+        "postcode": "77230",
+        "city": "Dammartin en Go\u00EBle",
+        "lat": "49.0530827973",
+        "lng": "2.67422855474",
+        "twitter": "telecentre77230"
+    },
+    {
+        "name": "Tmp Lab",
+        "type": [
+            "third-place"
+        ],
+        "description": "/tmp/lab is a hacker space in Vitry sur Seine for people doing creative things with technology, culture and arts. It\u2019s the first Parisian hacker space and is a project from lelab.fr initiative.",
+        "id": "www.tmplab.org",
+        "url": "http://www.tmplab.org/",
+        "address": "6bis rue L\u00E9on Geffroy",
+        "postcode": "94400",
+        "city": "Vitry sur Seine",
+        "lat": "48.7755581344",
+        "lng": "2.40938778426",
+        "twitter": "tmplab"
+    },
+    {
+        "name": "Work in Paris",
+        "type": [
+            "third-place"
+        ],
+        "description": "Espace de travail Open-space pour les start-ups, des \u00E9v\u00E9nements r\u00E9guliers et gratuits, des conseils des deux fondateurs entrepreneurs aguerris, en plein coeur de Paris.",
+        "id": "workinparis.com",
+        "url": "http://workinparis.com",
+        "address": "20 rue Jean-Baptiste Pigalle",
+        "postcode": "75009",
+        "city": "Paris",
+        "lat": "48.8790225286",
+        "lng": "2.33324544718",
+        "twitter": "workinparis"
+    }
+    ]
+}
