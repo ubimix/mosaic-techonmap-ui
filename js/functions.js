@@ -448,12 +448,7 @@ jQuery(document).ready(function() {
         });
 	    
 		$lieu.addClass('open');
-
-		/*---open share---*/
-		// Scroll the opened item into the view.
-        var scroller = jQuery('.scrollable');
-        scrollIntoView($lieu, scroller, -10);
-        
+		/*---open share---*/        
         setTimeout(function() {
             /*---open description---*/
             var $longMask = $lieu.find('.long-mask');
@@ -465,6 +460,9 @@ jQuery(document).ready(function() {
 //                var id = $lieu.data('id')
 //                dataManager.selectItemById(id);
 //                // here goes your function to update the map
+
+            	// Scroll the opened item into the view.
+        		scrollIntoView($lieu, jQuery('.scrollable'), 10) 
             }); 
             var $shareMask = $lieu.find('.share-mask');
             var $share = $shareMask.find('.share');
