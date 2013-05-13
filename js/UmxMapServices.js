@@ -333,14 +333,41 @@
             if (this[key]) {
                 if (this.getItemId(this[key]) === id)
                     return;
-                this.fire(off, this[key]);
-                delete this[key];
+                this._switchItemOff(key, off);
             }
+            this._switchItemOn(id, key, on);
+        },
+
+        /**
+         * Switches off the currently active item
+         * 
+         * @param key
+         *            property name associated with the item
+         * @param off
+         *            the name of the de-activation event fired by this method
+         */
+        _switchItemOff : function(key, off) {
+            this.fire(off, this[key]);
+            delete this[key];
+        },
+        
+        /**
+         * Switches off the specified item
+         * 
+         * @param id
+         *            identifier of a new item
+         * @param key
+         *            property name associated with the item
+         * @param on
+         *            the name of the activation event fired by this method
+         */
+        _switchItemOn : function(id, key, on) {
             this[key] = this.getItemById(id);
             if (this[key]) {
                 this.fire(on, this[key]);
             }
         },
+
         /**
          * Updates the internal filter and fires a new event to notify that the
          * filter was changed.
