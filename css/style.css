@@ -593,6 +593,7 @@ body.lightbox-open{
 #sidebar .sidebar-content .slidable{
 	width: 33.33%;
 	float: left;
+	padding-bottom: 15px;
 }
 
 
