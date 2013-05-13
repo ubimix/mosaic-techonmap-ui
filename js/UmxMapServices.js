@@ -265,7 +265,7 @@
 
         /** Returns an identifier of the specified item */
         getItemId : function(point) {
-            return point.properties ? point.properties.id : null;
+            return point && point.properties ? point.properties.id : null;
         },
 
         /** Returns item corresponding to the specified identifier */
@@ -273,18 +273,22 @@
             return this.filteredItemsIndex[id];
         },
 
+        /** Returns the currently selected item */
+        getSelectedItem : function() {
+            return this.selectedItem;
+        },
+
         /** Selects an item with the specified identifier */
-        selectItemById : function(id) {
-            this
-                    ._switchItem(id, 'selectedItem', 'item:select',
-                            'item:deselect');
-            this.activateItemById(id);
+        selectItemById : function(id, force) {
+            this._switchItem(id, 'selectedItem', 'item:select',
+                    'item:deselect', force);
+            this.activateItemById(id, force);
         },
 
         /** Activates an item with the specified identifier */
-        activateItemById : function(id) {
+        activateItemById : function(id, force) {
             this._switchItem(id, 'activeItem', 'item:activate',
-                    'item:deactivate');
+                    'item:deactivate', force);
         },
 
         /** Updates the name filter. */
@@ -328,40 +332,23 @@
          *            the name of the activation event fired by this method
          * @param off
          *            the name of the de-activation event fired by this method
+         * @param force
+         *            if this flag is true then the change event is fired even
+         *            if the previously active element is the same as the new
+         *            one
          */
-        _switchItem : function(id, key, on, off) {
+        _switchItem : function(id, key, on, off, force) {
+            var prevValue = this[key];
             if (this[key]) {
-                if (this.getItemId(this[key]) === id)
-                    return;
-                this._switchItemOff(key, off);
+                if (this.getItemId(this[key]) === id) {
+                    if (!force) {
+                        return;
+                    }
+                } else {
+                    this.fire(off, this[key]);
+                }
+                delete this[key];
             }
-            this._switchItemOn(id, key, on);
-        },
-
-        /**
-         * Switches off the currently active item
-         * 
-         * @param key
-         *            property name associated with the item
-         * @param off
-         *            the name of the de-activation event fired by this method
-         */
-        _switchItemOff : function(key, off) {
-            this.fire(off, this[key]);
-            delete this[key];
-        },
-        
-        /**
-         * Switches off the specified item
-         * 
-         * @param id
-         *            identifier of a new item
-         * @param key
-         *            property name associated with the item
-         * @param on
-         *            the name of the activation event fired by this method
-         */
-        _switchItemOn : function(id, key, on) {
             this[key] = this.getItemById(id);
             if (this[key]) {
                 this.fire(on, this[key]);

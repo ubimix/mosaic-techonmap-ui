@@ -1,5 +1,8 @@
 describe('EventManager', function() {
-    var eventManager = new umx.EventManager();
+    var eventManager;
+    beforeEach(function() {
+        eventManager = new umx.EventManager();
+    });
     it('should be able to deliver events to all listeners', function() {
         var msg = null;
         var listener = function(e) {
@@ -19,7 +22,65 @@ describe('EventManager', function() {
             message : 'Hello, world!'
         });
         expect(msg).toEqual('123');
+    });
+    it('should be able to deliver events to all listeners in order',
+            function() {
+                var result = [];
+                var aCounter = 1;
+                var aListener = function(e) {
+                    result.push('A-' + e + '-' + (aCounter++));
+                    eventManager.fire('eventB', e);
+                }
+                var bCounter = 1;
+                var bListener = function(e) {
+                    result.push('B-' + e + '-' + (bCounter++));
+                }
+                eventManager.on('eventA', aListener);
+                eventManager.on('eventA', aListener);
+                eventManager.on('eventA', aListener);
+                eventManager.on('eventB', bListener);
 
+                eventManager.fire('eventA', 'x');
+                expect(result)
+                        .toEqual(
+                                [ 'A-x-1', 'A-x-2', 'A-x-3', 'B-x-1', 'B-x-2',
+                                        'B-x-3' ]);
+
+            });
+    it('should be able to deliver events to all listeners '
+            + 'and to the callback function', function() {
+        var result = [];
+        eventManager.on('eventA', function(e) {
+            result.push('A' + e);
+        });
+        eventManager.on('eventA', function(e) {
+            result.push('B' + e);
+        });
+        eventManager.on('eventA', function(e) {
+            result.push('C' + e);
+            eventManager.fire('toto', e);
+        });
+        eventManager.on('toto', function(e) {
+            result.push('Toto' + e);
+        });
+        var context = {
+            x : 'Y'
+        };
+
+        expect(context).toEqual({
+            x : 'Y'
+        });
+        eventManager.fire('eventA', '1', function(e) {
+            result.push('Callback' + e);
+            expect(this).toEqual(context);
+            this.y = 'X';
+        }, context);
+        expect(result).toEqual([ 'A1', 'B1', 'C1', 'Callback1', 'Toto1' ]);
+        // Context should be changed in the callback function
+        expect(context).toEqual({
+            x : 'Y',
+            y : 'X'
+        });
     });
 });
 var TEST_DATA = {
