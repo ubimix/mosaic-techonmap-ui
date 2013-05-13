@@ -17,9 +17,17 @@
      * 
      * @see http://stackoverflow.com/questions/1805808/how-do-i-scroll-a-row-of-a-table-into-view-element-scrollintoview-using-jquery
      */
-    function scrollIntoView($element, $scroller, delta) {
+    function scrollIntoView($element, $scroller, delta, duration) {
         delta = delta || 0;
-        $scroller.scrollTop($element.position().top - delta);
+        duration = duration || 0;
+        if(duration){
+            $scroller.animate({
+                'scrollTop' : $element.position().top - delta
+            });
+        }
+        else{
+         $scroller.scrollTop($element.position().top - delta);
+        }
     }
 
     /**
