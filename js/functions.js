@@ -6,7 +6,35 @@ var storeService = new umx.StoreService({
     storeUrl: "./store" // TODO: should be changed
 });
 var dataManager = new umx.DataManager(storeService);
+var hashTracker = new umx.HashTracker();
+hashTracker.start();
+ 
+/* ------------------------------------------------------------------------ */
+ // URL hash management
+function getItemIdFromHash() {
+    var result = null;
+    var hash = hashTracker.getHash();
+    if (hash && hash.match(/^#/)) {
+        hash = hash.substring(1);
+        result = hash;
+    }
+    return result;
+}
+function setHashFromItemId(id) {
+    var hash = '#' + (id?id:''); 
+    hashTracker.setHash(hash)
+}
+hashTracker.on('hash:changed', function() {
+    var id = getItemIdFromHash();
+    dataManager.selectItemById(id);
+});
+dataManager.on('item:select', function(e) {
+    var id = dataManager.getItemId(e);
+    setHashFromItemId(id);
+});
 
+/* ------------------------------------------------------------------------ */
+// 'Loading...' message visualization
 var loading = 0;
 function showLoadingMessage() {
     if (loading == 0) {
@@ -20,42 +48,26 @@ function hideLoadingMessage() {
         jQuery("#loading").hide();
     }
 }
-dataManager.on('search:begin', function(e) {
-    showLoadingMessage();
-})
+dataManager.on('search:begin', showLoadingMessage)
+dataManager.on('search:end', hideLoadingMessage);
+dataManager.on('load:begin', showLoadingMessage);
+dataManager.on('load:end', hideLoadingMessage);
+dataManager.on('map-reload:begin', showLoadingMessage);
+dataManager.on('map-reload:end', hideLoadingMessage);
+dataManager.on('list-reload:begin', showLoadingMessage);
+dataManager.on('list-reload:end', hideLoadingMessage);
+
+/* ------------------------------------------------------------------------ */
+// Stats updates
 dataManager.on('search:end', function(e){
-    hideLoadingMessage();
     jQuery("#sidebar .val").html(e.result.length + "");
 });
-dataManager.on('load:begin', function(e) {
-    showLoadingMessage();
-});
 dataManager.on('load:end', function(e) {
-    hideLoadingMessage();
     var data = e.data.features;
     jQuery("#sidebar .total").html(data.length);
 });
 
-// FIXME: remove these debug event listeners.
-function trace(msg) {
-    // console.log(msg)
-}
-dataManager.on('filter:updated', function(e) {
-    trace("Filter: " + JSON.stringify(e.filter))
-})
-dataManager.on('item:select', function(item) {
-    trace("Select item", JSON.stringify(item.properties.name));
-});
-dataManager.on('item:deselect', function(item) {
-    trace("De-select item", JSON.stringify(item.properties.name));
-});
-dataManager.on('item:activate', function(item) {
-    trace("Activate item", JSON.stringify(item.properties.name));
-});
-dataManager.on('item:deactivate', function(item) {
-    trace("De-activate item", JSON.stringify(item.properties.name));
-});
-
+/* ------------------------------------------------------------------------ */
 $(window).load(function(){
 
 	var map = L.map('map').setView([48.872630327,
@@ -163,12 +175,22 @@ $(window).load(function(){
 	
 	var markerLayer = null;
 	var markerIndex = {};
-	// Updates the list and map when search operations are finished.
+    
     dataManager.on('search:end', function(e) {
         var data = e.result;
+        var prevItemId = getItemIdFromHash();
+        var reloadCounter = 0;
+        function refocusItem() {
+            reloadCounter++;
+            if (reloadCounter == 2 && prevItemId) {
+                setTimeout(function() {
+                    dataManager.selectItemById(prevItemId, true /* force */);
+                },250);
+            }
+        }
         // Visualize all markers on the map
+        dataManager.fire('map-reload:begin', {});
         setTimeout(function() {
-            showLoadingMessage();
             if (markerLayer) {
                 map.removeLayer(markerLayer);
                 markerLayer = null;
@@ -188,23 +210,30 @@ $(window).load(function(){
             var bounds = calculateBounds(data);
             if (bounds) {
                 map.fitBounds(bounds);
+                var f = function() {
+                    refocusItem();
+                    map.off('zoomend', f);
+                }
+                map.on('zoomend', f);
+            } else {
+                refocusItem();
             }
-            hideLoadingMessage();
-        }, 100);
+            dataManager.fire('map-reload:end', {});
+        }, 10);
         
         // Visualize list items
+        dataManager.fire('list-reload:begin', {});
         setTimeout(function() {
             list.html("");
-            showLoadingMessage();
             for (var i=0; i<data.length; i++) {
                 var point = data[i];
                 var item = $(listItemTemplate);
                 fillTemplate(point, item);
                 list.append(item);
             }
-            dataManager.fire('listReloaded', {});
-            hideLoadingMessage();
-        }, 100);
+            refocusItem();
+            dataManager.fire('list-reload:end', {});
+        }, 10);
     });
     // Zoom to the selected item.
     dataManager.on('item:select', function(item) {
@@ -462,9 +491,9 @@ jQuery(document).ready(function() {
             $longMask.animate({
                 height: $longDescription.height()
             },250, function(){
-//                var id = $lieu.data('id')
-//                dataManager.selectItemById(id);
-//                // here goes your function to update the map
+// var id = $lieu.data('id')
+// dataManager.selectItemById(id);
+// // here goes your function to update the map
             }); 
             var $shareMask = $lieu.find('.share-mask');
             var $share = $shareMask.find('.share');
@@ -477,7 +506,7 @@ jQuery(document).ready(function() {
 		/*---update slide mask---*/
 
 		// FIXME: replace it by a more robust re-sizeing code ??
-		dataManager.on('listReloaded', function(){
+		dataManager.on('list-reload:end', function(){
             slideUpdateHeight();
         });
 		
