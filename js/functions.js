@@ -1,7 +1,10 @@
 /*map*/
 
 /* A global DataManager and event bus used to propagate events */
-var storeService = new umx.StoreService();
+var storeService = new umx.StoreService({
+    loadUrl: "./data/data.json",
+    storeUrl: "./store" // TODO: should be changed
+});
 var dataManager = new umx.DataManager(storeService);
 
 var loading = 0;
