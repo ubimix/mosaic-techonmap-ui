@@ -17,9 +17,6 @@ function hideLoadingMessage() {
         jQuery("#loading").hide();
     }
 }
-dataManager.on('filter:updated', function(e) {
-    console.log("Filter: " + JSON.stringify(e.filter))
-})
 dataManager.on('search:begin', function(e) {
     showLoadingMessage();
 })
@@ -36,19 +33,25 @@ dataManager.on('load:end', function(e) {
     jQuery("#sidebar .total").html(data.length);
 });
 
+// FIXME: remove these debug event listeners.
+function trace(msg) {
+    // console.log(msg)
+}
+dataManager.on('filter:updated', function(e) {
+    trace("Filter: " + JSON.stringify(e.filter))
+})
 dataManager.on('item:select', function(item) {
-    console.log("Select item", JSON.stringify(item.properties.name));
+    trace("Select item", JSON.stringify(item.properties.name));
 });
 dataManager.on('item:deselect', function(item) {
-    console.log("De-select item", JSON.stringify(item.properties.name));
+    trace("De-select item", JSON.stringify(item.properties.name));
 });
 dataManager.on('item:activate', function(item) {
-    console.log("Activate item", JSON.stringify(item.properties.name));
+    trace("Activate item", JSON.stringify(item.properties.name));
 });
 dataManager.on('item:deactivate', function(item) {
-    console.log("De-activate item", JSON.stringify(item.properties.name));
+    trace("De-activate item", JSON.stringify(item.properties.name));
 });
-
 
 $(window).load(function(){
 
@@ -71,74 +74,8 @@ $(window).load(function(){
         }
     }));
 
-	var LeafIcon = L.Icon.extend({
-	    options: {
-			iconSize     : [33, 40], 
-			shadowSize   : [0, 0],
-			iconAnchor   : [17, 40],
-			shadowAnchor : [0, 0],
-			popupAnchor  : [0, -50]
-	    }
-	});
-	
-	function CategoryInfo(id) {
-        this.categories = $.parseJSON($("#categories").text());
-        this.defaultKey = null;
-        this.icons = {};
-        for ( var key in this.categories) {
-            if (!this.categories.hasOwnProperty(key))
-                continue;
-            this.defaultKey = key;
-            break;
-        }
-    }
-    CategoryInfo.prototype.getCategoryInfo = function(category) {
-        var t = this.categories[category];
-        if (!t) {
-            t = this.categories[this.defaultKey];
-        }
-        return t;
-    }
-    CategoryInfo.prototype.getPicto = function(category) {
-        var categoryInfo = this.getCategoryInfo(category);
-        return categoryInfo.pictoClass;
-    }
-    CategoryInfo.prototype.setPictoClass = function(element, category) {
-        if (!this.pictoList) {
-            this.pictoList = [];
-            for ( var key in this.categories) {
-                var categoryInfo = this.categories[key];
-                var picto = categoryInfo.pictoClass;
-                this.pictoList.push(picto);
-            }
-        }
-        element = $(element);
-        for ( var i = 0; i < this.pictoList.length; i++) {
-            var picto = this.pictoList[i];
-            element.removeClass(picto);
-        }
-        var categoryInfo = this.getCategoryInfo(category);
-        var picto = categoryInfo.pictoClass;
-        element.addClass(picto);
-    }
-    CategoryInfo.prototype.getMapIcon = function(category, on) {
-        var info = this.getCategoryInfo(category);
-        var key = (on ? 'iconOn' : 'iconOff');
-        var iconKey = category + "_" + key;
-        var icon = this.icons[iconKey];
-        if (!icon) {
-            icon = this.icons[iconKey] = new LeafIcon({
-                iconUrl : info[key]
-            })
-        }
-        return icon;
-    }
-    CategoryInfo.prototype.getCategoryName = function(category) {
-        var info = this.getCategoryInfo(category);
-        return info.name;
-    }
-
-    var categoryInfo = new CategoryInfo('#categories');
+    var categories = $.parseJSON($('#categories').text());
+    var categoryInfo = new CategoryInfo(categories);
 	 
 	var list = $('.les-lieux');
 	var listItemTemplate = list.html();
@@ -152,7 +89,7 @@ $(window).load(function(){
 	function fillTemplate(point, item) {
         var props = point.properties;
         var id = dataManager.getItemId(point);
-        item.data('id', id);
+        item.attr('data-id', id);
         item.find('.title').html(props.name).on('click', function() {
             dataManager.selectItemById(id);
         });
@@ -207,46 +144,43 @@ $(window).load(function(){
             icon: categoryInfo.getMapIcon(props.category, false)
         });
         var visible = false;
-        var item = null;
         marker.on('click', function() {
             var id = dataManager.getItemId(point);
             dataManager.selectItemById(id);
         });
-//        marker.on('mouseout', function() {
-//            marker.closePopup();
-//        })
+// marker.on('mouseout', function() {
+// marker.closePopup();
+// })
         marker.on('mouseover', function() {
             var id = dataManager.getItemId(point);
             dataManager.activateItemById(id);
-            if (!item) {
-                item = $(popupTemplate);
-                fillTemplate(point, item);
-                marker.bindPopup(item.get(0), {
-                    closeButton: true,
-                    autoPan : true
-                });
-            }
-            marker.openPopup();
         });
         return marker;
 	}
-	var pointsLayer = null;
+	
+	var markerLayer = null;
+	var markerIndex = {};
+	// Updates the list and map when search operations are finished.
     dataManager.on('search:end', function(e) {
         var data = e.result;
+        // Visualize all markers on the map
         setTimeout(function() {
             showLoadingMessage();
-            if (pointsLayer) {
-                map.removeLayer(pointsLayer);
-                pointsLayer = null;
+            if (markerLayer) {
+                map.removeLayer(markerLayer);
+                markerLayer = null;
+                markerIndex = {};
             }
-            pointsLayer = new L.MarkerClusterGroup({
+            markerLayer = new L.MarkerClusterGroup({
                 spiderfyOnMaxZoom : true,
                 zoomToBoundsOnClick : true
             }).addTo(map);
             for ( var i = 0; i < data.length; i++) {
                 var point = data[i];
                 var marker = newMapMarker(point)
-                marker.addTo(pointsLayer);
+                marker.addTo(markerLayer);
+                var id = dataManager.getItemId(point);
+                markerIndex[id] = marker;
             }
             var bounds = calculateBounds(data);
             if (bounds) {
@@ -255,6 +189,7 @@ $(window).load(function(){
             hideLoadingMessage();
         }, 100);
         
+        // Visualize list items
         setTimeout(function() {
             list.html("");
             showLoadingMessage();
@@ -268,7 +203,34 @@ $(window).load(function(){
             hideLoadingMessage();
         }, 100);
     });
-	
+    // Zoom to the selected item.
+    dataManager.on('item:select', function(item) {
+        if (!markerLayer)
+            return ;
+        var id = dataManager.getItemId(item); 
+        var marker = markerIndex[id];
+        if (marker) {
+            markerLayer.zoomToShowLayer(marker, function() {
+                var latLng = marker.getLatLng();
+                map.panTo(latLng);
+                marker.openPopup();
+            });
+        }
+    });
+    // Open a callout window (a 'lollipop') on an active item
+    dataManager.on('item:activate', function(item) {
+        var id = dataManager.getItemId(item); 
+        var marker = markerIndex[id];
+        if (marker) {
+            var e = $(popupTemplate);
+            fillTemplate(item, e);
+            marker.bindPopup(e.get(0), {
+                closeButton: true,
+                autoPan : true
+            });
+            marker.openPopup();
+        }
+    });
     dataManager.setNameFilter("");
 });
 
@@ -276,6 +238,17 @@ $(window).load(function(){
 /* les diverses fonctionnalités de la pages */
 jQuery(document).ready(function() {
 
+    dataManager.on('item:select', function(item) {
+        var id = dataManager.getItemId(item);
+        var e = jQuery('li[data-id="' + id + '"]');
+        openLieu(e);
+    });
+    dataManager.on('item:deselect', function(item) {
+        var id = dataManager.getItemId(item);
+        var e = jQuery('li[data-id="' + id + '"]');
+        closeLieu(e);
+    });
+    
 	/*----------------------------------*/
 	/*------menu déroulant topbar-------*/
 	/*----------------------------------*/
@@ -457,43 +430,54 @@ jQuery(document).ready(function() {
 	jQuery('.un-lieu .title, .un-lieu .picto').live('click', function(){
 		var $lieu = jQuery(this).parents('.un-lieu');
 		if($lieu.hasClass('open')){
-			closeLieu($lieu);
-		}
-		else{
-			closeAllLieu();
-			openLieu($lieu);
+		    // The opened item is closed automatically by the dataManager
+		    // see the item:deactivate
+		} else{
+          var id = $lieu.data('id');
+          dataManager.selectItemById(id);
 		}
 	});
 
 	/* functions */
 	function openLieu($lieu){
+        jQuery('.un-lieu.open').each(function(){
+            closeLieu(jQuery(this));
+        });
+	    
 		$lieu.addClass('open');
 
-		/*---open description---*/
-		var $longMask = $lieu.find('.long-mask');
-		var $longDescription = $longMask.find('.long');
-		
-		$longMask.animate({
-			height: $longDescription.height()
-		},250, function(){
-		    var id = $lieu.data('id')
-		    dataManager.selectItemById(id);
-			// here goes your function to update the map
-		});	
-
 		/*---open share---*/
-		var $shareMask = $lieu.find('.share-mask');
-		var $share = $shareMask.find('.share');
-		
-		$shareMask.animate({
-			height: $share.outerHeight()
-		},250);	
+		// Scroll the opened item into the view.
+        var scroller = jQuery('.scrollable');
+        scrollIntoView($lieu, scroller, -10);
+        
+        setTimeout(function() {
+            /*---open description---*/
+            var $longMask = $lieu.find('.long-mask');
+            var $longDescription = $longMask.find('.long');
+            
+            $longMask.animate({
+                height: $longDescription.height()
+            },250, function(){
+//                var id = $lieu.data('id')
+//                dataManager.selectItemById(id);
+//                // here goes your function to update the map
+            }); 
+            var $shareMask = $lieu.find('.share-mask');
+            var $share = $shareMask.find('.share');
+            $shareMask.animate({
+                height: $share.outerHeight()
+            }, 250); 
+            slideUpdateHeight($longDescription.height() + $share.outerHeight());
+        }, 200);
 
 		/*---update slide mask---*/
-		slideUpdateHeight($longDescription.height() + $share.outerHeight());
-        dataManager.on('listReloaded', function(){
+
+		// FIXME: replace it by a more robust re-sizeing code ??
+		dataManager.on('listReloaded', function(){
             slideUpdateHeight();
         });
+		
 	}
 	function closeLieu($lieu){
 		$lieu.removeClass('open');
@@ -503,9 +487,6 @@ jQuery(document).ready(function() {
 		$longMask.animate({
 			height: 0
 		},250, function(){
-		    var id = $lieu.data('id')
-		    console.log('TODO: De-activate an item: ' + id);
-		    // dataManager.selectItemById(id);
 		});		
 
 		/*---close share---*/
@@ -515,11 +496,6 @@ jQuery(document).ready(function() {
 		},250, function(){
 			/*---update slide mask---*/
 			slideUpdateHeight(-$longMask.height() - $shareMask.outerHeight());
-		});
-	}
-	function closeAllLieu(){
-		jQuery('.un-lieu.open').each(function(){
-			closeLieu(jQuery(this));
 		});
 	}
 
