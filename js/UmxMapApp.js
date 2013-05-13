@@ -26,7 +26,7 @@
             });
         }
         else{
-         $scroller.scrollTop($element.position().top - delta);
+            $scroller.scrollTop($element.position().top - delta);
         }
     }
 

@@ -200,6 +200,34 @@ table {
 .picto-gray-toutes{
 	background: url(../images/picto-gray-toutes.png) 50% 50% no-repeat;
 }
+
+.picto-gray-75{
+	background: url(../images/picto-gray-75.png) 50% 50% no-repeat;
+}
+.picto-gray-77{
+	background: url(../images/picto-gray-77.png) 50% 50% no-repeat;
+}
+.picto-gray-78{
+	background: url(../images/picto-gray-78.png) 50% 50% no-repeat;
+}
+.picto-gray-91{
+	background: url(../images/picto-gray-91.png) 50% 50% no-repeat;
+}
+.picto-gray-92{
+	background: url(../images/picto-gray-92.png) 50% 50% no-repeat;
+}
+.picto-gray-93{
+	background: url(../images/picto-gray-93.png) 50% 50% no-repeat;
+}
+.picto-gray-94{
+	background: url(../images/picto-gray-94.png) 50% 50% no-repeat;
+}
+.picto-gray-95{
+	background: url(../images/picto-gray-95.png) 50% 50% no-repeat;
+}
+.picto-gray-zones-toutes{
+	background: url(../images/picto-gray-zones-toutes.png) 50% 50% no-repeat;
+}
 /*lightbox*/
 body.lightbox-open{
 	overflow: hidden;
@@ -663,10 +691,17 @@ body.lightbox-open{
 	height: 36px;
 	line-height: 36px;
 	border-bottom: 1px solid #eeeeee;	
-	padding-left: 15px;
+	padding-left: 35px;
 	color: #777777;
 	font-size: 20px;
-	font-weight: 300;
+	font-weight: 700;
+	background: url(../images/arrow-left.png) 10px 50% no-repeat;
+	cursor: pointer;
+}
+#sidebar .sidebar-content .scrollable .category-list-une .category-selected,
+#sidebar .sidebar-content .scrollable .zone-list-une .zone-selected
+{
+	display: none;
 }
 #sidebar .sidebar-content .scrollable .zone-list li,
 #sidebar .sidebar-content .scrollable .category-list li
@@ -674,20 +709,22 @@ body.lightbox-open{
 	height: 45px;
 	line-height: 45px;
 	border-bottom: 1px solid #eeeeee;	
-	padding-left: 35px;
+	padding-left: 5px;
 	color: #777777;
 	font-size: 20px;
 	font-weight: 300;
 	cursor: pointer;
-	background: url(../images/arrow-left.png) 10px 50% no-repeat;
+	/*background: url(../images/arrow-left.png) 10px 50% no-repeat;*/
 }
 #sidebar .sidebar-content .scrollable .zone-list li.active,
-#sidebar .sidebar-content .scrollable .category-list li.active
+#sidebar .sidebar-content .scrollable .zone-list li:hover,
+#sidebar .sidebar-content .scrollable .category-list li.active,
+#sidebar .sidebar-content .scrollable .category-list li:hover
 {
 	text-decoration: underline;
 }
 #sidebar .sidebar-content .scrollable .category-list li{
-	padding-left: 25px;
+	padding-left: 0px;
 }
 #sidebar .sidebar-content .scrollable .tip{
 	font-weight: 600;

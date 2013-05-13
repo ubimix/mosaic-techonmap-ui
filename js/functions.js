@@ -368,6 +368,10 @@ jQuery(document).ready(function() {
 		}
 	});
 
+	jQuery('.zone-list-une, .category-list-une').on('click', function(){
+		slideFirst();
+	});
+
 	jQuery('.zone-list li').on('click', function(){
 
 		// functions to update the map & filtering the list go here
