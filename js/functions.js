@@ -462,7 +462,7 @@ jQuery(document).ready(function() {
 //                // here goes your function to update the map
 
             	// Scroll the opened item into the view.
-        		scrollIntoView($lieu, jQuery('.scrollable'), 10) 
+        		scrollIntoView($lieu, jQuery('.scrollable'), 10);
             }); 
             var $shareMask = $lieu.find('.share-mask');
             var $share = $shareMask.find('.share');
