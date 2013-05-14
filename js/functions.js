@@ -279,7 +279,7 @@ $(window).load(function(){
         list.html('');
     }
     /* ---------------------------------------------------------------------- */
-    var heatmapMode = true; 
+    var heatmapMode = false; 
     function redrawPanels() {
         var reloadCounter = 1;
         var prevItemId = getItemIdFromHash();
