@@ -350,6 +350,7 @@ jQuery(document).ready(function() {
     dataManager.on('item:select', function(item) {
         var id = dataManager.getItemId(item);
         var e = jQuery('li[data-id="' + id + '"]');
+        maximizeSidebar();
         openLieu(e);
     });
     dataManager.on('item:deselect', function(item) {
@@ -541,9 +542,10 @@ jQuery(document).ready(function() {
 	function slideUpdateHeight(ajout){
 		ajout = ajout || 0;/* default 0 */
 		var height = jQuery('.slidable').eq(currentSlidable - 1).height();
-		jQuery('.slidable-mask').height(height + ajout);
+        jQuery('.slidable').css('height', 0);
+        jQuery('.slidable').eq(currentSlidable - 1).css('height', 'auto');
 	}
-	slideUpdateHeight();// must wait for all the item to be loaded before calculating slide height
+	slideUpdateHeight();
 
 	/*---------------------------*/
 	/*-----gestion des lieux-----*/
@@ -578,21 +580,22 @@ jQuery(document).ready(function() {
                 height: $longDescription.outerHeight()
             },250, function(){
             	// Scroll the opened item into the view.
-        		scrollIntoView($lieu, jQuery('.scrollable'), 10,200);
+        		scrollIntoView($lieu, jQuery('.scrollable'), 0,200);
             }); 
             var $shareMask = $lieu.find('.share-mask');
             var $share = $shareMask.find('.share');
             $shareMask.animate({
                 height: $share.outerHeight()
             }, 250); 
-            slideUpdateHeight($longDescription.height() + $share.outerHeight());
         }, 200);
 
 		/*---update slide mask---*/
 
 		// FIXME: replace it by a more robust re-sizeing code ??
+        // NICOLAS : ive updated slideUpdateHeight() function, 
+        // this 'list-reload:end' event is not needed anymore
 		dataManager.on('list-reload:end', function(){
-            slideUpdateHeight();
+            //slideUpdateHeight();
         });
 		
 	}
@@ -611,8 +614,6 @@ jQuery(document).ready(function() {
 		$shareMask.animate({
 			height: 0
 		},250, function(){
-			/*---update slide mask---*/
-			slideUpdateHeight(-$longMask.height() - $shareMask.outerHeight());
 		});
 	}
 
@@ -665,6 +666,7 @@ jQuery(document).ready(function() {
 
         $map.height(jQuery(window).height() - tbh);   
     }
+
 	jQuery(window).resize(function(){
 		mediaqueries();
         mapHeight();
