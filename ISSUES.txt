@@ -3,7 +3,7 @@
 == NEW: ? In desktop mode center the map in the visible area
 Takes into account the size of the size of the right panel   
 
-== BUG: Top menu covers the map
+== CORRECTED ** BUG: Top menu covers the map
 It seems that the map fills the full screen and the top menu bar covers a part 
 of the map. It leads to the following bugs:
 * When a popup associated with a map marker can be covered by the top menu.

@@ -511,7 +511,7 @@ jQuery(document).ready(function() {
 		currentSlidable = nextSlide;
 
 		slideUpdateHeight();/*
-                             * maintenant pour anticiper changement largeur due
+                             * maintenant pour anticiper changement largeur dut
                              * à la scrollbar
                              */
 
@@ -535,7 +535,7 @@ jQuery(document).ready(function() {
 			left : '+='+jQuery('.slidable-mask').width()
 		},400);
 		currentSlidable--;
-			slideUpdateHeight();
+		slideUpdateHeight();
 
 	}
 	function slideUpdateHeight(ajout){
@@ -543,7 +543,7 @@ jQuery(document).ready(function() {
 		var height = jQuery('.slidable').eq(currentSlidable - 1).height();
 		jQuery('.slidable-mask').height(height + ajout);
 	}
-	slideUpdateHeight();
+	slideUpdateHeight();// must wait for all the item to be loaded before calculating slide height
 
 	/*---------------------------*/
 	/*-----gestion des lieux-----*/
@@ -658,10 +658,20 @@ jQuery(document).ready(function() {
 		}
 
 	}
+    function mapHeight(){
+        var $map = jQuery('#map');
+        var wh = jQuery(window).height();
+        var tbh = jQuery('#topbar').height();
+
+        $map.height(jQuery(window).height() - tbh);   
+    }
 	jQuery(window).resize(function(){
 		mediaqueries();
+        mapHeight();
+
 	});	
 	mediaqueries();
+    mapHeight();
 
 
 	/*---------------------------*/
