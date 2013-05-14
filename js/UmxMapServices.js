@@ -3,8 +3,8 @@
     var umx = context.umx = context.umx || {};
 
     /* ====================================================================== */
-    var DEFAULT_STORE_URL = "../data/save";
-    var DEFAULT_LOAD_URL = "../data/data.json";
+    var DEFAULT_STORE_URL = '../data/save';
+    var DEFAULT_LOAD_URL = '../data/data.json';
 
     /**
      * Store/load content on the server
@@ -28,7 +28,7 @@
         store : function(point, onSuccess, onFailure) {
             this._ajax({
                 url : this.options.storeUrl || DEFAULT_STORE_URL,
-                method : "POST",
+                method : 'POST',
                 data : point
             }, onSuccess, onFailure);
         },
@@ -39,7 +39,7 @@
         load : function(onSuccess, onFailure) {
             this._ajax({
                 url : this.options.loadUrl || DEFAULT_LOAD_URL,
-                method : "GET"
+                method : 'GET'
             }, onSuccess, onFailure);
         },
 
@@ -48,7 +48,7 @@
          * server
          */
         _ajax : function(params, onSuccess, onFailure) {
-            params.dataType = "json";
+            params.dataType = 'json';
             params.success = onSuccess;
             params.error = function(jqXHR, status, error) {
                 if (onFailure) {
@@ -76,7 +76,7 @@
     function search(str, mask) {
         if (mask.length < 3)
             return true;
-        str = str ? str.toLowerCase() : "";
+        str = str ? str.toLowerCase() : '';
         var idx = str.indexOf(mask);
         return idx >= 0;
     }
@@ -96,14 +96,28 @@
 
         init : function() {
             this.setData({
-                type : "FeatureCollection",
-                "features" : []
+                type : 'FeatureCollection',
+                'features' : []
             });
         },
 
         /** Sets new data to filter */
         setData : function(data) {
             this.data = data;
+        },
+
+        /** Returns an array of all items corresponding to the specified filter */
+        filterItems : function(filterFunc) {
+            var result = [];
+            var features = this.data ? this.data.features : [];
+            var len = features ? features.length : 0;
+            for ( var i = 0; i < len; i++) {
+                var point = features[i];
+                if (filterFunc(point)) {
+                    result.push(point);
+                }
+            }
+            return result;
         },
 
         /**
@@ -135,8 +149,10 @@
                 }
             }
             filteredData.sort(function(a, b) {
-                var aName = (a.name + "").toLowerCase();
-                var bName = (b.name + "").toLowerCase();
+                var aName = a.properties ? (a.properties.name + '')
+                        .toLowerCase() : '';
+                var bName = b.properties ? (b.properties.name + '')
+                        .toLowerCase() : '';
                 return aName > bName ? 1 : aName < bName ? -1 : 0;
             })
             return filteredData;
@@ -278,6 +294,11 @@
             return this.selectedItem;
         },
 
+        /** Returns all items corresponding to the specified filter function */
+        getFilteredItems : function(filterFunc) {
+            return this.filterService.filterItems(filterFunc);
+        },
+
         /** Selects an item with the specified identifier */
         selectItemById : function(id, force) {
             this._switchItem(id, 'selectedItem', 'item:select',
@@ -307,14 +328,20 @@
                 }
             });
         },
+
         /** Updates the postcode filter. */
         setPostcodeFilter : function(postcode) {
-            postcode = postcode ? "" + postcode : null;
+            postcode = postcode ? '' + postcode : null;
             this._updateFilter({
                 properties : {
                     postcode : postcode
                 }
             });
+        },
+
+        /** Returns the number of items corresponding to the specified postcode */
+        getNumberOfItemsForPostcode : function(postcode) {
+            return this.filterService.getNumberOfItemsForPostcode(postcode);
         },
 
         /* ------------------------------------------------------------------ */

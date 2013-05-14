@@ -2,8 +2,8 @@
 
 /* A global DataManager and event bus used to propagate events */
 var storeService = new umx.StoreService({
-    loadUrl: "./data/data.json",
-    storeUrl: "./store" // TODO: should be changed
+    loadUrl: './data/data.json',
+    storeUrl: './store' // TODO: should be changed
 });
 var dataManager = new umx.DataManager(storeService);
 var hashTracker = new umx.HashTracker();
@@ -38,14 +38,14 @@ dataManager.on('item:select', function(e) {
 var loading = 0;
 function showLoadingMessage() {
     if (loading == 0) {
-        jQuery("#loading").show();
+        jQuery('#loading').show();
     }
     loading++;
 }
 function hideLoadingMessage() {
     loading--;
     if (loading == 0) {
-        jQuery("#loading").hide();
+        jQuery('#loading').hide();
     }
 }
 dataManager.on('search:begin', showLoadingMessage)
@@ -60,11 +60,38 @@ dataManager.on('list-reload:end', hideLoadingMessage);
 /* ------------------------------------------------------------------------ */
 // Stats updates
 dataManager.on('search:end', function(e){
-    jQuery("#sidebar .val").html(e.result.length + "");
+    jQuery('#sidebar .val').html(e.result.length + '');
 });
 dataManager.on('load:end', function(e) {
     var data = e.data.features;
-    jQuery("#sidebar .total").html(data.length);
+    jQuery('#sidebar .total').html(data.length);
+    jQuery('[data-category-id]').each(function(){
+        var e = $(this);
+        var categoryId = e.attr('data-category-id');
+        var list = dataManager.getFilteredItems(function(item) {
+            if (categoryId == '*') {
+                return true;
+            } 
+            var category = item.properties.category;
+            return (category.indexOf(categoryId) == 0);
+        });
+        var value = list.length;
+        e.find('.tip.right').html(value + '');
+    });
+    jQuery('.zone-list [data-postcode]').each(function(){
+        var e = $(this);
+        var value = e.attr('data-postcode');
+        var list = dataManager.getFilteredItems(function(item) {
+            if (!value || value === '*') {
+                return true;
+            } 
+            var val = item.properties.postcode;
+            return (val && val.indexOf(value) == 0);
+        });
+        var value = list.length;
+        e.find('.tip.right').html(value + '');
+    });
+
 });
 
 /* ------------------------------------------------------------------------ */
@@ -123,7 +150,7 @@ $(window).load(function(){
         }
         var url =  pageUrl + '#' + id;
         item.find('.share .input-permalien').val(url)
-        var tw = item.find(".twitter");
+        var tw = item.find('.twitter');
         var twitter = props.twitter;
         if (twitter) {
             tw.find('a').html('@' + twitter).attr('href', 'http://www.twitter.com/' + twitter);
@@ -224,7 +251,7 @@ $(window).load(function(){
         // Visualize list items
         dataManager.fire('list-reload:begin', {});
         setTimeout(function() {
-            list.html("");
+            list.html('');
             for (var i=0; i<data.length; i++) {
                 var point = data[i];
                 var item = $(listItemTemplate);
@@ -263,7 +290,7 @@ $(window).load(function(){
             marker.openPopup();
         }
     });
-    dataManager.setNameFilter("");
+    dataManager.setNameFilter('');
 });
 
 
@@ -371,8 +398,11 @@ jQuery(document).ready(function() {
 	jQuery('.zone-list li').on('click', function(){
 
 		// functions to update the map & filtering the list go here
-	    var code = jQuery(this).data('code');
-	    dataManager.setPostcodeFilter(code);
+	    var postcode = jQuery(this).data('postcode');
+	    if (postcode == '*') {
+	        postcode = null;
+	    }
+	    dataManager.setPostcodeFilter(postcode);
 
 		jQuery('.zone-list li').removeClass('active');
 		jQuery(this).addClass('active');
@@ -386,6 +416,9 @@ jQuery(document).ready(function() {
 
 		// functions to update the map & filtering the list go here
 	    var val = jQuery(this).data('category-id');
+	    if (val == '*'){
+	        val = null;
+	    }
 	    dataManager.setCategoryFilter(val);
 
 		jQuery('.category-list li').removeClass('active');
