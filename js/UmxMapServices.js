@@ -105,19 +105,31 @@
         setData : function(data) {
             this.data = data;
         },
+        
+        /** Returns all data */
+        getData : function() {
+            return this.data;
+        },
 
         /** Returns an array of all items corresponding to the specified filter */
         filterItems : function(filterFunc) {
-            var result = [];
+            var filteredData = [];
             var features = this.data ? this.data.features : [];
             var len = features ? features.length : 0;
             for ( var i = 0; i < len; i++) {
                 var point = features[i];
                 if (filterFunc(point)) {
-                    result.push(point);
+                    filteredData.push(point);
                 }
             }
-            return result;
+            filteredData.sort(function(a, b) {
+                var aName = a.properties ? (a.properties.name + '')
+                        .toLowerCase() : '';
+                var bName = b.properties ? (b.properties.name + '')
+                        .toLowerCase() : '';
+                return aName > bName ? 1 : aName < bName ? -1 : 0;
+            })
+            return filteredData;
         },
 
         /**
@@ -139,22 +151,10 @@
          * Searches all points corresponding to the specified filter.
          */
         search : function(filter) {
-            var filteredData = [];
-            var features = this.data.features;
-            var len = features ? features.length : 0;
-            for ( var i = 0; i < len; i++) {
-                var point = features[i];
-                if (this._match(point, filter)) {
-                    filteredData.push(point);
-                }
-            }
-            filteredData.sort(function(a, b) {
-                var aName = a.properties ? (a.properties.name + '')
-                        .toLowerCase() : '';
-                var bName = b.properties ? (b.properties.name + '')
-                        .toLowerCase() : '';
-                return aName > bName ? 1 : aName < bName ? -1 : 0;
-            })
+            var that = this
+            var filteredData = that.filterItems(function(point) {
+                return that._match(point, filter);
+            });
             return filteredData;
         },
 
@@ -269,6 +269,7 @@
             }, this);
             this.on('search:end', function(e) {
                 var list = e.result;
+                this.filteredItems = list;
                 this.filteredItemsIndex = {};
                 var len = list ? list.length : 0;
                 for ( var i = 0; i < len; i++) {
@@ -295,8 +296,13 @@
         },
 
         /** Returns all items corresponding to the specified filter function */
-        getFilteredItems : function(filterFunc) {
+        filterItems : function(filterFunc) {
             return this.filterService.filterItems(filterFunc);
+        },
+
+        /** Returns a list of all filtered items */
+        getFilteredItems : function() {
+            return this.filteredItems;
         },
 
         /** Selects an item with the specified identifier */

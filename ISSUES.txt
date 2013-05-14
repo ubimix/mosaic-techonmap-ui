@@ -1,0 +1,26 @@
+
+== NEW: Implement an embedded view of the map
+== NEW: ? In desktop mode center the map in the visible area
+Takes into account the size of the size of the right panel   
+
+== BUG: Top menu covers the map
+It seems that the map fills the full screen and the top menu bar covers a part 
+of the map. It leads to the following bugs:
+* When a popup associated with a map marker can be covered by the top menu.
+* Zoom controls (+/-) are not visible 
+Possible solution: re-calculate the size of the map canvas 
+
+== BUG: Bad resizing of the right panel
+1. Search by the mask 'agor'. It shows two results: 'Agoranov' +
+'Incubateur du Centquatre'
+2. Open the 'Agoranov' entry
+Bug: it is impossible to scroll the list to the next entry
+Reason: it seems that the vertical size of the scrollable area are
+not calculated as expected after the entry resizing.
+
+== BUG: Content of wrapped search panel is replaced by selected points
+1. Wrap the right panel 
+2. Select a point on the map
+Bug: The content of the search criteria box is replaced by the currently selected 
+point.
+Reason: Content is scrolled to the selected point even if the right panel is wrapped    

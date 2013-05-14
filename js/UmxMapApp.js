@@ -10,6 +10,7 @@
     });
     context.CategoryInfo = CategoryInfo;
     context.scrollIntoView = scrollIntoView;
+    context.calculateBounds = calculateBounds;
 
     /**
      * This method is used to move the specified element in view in a scrollable
@@ -20,14 +21,33 @@
     function scrollIntoView($element, $scroller, delta, duration) {
         delta = delta || 0;
         duration = duration || 0;
-        if(duration){
+        if (duration) {
             $scroller.animate({
                 'scrollTop' : $element.position().top - delta
             });
-        }
-        else{
+        } else {
             $scroller.scrollTop($element.position().top - delta);
         }
+    }
+
+    /** Calculates and returns geographical bounds of the specified set of points */ 
+    function calculateBounds(points) {
+        var bounds = null;
+        if (points.length > 0) {
+            for ( var i = 0; i < points.length; i++) {
+                var point = points[i];
+                if (!point || !point.geometry.coordinates)
+                    continue;
+                var coordinates = point.geometry.coordinates;
+                var latLng = new L.LatLng(coordinates[0], coordinates[1]);
+                if (bounds == null) {
+                    bounds = new L.LatLngBounds(latLng, latLng);
+                } else {
+                    bounds.extend(latLng);
+                }
+            }
+        }
+        return bounds;
     }
 
     /**

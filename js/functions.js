@@ -68,7 +68,7 @@ dataManager.on('load:end', function(e) {
     jQuery('[data-category-id]').each(function(){
         var e = $(this);
         var categoryId = e.attr('data-category-id');
-        var list = dataManager.getFilteredItems(function(item) {
+        var list = dataManager.filterItems(function(item) {
             if (categoryId == '*') {
                 return true;
             } 
@@ -81,7 +81,7 @@ dataManager.on('load:end', function(e) {
     jQuery('.zone-list [data-postcode]').each(function(){
         var e = $(this);
         var value = e.attr('data-postcode');
-        var list = dataManager.getFilteredItems(function(item) {
+        var list = dataManager.filterItems(function(item) {
             if (!value || value === '*') {
                 return true;
             } 
@@ -158,75 +158,79 @@ $(window).load(function(){
             tw.remove();
         }
 	}
-	
-	function calculateBounds(points) {
-	      var bounds = null;
-	      if (points.length > 0) {
-	        for ( var i = 0; i < points.length; i++) {
-	          var point = points[i];
-	          if (!point || !point.geometry.coordinates)
-	            continue;
-	          var coordinates = point.geometry.coordinates;
-	          var latLng = new L.LatLng(coordinates[0], coordinates[1]);
-	          if (bounds == null) {
-	            bounds = new L.LatLngBounds(latLng, latLng);
-	          } else {
-	            bounds.extend(latLng);
-	          }
-	        }
-	      }
-	      return bounds;
-	    }
-	
-	/** Returns a map icon corresponding to the specified point category */
-	function newMapMarker(point) {
-        var coords = point.geometry.coordinates;
-        var props = point.properties;
-        var marker = L.marker(coords, {
-            icon: categoryInfo.getMapIcon(props.category, false)
-        });
-        var visible = false;
-        marker.on('click', function() {
-            var id = dataManager.getItemId(point);
-            dataManager.selectItemById(id);
-        });
-// marker.on('mouseout', function() {
-// marker.closePopup();
-// })
-        marker.on('mouseover', function() {
-            var id = dataManager.getItemId(point);
-            dataManager.activateItemById(id);
-        });
-        return marker;
-	}
-	
-	var markerLayer = null;
-	var markerIndex = {};
-    
-    dataManager.on('search:end', function(e) {
-        var data = e.result;
-        var prevItemId = getItemIdFromHash();
-        var reloadCounter = 0;
-        function refocusItem() {
-            reloadCounter++;
-            if (reloadCounter == 2 && prevItemId) {
-                setTimeout(function() {
-                    dataManager.selectItemById(prevItemId, true /* force */);
-                },250);
+	/* ---------------------------------------------------------------------- */
+    var heatmapLayer = null;
+    function showHeatmap() {
+        hideHeatmap();
+        heatmapLayer = L.TileLayer.heatMap({
+            radius: 20,
+            opacity: 0.8,
+            gradient: {
+                0.45: "rgb(0,0,255)",
+                0.55: "rgb(0,255,255)",
+                0.65: "rgb(0,255,0)",
+                0.95: "yellow",
+                1.0: "rgb(255,0,0)"
             }
+        });
+        var data = dataManager.getFilteredItems();
+        var points = [];
+        for ( var i = 0; i < data.length; i++) {
+            var c = data[i].geometry.coordinates;
+            points.push({
+                lat : c[0],
+                lon : c[1],
+                value : 1
+            });
         }
-        // Visualize all markers on the map
+        heatmapLayer.addData(points);
+        map.addLayer(heatmapLayer);
+    }
+    function hideHeatmap() {
+        if (heatmapLayer) {
+            map.removeLayer(heatmapLayer);
+            heatmapLayer = null;
+        }
+    }
+    
+    /* ---------------------------------------------------------------------- */
+    var markerLayer = null;
+    var markerIndex = {};
+    /** Visualize all markers on the map */
+    function showMarkers(callback) {
+        hideMarkers();
+        /** Returns a map icon corresponding to the specified point category */
+        function newMapMarker(point) {
+            var coords = point.geometry.coordinates;
+            var props = point.properties;
+            var marker = L.marker(coords, {
+                icon: categoryInfo.getMapIcon(props.category, false)
+            });
+            var visible = false;
+            marker.on('click', function() {
+                var id = dataManager.getItemId(point);
+                dataManager.selectItemById(id);
+            });
+    // marker.on('mouseout', function() {
+    // marker.closePopup();
+    // })
+            marker.on('mouseover', function() {
+                var id = dataManager.getItemId(point);
+                dataManager.activateItemById(id);
+            });
+            return marker;
+        }
+        if (!callback) {
+            callback = function() {}
+        }
         dataManager.fire('map-reload:begin', {});
         setTimeout(function() {
-            if (markerLayer) {
-                map.removeLayer(markerLayer);
-                markerLayer = null;
-                markerIndex = {};
-            }
+            hideMarkers();
             markerLayer = new L.MarkerClusterGroup({
                 spiderfyOnMaxZoom : true,
                 zoomToBoundsOnClick : true
             }).addTo(map);
+            var data = dataManager.getFilteredItems();
             for ( var i = 0; i < data.length; i++) {
                 var point = data[i];
                 var marker = newMapMarker(point)
@@ -238,30 +242,76 @@ $(window).load(function(){
             if (bounds) {
                 map.fitBounds(bounds);
                 var f = function() {
-                    refocusItem();
                     map.off('zoomend', f);
+                    dataManager.fire('map-reload:end', {}, callback);
                 }
                 map.on('zoomend', f);
             } else {
-                refocusItem();
+                dataManager.fire('map-reload:end', {}, callback);
             }
-            dataManager.fire('map-reload:end', {});
         }, 10);
-        
-        // Visualize list items
+    }
+    function hideMarkers() {
+        if (markerLayer) {
+            map.removeLayer(markerLayer);
+            markerLayer = null;
+            markerIndex = {};
+        }
+    }
+    /* ---------------------------------------------------------------------- */
+    /** Visualize list items */
+    function showList(callback) {
+        hideList();
+        if (!callback) callback = function() {}
         dataManager.fire('list-reload:begin', {});
         setTimeout(function() {
-            list.html('');
+            var data = dataManager.getFilteredItems();
             for (var i=0; i<data.length; i++) {
                 var point = data[i];
                 var item = $(listItemTemplate);
                 fillTemplate(point, item);
                 list.append(item);
             }
-            refocusItem();
-            dataManager.fire('list-reload:end', {});
+            dataManager.fire('list-reload:end', {}, callback);
         }, 10);
+    }
+    function hideList() {
+        list.html('');
+    }
+    /* ---------------------------------------------------------------------- */
+    var heatmapMode = true; 
+    function redrawPanels() {
+        var reloadCounter = 1;
+        var prevItemId = getItemIdFromHash();
+        function refocusItem() {
+            reloadCounter--;
+            if (reloadCounter == 0 && prevItemId) {
+                setTimeout(function() {
+                    dataManager.selectItemById(prevItemId, true /* force */);
+                },250);
+            }
+        }
+        if (heatmapMode) {
+            reloadCounter = 1;
+            hideMarkers();
+            showHeatmap();
+            // Visualize list items
+            showList(refocusItem);
+        } else {
+            reloadCounter = 2;
+            hideHeatmap();
+            // Visualize all markers on the map
+            showMarkers(refocusItem);
+            // Visualize list items
+            showList(refocusItem);
+        }
+    }
+    dataManager.on('switchHeatmap', function(e) {
+        heatmapMode = !heatmapMode;
+        redrawPanels();
     });
+    dataManager.on('search:end', redrawPanels);
+    
     // Zoom to the selected item.
     dataManager.on('item:select', function(item) {
         if (!markerLayer)
@@ -306,6 +356,10 @@ jQuery(document).ready(function() {
         var id = dataManager.getItemId(item);
         var e = jQuery('li[data-id="' + id + '"]');
         closeLieu(e);
+    });
+    
+    jQuery('.picto-heatmap').click(function() {
+         dataManager.fire('switchHeatmap', {});
     });
     
 	/*----------------------------------*/
