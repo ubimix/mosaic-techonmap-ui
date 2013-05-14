@@ -70,6 +70,38 @@ table {
 	padding-bottom: 10px;
 	padding-right: 45px;
 }
+.btn-gray{
+	font-size: 16px;
+	color: #fff;
+	background: #CCCCCC;
+	border:1px solid #AAAAAA;
+	display: inline-block;
+	zoom:1;
+	*display:inline;
+	padding-left: 12px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-right: 45px;
+}
+.btn-green{
+	font-size: 16px;
+	color: #fff;
+	background: #53c591;
+	border:1px solid #377e5c;
+	display: inline-block;
+	zoom:1;
+	*display:inline;
+	padding-left: 12px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-right: 45px;
+	height: 16px;
+	cursor:pointer;
+	box-sizing:content-box;
+	-ms-box-sizing:content-box;
+	-moz-box-sizing:content-box;
+	-webkit-box-sizing:content-box; 
+}
 .clear{
 	width:100%;
 	visibility:hidden;
@@ -89,7 +121,9 @@ table {
 .picto-plus{
 	background:url(../images/picto-plus.png) 50% 50% no-repeat;
 }
-
+.picto-cible{
+	background:url(../images/picto-cible.png) 99% 50% no-repeat;
+}
 .picto-about{
 	background: url(../images/menu-sprite.png) 0 8px no-repeat;
 }
@@ -451,7 +485,14 @@ body.lightbox-open{
 #sidebar{
 	min-width: 320px;
 }
-
+.edition #content{
+	max-width: 960px;
+	margin: auto;
+	padding-bottom: 25px;
+}
+.edition #topbar{
+	position: static;
+}
 /*topbar content */
 #topbar .social{
 	height: 25px;
@@ -483,6 +524,10 @@ body.lightbox-open{
 #topbar .header .aside .btn-blue{
 	margin-top: 18px;
 	background: url(../images/btn-blue-plus.png) 100% 50% no-repeat #385f98;
+}
+#topbar .header .aside .btn-gray{
+	margin-top: 18px;
+	background: url(../images/btn-gray-cross.png) 100% 50% no-repeat #CCCCCC;
 }
 #topbar .header .ban{
 	width: auto;
@@ -836,6 +881,107 @@ body.lightbox-open{
 	left: 8px;
 }
 
+/*page édition*/
+.edition .pagetitle{
+	font-weight: 300;
+	color: #666;
+	font-size: 24px;
+	margin-top: 20px;
+	margin-bottom: 25px;
+}
+.edition .une-ligne.std{
+	min-height: 50px;
+}
+.edition .une-ligne.tags{
+	min-height: 50px;
+}
+.edition .une-ligne.textarea{
+	min-height: 135px;
+}
+.edition .une-ligne .label{
+	width: auto;
+	margin-left: 440px;
+	color: #AAAAAA;
+	font-weight: 300;
+	font-size: 16px;
+	padding-top: 5px;
+}
+.edition .une-ligne.std input,
+.edition .une-ligne.std select
+{
+	width: 420px;
+	height: 34px;
+	border:1px solid #cccccc;
+	float: left;
+	color: #666666;
+	font-weight: 300;
+	font-size: 16px;
+	padding-left: 10px;
+	font-family: 'Open Sans',​sans-serif;
+	box-sizing:content-box;
+	-moz-box-sizing:content-box;
+}
+.edition .une-ligne.textarea textarea{
+	width: 530px;
+	height: 100px;
+	padding: 10px;
+	border:1px solid #cccccc;
+	float: left;
+	color: #666666;
+	font-weight: 300;
+	font-size: 16px;
+	font-family: 'Open Sans',​sans-serif;
+}
+.edition .une-ligne.tags input
+{
+	width: 150px;
+	height: 34px;
+	border:1px solid #cccccc;
+	float: left;
+	color: #666666;
+	font-weight: 300;
+	font-size: 16px;
+	padding-left: 10px;
+	margin-right: 10px;
+	font-family: 'Open Sans',​sans-serif;
+	box-sizing:content-box;
+	-moz-box-sizing:content-box;
+}
+.edition .une-ligne.textarea .label{
+	margin-left: 560px;
+}
+.edition .red{
+	color: #EB6564;
+}
+.edition .map{
+	height: 200px;
+	background: silver;
+	margin-bottom: 10px;
+}
+.edition .inputs{
+	padding-top: 30px;
+	padding-bottom: 30px;
+	border-top: 1px solid #cccccc;
+	border-bottom: 1px solid #cccccc;
+	margin-top: 20px;
+	text-align: center;
+}
+.edition .inputs .btn-gray{
+	background: url(../images/btn-gray-cross.png) 100% 50% no-repeat #CCCCCC;
+	margin-right: 90px;
+	width: 110px;
+}
+.edition .inputs .btn-green{
+	background: url(../images/btn-green-tick.png) 100% 50% no-repeat #53c591;
+	width: 190px;
+}
+.edition .condition{
+	font-family: 'Open Sans',​sans-serif;
+	font-size:14;
+	font-weight: 300;
+	color: #666666;
+	line-height: 1.2;
+}
 /*map*/
 #map .leaflet-popup-content-wrapper{
 	border-radius: 0;

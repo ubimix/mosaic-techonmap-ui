@@ -669,5 +669,4 @@ jQuery(document).ready(function() {
 		jQuery(this).parent('li').toggleClass('active');
 		jQuery('.une-faq').not($(this).parent('li')).removeClass('active');
 	});
-
 });
