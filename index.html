@@ -20,6 +20,8 @@
 <script src="lib/jquery/jquery.js"></script>
 <script src="lib/leaflet/leaflet-src.js"></script>
 <script src="lib/leaflet-markercluster/leaflet.markercluster-src.js"></script>
+<script src="lib/leaflet-heatmap/heatmap.js"></script>
+<script src="lib/leaflet-heatmap/heatmap-leaflet.js"></script>
 
 <script type="text/javascript" src="js/UmxMinimapUI.js"></script>
 <script type="text/javascript" src="js/UmxCommons.js"></script>
@@ -204,7 +206,7 @@
                             </div>
                             <ul class="category-list">
                                 <li data-value="Toutes"
-                                    data-category-id="" class="active">
+                                    data-category-id="*" class="active">
                                     <span
                                     class="picto-gray picto-gray-toutes"></span>
                                     Toutes <span class="tip right">1120</span>
@@ -268,12 +270,12 @@
                                 Zone : <span class="bold zone-selected">Toutes</span>
                             </div>
                             <ul class="zone-list">
-                                <li data-value="Toutes" class="active">
+                                <li data-value="Toutes" data-postcode="*" class="active">
                                     <span class="picto-gray picto-gray-zones-toutes"></span>
                                     Toutes
                                     <span class="tip right">1120</span>
                                 </li>
-                                <li data-value="Paris" data-code="75">
+                                <li data-value="Paris" data-postcode="75">
                                     <span class="picto-gray picto-gray-75"></span>
                                     Paris
                                     (75) <span class="tip right">1120</span>
@@ -284,36 +286,36 @@
                                     Seine-et-Marne
                                     (77) <span class="tip right">1120</span>
                                 </li>
-                                <li data-value="Yvelines" data-code="78">
+                                <li data-value="Yvelines" data-postcode="78">
                                     <span class="picto-gray picto-gray-78"></span>
                                     Yvelines
                                     (78) <span class="tip right">1120</span>
                                 </li>
-                                <li data-value="Essone" data-code="91">
+                                <li data-value="Essone" data-postcode="91">
                                     <span class="picto-gray picto-gray-91"></span>
                                     Essonne
                                     (91) <span class="tip right">1120</span>
                                 </li>
                                 <li data-value="Hauts-de-Seine"
-                                    data-code="92">
+                                    data-postcode="92">
                                     <span class="picto-gray picto-gray-92"></span>
                                     Hauts-de-Seine
                                     (92) <span class="tip right">1120</span>
                                 </li>
                                 <li data-value="Seine-Saint-Denis"
-                                    data-code="93">
+                                    data-postcode="93">
                                     <span class="picto-gray picto-gray-93"></span>
                                     Seine-Saint-Denis
                                     (93) <span class="tip right">1120</span>
                                 </li>
                                 <li data-value="Val-de-Marne"
-                                    data-code="94">
+                                    data-postcode="94">
                                     <span class="picto-gray picto-gray-94"></span>
                                     Val-de-Marne
                                     (94) <span class="tip right">1120</span>
                                 </li>
                                 <li data-value="Val-d’Oise"
-                                    data-code="95">
+                                    data-postcode="95">
                                     <span class="picto-gray picto-gray-95"></span>
                                     Val-d’Oise (95)
                                     <span class="tip right">1120</span>
