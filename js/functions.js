@@ -395,6 +395,10 @@ jQuery(document).ready(function() {
 		}
 	});
 
+	jQuery('.zone-list-une, .category-list-une').on('click', function(){
+		slideFirst();
+	});
+
 	jQuery('.zone-list li').on('click', function(){
 
 		// functions to update the map & filtering the list go here
@@ -517,10 +521,10 @@ jQuery(document).ready(function() {
             var $longDescription = $longMask.find('.long');
             
             $longMask.animate({
-                height: $longDescription.height()
+                height: $longDescription.outerHeight()
             },250, function(){
             	// Scroll the opened item into the view.
-        		scrollIntoView($lieu, jQuery('.scrollable'), 10);
+        		scrollIntoView($lieu, jQuery('.scrollable'), 10,200);
             }); 
             var $shareMask = $lieu.find('.share-mask');
             var $share = $shareMask.find('.share');
