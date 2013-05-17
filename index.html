@@ -35,10 +35,16 @@
     <div id="toto"></div>
     <div id="topbar">
         <div class="social">
-            <div class="left">Lorem ipsum dolor sit amet,
-                consectetur adipiscing elit. Ut arcu nulla, fermentum in
-                porta sit.</div>
-            <div class="right">right</div>
+            <div class="left">
+                <a href="" class="lastTweetAuthor">@techonmap</a> :
+                <span class="lastTweet">Test</span>
+                <a href="" class="lastTweetDate">Test</a>
+            </div>
+            <div class="right">
+                Suivez-notre actualité sur :
+                <a href="">Tw</a>
+                <a href="">Fb</a>
+            </div>
         </div>
         <div class="header">
             <div class="aside">
@@ -55,30 +61,33 @@
                 </div>
                 <div class="right">
                     <ul class="menu">
-                        <li class="lightbox-trigger level-1 picto-about"
-                            id="lightbox-about"></li>
-                        <li class="lightbox-trigger level-1 picto-faq"
-                            id="lightbox-faq"></li>
-                        <li
-                            class="lightbox-trigger level-1 picto-embeded"
-                            id="lightbox-embeded"></li>
-                        <li
-                            class="lightbox-trigger level-1 picto-contact"
-                            id="lightbox-contact"></li>
-                        <li class=" level-1 picto-heatmap"></li>
-                        <!--heatmap-->
-                        <li
-                            class="deroulant level-1 open-left picto-param">
+                        <li class="lightbox-trigger level-1 picto-about" id="lightbox-about"></li>
+                        <li class="lightbox-trigger level-1 picto-faq" id="lightbox-faq"></li>
+                        <li class="deroulant  open-right level-1 picto-embeded">
                             <div class="hide-shadow"></div>
                             <div class="menu-mask">
                                 <ul class="menu-content">
                                     <li class="level-2"><a href="">lien</a></li>
-                                    <li class="level-2"><a href="">lien
-                                            numéro 2</a></li>
+                                    <li class="level-2 lightbox-trigger" id="lightbox-embeded">
+                                        <a href="#">Ouvre POPUP</a>
+                                    </li>
+                                    <li class="level-2"><a href="">lien</a></li>
+                                    <li class="level-2 last"><a href="">lien</a></li>
+                                </ul>
+                            </div>       
+                        </li>
+                        <li class="lightbox-trigger level-1 picto-contact" id="lightbox-contact"></li>
+                        <li class=" level-1 picto-heatmap"></li>
+                        <!--heatmap-->
+                        <li class="deroulant level-1 open-left picto-param">
+                            <div class="hide-shadow"></div>
+                            <div class="menu-mask">
+                                <ul class="menu-content">
+                                    <li class="level-2"><a href="">lien</a></li>
+                                    <li class="level-2"><a href="">lien numéro 2</a></li>
                                     <li class="level-2"><a href="">lien</a></li>
                                     <li class="level-2"><a href="">lien</a></li>
-                                    <li class="level-2 last"><a
-                                        href="">lien</a></li>
+                                    <li class="level-2 last"><a href="">lien</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -187,10 +196,28 @@
                                         </div>
                                         <div class="share-mask">
                                             <div class="share">
-                                                permalien <br /> <input
+                                                Permalien <br /> <input
                                                     type="text"
                                                     class="input-permalien"
-                                                    value="http://www.wikipedia.fr">
+                                                    value="http://www.wikipedia.fr"/>
+                                                <div class="left">
+                                                    Partager :
+                                                </div>
+                                                <div class="right">
+                                                    <a href="https://twitter.com/intent/tweet?source=webclient&text=URL_HERE">
+                                                        <img src="images/picto-share-twitter.png" alt="partagez sur twitter">
+                                                    </a>
+                                                    <a href="http://www.facebook.com/sharer/sharer.php?u=URL_HERE">
+                                                        <img src="images/picto-share-facebook.png" alt="partagez sur facebook">
+                                                    </a>
+                                                    <a href="http://www.linkedin.com/shareArticle?mini=true&url=URL_HERE"><!-- not tested-->
+                                                        <img src="images/picto-share-linkedin.png" alt="partagez sur linkedin">
+                                                    </a>
+                                                    <a href="https://api.viadeo.com/recommend?url=URL_HERE"><!-- not tested-->
+                                                        <img src="images/picto-share-viadeo.png" alt="partagez sur viadeo">
+                                                    </a>
+                                                </div>
+                                                <div class="clear"></div>
                                             </div>
                                         </div>
                                     </div>

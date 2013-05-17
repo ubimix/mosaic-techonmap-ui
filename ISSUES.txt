@@ -4,6 +4,8 @@
 Takes into account the size of the size of the right panel (360px)
 see : https://github.com/Leaflet/Leaflet/issues/859
 
+== TODO : dynamicly add url to sharing link (twitter, facebook, linkedin, viadeo) in the opened startup panel.
+
 == CORRECTED ** BUG: Top menu covers the map
 It seems that the map fills the full screen and the top menu bar covers a part 
 of the map. It leads to the following bugs:

@@ -510,6 +510,26 @@ body.lightbox-open{
 	padding: 0 10px;
 	overflow: hidden;
 }
+#topbar .social .right a{
+	color: #fff;
+	font-weight: 700;
+	font-size: 18px;
+	padding-left: 4px;
+}
+#topbar .social .left{
+	background: url(../images/picto-twitter-blanc.png) 0px 50% no-repeat;
+	padding-left: 20px;
+}
+#topbar .social .left a{
+	color: #fff;
+	text-decoration: underline;
+}
+#topbar .social a.lastTweetDate{
+	font-size: 11px;
+}
+#topbar .social a.lastTweetAuthor{
+	font-weight: 700;
+}
 #topbar .header h1{
 	display: block;
 	margin-top: 12px;
@@ -523,14 +543,20 @@ body.lightbox-open{
 	margin-top: 5px;
 }
 #topbar .header .aside{
-	width: 360px;
+	width: 350px;
 	float: right;
-	text-align: center;
+	text-align: right;
+	padding-right: 10px;
 }
 #topbar .header .aside .btn-blue{
 	margin-top: 18px;
 	background: url(../images/btn-blue-plus.png) 100% 50% no-repeat #385f98;
 }
+#topbar .header .aside .btn-blue:hover{
+	margin-top: 18px;
+	background: url(../images/btn-blue-plus.png) 100% 50% no-repeat #253F5F;
+}
+
 #topbar .header .aside .btn-gray{
 	margin-top: 18px;
 	background: url(../images/btn-gray-cross.png) 100% 50% no-repeat #CCCCCC;
@@ -541,7 +567,7 @@ body.lightbox-open{
 }
 #topbar .header .ban .menu{
 	margin-top: 15px;
-	margin-right: 10px;
+	margin-right: 15px;
 }
 #topbar .header .ban .menu li.level-1{
 	display: inline-block;
@@ -574,13 +600,13 @@ body.lightbox-open{
 	position: absolute;
 	top: 41px;
 	background: #fff;
-	width: 180px;
+	width: 175px;
 	box-shadow: 0px 0px 2px silver;
 	height: 0;
 	z-index: 10;
 }
 #topbar .header .ban .menu .open-left .menu-mask{
-	left:-139px; /*180 - 41*/
+	left:-134px; /*175 - 41*/
 }
 #topbar .header .ban .menu .menu-2{
 
@@ -854,6 +880,17 @@ body.lightbox-open{
 #sidebar .sidebar-content .scrollable .les-lieux .un-lieu .description .share{
 	padding-top: 20px;
 	padding-bottom: 10px;
+}
+#sidebar .sidebar-content .scrollable .les-lieux .un-lieu .description .share .left
+{
+	padding-top: 5px;
+	height: 28px;
+	line-height: 28px;
+}
+#sidebar .sidebar-content .scrollable .les-lieux .un-lieu .description .share .right
+{
+	padding-top: 5px;
+	margin-right: 15px;
 }
 #sidebar .sidebar-content .scrollable .les-lieux .un-lieu .description .share-mask{
 	height: 0;

@@ -735,4 +735,48 @@ jQuery(document).ready(function() {
 		jQuery(this).parent('li').toggleClass('active');
 		jQuery('.une-faq').not($(this).parent('li')).removeClass('active');
 	});
+
+    /*---------------------------*/
+    /*------topbar>TWITTER-------*/
+    /*---------------------------*/
+    var twitterUser = 'LaFonderie_idf';
+    var noCachejSon = [{"created_at":"Sat May 04 11:47:03 +0000 2013","id":330649770366468097,"id_str":"330649770366468097","text":"RT @ClioMeyer: @laviecheap pose la question \u00e0 la @CNIL du droit \u00e0 l'oubli de nos donnees personnelles #open #data #Ouisharefest","source":"\u003ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003eTwitter for iPhone\u003c\/a\u003e","truncated":false,"in_reply_to_status_id":null,"in_reply_to_status_id_str":null,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"in_reply_to_screen_name":null,"user":{"id":455814168,"id_str":"455814168","name":"La Fonderie","screen_name":"lafonderie_idf","location":"Paris","url":"http:\/\/www.lafonderie-idf.fr","description":"La Fonderie est un organisme associ\u00e9 de la R\u00e9gion \u00eele-de-France charg\u00e9  d'accompagner ses politiques num\u00e9riques et d\u2019encourager le foisonnement d'initiatives.","protected":false,"followers_count":2143,"friends_count":683,"listed_count":125,"created_at":"Thu Jan 05 15:02:03 +0000 2012","favourites_count":34,"utc_offset":3600,"time_zone":"Paris","geo_enabled":true,"verified":false,"statuses_count":578,"lang":"fr","contributors_enabled":false,"is_translator":false,"profile_background_color":"E80E0E","profile_background_image_url":"http:\/\/a0.twimg.com\/profile_background_images\/447293283\/background_twitter.png","profile_background_image_url_https":"https:\/\/si0.twimg.com\/profile_background_images\/447293283\/background_twitter.png","profile_background_tile":false,"profile_image_url":"http:\/\/a0.twimg.com\/profile_images\/1884715164\/avatar_normal.jpg","profile_image_url_https":"https:\/\/si0.twimg.com\/profile_images\/1884715164\/avatar_normal.jpg","profile_link_color":"000000","profile_sidebar_border_color":"C0DEED","profile_sidebar_fill_color":"DDEEF6","profile_text_color":"333333","profile_use_background_image":true,"default_profile":false,"default_profile_image":false,"following":null,"follow_request_sent":null,"notifications":null},"geo":null,"coordinates":null,"place":null,"contributors":null,"retweeted_status":{"created_at":"Sat May 04 11:45:00 +0000 2013","id":330649256027369472,"id_str":"330649256027369472","text":"@laviecheap pose la question \u00e0 la @CNIL du droit \u00e0 l'oubli de nos donnees personnelles #open #data #Ouisharefest","source":"web","truncated":false,"in_reply_to_status_id":null,"in_reply_to_status_id_str":null,"in_reply_to_user_id":570309693,"in_reply_to_user_id_str":"570309693","in_reply_to_screen_name":"laviecheap","user":{"id":817032949,"id_str":"817032949","name":"Clio Meyer","screen_name":"ClioMeyer","location":"","url":"http:\/\/soundcloud.com\/clio-meyer\/","description":"Meeting curious minds is a my #venture. Besides, I like to capture special moments by #sound ! #sharing #science #bidouille #theatre #corevolution #education","protected":false,"followers_count":385,"friends_count":313,"listed_count":18,"created_at":"Tue Sep 11 09:06:58 +0000 2012","favourites_count":96,"utc_offset":null,"time_zone":null,"geo_enabled":true,"verified":false,"statuses_count":1607,"lang":"fr","contributors_enabled":false,"is_translator":false,"profile_background_color":"C0DEED","profile_background_image_url":"http:\/\/a0.twimg.com\/profile_background_images\/741551708\/785aaae03f01653ecc5d45b09ef840b9.jpeg","profile_background_image_url_https":"https:\/\/si0.twimg.com\/profile_background_images\/741551708\/785aaae03f01653ecc5d45b09ef840b9.jpeg","profile_background_tile":true,"profile_image_url":"http:\/\/a0.twimg.com\/profile_images\/2598776238\/291848_10150353106481480_3912797_n_normal.jpg","profile_image_url_https":"https:\/\/si0.twimg.com\/profile_images\/2598776238\/291848_10150353106481480_3912797_n_normal.jpg","profile_banner_url":"https:\/\/pbs.twimg.com\/profile_banners\/817032949\/1355839429","profile_link_color":"0084B4","profile_sidebar_border_color":"000000","profile_sidebar_fill_color":"DDEEF6","profile_text_color":"333333","profile_use_background_image":true,"default_profile":false,"default_profile_image":false,"following":null,"follow_request_sent":null,"notifications":null},"geo":null,"coordinates":null,"place":null,"contributors":null,"retweet_count":1,"favorite_count":0,"favorited":false,"retweeted":false,"lang":"fr"},"retweet_count":1,"favorite_count":0,"favorited":false,"retweeted":false,"lang":"fr"}];
+
+   
+    
+    /* create a cache system ?
+    $.getJSON("https://api.twitter.com/1/statuses/user_timeline/"+twitterUser+".json?count=1&include_rts=1&callback=?", function(data) {
+        showTwitter(data);
+    });
+    */
+    showTwitter(noCachejSon);
+
+    function showTwitter(data){
+      var status = linkifyStatus(data[0].text);
+      var date = parseTwitterDate(data[0].created_at);
+      var user = data[0].user.screen_name;
+      var id = data[0].id_str;
+
+      jQuery('.social .left .lastTweet').html(status);
+      jQuery('.social .left .lastTweetDate').html(date).attr('href', 'https://twitter.com/' + user + '/status/' + id);
+      jQuery('.social .left .lastTweetAuthor').html('@'+user).attr('href', 'https://twitter.com/'+user);
+    }
+    function linkifyStatus(text) {
+        text = text.replace(/(https?:\/\/\S+)/gi, function (s) {
+            return '<a href="' + s + '">' + s + '</a>';
+        });
+        text = text.replace(/(^|)@(\w+)/gi, function (s) {
+            return '<a href="https://twitter.com/' + s + '">' + s + '</a>';
+        });
+        text = text.replace(/(^|)#(\w+)/gi, function (s) {
+            return '<a href="https://twitter.com/search?q=' + s.replace(/#/,'%23') + '">' + s + '</a>';
+         });
+        return text;
+    }
+    function parseTwitterDate($stamp)
+    {       
+        var date = new Date(Date.parse($stamp)).toLocaleString();
+        date = date.slice(0, -8)// remove 8 ends caracters, the hour
+        return date;
+    }
 });
