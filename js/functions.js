@@ -150,6 +150,13 @@ $(window).load(function(){
         }
         var url =  pageUrl + '#' + id;
         item.find('.share .input-permalien').val(url)
+        item.find('.share .right a[href]').each(function() {
+        	var a = $(this);
+        	var href = a.attr('href');
+        	var str =  encodeURIComponent(url);
+        	href = href.replace('URL_HERE', str);
+        	a.attr('href', href);
+        })
         var tw = item.find('.twitter');
         var twitter = props.twitter;
         if (twitter) {
