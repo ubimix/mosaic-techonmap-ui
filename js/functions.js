@@ -1,62 +1,4 @@
 /*map*/
-
-/* A global DataManager and event bus used to propagate events */
-var storeService = new umx.StoreService({
-    loadUrl: './data/data.json',
-    storeUrl: './store' // TODO: should be changed
-});
-var dataManager = new umx.DataManager(storeService);
-var hashTracker = new umx.HashTracker();
-hashTracker.start();
- 
-/* ------------------------------------------------------------------------ */
- // URL hash management
-function getItemIdFromHash() {
-    var result = null;
-    var hash = hashTracker.getHash();
-    if (hash && hash.match(/^#/)) {
-        hash = hash.substring(1);
-        result = hash;
-    }
-    return result;
-}
-function setHashFromItemId(id) {
-    var hash = '#' + (id?id:''); 
-    hashTracker.setHash(hash)
-}
-hashTracker.on('hash:changed', function() {
-    var id = getItemIdFromHash();
-    dataManager.selectItemById(id);
-});
-dataManager.on('item:select', function(e) {
-    var id = dataManager.getItemId(e);
-    setHashFromItemId(id);
-});
-
-/* ------------------------------------------------------------------------ */
-// 'Loading...' message visualization
-var loading = 0;
-function showLoadingMessage() {
-    if (loading == 0) {
-        jQuery('#loading').show();
-    }
-    loading++;
-}
-function hideLoadingMessage() {
-    loading--;
-    if (loading == 0) {
-        jQuery('#loading').hide();
-    }
-}
-dataManager.on('search:begin', showLoadingMessage)
-dataManager.on('search:end', hideLoadingMessage);
-dataManager.on('load:begin', showLoadingMessage);
-dataManager.on('load:end', hideLoadingMessage);
-dataManager.on('map-reload:begin', showLoadingMessage);
-dataManager.on('map-reload:end', hideLoadingMessage);
-dataManager.on('list-reload:begin', showLoadingMessage);
-dataManager.on('list-reload:end', hideLoadingMessage);
-
 /* ------------------------------------------------------------------------ */
 // Stats updates
 dataManager.on('search:end', function(e){
@@ -96,15 +38,10 @@ dataManager.on('load:end', function(e) {
 
 /* ------------------------------------------------------------------------ */
 $(window).load(function(){
-
-	var map = L.map('map').setView([48.872630327,
-	                                2.3357025512], 12);
-
-    var tilesUrl = 'http://{s}.tiles.mapbox.com/v3/examples.map-4l7djmvo/{z}/{x}/{y}.png';
-	tilesUrl = 'http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/997/256/{z}/{x}/{y}.png';
-	L.tileLayer(tilesUrl, {
-		maxZoom: 18
-	}).addTo(map);
+	
+	var mapContainer = $('#map');
+	var map = newMap(mapContainer);
+	var tilesUrl = mapContainer.data('map-tiles');
     map.addControl(new umx.MinimapControl(tilesUrl, {
         maxZoom : 10,
         position : 'bottomleft',
@@ -115,9 +52,6 @@ $(window).load(function(){
             height : '100px'
         }
     }));
-
-    var categories = $.parseJSON($('#categories').text());
-    var categoryInfo = new CategoryInfo(categories);
 	 
 	var list = $('.les-lieux');
 	var listItemTemplate = list.html();
@@ -519,9 +453,9 @@ jQuery(document).ready(function() {
 		currentSlidable = nextSlide;
 
 		slideUpdateHeight();/*
-                             * maintenant pour anticiper changement largeur dut
-                             * à la scrollbar
-                             */
+							 * maintenant pour anticiper changement largeur dut
+							 * à la scrollbar
+							 */
 
 		jQuery('.'+ target +'-section')
 			.insertAfter('.slidable-'+ actualSlidable +':first')
@@ -599,10 +533,10 @@ jQuery(document).ready(function() {
 		/*---update slide mask---*/
 
 		// FIXME: replace it by a more robust re-sizeing code ??
-        // NICOLAS : ive updated slideUpdateHeight() function, 
+        // NICOLAS : ive updated slideUpdateHeight() function,
         // this 'list-reload:end' event is not needed anymore
 		dataManager.on('list-reload:end', function(){
-            //slideUpdateHeight();
+            // slideUpdateHeight();
         });
 		
 	}
@@ -633,12 +567,12 @@ jQuery(document).ready(function() {
 		var h = jQuery(window).height();
 		jQuery('.maximized#sidebar').height(h-110); /* 110 = topbar + top marge */
 		jQuery('.maximized .sidebar-content').height(h-210); /*
-                                                                 * 210 = topbar
-                                                                 * +top marge +
-                                                                 * resultat +
-                                                                 * "propulsé par
-                                                                 * la fonderie"
-                                                                 */
+																 * 210 = topbar
+																 * +top marge +
+																 * resultat +
+																 * "propulsé par
+																 * la fonderie"
+																 */
 	}
 	jQuery(window).resize(function(){
 		getSidebarHeight();
@@ -751,11 +685,11 @@ jQuery(document).ready(function() {
 
    
     
-    /* create a cache system ?
-    $.getJSON("https://api.twitter.com/1/statuses/user_timeline/"+twitterUser+".json?count=1&include_rts=1&callback=?", function(data) {
-        showTwitter(data);
-    });
-    */
+    /*
+	 * create a cache system ?
+	 * $.getJSON("https://api.twitter.com/1/statuses/user_timeline/"+twitterUser+".json?count=1&include_rts=1&callback=?",
+	 * function(data) { showTwitter(data); });
+	 */
     showTwitter(noCachejSon);
 
     function showTwitter(data){

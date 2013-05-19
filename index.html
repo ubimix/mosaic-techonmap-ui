@@ -4,15 +4,15 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link
-    href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700"
-    rel="stylesheet" type="text/css">
+	href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700"
+	rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="lib/leaflet/leaflet.css" />
 <!--[if lte IE 8]><link rel="stylesheet" href="lib/leaflet/leaflet.ie.css" /><![endif]-->
 
 <link href="lib/leaflet-markercluster/MarkerCluster.css"
-    rel="stylesheet"></link>
+	rel="stylesheet"></link>
 <link href="lib/leaflet-markercluster/MarkerCluster.Default.css"
-    rel="stylesheet" />
+	rel="stylesheet" />
 <!--[if lte IE 8]><link rel="stylesheet" href="lib/leaflet-markercluster/MarkerCluster.Default.ie.css"/><![endif] -->
 
 <link rel="stylesheet" href="css/style.css" />
@@ -32,116 +32,106 @@
 <title>TechOnMap</title>
 </head>
 <body>
-    <div id="toto"></div>
-    <div id="topbar">
-        <div class="social">
-            <div class="left">
-                <a href="" class="lastTweetAuthor">@techonmap</a> :
-                <span class="lastTweet">Test</span>
-                <a href="" class="lastTweetDate">Test</a>
-            </div>
-            <div class="right">
-                Suivez-notre actualité sur :
-                <a href="">Tw</a>
-                <a href="">Fb</a>
-            </div>
-        </div>
-        <div class="header">
-            <div class="aside">
-                <a href="" class="btn-blue">Ajouter une organisation
-                    sur la carte</a>
-            </div>
-            <div class="ban">
-                <div class="left">
-                    <h1>
-                        <img src="images/banner.png" alt="Techonmap">
-                    </h1>
-                    <h2>La carte des acteurs du numérique en
-                        Île-de-France</h2>
-                </div>
-                <div class="right">
-                    <ul class="menu">
-                        <li class="lightbox-trigger level-1 picto-about" id="lightbox-about"></li>
-                        <li class="lightbox-trigger level-1 picto-faq" id="lightbox-faq"></li>
-                        <li class="deroulant  open-right level-1 picto-embeded">
-                            <div class="hide-shadow"></div>
-                            <div class="menu-mask">
-                                <ul class="menu-content">
-                                    <li class="level-2"><a href="">lien</a></li>
-                                    <li class="level-2 lightbox-trigger" id="lightbox-embeded">
-                                        <a href="#">Ouvre POPUP</a>
-                                    </li>
-                                    <li class="level-2"><a href="">lien</a></li>
-                                    <li class="level-2 last"><a href="">lien</a></li>
-                                </ul>
-                            </div>       
-                        </li>
-                        <li class="lightbox-trigger level-1 picto-contact" id="lightbox-contact"></li>
-                        <li class=" level-1 picto-heatmap"></li>
-                        <!--heatmap-->
-                        <li class="deroulant level-1 open-left picto-param">
-                            <div class="hide-shadow"></div>
-                            <div class="menu-mask">
-                                <ul class="menu-content">
-                                    <li class="level-2"><a href="">lien</a></li>
-                                    <li class="level-2"><a href="">lien numéro 2</a></li>
-                                    <li class="level-2"><a href="">lien</a></li>
-                                    <li class="level-2"><a href="">lien</a></li>
-                                    <li class="level-2 last"><a href="">lien</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="clear"></div>
-            </div>
-        </div>
-    </div>
-    <div id="sidebar" class="maximized">
-        <div class="sidebar-content">
-            <div class="result">
-                <div class="text left">
-                    Résultat :
-                    <div class="right">
-                        <span class="val">24</span> <span class="slash">/</span>
-                        <span class="total">1120</span>
-                    </div>
-                </div>
-                <a href="#"
-                    class="picto left picto-minus minimize-sidebar"></a>
-                <a href="#"
-                    class="picto left picto-plus maximize-sidebar"></a>
-                <div class="clear"></div>
-            </div>
-            <div class="scrollable">
-                <!--scrollable zone-->
-                <div class="slidable-mask">
-                    <!--slidable mask -->
-                    <div class="slidable-content">
-                        <div class="slidable slidable-1 on">
-                            <ul class="les-filtres ">
-                                <li class="go-zone">Zone : <span
-                                    class="bold zone-selected">Toutes</span>
-                                </li>
-                                <li class="go-category">Catégorie :
-                                    <span class="bold category-selected">Toutes</span>
-                                </li>
-                                <li class="search">
-                                    <form action="">
-                                        <input type="text"
-                                            class="search-input"
-                                            placeholder="Taper votre recherche ici" />
-                                        <input type="submit"
-                                            class="search-submit"
-                                            value="" />
-                                    </form>
-                                </li>
-                            </ul>
-                            <ul class="les-lieux">
-                                <li class="un-lieu" data-id="123">
-                                    <div
-                                        class="left picto picto-incubateur"></div>
-                                    <!--
+	<div id="toto"></div>
+	<div id="topbar">
+		<div class="social">
+			<div class="left">
+				<a href="" class="lastTweetAuthor">@techonmap</a> : <span
+					class="lastTweet">Test</span> <a href="" class="lastTweetDate">Test</a>
+			</div>
+			<div class="right">
+				Suivez-notre actualité sur : <a href="">Tw</a> <a href="">Fb</a>
+			</div>
+		</div>
+		<div class="header">
+			<div class="aside">
+				<a href="" class="btn-blue">Ajouter une organisation sur la
+					carte</a>
+			</div>
+			<div class="ban">
+				<div class="left">
+					<h1>
+						<img src="images/banner.png" alt="Techonmap">
+					</h1>
+					<h2>La carte des acteurs du numérique en Île-de-France</h2>
+				</div>
+				<div class="right">
+					<ul class="menu">
+						<li class="lightbox-trigger level-1 picto-about"
+							id="lightbox-about"></li>
+						<li class="lightbox-trigger level-1 picto-faq" id="lightbox-faq"></li>
+						<li class="deroulant  open-right level-1 picto-embeded">
+							<div class="hide-shadow"></div>
+							<div class="menu-mask">
+								<ul class="menu-content">
+									<li class="level-2"><a href="">lien</a></li>
+									<li class="level-2 lightbox-trigger" id="lightbox-embeded">
+										<a href="#">Ouvre POPUP</a>
+									</li>
+									<li class="level-2"><a href="">lien</a></li>
+									<li class="level-2 last"><a href="">lien</a></li>
+								</ul>
+							</div>
+						</li>
+						<li class="lightbox-trigger level-1 picto-contact"
+							id="lightbox-contact"></li>
+						<li class=" level-1 picto-heatmap"></li>
+						<!--heatmap-->
+						<li class="deroulant level-1 open-left picto-param">
+							<div class="hide-shadow"></div>
+							<div class="menu-mask">
+								<ul class="menu-content">
+									<li class="level-2"><a href="">lien</a></li>
+									<li class="level-2"><a href="">lien numéro 2</a></li>
+									<li class="level-2"><a href="">lien</a></li>
+									<li class="level-2"><a href="">lien</a></li>
+									<li class="level-2 last"><a href="">lien</a></li>
+								</ul>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+	</div>
+	<div id="sidebar" class="maximized">
+		<div class="sidebar-content">
+			<div class="result">
+				<div class="text left">
+					Résultat :
+					<div class="right">
+						<span class="val">24</span> <span class="slash">/</span> <span
+							class="total">1120</span>
+					</div>
+				</div>
+				<a href="#" class="picto left picto-minus minimize-sidebar"></a> <a
+					href="#" class="picto left picto-plus maximize-sidebar"></a>
+				<div class="clear"></div>
+			</div>
+			<div class="scrollable">
+				<!--scrollable zone-->
+				<div class="slidable-mask">
+					<!--slidable mask -->
+					<div class="slidable-content">
+						<div class="slidable slidable-1 on">
+							<ul class="les-filtres ">
+								<li class="go-zone">Zone : <span class="bold zone-selected">Toutes</span>
+								</li>
+								<li class="go-category">Catégorie : <span
+									class="bold category-selected">Toutes</span>
+								</li>
+								<li class="search">
+									<form action="">
+										<input type="text" class="search-input"
+											placeholder="Taper votre recherche ici" /> <input
+											type="submit" class="search-submit" value="" />
+									</form>
+								</li>
+							</ul>
+							<ul class="les-lieux">
+								<li class="un-lieu" data-id="123">
+									<div class="left picto picto-incubateur"></div> <!--
 										.picto-investisseur
 										.picto-incubateur
 										.picto-tierslieux
@@ -151,380 +141,305 @@
 										.picto-entreprise
 										.picto-prestataire
 										 -->
-                                    <div class="left description">
-                                        <strong class="title">Le
-                                            camping</strong>
-                                        <div class="category">
-                                            <a href="#">#incubateur</a>
-                                        </div>
-                                        <div class="long-mask">
-                                            <div class="long">
-                                                <p>123Venture permet
-                                                    aux investisseurs
-                                                    privés d’avoir une
-                                                    exposition à
-                                                    l’ensemble des
-                                                    métiers du
-                                                    capital-investissement
-                                                    (capital-risque,
-                                                    capital-développement,
-                                                    capital-transmission,
-                                                    mezzanine,
-                                                    immobilier,…) via
-                                                    des fonds fiscaux
-                                                    (FCPI, FIP, Holding
-                                                    d’investissement,
-                                                    SCPI,…) ou via des
-                                                    fonds non fiscaux.</p>
-                                                <div class="creation">
-                                                    Créé en : <span
-                                                        class="red">2001</span>
-                                                </div>
-                                                <div class="tags">
-                                                    <a href="">#capital-investissement</a>
-                                                    <a href="">#immobilier</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="location">42
-                                            avenue Raymond Poincaré</div>
-                                        <div class="url">
-                                            <a href="#">http://www.lecamping.com</a>
-                                        </div>
-                                        <div class="twitter">
-                                            <a href="#">@lecamping</a>
-                                        </div>
-                                        <div class="share-mask">
-                                            <div class="share">
-                                                Permalien <br /> <input
-                                                    type="text"
-                                                    class="input-permalien"
-                                                    value="http://www.wikipedia.fr"/>
-                                                <div class="left">
-                                                    Partager :
-                                                </div>
-                                                <div class="right">
-                                                    <a href="https://twitter.com/intent/tweet?source=webclient&text=URL_HERE" target="_blank">
-                                                        <img src="images/picto-share-twitter.png" alt="partagez sur twitter">
-                                                    </a>
-                                                    <a href="http://www.facebook.com/sharer/sharer.php?u=URL_HERE" target="_blank">
-                                                        <img src="images/picto-share-facebook.png" alt="partagez sur facebook">
-                                                    </a>
-                                                    <a href="http://www.linkedin.com/shareArticle?mini=true&url=URL_HERE" target="_blank"><!-- not tested-->
-                                                        <img src="images/picto-share-linkedin.png" alt="partagez sur linkedin">
-                                                    </a>
-                                                    <a href="https://api.viadeo.com/recommend?url=URL_HERE" target="_blank"><!-- not tested-->
-                                                        <img src="images/picto-share-viadeo.png" alt="partagez sur viadeo">
-                                                    </a>
-                                                </div>
-                                                <div class="clear"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="clear"></div>
-                                </li>
-                            </ul>
-                        </div>
-                        <div
-                            class="slidable slidable-2 category-section off">
-                            <div class="category-list-une">
-                                Catégories : <span
-                                    class="bold category-selected">Toutes</span>
-                            </div>
-                            <ul class="category-list">
-                                <li data-value="Toutes"
-                                    data-category-id="*" class="active">
-                                    <span
-                                    class="picto-gray picto-gray-toutes"></span>
-                                    Toutes <span class="tip right">1120</span>
-                                </li>
-                                <li data-value="Entreprises"
-                                    data-category-id="entreprise">
-                                    <span
-                                    class="picto-gray picto-gray-entreprise"></span>
-                                    Entreprises <span class="tip right">1120</span>
-                                </li>
-                                <li data-value="Tiers-lieux"
-                                    data-category-id="third-place">
-                                    <span
-                                    class="picto-gray picto-gray-tierslieu"></span>
-                                    Tiers-lieux <span class="tip right">1120</span>
-                                </li>
-                                <li data-value="Incubateurs"
-                                    data-category-id="incubator"><span
-                                    class="picto-gray picto-gray-incubateur"></span>
-                                    Incubateurs <span class="tip right">1120</span>
-                                </li>
-                                <li data-value="Investisseurs"
-                                    data-category-id="investor"><span
-                                    class="picto-gray picto-gray-investisseur"></span>
-                                    Investisseurs <span
-                                    class="tip right">1120</span></li>
-                                <li data-value="Communautés"
-                                    data-category-id="community"><span
-                                    class="picto-gray picto-gray-communaute"></span>
-                                    Communautés <span class="tip right">1120</span>
-                                </li>
-                                <li data-value="Prestataires"
-                                    data-category-id="prestataire">
-                                    <span
-                                    class="picto-gray picto-gray-prestataire"></span>
-                                    Prestataires <span class="tip right">1120</span>
-                                </li>
-                                <li data-value="Écoles"
-                                    data-category-id="school"><span
-                                    class="picto-gray picto-gray-ecole"></span>
-                                    Écoles <span class="tip right">1120</span>
-                                </li>
-                                <li data-value="Acteurs publiques"
-                                    data-category-id="public-actor">
-                                    <span
-                                    class="picto-gray picto-gray-publique"></span>
-                                    Acteurs publiques <span
-                                    class="tip right">1120</span>
-                                </li>
-                            </ul>
-                        <!--
+									<div class="left description">
+										<strong class="title">Le camping</strong>
+										<div class="category">
+											<a href="#">#incubateur</a>
+										</div>
+										<div class="long-mask">
+											<div class="long">
+												<p>123Venture permet aux investisseurs privés d’avoir
+													une exposition à l’ensemble des métiers du
+													capital-investissement (capital-risque,
+													capital-développement, capital-transmission, mezzanine,
+													immobilier,…) via des fonds fiscaux (FCPI, FIP, Holding
+													d’investissement, SCPI,…) ou via des fonds non fiscaux.</p>
+												<div class="creation">
+													Créé en : <span class="red">2001</span>
+												</div>
+												<div class="tags">
+													<a href="">#capital-investissement</a> <a href="">#immobilier</a>
+												</div>
+											</div>
+										</div>
+										<div class="location">42 avenue Raymond Poincaré</div>
+										<div class="url">
+											<a href="#">http://www.lecamping.com</a>
+										</div>
+										<div class="twitter">
+											<a href="#">@lecamping</a>
+										</div>
+										<div class="share-mask">
+											<div class="share">
+												Permalien <br /> <input type="text" class="input-permalien"
+													value="http://www.wikipedia.fr" />
+												<div class="left">Partager :</div>
+												<div class="right">
+													<a
+														href="https://twitter.com/intent/tweet?source=webclient&text=URL_HERE"
+														target="_blank"> <img
+														src="images/picto-share-twitter.png"
+														alt="partagez sur twitter">
+													</a> <a
+														href="http://www.facebook.com/sharer/sharer.php?u=URL_HERE"
+														target="_blank"> <img
+														src="images/picto-share-facebook.png"
+														alt="partagez sur facebook">
+													</a> <a
+														href="http://www.linkedin.com/shareArticle?mini=true&url=URL_HERE"
+														target="_blank"> <!-- not tested--> <img
+														src="images/picto-share-linkedin.png"
+														alt="partagez sur linkedin">
+													</a> <a href="https://api.viadeo.com/recommend?url=URL_HERE"
+														target="_blank"> <!-- not tested--> <img
+														src="images/picto-share-viadeo.png"
+														alt="partagez sur viadeo">
+													</a>
+												</div>
+												<div class="clear"></div>
+											</div>
+										</div>
+									</div>
+									<div class="clear"></div>
+								</li>
+							</ul>
+						</div>
+						<div class="slidable slidable-2 category-section off">
+							<div class="category-list-une">
+								Catégories : <span class="bold category-selected">Toutes</span>
+							</div>
+							<ul class="category-list">
+								<li data-value="Toutes" data-category-id="*" class="active">
+									<span class="picto-gray picto-gray-toutes"></span> Toutes <span
+									class="tip right">1120</span>
+								</li>
+								<li data-value="Entreprises" data-category-id="entreprise">
+									<span class="picto-gray picto-gray-entreprise"></span>
+									Entreprises <span class="tip right">1120</span>
+								</li>
+								<li data-value="Tiers-lieux" data-category-id="third-place">
+									<span class="picto-gray picto-gray-tierslieu"></span>
+									Tiers-lieux <span class="tip right">1120</span>
+								</li>
+								<li data-value="Incubateurs" data-category-id="incubator"><span
+									class="picto-gray picto-gray-incubateur"></span> Incubateurs <span
+									class="tip right">1120</span></li>
+								<li data-value="Investisseurs" data-category-id="investor"><span
+									class="picto-gray picto-gray-investisseur"></span>
+									Investisseurs <span class="tip right">1120</span></li>
+								<li data-value="Communautés" data-category-id="community"><span
+									class="picto-gray picto-gray-communaute"></span> Communautés <span
+									class="tip right">1120</span></li>
+								<li data-value="Prestataires" data-category-id="prestataire">
+									<span class="picto-gray picto-gray-prestataire"></span>
+									Prestataires <span class="tip right">1120</span>
+								</li>
+								<li data-value="Écoles" data-category-id="school"><span
+									class="picto-gray picto-gray-ecole"></span> Écoles <span
+									class="tip right">1120</span></li>
+								<li data-value="Acteurs publiques"
+									data-category-id="public-actor"><span
+									class="picto-gray picto-gray-publique"></span> Acteurs
+									publiques <span class="tip right">1120</span></li>
+							</ul>
+							<!--
                             <div
                                 class="category-list-une go-zone switch-filter">
                                 Zone : <span class="bold zone-selected">Toutes</span>
                             </div>
                         -->
-                        </div>
-                        <div
-                            class="slidable slidable-3 zone-section off">
-                            <div class="zone-list-une">
-                                Zone : <span class="bold zone-selected">Toutes</span>
-                            </div>
-                            <ul class="zone-list">
-                                <li data-value="Toutes" data-postcode="*" class="active">
-                                    <span class="picto-gray picto-gray-zones-toutes"></span>
-                                    Toutes
-                                    <span class="tip right">1120</span>
-                                </li>
-                                <li data-value="Paris" data-postcode="75">
-                                    <span class="picto-gray picto-gray-75"></span>
-                                    Paris
-                                    (75) <span class="tip right">1120</span>
-                                </li>
-                                <li data-value="Seine-et-Marne"
-                                    data-postcode="77">
-                                    <span class="picto-gray picto-gray-77"></span>
-                                    Seine-et-Marne
-                                    (77) <span class="tip right">1120</span>
-                                </li>
-                                <li data-value="Yvelines" data-postcode="78">
-                                    <span class="picto-gray picto-gray-78"></span>
-                                    Yvelines
-                                    (78) <span class="tip right">1120</span>
-                                </li>
-                                <li data-value="Essone" data-postcode="91">
-                                    <span class="picto-gray picto-gray-91"></span>
-                                    Essonne
-                                    (91) <span class="tip right">1120</span>
-                                </li>
-                                <li data-value="Hauts-de-Seine"
-                                    data-postcode="92">
-                                    <span class="picto-gray picto-gray-92"></span>
-                                    Hauts-de-Seine
-                                    (92) <span class="tip right">1120</span>
-                                </li>
-                                <li data-value="Seine-Saint-Denis"
-                                    data-postcode="93">
-                                    <span class="picto-gray picto-gray-93"></span>
-                                    Seine-Saint-Denis
-                                    (93) <span class="tip right">1120</span>
-                                </li>
-                                <li data-value="Val-de-Marne"
-                                    data-postcode="94">
-                                    <span class="picto-gray picto-gray-94"></span>
-                                    Val-de-Marne
-                                    (94) <span class="tip right">1120</span>
-                                </li>
-                                <li data-value="Val-d’Oise"
-                                    data-postcode="95">
-                                    <span class="picto-gray picto-gray-95"></span>
-                                    Val-d’Oise (95)
-                                    <span class="tip right">1120</span>
-                                </li>
-                            </ul>
-                            <!--
+						</div>
+						<div class="slidable slidable-3 zone-section off">
+							<div class="zone-list-une">
+								Zone : <span class="bold zone-selected">Toutes</span>
+							</div>
+							<ul class="zone-list">
+								<li data-value="Toutes" data-postcode="*" class="active"><span
+									class="picto-gray picto-gray-zones-toutes"></span> Toutes <span
+									class="tip right">1120</span></li>
+								<li data-value="Paris" data-postcode="75"><span
+									class="picto-gray picto-gray-75"></span> Paris (75) <span
+									class="tip right">1120</span></li>
+								<li data-value="Seine-et-Marne" data-postcode="77"><span
+									class="picto-gray picto-gray-77"></span> Seine-et-Marne (77) <span
+									class="tip right">1120</span></li>
+								<li data-value="Yvelines" data-postcode="78"><span
+									class="picto-gray picto-gray-78"></span> Yvelines (78) <span
+									class="tip right">1120</span></li>
+								<li data-value="Essone" data-postcode="91"><span
+									class="picto-gray picto-gray-91"></span> Essonne (91) <span
+									class="tip right">1120</span></li>
+								<li data-value="Hauts-de-Seine" data-postcode="92"><span
+									class="picto-gray picto-gray-92"></span> Hauts-de-Seine (92) <span
+									class="tip right">1120</span></li>
+								<li data-value="Seine-Saint-Denis" data-postcode="93"><span
+									class="picto-gray picto-gray-93"></span> Seine-Saint-Denis (93)
+									<span class="tip right">1120</span></li>
+								<li data-value="Val-de-Marne" data-postcode="94"><span
+									class="picto-gray picto-gray-94"></span> Val-de-Marne (94) <span
+									class="tip right">1120</span></li>
+								<li data-value="Val-d’Oise" data-postcode="95"><span
+									class="picto-gray picto-gray-95"></span> Val-d’Oise (95) <span
+									class="tip right">1120</span></li>
+							</ul>
+							<!--
                             <div
                                 class="zone-list-une go-category switch-filter">
                                 Catégories : <span
                                     class="bold category-selected">Toutes</span>
                             </div>
                             -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="powered">
-                Fiérement propulsé(e) par <a href=""><img
-                    src="images/logo-lafonderie.png" class="logo"
-                    alt="La Fonderie" /></a>
-            </div>
-        </div>
-    </div>
-    <div id="map"></div>
-    <div class="lightbox">
-        <!--contact page-->
-        <div class="lightbox-container lightbox-contact">
-            <div class="lightbox-top">
-                <div class="lightbox-picto picto-contact active"></div>
-                <div class="lightbox-title">Contactez-nous</div>
-                <div class="lightbox-close"></div>
-            </div>
-            <div class="lightbox-content">
-                <form action="">
-                    <input type="text" class="input-contact"
-                        placeholder="votre nom" /> <input type="text"
-                        class="input-contact" placeholder="votre email" />
-                    <select class="input-contact" name="" id="">
-                        <option value="">Choisissez une raison</option>
-                    </select>
-                    <textarea name="" id="" class="textarea-contact"
-                        placeholder="votre message"></textarea>
-                    <div class="submit-container">
-                        <input type="submit" class="btn-blue"
-                            value="Envoyer" />
-                        <div class="clear"></div>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <!--fAQ page-->
-        <div class="lightbox-container lightbox-faq large">
-            <div class="lightbox-top">
-                <div class="lightbox-picto picto-faq active"></div>
-                <div class="lightbox-title">FAQ</div>
-                <div class="lightbox-close"></div>
-            </div>
-            <div class="lightbox-content">
-                <ul>
-                    <li class="une-faq active">
-                        <div class="faq-trigger">Lorem ipsum dolor
-                            sit amet consectetur adipiscing elit</div>
-                        <div class="faq-content">Lorem ipsum dolor
-                            sit amet consectetur adipiscing elitLorem
-                            ipsum dolor sit amet consectetur adipiscing
-                            elitLorem ipsum dolor sit amet consectetur
-                            adipiscing elitLorem ipsum dolor sit amet
-                            consectetur adipiscing elitLorem ipsum dolor
-                            sit amet consectetur adipiscing elitLorem
-                            ipsum dolor sit amet consectetur adipiscing
-                            elit</div>
-                    </li>
-                    <li class="une-faq ">
-                        <div class="faq-trigger">Lorem ipsum dolor
-                            sit amet consectetur adipiscing elit</div>
-                        <div class="faq-content">Lorem ipsum dolor
-                            sit amet consectetur adipiscing elitLorem
-                            ipsum dolor sit amet consectetur adipiscing
-                            elitLorem ipsum dolor sit amet consectetur
-                            adipiscing elitLorem ipsum dolor sit amet
-                            consectetur adipiscing elitLorem ipsum dolor
-                            sit amet consectetur adipiscing elitLorem
-                            ipsum dolor sit amet consectetur adipiscing
-                            elit</div>
-                    </li>
-                    <li class="une-faq ">
-                        <div class="faq-trigger">Lorem ipsum dolor
-                            sit amet consectetur adipiscing elit</div>
-                        <div class="faq-content">Lorem ipsum dolor
-                            sit amet consectetur adipiscing elitLorem
-                            ipsum dolor sit amet consectetur adipiscing
-                            elitLorem ipsum dolor sit amet consectetur
-                            adipiscing elitLorem ipsum dolor sit amet
-                            consectetur adipiscing elitLorem ipsum dolor
-                            sit amet consectetur adipiscing elitLorem
-                            ipsum dolor sit amet consectetur adipiscing
-                            elit</div>
-                    </li>
-                </ul>
-            </div>
-        </div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="powered">
+				Fiérement propulsé(e) par <a href=""><img
+					src="images/logo-lafonderie.png" class="logo" alt="La Fonderie" /></a>
+			</div>
+		</div>
+	</div>
+	<div id="map" data-map-center="48.872630327,2.3357025512"
+		data-map-zoom="13" data-map-max-zoom="18"
+		data-map-tiles="http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/997/256/{z}/{x}/{y}.png"></div>
+	<div class="lightbox">
+		<!--contact page-->
+		<div class="lightbox-container lightbox-contact">
+			<div class="lightbox-top">
+				<div class="lightbox-picto picto-contact active"></div>
+				<div class="lightbox-title">Contactez-nous</div>
+				<div class="lightbox-close"></div>
+			</div>
+			<div class="lightbox-content">
+				<form action="">
+					<input type="text" class="input-contact" placeholder="votre nom" />
+					<input type="text" class="input-contact" placeholder="votre email" />
+					<select class="input-contact" name="" id="">
+						<option value="">Choisissez une raison</option>
+					</select>
+					<textarea name="" id="" class="textarea-contact"
+						placeholder="votre message"></textarea>
+					<div class="submit-container">
+						<input type="submit" class="btn-blue" value="Envoyer" />
+						<div class="clear"></div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<!--fAQ page-->
+		<div class="lightbox-container lightbox-faq large">
+			<div class="lightbox-top">
+				<div class="lightbox-picto picto-faq active"></div>
+				<div class="lightbox-title">FAQ</div>
+				<div class="lightbox-close"></div>
+			</div>
+			<div class="lightbox-content">
+				<ul>
+					<li class="une-faq active">
+						<div class="faq-trigger">Lorem ipsum dolor sit amet
+							consectetur adipiscing elit</div>
+						<div class="faq-content">Lorem ipsum dolor sit amet
+							consectetur adipiscing elitLorem ipsum dolor sit amet consectetur
+							adipiscing elitLorem ipsum dolor sit amet consectetur adipiscing
+							elitLorem ipsum dolor sit amet consectetur adipiscing elitLorem
+							ipsum dolor sit amet consectetur adipiscing elitLorem ipsum dolor
+							sit amet consectetur adipiscing elit</div>
+					</li>
+					<li class="une-faq ">
+						<div class="faq-trigger">Lorem ipsum dolor sit amet
+							consectetur adipiscing elit</div>
+						<div class="faq-content">Lorem ipsum dolor sit amet
+							consectetur adipiscing elitLorem ipsum dolor sit amet consectetur
+							adipiscing elitLorem ipsum dolor sit amet consectetur adipiscing
+							elitLorem ipsum dolor sit amet consectetur adipiscing elitLorem
+							ipsum dolor sit amet consectetur adipiscing elitLorem ipsum dolor
+							sit amet consectetur adipiscing elit</div>
+					</li>
+					<li class="une-faq ">
+						<div class="faq-trigger">Lorem ipsum dolor sit amet
+							consectetur adipiscing elit</div>
+						<div class="faq-content">Lorem ipsum dolor sit amet
+							consectetur adipiscing elitLorem ipsum dolor sit amet consectetur
+							adipiscing elitLorem ipsum dolor sit amet consectetur adipiscing
+							elitLorem ipsum dolor sit amet consectetur adipiscing elitLorem
+							ipsum dolor sit amet consectetur adipiscing elitLorem ipsum dolor
+							sit amet consectetur adipiscing elit</div>
+					</li>
+				</ul>
+			</div>
+		</div>
 
-        <!--A propos page-->
-        <div class="lightbox-container lightbox-about large">
-            <div class="lightbox-top">
-                <div class="lightbox-picto picto-about active"></div>
-                <div class="lightbox-title">À propos</div>
-                <div class="lightbox-close"></div>
-            </div>
-            <div class="lightbox-content">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Aenean consequat condimentum odio, vel aliquam enim
-                pharetra non. Proin nulla justo, pharetra sit amet
-                egestas ut, gravida et erat. Praesent ac elit ac nulla
-                porttitor placerat. Ut justo arcu, porta sit amet
-                consectetur id, aliquet placerat urna. Cum sociis
-                natoque penatibus et magnis dis parturient montes,
-                nascetur ridiculus mus. Duis eu risus velit. Nam non
-                lorem a leo viverra euismod. Fusce volutpat pulvinar
-                lacus, sit amet adipiscing ligula tincidunt eu. Aenean
-                odio mi, ultrices vitae volutpat sit amet, blandit a
-                magna. Nullam fringilla varius nulla, sed tincidunt
-                neque tincidunt vel. Etiam eu eros at est lobortis
-                venenatis a id nisi. Mauris et augue in enim rhoncus
-                pretium molestie nec nulla. Nulla in velit nulla, nec
-                elementum ligula. Lorem ipsum dolor sit amet,
-                consectetur adipiscing elit. Aenean consequat
-                condimentum odio, vel aliquam enim pharetra non. Proin
-                nulla justo, pharetra sit amet egestas ut, gravida et
-                erat. Praesent ac elit ac nulla porttitor placerat. Ut
-                justo arcu, porta sit amet consectetur id, aliquet
-                placerat urna. Cum sociis natoque penatibus et magnis
-                dis parturient montes, nascetur ridiculus mus. Duis eu
-                risus velit. Nam non lorem a leo viverra euismod. Fusce
-                volutpat pulvinar lacus, sit amet adipiscing ligula
-                tincidunt eu. Aenean odio mi, ultrices vitae volutpat
-                sit amet, blandit a magna. Nullam fringilla varius
-                nulla, sed tincidunt neque tincidunt vel. Etiam eu eros
-                at est lobortis venenatis a id nisi. Mauris et augue in
-                enim rhoncus pretium molestie nec nulla. Nulla in velit
-                nulla, nec elementum ligula. Lorem ipsum dolor sit amet,
-                consectetur adipiscing elit. Aenean consequat
-                condimentum odio, vel aliquam enim pharetra non. Proin
-                nulla justo, pharetra sit amet egestas ut, gravida et
-                erat. Praesent ac elit ac nulla porttitor placerat.
-                <div class="footer-links">
-                    <a href=""><img src="images/logo-lafonderie.png"
-                        alt="la fonderie"></a> <a href=""><img
-                        src="images/logo-ubimix.png" alt="ubimix"></a>
-                </div>
-            </div>
-        </div>
+		<!--A propos page-->
+		<div class="lightbox-container lightbox-about large">
+			<div class="lightbox-top">
+				<div class="lightbox-picto picto-about active"></div>
+				<div class="lightbox-title">À propos</div>
+				<div class="lightbox-close"></div>
+			</div>
+			<div class="lightbox-content">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+				consequat condimentum odio, vel aliquam enim pharetra non. Proin
+				nulla justo, pharetra sit amet egestas ut, gravida et erat. Praesent
+				ac elit ac nulla porttitor placerat. Ut justo arcu, porta sit amet
+				consectetur id, aliquet placerat urna. Cum sociis natoque penatibus
+				et magnis dis parturient montes, nascetur ridiculus mus. Duis eu
+				risus velit. Nam non lorem a leo viverra euismod. Fusce volutpat
+				pulvinar lacus, sit amet adipiscing ligula tincidunt eu. Aenean odio
+				mi, ultrices vitae volutpat sit amet, blandit a magna. Nullam
+				fringilla varius nulla, sed tincidunt neque tincidunt vel. Etiam eu
+				eros at est lobortis venenatis a id nisi. Mauris et augue in enim
+				rhoncus pretium molestie nec nulla. Nulla in velit nulla, nec
+				elementum ligula. Lorem ipsum dolor sit amet, consectetur adipiscing
+				elit. Aenean consequat condimentum odio, vel aliquam enim pharetra
+				non. Proin nulla justo, pharetra sit amet egestas ut, gravida et
+				erat. Praesent ac elit ac nulla porttitor placerat. Ut justo arcu,
+				porta sit amet consectetur id, aliquet placerat urna. Cum sociis
+				natoque penatibus et magnis dis parturient montes, nascetur
+				ridiculus mus. Duis eu risus velit. Nam non lorem a leo viverra
+				euismod. Fusce volutpat pulvinar lacus, sit amet adipiscing ligula
+				tincidunt eu. Aenean odio mi, ultrices vitae volutpat sit amet,
+				blandit a magna. Nullam fringilla varius nulla, sed tincidunt neque
+				tincidunt vel. Etiam eu eros at est lobortis venenatis a id nisi.
+				Mauris et augue in enim rhoncus pretium molestie nec nulla. Nulla in
+				velit nulla, nec elementum ligula. Lorem ipsum dolor sit amet,
+				consectetur adipiscing elit. Aenean consequat condimentum odio, vel
+				aliquam enim pharetra non. Proin nulla justo, pharetra sit amet
+				egestas ut, gravida et erat. Praesent ac elit ac nulla porttitor
+				placerat.
+				<div class="footer-links">
+					<a href=""><img src="images/logo-lafonderie.png"
+						alt="la fonderie"></a> <a href=""><img
+						src="images/logo-ubimix.png" alt="ubimix"></a>
+				</div>
+			</div>
+		</div>
 
-        <!--embeded page-->
-        <div class="lightbox-container lightbox-embeded">
-            <div class="lightbox-top">
-                <div class="lightbox-picto  picto-embeded active"></div>
-                <div class="lightbox-title">EMBARQUEZ LA CARTE SUR
-                    VOTRE SITE</div>
-                <div class="lightbox-close"></div>
-            </div>
-            <div class="lightbox-content"></div>
-        </div>
-    </div>
+		<!--embeded page-->
+		<div class="lightbox-container lightbox-embeded">
+			<div class="lightbox-top">
+				<div class="lightbox-picto  picto-embeded active"></div>
+				<div class="lightbox-title">EMBARQUEZ LA CARTE SUR VOTRE SITE</div>
+				<div class="lightbox-close"></div>
+			</div>
+			<div class="lightbox-content"></div>
+		</div>
+	</div>
 
-    <!-- Map popups -->
-    <div class="map-popup" style="display: none; overflow: hidden;">
-        <strong class="title">Le camping</strong>
-        <div class="location">42 avenue Raymond Poincaré</div>
-        <div class="url">
-            <a href="#">http://www.lecamping.com</a>
-        </div>
-        <div class="twitter">
-            <a href="#">@lecamping</a>
-        </div>
+	<!-- Map popups -->
+	<div class="map-popup" style="display: none; overflow: hidden;">
+		<strong class="title">Le camping</strong>
+		<div class="location">42 avenue Raymond Poincaré</div>
+		<div class="url">
+			<a href="#">http://www.lecamping.com</a>
+		</div>
+		<div class="twitter">
+			<a href="#">@lecamping</a>
+		</div>
 
-    </div>
+	</div>
 
-    <div id="loading"
-        style="display: none; position: fixed; top: 1px; left: 1px; background-color: white; border: 1px solid red; color: red; z-index: 1000; padding: 3px 0.5em;">
-        Loading...</div>
-    <script type="content/json" id="categories">
+	<div id="loading" style="display: none;">Loading...</div>
+	<script type="content/json" id="categories">
 {
     "investor" : {
         "name": "Investisseur",

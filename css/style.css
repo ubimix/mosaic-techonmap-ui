@@ -1260,3 +1260,15 @@ body.lightbox-open{
 		font-size: 13px;
 	}
 }
+
+#loading {
+	position: fixed;
+	top: 1px;
+	left: 1px;
+	background-color: white;
+	border: 1px solid red;
+	color: red;
+	z-index: 1000;
+	padding: 3px 0.5em;
+}
+}

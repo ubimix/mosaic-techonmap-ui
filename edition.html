@@ -4,8 +4,9 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link
-    href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700"
-    rel="stylesheet" type="text/css">
+	href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700"
+	rel="stylesheet" type="text/css">
+
 <link rel="stylesheet" href="lib/leaflet/leaflet.css" />
 <!--[if lte IE 8]><link rel="stylesheet" href="lib/leaflet/leaflet.ie.css" /><![endif]-->
 
@@ -13,149 +14,208 @@
 
 <script src="lib/jquery/jquery.js"></script>
 <script src="lib/leaflet/leaflet-src.js"></script>
-<script src="lib/leaflet-markercluster/leaflet.markercluster-src.js"></script>
+
+<script type="text/javascript" src="js/UmxCommons.js"></script>
+<script type="text/javascript" src="js/UmxMapServices.js"></script>
+<script type="text/javascript" src="js/UmxMapApp.js"></script>
+<script type="text/javascript" src="js/edition.js"></script>
+
 <title>TechOnMap</title>
 </head>
 <body class="edition">
-    <div id="topbar">
-        <div class="social">
-            <div class="left">Lorem ipsum dolor sit amet,
-                consectetur adipiscing elit. Ut arcu nulla, fermentum in
-                porta sit.</div>
-            <div class="right">right</div>
-        </div>
-        <div class="header">
-            <div class="aside">
-                <a href="" class="btn-gray">Annulez et revenez à la carte</a>
-            </div>
-            <div class="ban">
-                <div class="left">
-                    <h1>
-                        <img src="images/banner.png" alt="Techonmap">
-                    </h1>
-                    <h2>La carte des acteurs du numérique en
-                        Île-de-France</h2>
-                </div>
-                <div class="right"></div>
-                <div class="clear"></div>
-            </div>
-        </div>
-    </div>
-    <div id="content">
-        <h3 class="pagetitle">Ajoutez votre organisation</h3>
-        <form action="">
-            <div class="une-ligne std">
-                <input type="text" placeholder="Nom de votre organisation">
-                <div class="label">
-                    Champs obligatoire, Vérification automatique de présence dans la base
-                </div>
-            </div>
-            <div class="une-ligne std">
-                <input type="text" placeholder="Votre email">
-                <div class="label">
-                    Champs obligatoire, Pour vous contacter si nous avons besoin de vérifier la validité de vos ajouts/modifications
-                </div>
-            </div>
-            <script>
-                /*counting caracters length*/
-                jQuery(document).ready(function() {
-                    $('.count-field').keyup(function () {
-                        var max = 250;
-                        var len = $(this).val().length;
-                        $('.carac-count').text(len);
+	<div id="topbar">
+		<div class="social">
+			<div class="left">Lorem ipsum dolor sit amet, consectetur
+				adipiscing elit. Ut arcu nulla, fermentum in porta sit.</div>
+			<div class="right">right</div>
+		</div>
+		<div class="header">
+			<div class="aside">
+				<a href="" class="btn-gray cancel">Annulez et revenez à la carte</a>
+			</div>
+			<div class="ban">
+				<div class="left">
+					<h1>
+						<img src="images/banner.png" alt="Techonmap">
+					</h1>
+					<h2>La carte des acteurs du numérique en Île-de-France</h2>
+				</div>
+				<div class="right"></div>
+				<div class="clear"></div>
+			</div>
+		</div>
+	</div>
+	<div id="content">
+		<h3 class="pagetitle">Ajoutez votre organisation</h3>
+		<form action="">
+			<div class="une-ligne std">
+				<input data-field="name" type="text"
+					placeholder="Nom de votre organisation">
+				<div class="label">Champs obligatoire, Vérification
+					automatique de présence dans la base</div>
+			</div>
+			<div class="une-ligne std">
+				<input type="text" placeholder="Votre email">
+				<div class="label">Champs obligatoire, Pour vous contacter si
+					nous avons besoin de vérifier la validité de vos
+					ajouts/modifications</div>
+			</div>
+			<div class="une-ligne textarea">
+				<textarea class="count-field" data-field="description"
+					placeholder="Description de votre organisation"></textarea>
+				<div class="label">
+					Champs obligatoire, Limitation automatique à 250 caractères maximum
+					(<span class="bold"><span class="carac-count">0</span>/250</span>)
+				</div>
+			</div>
+			<div class="une-ligne std">
+				<select data-field="category">
+					<option value="">Choisissez une catégorie / type
+						d’organisation</option>
+				</select>
+				<div class="label">Champs obligatoire</div>
+			</div>
+			<div class="une-ligne tags">
+				<input type="text" data-field="tag" placeholder="Tag"> <input
+					data-field="tag" type="text" placeholder="Tag"> <input
+					type="text" data-field="tag" placeholder="Tag">
+				<div class="label">Ajoutez 3 mots-clés maximum pour
+					personnaliser la qualification de votre organisation</div>
+			</div>
+			<div class="une-ligne std">
+				<input type="text" data-field="address" class="picto-cible"
+					placeholder="Adresse de votre organisation">
+				<div class="label">Champs obligatoire, Tapez votre adresse :
+					N° et nom de rue, Code postal, Ville. Voir et ajuster sur mini map
+				</div>
+			</div>
 
-                        if (len > max) {
-                             $('.carac-count').addClass('red');
-                        } else {
-                             $('.carac-count').removeClass('red');
-                        }
-                    });     
-                });
-            </script>
-            <div class="une-ligne textarea">
-                <textarea name="" class="count-field" placeholder="Description de votre organisation"></textarea>
-                <div class="label">
-                    Champs obligatoire, Limitation automatique à 250 caractères maximum (<span class="bold"><span class="carac-count">0</span>/250</span>) 
-                </div>
-            </div>
-            <div class="une-ligne std">
-                <select>
-                    <option value="">Choisissez une catégorie / type d’organisation</option>
-                </select> 
-                <div class="label">
-                    Champs obligatoire
-                </div>
-            </div>
-            <div class="une-ligne tags">
-                <input type="text" placeholder="Tag">
-                <input type="text" placeholder="Tag">
-                <input type="text" placeholder="Tag">
-                <div class="label">
-                    Ajoutez 3 mots-clés maximum pour personnaliser la qualification de votre organisation
-                </div>
-            </div>
-             <div class="une-ligne std">
-                <input type="text" class="picto-cible" placeholder="Adresse de votre organisation">
-                <div class="label">
-                    Champs obligatoire, Tapez votre adresse : N° et nom de rue, Code postal, Ville. Voir et ajuster sur mini map
-                </div>
-            </div>
+			<div class="map" data-map-center="48.872630327,2.3357025512"
+				data-map-zoom="13" data-map-max-zoom="18"
+				data-map-tiles="http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/997/256/{z}/{x}/{y}.png"></div>
 
-            <div class="map"></div>
+			<div class="une-ligne std">
+				<input type="text" data-field="creationyear"
+					placeholder="Année de création">
+				<div class="label">Champs obligatoire, Quand votre
+					organisation est-elle née ?</div>
+			</div>
+			<div class="une-ligne std">
+				<input type="text" data-field="url" placeholder="Site web">
+				<div class="label">Champs obligatoire, Tapez l’url du site web
+					de votre organisation</div>
+			</div>
+			<div class="une-ligne std">
+				<input type="text" data-field="twitter" placeholder="Twitter">
+				<div class="label">Tapez le nom du compte twitter de votre
+					organisation</div>
+			</div>
+			<div class="une-ligne std">
+				<input type="text" data-field="facebook" placeholder="Facebook">
+				<div class="label">Tapez l’url de la page facebook de votre
+					organisation</div>
+			</div>
+			<div class="une-ligne std">
+				<input type="text" data-field="googleplus" placeholder="Google +">
+				<div class="label">Tapez l’url de la page Google + de votre
+					organisation</div>
+			</div>
+			<div class="une-ligne std">
+				<input type="text" data-field="linkedin" placeholder="Linkedin">
+				<div class="label">Tapez l’url de la page linkedin de votre
+					organisation</div>
+			</div>
+			<div class="une-ligne std">
+				<input type="text" data-field="viadeo" placeholder="Viadeo">
+				<div class="label">Tapez l’url de la page viadeo de votre
+					organisation</div>
+			</div>
 
-            <div class="une-ligne std">
-                <input type="text" placeholder="Année de création">
-                <div class="label">
-                    Champs obligatoire, Quand votre organisation est-elle née ?
-                </div>
-            </div>
-            <div class="une-ligne std">
-                <input type="text" placeholder="Site web">
-                <div class="label">
-                    Champs obligatoire, Tapez l’url du site web de votre organisation
-                </div>
-            </div>
-            <div class="une-ligne std">
-                <input type="text" placeholder="Twitter">
-                <div class="label">
-                    Tapez le nom du compte twitter de votre organisation
-                </div>
-            </div>
-            <div class="une-ligne std">
-                <input type="text" placeholder="Facebook">
-                <div class="label">
-                    Tapez l’url de la page facebook de votre organisation
-                </div>
-            </div>
-            <div class="une-ligne std">
-                <input type="text" placeholder="Google +">
-                <div class="label">
-                    Tapez l’url de la page Google + de votre organisation
-                </div>
-            </div>
-            <div class="une-ligne std">
-                <input type="text" placeholder="Linkedin">
-                <div class="label">
-                    Tapez l’url de la page linkedin de votre organisation
-                </div>
-            </div>
-            <div class="une-ligne std">
-                <input type="text" placeholder="Viadeo">
-                <div class="label">
-                    Tapez l’url de la page viadeo de votre organisation
-                </div>
-            </div>
+			<div class="inputs">
+				<a href="" class="btn-gray cancel">Annulez</a> <input type="submit"
+					class="btn-green" value="Validez l'ajout" />
+			</div>
+		</form>
+		<h3 class="pagetitle">Conditions d’utilisation</h3>
+		<p class="condition">Lorem ipsum dolor sit amet, consectetuer
+			adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
+			dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam,
+			quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut
+			aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in
+			hendrerit in vulputate velit esse molestie consequat, vel illum
+			dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto
+			odio dignissim qui blandit praesent luptatum zzril delenit augue duis
+			dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet,
+			consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+			ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim
+			veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl
+			ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor
+			in hendrerit in vulputate velit esse molestie consequat, vel illum
+			dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto
+			odio dignissim qui blandit praesent luptatum zzril delenit augue duis
+			dolore te feugait nulla facilisi.Lorem ipsum dolor sit amet,
+			consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+			ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim
+			veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl
+			ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor
+			in hendrerit in vulputate velit esse molestie consequat, vel illum
+			dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto
+			odio dignissim qui blandit praesent luptatum zzril delenit augue duis
+			dolore te feugait nulla facilisi.</p>
+	</div>
+	<script type="content/json" id="categories">
+{
+    "investor" : {
+        "name": "Investisseur",
+        "iconOff" : "images/marker-investisseur-off.png",
+        "iconOn" : "images/marker-investisseur-on.png",
+        "pictoClass" : "picto-investisseur"
+    },
+    "incubator" : {
+        "name" : "Incubateur",
+        "iconOff" : "images/marker-incubateur-off.png",
+        "iconOn" : "images/marker-incubateur-on.png",
+        "pictoClass" : "picto-incubateur"
+    },
+    "third-place" : {
+        "name" : "Tiers-lieux",
+        "iconOff" : "images/marker-tierslieux-off.png",
+        "iconOn" : "images/marker-tierslieux-on.png",
+        "pictoClass" : "picto-tierslieux"
+    },
+    "school" : {
+        "name" : "École",
+        "iconOff" : "images/marker-ecole-off.png",
+        "iconOn" : "images/marker-ecole-on.png",
+        "pictoClass" : "picto-ecole"
+    },
+    "public-actor" : {
+        "name" : "Acteurs publiques",
+        "iconOff" : "images/marker-publique-off.png",
+        "iconOn" : "images/marker-publique-on.png",
+        "pictoClass" : "picto-publique"
+    },
+    "community" : {
+        "name" : "Communauté",
+        "iconOff" : "images/marker-communaute-off.png",
+        "iconOn" : "images/marker-communaute-on.png",
+        "pictoClass" : "picto-communaute"
+    },
+    "entreprise" : {
+        "name" : "Entreprises",
+        "iconOff" : "images/marker-entreprise-off.png",
+        "iconOn" : "images/marker-entreprise-on.png",
+        "pictoClass" : "picto-entreprise"
+    },
+    "prestataire" : {
+        "name" : "Prestatair",
+        "iconOff" : "images/marker-prestataire-off.png",
+        "iconOn" : "images/marker-prestataire-on.png",
+        "pictoClass" : "picto-prestataire"
+    }
+}
+</script>
+	<div id="loading" style="display: none;">Loading...</div>
 
-            <div class="inputs">
-                <a href="" class="btn-gray">Annulez</a>
-                <input type="submit" class="btn-green" value="Validez l'ajout" />
-            </div>
-        </form>
-        <h3 class="pagetitle">Conditions d’utilisation</h3>
-        <p class="condition">
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
-        </p>
-    </div>
 </body>
 </html>
