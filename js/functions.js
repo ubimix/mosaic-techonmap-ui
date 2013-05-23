@@ -301,7 +301,31 @@ jQuery(document).ready(function() {
     });
     
     jQuery('.picto-heatmap').click(function() {
-         dataManager.fire('switchHeatmap', {});
+        jQuery(this).toggleClass('on');
+        dataManager.fire('switchHeatmap', {});
+    });
+
+    /*----------------------------------*/
+    /*---------generate image-----------*/
+    /*----------------------------------*/
+    jQuery('.generate-image-trigger').on('click', function(e){
+        e.preventDefault();
+        // function to to generate image go here
+        console.log('generate image trigger has been clicked');
+    });
+
+    /*----------------------------------*/
+    /*----------export data-------------*/
+    /*----------------------------------*/
+    jQuery('.export-data-geojson-trigger').on('click', function(e){
+        e.preventDefault();
+        // function to to export geoJSON go here
+        console.log('export geoJSON');
+    });
+    jQuery('.export-data-csv-trigger').on('click', function(e){
+        e.preventDefault();
+        // function to to export CSV go here
+        console.log('export CSV');
     });
     
 	/*----------------------------------*/
@@ -622,7 +646,8 @@ jQuery(document).ready(function() {
 	/*---------------------------*/
 
 	/* events */
-	jQuery('.lightbox-trigger').on('click',function(){
+	jQuery('.lightbox-trigger').on('click',function(e){
+        e.preventDefault();
 		openLightbox(jQuery(this).attr('id'));
 	});
 	jQuery('.lightbox, .lightbox-close').on('click',function(e){

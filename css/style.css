@@ -128,7 +128,7 @@ table {
 .picto-about{
 	background: url(../images/menu-sprite.png) 0 8px no-repeat;
 }
-.picto-about:hover,
+a:hover .picto-about,
 .picto-about.active{
 	background: url(../images/menu-sprite.png) 0 -34px no-repeat;
 }
@@ -136,7 +136,7 @@ table {
 .picto-faq{
 	background: url(../images/menu-sprite.png) -46px 8px no-repeat;
 }
-.picto-faq:hover,
+a:hover .picto-faq,
 .picto-faq.active{
 	background: url(../images/menu-sprite.png) -46px -34px no-repeat;
 }
@@ -144,7 +144,7 @@ table {
 .picto-embeded{
 	background: url(../images/menu-sprite.png) -96px 8px no-repeat;
 }
-.picto-embeded:hover,
+a:hover .picto-embeded,
 .picto-embeded.active{
 	background: url(../images/menu-sprite.png) -96px -34px no-repeat;
 }
@@ -152,7 +152,7 @@ table {
 .picto-contact{
 	background: url(../images/menu-sprite.png) -141px 8px no-repeat;
 }
-.picto-contact:hover,
+a:hover .picto-contact,
 .picto-contact.active{
 	background: url(../images/menu-sprite.png) -141px -34px no-repeat;
 }
@@ -161,6 +161,7 @@ table {
 	background: url(../images/menu-sprite.png) -188px 8px no-repeat;
 }
 .picto-heatmap:hover,
+.picto-heatmap.on,
 .picto-heatmap.active{
 	background: url(../images/menu-sprite.png) -188px -34px no-repeat;
 }
@@ -600,24 +601,28 @@ body.lightbox-open{
 	position: absolute;
 	top: 41px;
 	background: #fff;
-	width: 175px;
+	width: 185px;
 	box-shadow: 0px 0px 2px silver;
 	height: 0;
 	z-index: 10;
 }
 #topbar .header .ban .menu .open-left .menu-mask{
-	left:-134px; /*175 - 41*/
+	left:-144px; /*185 - 41*/
 }
 #topbar .header .ban .menu .menu-2{
 
 }
-
+#topbar .header .ban .menu li.level-2 a .picto{
+	width: 41px;
+	height: 41px;
+	float: left;
+}
 #topbar .header .ban .menu li.level-2 a{
 	display: block;
-	padding-top: 15px;
-	padding-bottom: 15px;
+	height: 45px;
+	line-height: 45px;
 	border-bottom: 1px solid #DDDDDD;
-	padding-left: 15px;
+	padding-left: 0px;
 	font-size: 14px;
 	color: #333333;
 }
@@ -859,13 +864,25 @@ body.lightbox-open{
 	margin-left: 12px;
 }
 #sidebar .sidebar-content .scrollable .les-lieux .un-lieu.open .description{
-	background: url(../images/picto-minus-silver.png) 100% 10px no-repeat;
+	/*background: url(../images/picto-minus-silver.png) 100% 10px no-repeat;*/
+}
+#sidebar .sidebar-content .scrollable .les-lieux .un-lieu .description .edit{
+	width: 45px;
+	height: 25px;
+	float: right;
+	background: url(../images/picto-cible.png) 50% 50% no-repeat;
+	display: none;
+}
+#sidebar .sidebar-content .scrollable .les-lieux .un-lieu.open .description .edit{
+	display: block;
 }
 #sidebar .sidebar-content .scrollable .les-lieux .un-lieu .description strong{
 	display: block;
 	font-size: 18px;
 	cursor:pointer;
 	color: #999999;
+	width: auto;
+	margin-right: 45px;
 }
 #sidebar .sidebar-content .scrollable .les-lieux .un-lieu .description .category{
 	font-style: italic;
@@ -1026,6 +1043,28 @@ body.lightbox-open{
 	line-height: 1.2;
 }
 /*map*/
+
+.leaflet-control-zoom {
+	width: 41px;
+	border-radius: 0;
+	background: #fff;
+	border: 0;
+	box-shadow: 0px 0px 3px rgba(0,0,0,0.3)
+
+}
+a.leaflet-control-zoom-in{
+	width: 41px;
+	height: 41px;
+	border-bottom: 1px solid #EEEEEE;
+	text-indent: -999px;
+	background: url(../images/picto-zoom-in.png) 50% 50% no-repeat;	
+}
+a.leaflet-control-zoom-out{
+	width: 41px;
+	height: 41px;
+	text-indent: -999px;
+	background: url(../images/picto-zoom-out.png) 50% 50% no-repeat;	
+}
 #map .leaflet-popup-content-wrapper{
 	border-radius: 0;
 	box-shadow: 0px 0px 3px rgba(0,0,0,0.3)
