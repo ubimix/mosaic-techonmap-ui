@@ -925,15 +925,26 @@ body.lightbox-open{
 {
 	margin-bottom: 20px;
 }
-#sidebar .sidebar-content .powered{
+#sidebar .sidebar-content .powered {
 	height: 50px;
 	line-height: 50px;
 	border-top: 1px solid #dedede;
-	padding-left: 25px;
 	color:#999999;
 	font-size: 12px;
 	text-align: center;
 	background: #fff;
+}
+#sidebar .sidebar-content .powered .sync-trigger{
+	height: 50px;
+	width: 50px;
+	background: silver;
+	display: block;
+}
+#sidebar .sidebar-content .powered .sync-trigger.on{
+	height: 50px;
+	width: 50px;
+	background: pink;
+	display: block;
 }
 #sidebar .sidebar-content .powered .logo{
 	position: relative;

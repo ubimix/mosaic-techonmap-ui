@@ -310,7 +310,7 @@ jQuery(document).ready(function() {
     /*----------------------------------*/
     jQuery('.generate-image-trigger').on('click', function(e){
         e.preventDefault();
-        // function to to generate image go here
+        // function to generate image go here
         console.log('generate image trigger has been clicked');
     });
 
@@ -319,15 +319,33 @@ jQuery(document).ready(function() {
     /*----------------------------------*/
     jQuery('.export-data-geojson-trigger').on('click', function(e){
         e.preventDefault();
-        // function to to export geoJSON go here
+        // function to export geoJSON go here
         console.log('export geoJSON');
     });
     jQuery('.export-data-csv-trigger').on('click', function(e){
         e.preventDefault();
-        // function to to export CSV go here
+        // function to export CSV go here
         console.log('export CSV');
     });
-    
+
+    /*----------------------------------*/
+    /*----------sync map/list-----------*/
+    /*----------------------------------*/
+    jQuery('.sync-trigger').on('click', function(e){
+        e.preventDefault();
+        jQuery(this).toggleClass('on');
+        if(jQuery(this).hasClass('on')){
+            // function to enable sync
+            console.log('enable sync');
+        }
+        else{
+            // function to disable sync
+            console.log('disable sync');   
+        }
+
+    });
+
+
 	/*----------------------------------*/
 	/*------menu déroulant topbar-------*/
 	/*----------------------------------*/
