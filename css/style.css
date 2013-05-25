@@ -941,10 +941,7 @@ body.lightbox-open{
 	display: block;
 }
 #sidebar .sidebar-content .powered .sync-trigger.on{
-	height: 50px;
-	width: 50px;
 	background: pink;
-	display: block;
 }
 #sidebar .sidebar-content .powered .logo{
 	position: relative;
