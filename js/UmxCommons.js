@@ -224,7 +224,7 @@
             this.stop();
             if (arguments.length > 0) {
                 var action = arguments[0]
-                var that = arguments[1] || this;
+                var that = arguments[1] || this;
                 var args = [];
                 for ( var i = 2; i < arguments.length; i++) {
                     args.push(arguments[i]);
@@ -254,5 +254,5 @@
     umx.EventManager = EventManager;
     umx.HashTracker = HashTracker;
     umx.DelayedAction = DelayedAction;
-    
+
 })(this);

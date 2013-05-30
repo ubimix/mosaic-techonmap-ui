@@ -49,8 +49,8 @@
 
                         /**
                          * This utility method transforms the address name in a
-                         * 'standardized' point representation ("address" + "city" +
-                         * "lng" + "lat" + "postcode").
+                         * 'standardized' point representation ("address" +
+                         * "city" + "lng" + "lat" + "postcode").
                          */
                         _parseStreetAddress : function(name) {
                             var result = null;

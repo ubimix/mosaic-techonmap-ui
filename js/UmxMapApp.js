@@ -37,11 +37,11 @@
 
 	/* ---------------------------------------------------------------------- */
 	/**
-	 * This method is used to move the specified element in view in a scrollable
-	 * container.
-	 * 
-	 * @see http://stackoverflow.com/questions/1805808/how-do-i-scroll-a-row-of-a-table-into-view-element-scrollintoview-using-jquery
-	 */
+     * This method is used to move the specified element in view in a scrollable
+     * container.
+     * 
+     * @see http://stackoverflow.com/questions/1805808/how-do-i-scroll-a-row-of-a-table-into-view-element-scrollintoview-using-jquery
+     */
 	function scrollIntoView($element, $scroller, delta, duration) {
 		delta = delta || 0;
 		duration = duration || 0;
@@ -76,9 +76,9 @@
 
 	/* ---------------------------------------------------------------------- */
 	/**
-	 * This calss is used to manage point categories - their names, keys and
-	 * associated visual attributes (like icons) etc
-	 */
+     * This calss is used to manage point categories - their names, keys and
+     * associated visual attributes (like icons) etc
+     */
 	function CategoryInfo(categories) {
 		this.icons = {};
 		this.setCategories(categories);
