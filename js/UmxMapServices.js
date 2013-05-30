@@ -133,22 +133,8 @@
         },
 
         /**
-         * Fetch an individual point for the specified point ID
-         */
-        fetch : function(pointId, onSuccess, onFailure) {
-            var f = function(filteredData) {
-                var result = filteredData.length > 0 ? filteredData[0] : null;
-                onSuccess(result);
-            };
-            this.search({
-                properties : {
-                    id : pointId
-                }
-            }, f, onFailure);
-        },
-
-        /**
-         * Searches all points corresponding to the specified filter.
+         * Searches all points corresponding to the specified filter. This
+         * method internally uses the <code>filterItems</code> method.
          */
         search : function(filter) {
             var that = this
@@ -348,11 +334,6 @@
                     postcode : postcode
                 }
             });
-        },
-
-        /** Returns the number of items corresponding to the specified postcode */
-        getNumberOfItemsForPostcode : function(postcode) {
-            return this.filterService.getNumberOfItemsForPostcode(postcode);
         },
 
         /* ------------------------------------------------------------------ */
