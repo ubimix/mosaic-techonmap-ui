@@ -140,6 +140,9 @@
 		var info = this.getCategoryInfo(category);
 		return info.name;
 	}
+	CategoryInfo.prototype.getCategories = function() {
+	    return this.categories;
+	}
 
 	/* ---------------------------------------------------------------------- */
 	/* Global variables initialization */

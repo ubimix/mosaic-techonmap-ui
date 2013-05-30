@@ -182,7 +182,77 @@
         }
     });
 
+    /* ====================================================================== */
+    /** Utility methods and services */
+    /* ------------------------------------------------------------------ */
+
+    /**
+     * This class is used to delay execution of an action - it executes only the
+     * last operation fired in a specific period of time. This class is useful
+     * to avoid frequent calls for long-running ("cost") operations. For example
+     * it could be used to show additional information when mouse is over a
+     * link.
+     */
+    var DelayedAction = new Class();
+    DelayedAction.extend(EventManager);
+    DelayedAction.include({
+
+        /** Sets minimal timeout between two executions. */
+        init : function(timeout) {
+            this.timerId = null;
+            this.timeout = timeout || 100;
+        },
+        /**
+         * Returns the timeout (lag) between two calls.
+         */
+        getTimeout : function() {
+            return this.timeout;
+        },
+
+        /**
+         * Runs a new action. The first parameter of this method is the function
+         * to call. All other parameters are used as arguments for the function.
+         * 
+         * @param method
+         *            delayed method to launch
+         * @param object
+         *            the object set as a "this" for the method
+         * @param parameters
+         *            arguments of the method to launch
+         */
+        run : function(/* Function */method /* , Arguments */) {
+            this.stop();
+            if (arguments.length > 0) {
+                var action = arguments[0]
+                var that = arguments[1] || this;
+                var args = [];
+                for ( var i = 2; i < arguments.length; i++) {
+                    args.push(arguments[i]);
+                }
+                this.timerId = setTimeout(function() {
+                    action.apply(this, args);
+                    that.timerId = null;
+                }, this.getTimeout());
+            }
+        },
+
+        /**
+         * Interrupts the action execution.
+         */
+        stop : function() {
+            if (this.timerId) {
+                clearTimeout(this.timerId);
+                this.timerId = null;
+            }
+        }
+
+    });
+
+    /* ====================================================================== */
+
     umx.Class = Class;
     umx.EventManager = EventManager;
     umx.HashTracker = HashTracker;
+    umx.DelayedAction = DelayedAction;
+    
 })(this);

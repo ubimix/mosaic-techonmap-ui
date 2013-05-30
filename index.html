@@ -23,6 +23,8 @@
 <script src="lib/leaflet-markercluster/leaflet.markercluster-src.js"></script>
 <script src="lib/leaflet-heatmap/heatmap.js"></script>
 <script src="lib/leaflet-heatmap/heatmap-leaflet.js"></script>
+<script src="lib/html2canvas/html2canvas.js"></script>
+<script src="lib/canvas2image/canvas2image.js"></script>
 
 <script type="text/javascript" src="js/UmxMinimapUI.js"></script>
 <script type="text/javascript" src="js/UmxCommons.js"></script>
@@ -46,8 +48,8 @@
 		</div>
 		<div class="header">
 			<div class="aside">
-				<a href="edition.html" class="btn-blue">Ajouter une organisation sur la
-					carte</a>
+				<a href="edition.html" class="btn-blue">Ajouter une organisation
+					sur la carte</a>
 			</div>
 			<div class="ban">
 				<div class="left">
@@ -85,41 +87,31 @@
 							<div class="menu-mask">
 								<ul class="menu-content">
 									<li class="level-2 lightbox-trigger" id="lightbox-about">
-										<a href="#">
-											<div class="picto picto-about"></div>
-											À Propos
-										</a>
+										<a href="#"> <span class="picto picto-about"></span> À
+											Propos
+									</a>
 									</li>
-									<li class="level-2 lightbox-trigger" id="lightbox-faq">
-										<a href="#">
-											<div class="picto picto-faq "></div>
-											FAQ
-										</a>
-									</li>
+									<li class="level-2 lightbox-trigger" id="lightbox-faq"><a
+										href="#"> <span class="picto picto-faq "></span> FAQ
+									</a></li>
 									<li class="level-2 lightbox-trigger" id="lightbox-embeded">
-										<a href="#">
-											<div class="picto picto-embeded"></div>
+										<a href="#"> <span class="picto picto-embeded"></span>
 											Embed
-										</a>
+									</a>
 									</li>
-									<li class="level-2">
-										<a href="mailt:techonmap@lafonderie-idf.fr">
-											<div class="picto picto-contact"></div>
-											Contact
-										</a>
-									</li>
-									<li class="level-2">
-										<a href="" class="generate-image-trigger">
-											<div class="picto"></div>
+									<li class="level-2"><a
+										href="mailt:techonmap@lafonderie-idf.fr"> <span
+											class="picto picto-contact"></span> Contact
+									</a></li>
+									<li class="level-2"><a href="#"
+										class="generate-image-trigger"> <span class="picto"></span>
 											Générer une image
-										</a>
-									</li>
-									<li class="level-2 lightbox-trigger last" id="lightbox-export-data">
-										<a href="" id="export-data-trigger">
-											<div class="picto"></div>
+									</a></li>
+									<li class="level-2 lightbox-trigger last"
+										id="lightbox-export-data"><a href=""
+										id="export-data-trigger"> <span class="picto"></span>
 											Export de données
-										</a>
-									</li>
+									</a></li>
 								</ul>
 							</div>
 						</li>
@@ -225,7 +217,8 @@
 														target="_blank"> <!-- not tested--> <img
 														src="images/picto-share-linkedin.png"
 														alt="partagez sur linkedin">
-													</a> <a href="http://www.viadeo.com/shareit/share/?url=URL_HERE"
+													</a> <a
+														href="http://www.viadeo.com/shareit/share/?url=URL_HERE"
 														target="_blank"> <!-- not tested--> <img
 														src="images/picto-share-viadeo.png"
 														alt="partagez sur viadeo">
@@ -272,8 +265,7 @@
 								<li data-value="Écoles" data-category-id="school"><span
 									class="picto-gray picto-gray-ecole"></span> Écoles <span
 									class="tip right">1120</span></li>
-								<li data-value="Acteurs publics"
-									data-category-id="public-actor"><span
+								<li data-value="Acteurs publics" data-category-id="public-actor"><span
 									class="picto-gray picto-gray-publique"></span> Acteurs
 									publiques <span class="tip right">1120</span></li>
 							</ul>
@@ -329,10 +321,9 @@
 				</div>
 			</div>
 			<div class="powered">
-				<a href="#" class="left sync-trigger"></a>
-				Fiérement propulsé(e) par 
-				<a href="">
-					<img src="images/logo-lafonderie.png" class="logo" alt="La Fonderie" />
+				<a href="#" class="left sync-trigger"></a> Fiérement propulsé(e) par
+				<a href=""> <img src="images/logo-lafonderie.png" class="logo"
+					alt="La Fonderie" />
 				</a>
 			</div>
 		</div>
@@ -415,17 +406,51 @@
 				<div class="lightbox-close"></div>
 			</div>
 			<div class="lightbox-content">
-				Moteur d'innovation, d'emploi et de croissance, l'économie numérique est devenue un atout puissant pour le développement de l'économie régionale. Fondée sur l'activité d'un écosystème fertile et bouillonnant, elle permet à l'Ile-de-France, région capitale, de s'affirmer comme un hub technologique de premier rang capable de rivaliser avec ses équivalents en Europe et dans le monde.
-				<br/>
-				<br/>
-				Pour renforcer la visibilité et l’attractivité de l’écosystème numérique francilien, il apparaît primordial de représenter et de valoriser les forces en présence. Qui sont les acteurs du numérique en Ile-de-France ? Combien sont-ils ? Que font-ils ? Comment sont-ils répartis sur le territoire ? Dans la compétition engagée à l’international, il s’agit de « se compter pour compter » en cherchant à lever les approximations qui entourent parfois les réponses à ces questions.
-				<br/>
-				<br/>
-				L’objectif de TechOnMap, fièrement propulsé(e) par La Fonderie, est de collecter, d’organiser et de partager les données permettant de cartographier l’ensemble des acteurs de cet écosystème. Conçue dans une logique de coproduction durable, TechOnMap est une application cartographique collaborative et ouverte qui s’appuie sur un système de mise à jour distribué (crowdsourcing) et de libre mise à disposition des données pour leur rediffusion personnalisée (widget) ou leur réutilisation (opendata) par des tiers.				
+				Moteur d'innovation, d'emploi et de croissance, l'économie numérique
+				est devenue un atout puissant pour le développement de l'économie
+				régionale. Fondée sur l'activité d'un écosystème fertile et
+				bouillonnant, elle permet à l'Ile-de-France, région capitale, de
+				s'affirmer comme un hub technologique de premier rang capable de
+				rivaliser avec ses équivalents en Europe et dans le monde. <br /> <br />
+				Pour renforcer la visibilité et l’attractivité de l’écosystème
+				numérique francilien, il apparaît primordial de représenter et de
+				valoriser les forces en présence. Qui sont les acteurs du numérique
+				en Ile-de-France ? Combien sont-ils ? Que font-ils ? Comment
+				sont-ils répartis sur le territoire ? Dans la compétition engagée à
+				l’international, il s’agit de « se compter pour compter » en
+				cherchant à lever les approximations qui entourent parfois les
+				réponses à ces questions. <br /> <br /> L’objectif de TechOnMap,
+				fièrement propulsé(e) par La Fonderie, est de collecter, d’organiser
+				et de partager les données permettant de cartographier l’ensemble
+				des acteurs de cet écosystème. Conçue dans une logique de
+				coproduction durable, TechOnMap est une application cartographique
+				collaborative et ouverte qui s’appuie sur un système de mise à jour
+				distribué (crowdsourcing) et de libre mise à disposition des données
+				pour leur rediffusion personnalisée (widget) ou leur réutilisation
+				(opendata) par des tiers.
 				<div class="footer-links">
 					<a href=""><img src="images/logo-lafonderie.png"
 						alt="la fonderie"></a> <a href=""><img
 						src="images/logo-ubimix.png" alt="ubimix"></a>
+				</div>
+			</div>
+		</div>
+
+		<!--save image block-->
+		<div class="lightbox-container lightbox-image">
+			<div class="lightbox-top">
+				<div class="lightbox-picto  picto-embeded active"></div>
+				<div class="lightbox-title">IMAGE</div>
+				<div class="lightbox-close"></div>
+			</div>
+			<div class="lightbox-content">
+				<!-- FIXME: translation -->
+				<div style="margin: 30px; border: 3px solid #eee;">
+					<div class="message" style="display: none;">Loading...</div>
+					<div class="image"></div>
+				</div>
+				<div class="btns">
+					<button class="save-image-trigger">Save</button>
 				</div>
 			</div>
 		</div>
@@ -444,14 +469,14 @@
 		<div class="lightbox-container lightbox-export-data">
 			<div class="lightbox-top">
 				<div class="lightbox-picto  picto-export-data active"></div>
-				<div class="lightbox-title">TELECHARGEZ LES DONNEES DE LA CARTE</div>
+				<div class="lightbox-title">TELECHARGEZ LES DONNEES DE LA
+					CARTE</div>
 				<div class="lightbox-close"></div>
 			</div>
 			<div class="lightbox-content">
-				Licence ODbL<br /> <br />
-				<a href="#" class="export-data-geojson-trigger">GeoJSON</a>
-				<br />
-				<a href="#" class="export-data-csv-trigger">CSV</a>
+				Licence ODbL<br /> <br /> <a href="#"
+					class="export-data-geojson-trigger">GeoJSON</a> <br /> <a href="#"
+					class="export-data-csv-trigger">CSV</a>
 			</div>
 		</div>
 	</div>

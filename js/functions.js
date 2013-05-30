@@ -73,7 +73,7 @@ $(window).load(function(){
         item.find('.category a').html(categoryName);
         item.find('.long-mask .long').html(props.description);
         item.find('.url a').html(props.url).attr('href', props.url);
-        var pageUrl = $(location).attr('href');
+        var pageUrl = $(location).attr('href') +  '';
         var idx = pageUrl.indexOf('#');
         if (idx >= 0) {
             pageUrl = pageUrl.substring(0, idx);
@@ -98,6 +98,13 @@ $(window).load(function(){
         } else {
             tw.remove();
         }
+        idx = pageUrl.lastIndexOf('/');
+        var editUrl = (idx >= 0 && idx < pageUrl.length - 1) ? pageUrl.substring(0, idx + 1) : pageUrl;
+        if (editUrl.lastIndexOf('/') < editUrl.length - 1) {
+            editUrl += '/';
+        }
+        editUrl += 'edition.html#' + id;
+        item.find('.edit').attr('href', editUrl);
 	}
 	/* ---------------------------------------------------------------------- */
     var heatmapLayer = null;
@@ -304,14 +311,43 @@ jQuery(document).ready(function() {
         jQuery(this).toggleClass('on');
         dataManager.fire('switchHeatmap', {});
     });
-
+     
     /*----------------------------------*/
     /*---------generate image-----------*/
     /*----------------------------------*/
+    var imgCanvas = [null];
     jQuery('.generate-image-trigger').on('click', function(e){
         e.preventDefault();
-        // function to generate image go here
-        console.log('generate image trigger has been clicked');
+
+        var dialog = jQuery('.lightbox-image');
+        var msgPanel = dialog.find('.message');
+        var imgPanel = dialog.find('.image');
+        msgPanel.show();
+        imgPanel.html("");
+        imgPanel.hide();
+        openLightbox('lightbox-image');
+        setTimeout(function(){
+            var elementToSave = jQuery('.header');
+            // elementToSave = jQuery('#map');
+            // elementToSave = jQuery('#map .leaflet-popup-pane');
+            html2canvas(elementToSave.get(0), {
+                onrendered : function(canvas) {
+                    var url = canvas.toDataURL();
+                    var img = jQuery('<img style="max-width:100%;"/>').attr('src', url);
+                    imgPanel.append(img);
+                    // imgPanel.append(canvas)
+                    msgPanel.hide();
+                    imgPanel.show();
+                    imgCanvas[0] = canvas;
+                }
+            });
+        }, 100);
+    });
+    jQuery('.save-image-trigger').on('click', function(e) {
+        e.preventDefault();
+        if (imgCanvas[0]) {
+            Canvas2Image.saveAsPNG(imgCanvas[0]);
+        }          
     });
 
     /*----------------------------------*/
@@ -495,9 +531,9 @@ jQuery(document).ready(function() {
 		currentSlidable = nextSlide;
 
 		slideUpdateHeight();/*
-							 * maintenant pour anticiper changement largeur dut
-							 * à la scrollbar
-							 */
+                             * maintenant pour anticiper changement largeur dut
+                             * à la scrollbar
+                             */
 
 		jQuery('.'+ target +'-section')
 			.insertAfter('.slidable-'+ actualSlidable +':first')
@@ -609,12 +645,12 @@ jQuery(document).ready(function() {
 		var h = jQuery(window).height();
 		jQuery('.maximized#sidebar').height(h-110); /* 110 = topbar + top marge */
 		jQuery('.maximized .sidebar-content').height(h-210); /*
-																 * 210 = topbar
-																 * +top marge +
-																 * resultat +
-																 * "propulsé par
-																 * la fonderie"
-																 */
+                                                                 * 210 = topbar
+                                                                 * +top marge +
+                                                                 * resultat +
+                                                                 * "propulsé par
+                                                                 * la fonderie"
+                                                                 */
 	}
 	jQuery(window).resize(function(){
 		getSidebarHeight();
@@ -729,10 +765,10 @@ jQuery(document).ready(function() {
    
     
     /*
-	 * create a cache system ?
-	 * $.getJSON("https://api.twitter.com/1/statuses/user_timeline/"+twitterUser+".json?count=1&include_rts=1&callback=?",
-	 * function(data) { showTwitter(data); });
-	 */
+     * create a cache system ?
+     * $.getJSON("https://api.twitter.com/1/statuses/user_timeline/"+twitterUser+".json?count=1&include_rts=1&callback=?",
+     * function(data) { showTwitter(data); });
+     */
     showTwitter(noCachejSon);
 
     function showTwitter(data){

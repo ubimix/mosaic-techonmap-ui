@@ -18,6 +18,7 @@
 <script type="text/javascript" src="js/UmxCommons.js"></script>
 <script type="text/javascript" src="js/UmxMapServices.js"></script>
 <script type="text/javascript" src="js/UmxMapApp.js"></script>
+<script type="text/javascript" src="js/UmxMapSearch.js"></script>
 <script type="text/javascript" src="js/edition.js"></script>
 
 <title>TechOnMap</title>
@@ -83,13 +84,15 @@
 					personnaliser la qualification de votre organisation</div>
 			</div>
 			<div class="une-ligne std">
-				<input type="text" data-field="address" class="picto-cible"
-					placeholder="Adresse de votre organisation">
+				<input type="text" data-field="address"
+					placeholder="Adresse de votre organisation"></input>
 				<div class="label">Champs obligatoire, Tapez votre adresse :
 					N° et nom de rue, Code postal, Ville. Voir et ajuster sur mini map
 				</div>
 			</div>
-
+            <div class="une-ligne">
+                <button id="referesh-marker">Refresh</button>
+            </div>
 			<div class="map" data-map-center="48.872630327,2.3357025512"
 				data-map-zoom="13" data-map-max-zoom="18"
 				data-map-tiles="http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/997/256/{z}/{x}/{y}.png"></div>
