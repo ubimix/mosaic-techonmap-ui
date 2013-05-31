@@ -168,10 +168,10 @@ describe('Application Services test', function() {
         var filterService;
         beforeEach(function() {
             filterService = new umx.FilterService();
-            filterService.setData(clone(info));
         });
         function testPointSearch(mask, point) {
-            var r = filterService.search(mask);
+            var data = clone(info).features;
+            var r = filterService.filterByProperties(data, mask);
             if (point) {
                 expect(r).not.toEqual(null);
                 expect(r.length).toEqual(1);
@@ -185,21 +185,19 @@ describe('Application Services test', function() {
         }
         it('should be able to load all points using an empty filter',
                 function() {
-                    var result = filterService.search({});
+                    var data = clone(info).features;
+                    var result = filterService.filterByProperties(data, {});
                     expect(result).not.toEqual(null);
                     expect(result).toEqual(info.features);
                 });
         it('should be able to search points by names', function() {
-            var data = info.features;
+            var data = clone(info).features;
+            var result = filterService.filterByProperties(data, {});
             testPointSearch({
-                properties : {
-                    name : 'First'
-                }
+                name : 'First'
             }, data[0]);
             testPointSearch({
-                properties : {
-                    name : 'Second'
-                }
+                name : 'Second'
             }, data[1]);
         });
         it('should be able to store new items', function() {
@@ -216,65 +214,10 @@ describe('Application Services test', function() {
             expect(stored[0]).toEqual(newItem);
         });
 
-        it('should be able refresh items after saving', function() {
-            var data = info.features;
-            var result = filterService.search({})
-            expect(result).toEqual(data);
-            expect(result.length).toEqual(data.length);
-
-            var done = false;
-            var newItem = {
-                type : "Feature",
-                geometry : {
-                    "type" : "Point",
-                    "coordinates" : [ 102.0, 0.5 ]
-                },
-                properties : {
-                    id : '3',
-                    name : 'Third object'
-                }
-            };
-            expect(stored.length).toEqual(0);
-            testPointSearch({
-                properties : {
-                    name : 'Third'
-                }
-            }, null);
-
-            store.store(newItem, function() {
-                done = true;
-            })
-            expect(done).toEqual(true);
-            expect(stored.length).toEqual(1);
-            expect(stored[0]).toEqual(newItem);
-
-            // Without reloading - old data
-            var result = filterService.search({})
-            expect(result.length).toEqual(data.length - 1);
-
-            testPointSearch({
-                properties : {
-                    name : 'Third'
-                }
-            }, null);
-
-            // "Reload" data
-            filterService.setData(clone(info));
-
-            // Now it searches data as expected
-            result = filterService.search({})
-            expect(result.length).toEqual(data.length);
-            expect(result).toEqual(data);
-
-            testPointSearch({
-                properties : {
-                    name : 'Third'
-                }
-            }, newItem);
-        });
         it('should be able to filter items by their geographic position',
                 function() {
-                    var result = filterService.search({
+                    var data = clone(info).features;
+                    var result = filterService.filterByCoordinates(data, {
                         geometry : {
                             coordinates : [ [ [ 101, 0.2 ], [ 103, 0.75 ] ] ]
                         }

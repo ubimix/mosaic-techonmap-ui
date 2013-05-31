@@ -4,13 +4,13 @@
 dataManager.on('search:end', function(e){
     jQuery('#sidebar .val').html(e.result.length + '');
 });
-dataManager.on('load:end', function(e) {
-    var data = e.data.features;
-    jQuery('#sidebar .total').html(data.length);
+dataManager.on('load:end', function() {
+    var allItems = dataManager.getAllItems();
+    jQuery('#sidebar .total').html(allItems.length);
     jQuery('[data-category-id]').each(function(){
         var e = $(this);
         var categoryId = e.attr('data-category-id');
-        var list = dataManager.filterItems(function(item) {
+        var list = dataManager.getAllItems(function(item) {
             if (categoryId == '*') {
                 return true;
             } 
@@ -23,7 +23,7 @@ dataManager.on('load:end', function(e) {
     jQuery('.zone-list [data-postcode]').each(function(){
         var e = $(this);
         var value = e.attr('data-postcode');
-        var list = dataManager.filterItems(function(item) {
+        var list = dataManager.getAllItems(function(item) {
             if (!value || value === '*') {
                 return true;
             } 
@@ -53,36 +53,6 @@ $(window).load(function(){
         }
     }));
     
-    /* -------------------------------------------------------------------- */
-    // Map-list synchronization
-    var syncMapAndList = false;
-    var syncAction = new umx.DelayedAction(1000);
-    function updateBoundingBox() {
-        if (syncMapAndList) {
-            syncAction.run(function() {
-                if (syncMapAndList) {
-                    var bounds = map.getBounds();
-                    var nw = bounds.getNorthWest();
-                    var se = bounds.getSouthEast();
-                    dataManager.setBoundingBoxFilter([ nw.lat,
-                        nw.lng ], [ se.lat, se.lng ]);
-                }
-            });
-        }
-    }
-    map.on('moveend zoomend', updateBoundingBox);
-    dataManager.on('switchSync', function(e) {
-        syncMapAndList = !syncMapAndList;
-        updateBoundingBox();
-    });
-    var prevSync = syncMapAndList; 
-    dataManager.on('map-reload:begin', function(){
-        prevSync = syncMapAndList;
-        syncMapAndList = false;
-    });
-    dataManager.on('map-reload:end', function(){
-        syncMapAndList = prevSync;
-    });
     /* ---------------------------------------------------------------------- */
     
 	var list = $('.les-lieux');
@@ -99,7 +69,7 @@ $(window).load(function(){
         var id = dataManager.getItemId(point);
         item.attr('data-id', id);
         item.find('.title').html(props.name).on('click', function() {
-            dataManager.selectItemById(id);
+            dataManager.selectItemById(id, true);
         });
         var categoryName = categoryInfo.getCategoryName(props.category);
         item.find('.category a').html(categoryName);
@@ -240,12 +210,36 @@ $(window).load(function(){
     }
     /* ---------------------------------------------------------------------- */
     /** Visualize list items */
+    var syncMapAndList = false;
+    dataManager.on('switchMapListSyncrhonization', function() {
+        syncMapAndList = !syncMapAndList;
+        showListAndOpenActiveItem();
+    });
+    var refreshListAction = new umx.DelayedAction();
+    map.on('moveend zoomend', function() {
+        if (syncMapAndList) {
+            refreshListAction.run(showListAndOpenActiveItem);
+        }
+    });
+    function showListAndOpenActiveItem() {
+        showList(function() {
+            var itemId = getItemIdFromHash();
+            if (itemId) {
+                focusItemInListById(itemId);
+            }
+        })
+    }
     function showList(callback) {
         hideList();
         if (!callback) callback = function() {}
         dataManager.fire('list-reload:begin', {});
         setTimeout(function() {
-            var data = dataManager.getFilteredItems();
+            var bounds = map.getBounds();
+            var coordinatesFilter = syncMapAndList ? function(point){
+                var coords = point.geometry.coordinates;
+                return bounds.contains(L.latLng(coords[0], coords[1]));
+            } : null;
+            var data = dataManager.getFilteredItems(coordinatesFilter);
             for (var i=0; i<data.length; i++) {
                 var point = data[i];
                 var item = $(listItemTemplate);
@@ -258,6 +252,7 @@ $(window).load(function(){
     function hideList() {
         list.html('');
     }
+    
     /* ---------------------------------------------------------------------- */
     var heatmapMode = false; 
     function redrawPanels() {
@@ -321,17 +316,20 @@ $(window).load(function(){
         }
     });
     dataManager.setNameFilter('');
-});
+// });
 
 
 /* les diverses fonctionnalités de la pages */
-jQuery(document).ready(function() {
-
-    dataManager.on('item:select', function(item) {
-        var id = dataManager.getItemId(item);
+// jQuery(document).ready(function() {
+    function focusItemInListById(id) {
         var e = jQuery('li[data-id="' + id + '"]');
         maximizeSidebar();
         openLieu(e);
+    }
+
+    dataManager.on('item:select', function(item) {
+        var id = dataManager.getItemId(item);
+        focusItemInListById(id);
     });
     dataManager.on('item:deselect', function(item) {
         var id = dataManager.getItemId(item);
@@ -402,7 +400,7 @@ jQuery(document).ready(function() {
     jQuery('.sync-trigger').on('click', function(e){
         e.preventDefault();
         jQuery(this).toggleClass('on');
-        dataManager.fire('switchSync', {});
+        dataManager.fire('switchMapListSyncrhonization', {});
     });
 
 

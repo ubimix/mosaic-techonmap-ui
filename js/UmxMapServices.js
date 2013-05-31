@@ -64,7 +64,8 @@
 
     /* ====================================================================== */
     /**
-     * This class is used to search/filter points by specific search criteria.
+     * This class is used to search/filter list of items by specific search
+     * criteria.
      * 
      * @param store
      *            a StoreService instance used to load content from the server
@@ -90,35 +91,25 @@
         }
     }
     FilterService.include({
-
-        init : function(data) {
-            data = data || {
-                type : 'FeatureCollection',
-                'features' : []
-            };
-            this.setData(data);
-        },
-
-        /** Sets new data to filter */
-        setData : function(data) {
-            this.data = data;
-        },
-
-        /** Returns all data */
-        getData : function() {
-            return this.data;
-        },
-
         /**
-         * Returns an array of all items corresponding to the specified filter
+         * Returns an array of all items for which the specified filter method
+         * returns <code>true</code>.
+         * 
+         * @param items
+         *            an array of items to filter
+         * @param filterFunc
+         *            a function returning <code>true</code> for each item
+         *            which should be included in the resulting list
+         * @param context
+         *            execution context for the filtering function ('this')
          */
-        filterItems : function(filterFunc) {
+        filterItems : function(items, filterFunc, context) {
             var filteredData = [];
-            var features = this.data ? this.data.features : [];
-            var len = features ? features.length : 0;
+            context = context || this;
+            var len = items ? items.length : 0;
             for ( var i = 0; i < len; i++) {
-                var point = features[i];
-                if (filterFunc(point)) {
+                var point = items[i];
+                if (filterFunc.call(context, point)) {
                     filteredData.push(point);
                 }
             }
@@ -136,7 +127,16 @@
          * Searches all points corresponding to the specified filter. This
          * method internally uses the <code>filterItems</code> method.
          */
-        search : function(filter) {
+        filterByProperties : function(items, filterProperties) {
+            var filteredData = this.filterItems(items, function(point) {
+                var result = this._match(point, filterProperties);
+                return result;
+            });
+            return filteredData;
+        },
+
+        /** Searches all points located in the specified bounds. */
+        filterByCoordinates : function(items, filter) {
             var bounds;
             var coords = [];
             if (filter.geometry && filter.geometry.coordinates) {
@@ -145,15 +145,22 @@
             for ( var i = 0; i < coords.length; i++) {
                 bounds = this._expandBoundingBox(coords[i], bounds);
             }
-            var that = this;
-            var filteredData = that.filterItems(function(point) {
-                var result = !bounds || that._in(point, bounds);
-                return result && that._match(point, filter);
+            var filteredData = this.filterItems(items, function(point) {
+                var result = this._inBounds(point, bounds);
+                return result;
             });
             return filteredData;
         },
 
-        /** Returns a bounding box around all specified points */
+        /**
+         * Returns a bounding box around all specified points.
+         * 
+         * @param points
+         *            a list of points
+         * @param box
+         *            an optional existing bounding box; this method updates and
+         *            returns it
+         */
         _expandBoundingBox : function(points, box) {
             box = box || [];
             var topleft = box[0] = box[0] || [];
@@ -173,11 +180,12 @@
             }
             return box;
         },
+
         /**
          * This method checks that the specified point is in the given bounds
          * area.
          */
-        _in : function(point, bounds) {
+        _inBounds : function(point, bounds) {
             function inRange(value, a, b) {
                 return Math.min(a, b) <= value && Math.max(a, b) >= value;
             }
@@ -199,36 +207,35 @@
          * externalize this method in a separate service (or move it on the
          * server).
          */
-        _match : function(point, filter) {
-            if (!filter || (point.type !== 'Feature') || (!point.geometry)
+        _match : function(point, filterProperties) {
+            if (!filterProperties)
+                return true;
+            if ((point.type !== 'Feature') || (!point.geometry)
                     || (point.geometry.type !== 'Point'))
                 return false;
             var result = true;
-            var filterProperties = filter.properties;
-            if (filterProperties) {
-                var properties = point.properties;
-                result = properties ? true : false;
-                for ( var key in filterProperties) {
-                    if (!result)
-                        break;
-                    if (!filterProperties.hasOwnProperty(key))
-                        continue;
-                    if (!properties.hasOwnProperty(key)) {
-                        result = false;
-                        continue;
-                    }
-                    var mask = filterProperties[key];
-                    if (mask === '')
-                        continue;
-                    if (!mask)
-                        continue;
-                    var funcName = '_matchProperty_' + key.toLowerCase();
-                    if (typeof this[funcName] === 'function') {
-                        result = this[funcName].call(this, filterProperties,
-                                properties, key);
-                    } else {
-                        result = this._checkValue(mask, properties[key]);
-                    }
+            var properties = point.properties;
+            result = properties ? true : false;
+            for ( var key in filterProperties) {
+                if (!result)
+                    break;
+                if (!filterProperties.hasOwnProperty(key))
+                    continue;
+                if (!properties.hasOwnProperty(key)) {
+                    result = false;
+                    continue;
+                }
+                var mask = filterProperties[key];
+                if (mask === '')
+                    continue;
+                if (!mask)
+                    continue;
+                var funcName = '_matchProperty_' + key.toLowerCase();
+                if (typeof this[funcName] === 'function') {
+                    result = this[funcName].call(this, filterProperties,
+                            properties, key);
+                } else {
+                    result = this._checkValue(mask, properties[key]);
                 }
             }
             return result;
@@ -283,7 +290,7 @@
             this.filter = {};
             this.filteredItemsIndex = {};
             this.on('load:end', function(e) {
-                this.filterService.setData(e.data);
+                // this.data = e.data;
                 this._doSearch();
             }, this);
             this.on('filter:updated', function(e) {
@@ -321,14 +328,22 @@
             return this.selectedItem;
         },
 
-        /** Returns all items corresponding to the specified filter function */
-        filterItems : function(filterFunc) {
-            return this.filterService.filterItems(filterFunc);
+        /** Returns a list of filtered items */
+        getFilteredItems : function(filteringFunction) {
+            var list = this.filteredItems;
+            if (!filteringFunction) {
+                return list;
+            }
+            return this.filterService.filterItems(list, filteringFunction);
         },
 
-        /** Returns a list of all filtered items */
-        getFilteredItems : function() {
-            return this.filteredItems;
+        /** Returns a list of all items */
+        getAllItems : function(filteringFunction) {
+            var list = this.data.features;
+            if (!filteringFunction) {
+                return list;
+            }
+            return this.filterService.filterItems(list, filteringFunction);
         },
 
         /** Selects an item with the specified identifier */
@@ -486,17 +501,17 @@
 
         /** Performs the search operation using the internal filter field */
         _doSearch : function() {
-            var that = this;
-            if (!that.data) {
+            if (!this.data) {
                 return;
             }
-            that.fire('search:begin', {
-                filter : that.filter
+            this.fire('search:begin', {
+                filter : this.filter
             });
-            var result = this.filterService.search(that.filter);
-            that.filteredData = result;
-            that.fire('search:end', {
-                filter : that.filter,
+            var result = this.filterService.filterByProperties(
+                    this.data.features, this.filter.properties);
+            this.filteredData = result;
+            this.fire('search:end', {
+                filter : this.filter,
                 result : result
             });
         }
