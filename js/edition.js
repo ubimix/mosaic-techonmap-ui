@@ -127,6 +127,8 @@ jQuery(function() {
             addressTracker.on('reset', function() {
                 marker.setLatLng(coords);
                 map.panTo(coords);
+                var zoom = Math.max(map.getZoom(), 16);
+                map.setZoom(zoom);
                 refreshAddr.attr('disabled', 'disabled');
             })
             marker.on('dragend', function() {

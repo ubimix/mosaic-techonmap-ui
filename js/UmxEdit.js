@@ -8,7 +8,10 @@
     var ValueTracker = context.ValueTracker = new umx.Class();
     ValueTracker.extend(umx.EventManager);
     ValueTracker.include({
-        init : function(e) {
+        init : function(e, options) {
+            this.options = options || {
+                validate : true
+            };
             umx.EventManager.prototype.init.call(this);
             this.element = jQuery(e);
             var that = this;
@@ -31,7 +34,7 @@
             });
             this.reset();
 
-            if (this.element.parsley) {
+            if (this.options.validate) {
                 this.on('changed', function() {
                     this.validate();
                 }, this);
@@ -58,7 +61,7 @@
             }
         },
         validate : function() {
-            var result = !this.element.parsley
+            var result = !this.options.validate || !this.element.parsley
                     || this.element.parsley('validate');
             return result;
         },
