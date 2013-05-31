@@ -70,9 +70,6 @@
      *            a StoreService instance used to load content from the server
      */
     var FilterService = new umx.Class();
-    function inRange(value, min, max) {
-        return min <= value && max >= value;
-    }
     function search(str, mask) {
         if (mask.length < 3)
             return true;
@@ -94,11 +91,12 @@
     }
     FilterService.include({
 
-        init : function() {
-            this.setData({
+        init : function(data) {
+            data = data || {
                 type : 'FeatureCollection',
                 'features' : []
-            });
+            };
+            this.setData(data);
         },
 
         /** Sets new data to filter */
@@ -111,7 +109,9 @@
             return this.data;
         },
 
-        /** Returns an array of all items corresponding to the specified filter */
+        /**
+         * Returns an array of all items corresponding to the specified filter
+         */
         filterItems : function(filterFunc) {
             var filteredData = [];
             var features = this.data ? this.data.features : [];
@@ -137,11 +137,60 @@
          * method internally uses the <code>filterItems</code> method.
          */
         search : function(filter) {
-            var that = this
+            var bounds;
+            var coords = [];
+            if (filter.geometry && filter.geometry.coordinates) {
+                coords = filter.geometry.coordinates;
+            }
+            for ( var i = 0; i < coords.length; i++) {
+                bounds = this._expandBoundingBox(coords[i], bounds);
+            }
+            var that = this;
             var filteredData = that.filterItems(function(point) {
-                return that._match(point, filter);
+                var result = !bounds || that._in(point, bounds);
+                return result && that._match(point, filter);
             });
             return filteredData;
+        },
+
+        /** Returns a bounding box around all specified points */
+        _expandBoundingBox : function(points, box) {
+            box = box || [];
+            var topleft = box[0] = box[0] || [];
+            var bottomright = box[1] = box[1] || [];
+            var len = points && points.length ? points.length : 0;
+            for ( var i = 0; i < len; i++) {
+                var point = points[i];
+                if (i == 0) {
+                    topleft[0] = bottomright[0] = point[0];
+                    topleft[1] = bottomright[1] = point[1];
+                } else {
+                    topleft[0] = Math.min(topleft[0], point[0]);
+                    bottomright[0] = Math.max(bottomright[0], point[0]);
+                    topleft[1] = Math.min(topleft[1], point[1]);
+                    bottomright[1] = Math.max(bottomright[1], point[1]);
+                }
+            }
+            return box;
+        },
+        /**
+         * This method checks that the specified point is in the given bounds
+         * area.
+         */
+        _in : function(point, bounds) {
+            function inRange(value, a, b) {
+                return Math.min(a, b) <= value && Math.max(a, b) >= value;
+            }
+            var result = true;
+            var coordinates = point.geometry ? point.geometry.coordinates
+                    : null;
+            if (coordinates) {
+                var sw = bounds[0];
+                var ne = bounds[1];
+                result = inRange(coordinates[0], sw[0], ne[0])
+                        && inRange(coordinates[1], sw[1], ne[1]);
+            }
+            return result;
         },
 
         /**
@@ -155,15 +204,6 @@
                     || (point.geometry.type !== 'Point'))
                 return false;
             var result = true;
-            if (result && filter.geometry && filter.geometry.coordinates
-                    && filter.geometry.type == 'Polygon') {
-                var coordinates = point.geometry.coordinates;
-                var southWest = filter.geometry.coordinates[0];
-                var northEast = filter.geometry.coordinates[1];
-                result = inRange(coordinates[0], southWest[0], northEast[0])
-                        && inRange(coordinates[0], southWest[1], northEast[1]);
-            }
-
             var filterProperties = filter.properties;
             if (filterProperties) {
                 var properties = point.properties;
@@ -320,7 +360,16 @@
                 }
             });
         },
-
+        /** Sets the bounding box for search results */
+        setBoundingBoxFilter : function(northWest, southEast) {
+            var box = [ northWest, southEast ];
+            this._updateFilter({
+                "geometry" : {
+                    "type" : "Polygon",
+                    "coordinates" : [ box ]
+                }
+            });
+        },
         /** Removes all filter criteria and loads all points */
         resetFilter : function() {
             this._updateFilter({}, true);
@@ -404,8 +453,8 @@
             }
 
             var newFilter = {};
-            newFilter.coordinates = update(this.filter.coordinates,
-                    filter.coordinates, replace);
+            newFilter.geometry = update(this.filter.geometry, filter.geometry,
+                    replace);
             newFilter.properties = update(this.filter.properties,
                     filter.properties, replace);
             if (!equal(this.filter, newFilter)) {

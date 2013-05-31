@@ -52,7 +52,39 @@ $(window).load(function(){
             height : '100px'
         }
     }));
-	 
+    
+    /* -------------------------------------------------------------------- */
+    // Map-list synchronization
+    var syncMapAndList = false;
+    var syncAction = new umx.DelayedAction(1000);
+    function updateBoundingBox() {
+        if (syncMapAndList) {
+            syncAction.run(function() {
+                if (syncMapAndList) {
+                    var bounds = map.getBounds();
+                    var nw = bounds.getNorthWest();
+                    var se = bounds.getSouthEast();
+                    dataManager.setBoundingBoxFilter([ nw.lat,
+                        nw.lng ], [ se.lat, se.lng ]);
+                }
+            });
+        }
+    }
+    map.on('moveend zoomend', updateBoundingBox);
+    dataManager.on('switchSync', function(e) {
+        syncMapAndList = !syncMapAndList;
+        updateBoundingBox();
+    });
+    var prevSync = syncMapAndList; 
+    dataManager.on('map-reload:begin', function(){
+        prevSync = syncMapAndList;
+        syncMapAndList = false;
+    });
+    dataManager.on('map-reload:end', function(){
+        syncMapAndList = prevSync;
+    });
+    /* ---------------------------------------------------------------------- */
+    
 	var list = $('.les-lieux');
 	var listItemTemplate = list.html();
 	list.remove('li');
@@ -370,15 +402,7 @@ jQuery(document).ready(function() {
     jQuery('.sync-trigger').on('click', function(e){
         e.preventDefault();
         jQuery(this).toggleClass('on');
-        if(jQuery(this).hasClass('on')){
-            // function to enable sync
-            console.log('enable sync');
-        }
-        else{
-            // function to disable sync
-            console.log('disable sync');   
-        }
-
+        dataManager.fire('switchSync', {});
     });
 
 

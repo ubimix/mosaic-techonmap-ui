@@ -272,6 +272,16 @@ describe('Application Services test', function() {
                 }
             }, newItem);
         });
+        it('should be able to filter items by their geographic position',
+                function() {
+                    var result = filterService.search({
+                        geometry : {
+                            coordinates : [ [ [ 101, 0.2 ], [ 103, 0.75 ] ] ]
+                        }
+                    });
+                    expect(result).not.toEqual(null);
+                    expect(result).toEqual([ info.features[0] ]);
+                });
     });
 
     describe('umx.DataManager', function() {
@@ -296,7 +306,7 @@ describe('Application Services test', function() {
             var data = info.features;
             var nameFilter = 'First';
             var expectedFilter = {
-                coordinates : {},
+                geometry : {},
                 properties : {
                     name : nameFilter
                 }
