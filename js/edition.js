@@ -10,22 +10,23 @@ jQuery(function() {
     /* counting caracters length */
     function checkDescriptionLength() {
         var max = 250;
-        var val = $('[data-field=description]').val();
+        var val = jQuery('[data-field=description]').val();
         var len = val ? val.length : 0;
-        $('.carac-count').text(len);
+        jQuery('.carac-count').text(len);
         if (len > max) {
-            $('.carac-count').addClass('red');
+            jQuery('.carac-count').addClass('red');
         } else {
-            $('.carac-count').removeClass('red');
+            jQuery('.carac-count').removeClass('red');
         }
     }
-    $('.count-field').keyup(checkDescriptionLength);
+    jQuery('.count-field').keyup(checkDescriptionLength);
     jQuery('.cancel').click(function() {
         alert('Annulez!')
         return false;
     });
     jQuery('input[type=submit]').click(function() {
         try {
+            jQuery('#edit-form').parsley('validate');
             var result = getDataFromForm();
             console.log(JSON.stringify(result));
         } catch (e) {
@@ -43,126 +44,52 @@ jQuery(function() {
                 name).appendTo(categorySelector);
     }
     // categorySelector.live('[data-category-id]').change(function() {
-    // alert($(this).find('option:selected').data('category-id'))
+    // alert(jQuery(this).find('option:selected').data('category-id'))
     // });
 
-    function getDataFromForm() {
-        var coordinates = [];
-        var properties = {};
-        var result = {
-            type : "Feature",
-            geometry : {
-                type : "Point",
-                coordinates : coordinates
-            },
-            properties : properties
-        };
-        if (marker) {
-            var latLng = marker.getLatLng();
-            coordinates.push(latLng.lat);
-            coordinates.push(latLng.lng);
-        }
-        jQuery('[data-field]').each(function() {
-            var field = $(this);
-            var name = trim(field.data('field'));
-            var value = trim(field.val());
-            if (value != '') {
-                if (properties[name]) {
-                    var array = properties[name];
-                    if (jQuery.type(array) !== 'array') {
-                        array = [ array ];
-                        properties[name] = array;
-                    }
-                    array.push(value);
-                } else {
-                    properties[name] = value;
-                }
-            }
-        });
-
-        var category = categorySelector.find('options:selected').data(
-                'category-id');
-        properties.category = category;
-
-        var address = properties.address;
-        if (address) {
-            var array = address.split(/,/);
-            var i = 0;
-            properties.address = trim(array[i++]);
-            properties.postcode = trim(array[i++]);
-            properties.city = trim(array[i++]);
-        }
-        return result;
+    function checkForm() {
+        console.log("Form checking...")
+        // jQuery('form').parsley('validate');
     }
 
-    var ValueTracker = new umx.Class();
-    ValueTracker.extend(umx.EventManager);
-    ValueTracker.include({
-        init : function(e) {
-            umx.EventManager.prototype.init.call(this);
-            this.element = jQuery(e);
-            var that = this;
-            this.on('reset', function(e) {
-                that.prevValue = e.value;
-            }, that);
-            var validateValue = function() {
-                that._notifyChanges();
-            }
-            this.element.focus(validateValue).blur(validateValue).keypress(
-                    validateValue).keyup(validateValue);
-            this.reset();
-        },
-        _notifyChanges : function() {
-            var newValue = this.getValue();
-            if (newValue != this.prevValue && newValue != this.prevNotified) {
-                this.fire('changed', {
-                    oldValue : this.prevValue,
-                    value : newValue
-                });
-                this.prevNotified = newValue;
-            }
-        },
-        getValue : function() {
-            return trim(this.element.val());
-        },
-        setValue : function(value, notify) {
-            value = trim(value);
-            this.element.val(value);
-            if (notify) {
-                this._notifyChanges();
-            }
-        },
-        reset : function() {
-            this.prevValue = this.getValue();
-            delete this.prevNotified;
-            this.fire('reset', {
-                value : this.prevValue
-            });
-        }
-    });
-
+    var formFields = {};
     function fillForm(point) {
+        function getField(name, create) {
+            var tracker = formFields[name];
+            if (!tracker && create) {
+                var e = jQuery('[data-field=' + name + ']');
+                tracker = formFields[name] = new ValueTracker(e);
+            }
+            return tracker;
+        }
         function setField(name, value) {
-            jQuery('[data-field=' + name + ']').val(value);
+            var tracker = getField(name, true);
+            tracker.setValue(value, true);
         }
 
+        // -------------------------------
+        // Set fields required by the form
         var properties = point.properties;
         if (!properties) {
             properties = point.properties = {};
         }
-        for ( var key in properties) {
-            var value = properties[key];
-            setField(key, value);
-        }
+        jQuery('[data-field]').each(function() {
+            var name = jQuery(this).attr('data-field');
+            var value = properties[name];
+            setField(name, value);
+        })
+
+        // -------------------------------
+        // Fixing fields
+
         { // Creation year
             var creationyear = properties.creationyear
                     || new Date().getFullYear();
             setField('creationyear', creationyear);
         }
 
-        var addressField = jQuery('[data-field=address]');
-        var addressTracker = new ValueTracker(addressField);
-        { // Address
+        var addressTracker = getField('address', true);
+        if (addressTracker) { // Address
             var address = properties.address;
             var postcode = properties.postcode;
             var city = properties.city;
@@ -194,7 +121,7 @@ jQuery(function() {
             });
 
             var refreshAddr = jQuery('#referesh-marker');
-            addressTracker.on('changed', function(e) {
+            addressTracker.on('changed', function() {
                 refreshAddr.removeAttr('disabled');
             })
             addressTracker.on('reset', function() {
@@ -209,7 +136,8 @@ jQuery(function() {
             map.setView(coords, zoom);
 
             var searchAction = new umx.SearchAction();
-            refreshAddr.click(function() {
+            refreshAddr.click(function(e) {
+                e.preventDefault();
                 var address = addressTracker.getValue();
                 searchAction.search({
                     address : address,
@@ -238,6 +166,61 @@ jQuery(function() {
             option.prop('selected', true);
         }
         checkDescriptionLength();
+        checkForm();
+    }
+
+    function getDataFromForm() {
+        var coordinates = [];
+        var properties = {};
+        var result = {
+            type : "Feature",
+            geometry : {
+                type : "Point",
+                coordinates : coordinates
+            },
+            properties : properties
+        };
+        if (marker) {
+            var latLng = marker.getLatLng();
+            coordinates.push(latLng.lat);
+            coordinates.push(latLng.lng);
+        }
+        for ( var key in formFields) {
+            if (!(formFields.hasOwnProperty(key)))
+                continue;
+            var validator = formFields[key];
+            if (!validator.validate()) {
+                console.log("Field [" + key + "] is invalid!");
+            } else {
+                var value = validator.getValue();
+                if (value != '') {
+                    if (properties[key]) {
+                        var array = properties[key];
+                        if (jQuery.type(array) !== 'array') {
+                            array = [ array ];
+                            properties[key] = array;
+                        }
+                        array.push(value);
+                    } else {
+                        properties[key] = value;
+                    }
+                }
+            }
+        }
+
+        // var category = categorySelector.find('options:selected').data(
+        // 'category-id');
+        // properties.category = category;
+
+        var address = properties.address;
+        if (address) {
+            var array = address.split(/,/);
+            var i = 0;
+            properties.address = trim(array[i++]);
+            properties.postcode = trim(array[i++]);
+            properties.city = trim(array[i++]);
+        }
+        return result;
     }
 
     dataManager.on('search:end', function(e) {

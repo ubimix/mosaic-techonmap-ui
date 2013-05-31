@@ -64,7 +64,7 @@
 
     /* ====================================================================== */
     /**
-     * This class is used to search external data.
+     * This class is used to search/filter points by specific search criteria.
      * 
      * @param store
      *            a StoreService instance used to load content from the server

@@ -13,13 +13,39 @@
 <link rel="stylesheet" href="css/style.css" />
 
 <script src="lib/jquery/jquery.js"></script>
+<script src="lib/parsley/parsley.min.js"></script>
 <script src="lib/leaflet/leaflet-src.js"></script>
 
 <script type="text/javascript" src="js/UmxCommons.js"></script>
 <script type="text/javascript" src="js/UmxMapServices.js"></script>
 <script type="text/javascript" src="js/UmxMapApp.js"></script>
 <script type="text/javascript" src="js/UmxMapSearch.js"></script>
+<script type="text/javascript" src="js/UmxEdit.js"></script>
 <script type="text/javascript" src="js/edition.js"></script>
+
+<style>
+
+/* Form validation visualization */
+.parsley-validated {
+	
+}
+
+.parsley-validated.parsley-success {
+	color: inherit;
+	background-color: inherit;
+	border: inherit;
+}
+
+.parsley-validated.parsley-error {
+	color: #B94A48 !important;
+	background-color: #F2DEDE !important;
+	border: 1px solid #EB6564;
+}
+
+.errormsg {
+	color: #B94A48 !important;
+}
+</style>
 
 <title>TechOnMap</title>
 </head>
@@ -48,90 +74,148 @@
 	</div>
 	<div id="content">
 		<h3 class="pagetitle">Ajoutez votre organisation</h3>
-		<form action="">
+		<form action="" id="edit-form">
 			<div class="une-ligne std">
-				<input data-field="name" type="text"
+				<input data-field="name" type="text" data-required="true"
+					data-error-message="Le nom d'entreprise n'est pas défini."
+					data-error-container="#name-error"
 					placeholder="Nom de votre organisation">
-				<div class="label">Champs obligatoire, Vérification
-					automatique de présence dans la base</div>
-			</div>
-			<div class="une-ligne std">
-				<input type="text" placeholder="Votre email">
-				<div class="label">Champs obligatoire, Pour vous contacter si
-					nous avons besoin de vérifier la validité de vos
-					ajouts/modifications</div>
-			</div>
-			<div class="une-ligne textarea">
-				<textarea class="count-field" data-field="description"
-					placeholder="Description de votre organisation"></textarea>
 				<div class="label">
-					Champs obligatoire, Limitation automatique à 250 caractères maximum
-					(<span class="bold"><span class="carac-count">0</span>/250</span>)
+					<span class="errormsg" id="name-error"></span> Champs obligatoire,
+					Vérification automatique de présence dans la base
 				</div>
 			</div>
 			<div class="une-ligne std">
-				<select data-field="category">
+				<input type="text" id="data-email" data-required="true"
+					data-field="email" data-type="email" placeholder="Votre email"
+					data-error-message="L'adresse email n'est pas valide."
+					data-error-container="#mail-error">
+				<div class="label">
+					<span class="errormsg" id="mail-error"></span> Champs obligatoire.
+					Pour vous contacter si nous avons besoin de vérifier la validité de
+					vos ajouts/modifications
+				</div>
+			</div>
+			<div class="une-ligne textarea">
+				<textarea class="count-field" data-required="true"
+					data-field="description" data-maxlength="250"
+					data-error-message="La message est plus longue que 250 charactèrs."
+					data-error-container="#description-error"
+					placeholder="Description de votre organisation. Limitation automatique à 250 caractères maximum."></textarea>
+				<div class="label">
+					<span class="errormsg" id="description-error"></span> Champs
+					obligatoire (<span class="bold"><span class="carac-count">0</span>/250</span>)
+				</div>
+			</div>
+			<div class="une-ligne std">
+				<select data-field="category" data-required="true"
+					data-error-message="La catégorie n'est pas définie."
+					data-error-container="#category-error">
 					<option value="">Choisissez une catégorie / type
 						d’organisation</option>
 				</select>
-				<div class="label">Champs obligatoire</div>
+				<div class="label">
+					<span class="errormsg" id="category-error"></span> Champs
+					obligatoire
+				</div>
 			</div>
 			<div class="une-ligne tags">
-				<input type="text" data-field="tag" placeholder="Tag"> <input
-					data-field="tag" type="text" placeholder="Tag"> <input
-					type="text" data-field="tag" placeholder="Tag">
+				<input type="text" data-field="tag" placeholder="Tag"></input> <input
+					data-field="tag" type="text" placeholder="Tag"></input> <input
+					type="text" data-field="tag" placeholder="Tag"></input>
 				<div class="label">Ajoutez 3 mots-clés maximum pour
 					personnaliser la qualification de votre organisation</div>
 			</div>
 			<div class="une-ligne std">
-				<input type="text" data-field="address"
-					placeholder="Adresse de votre organisation"></input>
-				<div class="label">Champs obligatoire, Tapez votre adresse :
-					N° et nom de rue, Code postal, Ville. Voir et ajuster sur mini map
+				<input type="text" data-field="address" data-required="true"
+					placeholder="Adresse de votre organisation"
+					data-error-message="L'address n'est pas définie."
+					data-error-container="#address-error"></input>
+				<div class="label">
+					<span class="errormsg" id="address-error"></span> Champs
+					obligatoire, Tapez votre adresse : N° et nom de rue, Code postal,
+					Ville. Voir et ajuster sur mini map
 				</div>
 			</div>
-            <div class="une-ligne">
-                <button id="referesh-marker">Refresh</button>
-            </div>
+			<div class="une-ligne">
+				<button id="referesh-marker">Rechercher</button>
+			</div>
 			<div class="map" data-map-center="48.872630327,2.3357025512"
 				data-map-zoom="13" data-map-max-zoom="18"
 				data-map-tiles="http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/997/256/{z}/{x}/{y}.png"></div>
 
 			<div class="une-ligne std">
-				<input type="text" data-field="creationyear"
-					placeholder="Année de création">
-				<div class="label">Champs obligatoire, Quand votre
-					organisation est-elle née ?</div>
+				<input type="text" data-field="creationyear" data-type="number"
+					data-range="[1900, 2013]" data-required="true"
+					placeholder="Année de création"
+					data-error-message="Année de création n'est pas définie."
+					data-error-container="#creationyear-error"></input>
+				<div class="label">
+					<span class="errormsg" id="creationyear-error"></span> Champs
+					obligatoire, Quand votre organisation est-elle née ?
+				</div>
 			</div>
 			<div class="une-ligne std">
-				<input type="text" data-field="url" placeholder="Site web">
-				<div class="label">Champs obligatoire, Tapez l’url du site web
-					de votre organisation</div>
+				<input type="text" data-field="url" placeholder="Site web"
+					data-required="true" data-type="url"
+					data-error-message="URL n'est pas définie."
+					data-error-container="#url-error" />
+				<div class="label">
+					<span class="errormsg" id="url-error"></span> Champs obligatoire,
+					Tapez l’url du site web de votre organisation
+				</div>
 			</div>
 			<div class="une-ligne std">
-				<input type="text" data-field="twitter" placeholder="Twitter">
-				<div class="label">Tapez le nom du compte twitter de votre
-					organisation</div>
+				<input type="text" data-field="twitter" data-type="alphanum"
+					placeholder="Twitter"
+					data-error-message="Compte twitter devrait avoir des chifres et des lettres."
+					data-error-container="#twitter-error">
+				<div class="label">
+					<span class="errormsg" id="twitter-error"></span> Tapez le nom du
+					compte twitter de votre organisation
+				</div>
 			</div>
 			<div class="une-ligne std">
-				<input type="text" data-field="facebook" placeholder="Facebook">
-				<div class="label">Tapez l’url de la page facebook de votre
-					organisation</div>
+				<input type="text" data-field="facebook"
+					data-regexp="^https?://www\.facebook\.com.*$" data-type="url"
+					placeholder="Facebook"
+					data-error-message="URL de la page Facebook n'est pas valide."
+					data-error-container="#facebook-error"></input>
+				<div class="label">
+					<span class="errormsg" id="facebook-error"></span> Tapez l’url de
+					la page facebook de votre organisation
+				</div>
 			</div>
 			<div class="une-ligne std">
-				<input type="text" data-field="googleplus" placeholder="Google +">
-				<div class="label">Tapez l’url de la page Google + de votre
-					organisation</div>
+				<input type="text" data-field="googleplus" data-type="url"
+					data-regexp="^https?://plus\.google\.\w+.*$" placeholder="Google+"
+					data-error-message="URL de la page Google+ n'est pas valide."
+					data-error-container="#googleplus-error"></input>
+				<div class="label">
+					<span class="errormsg" id="googleplus-error"></span> Tapez l’url de
+					la page Google + de votre organisation
+				</div>
 			</div>
 			<div class="une-ligne std">
-				<input type="text" data-field="linkedin" placeholder="Linkedin">
-				<div class="label">Tapez l’url de la page linkedin de votre
-					organisation</div>
+				<input type="text" data-field="linkedin" data-type="url"
+					data-regexp="^https?://www\.linkedin\.\w+.*$"
+					placeholder="Linkedin"
+					data-error-message="URL de la page Linkedin n'est pas valide."
+					data-error-container="#linkedin-error"></input>
+				<div class="label">
+					<span class="errormsg" id="linkedin-error"></span> Tapez l’url de
+					la page linkedin de votre organisation
+				</div>
 			</div>
 			<div class="une-ligne std">
-				<input type="text" data-field="viadeo" placeholder="Viadeo">
-				<div class="label">Tapez l’url de la page viadeo de votre
-					organisation</div>
+				<input type="text" data-field="viadeo" data-type="url"
+					data-regexp="^https?://www\.viadeo\.\w+.*$" placeholder="Viadeo"
+					data-error-message="URL de la page Viadeo n'est pas valide."
+					data-error-container="#viadeo-error"></input>
+				<div class="label">
+					<span class="errormsg" id="viadeo-error"></span> Tapez l’url de la
+					page viadeo de votre organisation
+				</div>
 			</div>
 
 			<div class="inputs">
