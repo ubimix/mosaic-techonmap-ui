@@ -506,24 +506,13 @@ body.lightbox-open {
 }
 
 #topbar {
-	/*
-	position: fixed;
-	left: 0;
-	top: 0;
-	width: 100%;
-	*/
 	height: 99px;
 	background: #fff;
 	z-index: 3;
 	border-bottom: 1px solid #dddddd;
-	/*
-	-webkit-box-shadow: 0px 0px 2px rgba(0,0,0,0.30);
-	-moz-box-shadow: 0px 0px 2px rgba(0,0,0,0.30);
-	box-shadow: 0px 0px 2px rgba(0,0,0,0.30);
-	*/
 }
 
-#sidebar {
+.desktop.sidebar {
 	position: fixed;
 	right: 10px;
 	bottom: 0;
@@ -535,8 +524,10 @@ body.lightbox-open {
 	-moz-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.30);
 	box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.30);
 }
-
-#map,#topbar,#sidebar {
+.sidebar.responsive {
+	display: none;
+}
+#map,#topbar,.sidebar {
 	min-width: 320px;
 }
 
@@ -702,54 +693,54 @@ body.lightbox-open {
 }
 
 /*minimized sidebar*/
-#sidebar.minimized {
+.sidebar.minimized {
 	height: 250px !important;
 }
 
-#sidebar.minimized .sidebar-content {
+.sidebar.minimized .sidebar-content {
 	padding-top: 0px;
 	height: 152px !important;
 }
 
-#sidebar.minimized .sidebar-content .scrollable {
+.sidebar.minimized .sidebar-content .scrollable {
 	overflow: hidden;
 }
 
-#sidebar.minimized  .sidebar-content .scrollable .les-lieux {
+.sidebar.minimized  .sidebar-content .les-lieux {
 	height: 0;
 }
 
-#sidebar.minimized  .sidebar-content .result .picto.minimize-sidebar {
+.sidebar.minimized  .sidebar-content .result .picto.minimize-sidebar {
 	display: none;
 }
 
-#sidebar.minimized  .sidebar-content .result .picto.maximize-sidebar {
+.sidebar.minimized  .sidebar-content .result .picto.maximize-sidebar {
 	display: block;
 }
 /*sidebar content */
-#sidebar .sidebar-content {
+.desktop.sidebar .sidebar-content {
 	width: 100%;
 }
 
-#sidebar .sidebar-content .result {
+.sidebar .sidebar-content .result {
 	border-bottom: 1px solid #dedede;
 	padding-left: 14px;
 	background: #fff;
 }
 
-#sidebar .sidebar-content .result .picto.minimize-sidebar {
+.sidebar .sidebar-content .result .picto.minimize-sidebar {
 	width: 50px;
 	height: 50px;
 	display: block;
 }
 
-#sidebar .sidebar-content .result .picto.maximize-sidebar {
+.sidebar .sidebar-content .result .picto.maximize-sidebar {
 	width: 50px;
 	height: 50px;
 	display: none;
 }
 
-#sidebar .sidebar-content .result .text {
+.sidebar .sidebar-content .result .text {
 	color: #777777;
 	font-size: 18px;
 	font-weight: 300;
@@ -760,41 +751,41 @@ body.lightbox-open {
 	padding-right: 15px;
 }
 
-#sidebar .sidebar-content .result .text .val {
+.sidebar .sidebar-content .result .text .val {
 	font-weight: 300;
 	font-size: 29px;
 	color: #777777;
 }
 
-#sidebar .sidebar-content .result .text .slash {
+.sidebar .sidebar-content .result .text .slash {
 	font-weight: 300;
 	font-size: 29px;
 	color: #EB6565;
 }
 
-#sidebar .sidebar-content .result .text .total {
+.sidebar .sidebar-content .result .text .total {
 	font-weight: 800;
 	font-size: 35px;
 	color: #EB6565;
 }
 
-#sidebar .sidebar-content .scrollable {
+.sidebar .sidebar-content .scrollable {
 	overflow: auto;
 	height: 100%;
 	*position: relative; /*IE7*/
 }
 
-#sidebar .sidebar-content .slidable {
+.desktop.sidebar .sidebar-content .slidable {
 	width: 33.33%;
 	float: left;
 	padding-bottom: 15px;
 }
 
-#sidebar .sidebar-content .slidable.off {
+.sidebar .sidebar-content .slidable.off {
 	
 }
 
-#sidebar .sidebar-content .slidable-mask {
+.sidebar .sidebar-content .slidable-mask {
 	width: 100%;
 	max-width: 100%;
 	overflow: hidden;
@@ -802,16 +793,16 @@ body.lightbox-open {
 	background: #fff;
 }
 
-#sidebar .sidebar-content .slidable-content {
+.desktop.sidebar .sidebar-content .slidable-content {
 	width: 300%;
 	position: relative;
 }
 /*les filtres*/
-#sidebar .sidebar-content .scrollable .les-filtres {
+.sidebar .sidebar-content .les-filtres {
 	
 }
 
-#sidebar .sidebar-content .scrollable .les-filtres li {
+.sidebar .sidebar-content .les-filtres li {
 	height: 50px;
 	line-height: 50px;
 	border-bottom: 1px solid #eeeeee;
@@ -823,14 +814,14 @@ body.lightbox-open {
 	background: url(../images/arrow-right.png) 320px 50% no-repeat;
 }
 
-#sidebar .sidebar-content .slidable .les-filtres .search {
+.sidebar .sidebar-content .search {
 	line-height: 0;
 	font-size: 0;
 	padding-right: 20px;
-	background: none;
+	background: none !important;
 }
 
-#sidebar .sidebar-content .slidable .les-filtres .search input {
+.sidebar .sidebar-content .search input {
 	height: 50px;
 	line-height: 50px;
 	border: 0;
@@ -843,7 +834,7 @@ body.lightbox-open {
 	-webkit-box-sizing: border-box;
 }
 
-#sidebar .sidebar-content .slidable .les-filtres .search .search-input {
+.sidebar .sidebar-content .search .search-input {
 	width: 85%;
 	color: #BABABA;
 	font-size: 16px;
@@ -851,16 +842,14 @@ body.lightbox-open {
 	float: left;
 }
 
-#sidebar .sidebar-content .slidable .les-filtres .search .search-submit
-	{
+.sidebar .sidebar-content .search .search-submit{
 	width: 15%;
 	cursor: pointer;
 	background: url(../images/picto-loupe.png) 50% 50% no-repeat;
 	border-left: 1px solid #eeeeee;
 }
 /*les filtres : zone */
-#sidebar .sidebar-content .scrollable .category-list-une,#sidebar .sidebar-content .scrollable .zone-list-une
-	{
+.sidebar .sidebar-content  .category-list-une,.sidebar .sidebar-content .zone-list-une{
 	height: 36px;
 	line-height: 36px;
 	border-bottom: 1px solid #eeeeee;
@@ -872,12 +861,12 @@ body.lightbox-open {
 	cursor: pointer;
 }
 
-#sidebar .sidebar-content .scrollable .category-list-une .category-selected,#sidebar .sidebar-content .scrollable .zone-list-une .zone-selected
+.sidebar .sidebar-content .category-list-une .category-selected,.sidebar .sidebar-content .zone-list-une .zone-selected
 	{
 	display: none;
 }
 
-#sidebar .sidebar-content .scrollable .zone-list li,#sidebar .sidebar-content .scrollable .category-list li
+.sidebar .sidebar-content .zone-list li,.sidebar .sidebar-content .category-list li
 	{
 	height: 45px;
 	line-height: 45px;
@@ -890,16 +879,19 @@ body.lightbox-open {
 	/*background: url(../images/arrow-left.png) 10px 50% no-repeat;*/
 }
 
-#sidebar .sidebar-content .scrollable .zone-list li.active,#sidebar .sidebar-content .scrollable .zone-list li:hover,#sidebar .sidebar-content .scrollable .category-list li.active,#sidebar .sidebar-content .scrollable .category-list li:hover
+.sidebar .sidebar-content .zone-list li.active,
+.sidebar .sidebar-content .zone-list li:hover,
+.sidebar .sidebar-content .category-list li.active,
+.sidebar .sidebar-content .category-list li:hover
 	{
 	text-decoration: underline;
 }
 
-#sidebar .sidebar-content .scrollable .category-list li {
+.sidebar .sidebar-content .category-list li {
 	padding-left: 0px;
 }
 
-#sidebar .sidebar-content .scrollable .tip {
+.sidebar .sidebar-content .tip {
 	font-weight: 600;
 	color: #fff;
 	background: #CCCCCC;
@@ -910,30 +902,31 @@ body.lightbox-open {
 	border-radius: 4px;
 }
 
-#sidebar .sidebar-content .scrollable .category-list li .tip,#sidebar .sidebar-content .scrollable .zone-list li .tip
+.sidebar .sidebar-content .category-list li .tip,
+.sidebar .sidebar-content .zone-list li .tip
 	{
 	margin-right: 22px;
 	margin-top: 10px;
 }
 
-#sidebar .sidebar-content .scrollable .switch-filter {
+.sidebar .sidebar-content .switch-filter {
 	cursor: pointer;
 	background: url(../images/arrow-right.png) 320px 50% no-repeat;
 	padding-left: 35px;
 }
 
-#sidebar .sidebar-content .scrollable .slidable:last-child .switch-filter
+.sidebar .sidebar-content .slidable:last-child .switch-filter
 	{
 	cursor: pointer;
 	background: url(../images/arrow-left.png) 10px 50% no-repeat;
 	padding-left: 35px;
 }
 /*affichage des lieux dans la sidebar*/
-#sidebar .sidebar-content .scrollable .les-lieux {
+.sidebar .sidebar-content .les-lieux {
 	height: auto;
 }
 
-#sidebar .sidebar-content .scrollable .les-lieux .un-lieu {
+.sidebar .sidebar-content .les-lieux .un-lieu {
 	display: block;
 	min-height: 75px; /*head section when open*/
 	padding-top: 10px;
@@ -941,11 +934,11 @@ body.lightbox-open {
 	border-bottom: 1px solid #eeeeee;
 }
 
-#sidebar .sidebar-content .scrollable .les-lieux .un-lieu.open {
+.sidebar .sidebar-content .les-lieux .un-lieu.open {
 	background: url(../images/bg-open.png) 0% 100% repeat-x;
 }
 
-#sidebar .sidebar-content .scrollable .les-lieux .un-lieu .picto {
+.sidebar .sidebar-content .les-lieux .un-lieu .picto {
 	margin-left: 12px;
 	margin-bottom: 5px;
 	width: 51px;
@@ -954,7 +947,7 @@ body.lightbox-open {
 	cursor: pointer;
 }
 
-#sidebar .sidebar-content .scrollable .les-lieux .un-lieu .description {
+.sidebar .sidebar-content .les-lieux .un-lieu .description {
 	color: #777777;
 	font-size: 13px;
 	line-height: 1.3;
@@ -962,13 +955,13 @@ body.lightbox-open {
 	margin-left: 12px;
 }
 
-#sidebar .sidebar-content .scrollable .les-lieux .un-lieu.open .description
+.sidebar .sidebar-content .les-lieux .un-lieu.open .description
 	{
 	/*background: url(../images/picto-minus-silver.png) 100% 10px no-repeat;*/
 	
 }
 
-#sidebar .sidebar-content .scrollable .les-lieux .un-lieu .description .edit
+.sidebar .sidebar-content .les-lieux .un-lieu .description .edit
 	{
 	width: 45px;
 	height: 25px;
@@ -977,12 +970,12 @@ body.lightbox-open {
 	display: none;
 }
 
-#sidebar .sidebar-content .scrollable .les-lieux .un-lieu.open .description .edit
+.sidebar .sidebar-content .les-lieux .un-lieu.open .description .edit
 	{
 	display: block;
 }
 
-#sidebar .sidebar-content .scrollable .les-lieux .un-lieu .description strong
+.sidebar .sidebar-content .les-lieux .un-lieu .description strong
 	{
 	display: block;
 	font-size: 18px;
@@ -992,48 +985,48 @@ body.lightbox-open {
 	margin-right: 45px;
 }
 
-#sidebar .sidebar-content .scrollable .les-lieux .un-lieu .description .category
+.sidebar .sidebar-content .les-lieux .un-lieu .description .category
 	{
 	font-style: italic;
 }
 
-#sidebar .sidebar-content .scrollable .les-lieux .un-lieu .description .long
+.sidebar .sidebar-content .les-lieux .un-lieu .description .long
 	{
 	padding-top: 30px;
 }
 
-#sidebar .sidebar-content .scrollable .les-lieux .un-lieu .description .long-mask
+.sidebar .sidebar-content .les-lieux .un-lieu .description .long-mask
 	{
 	height: 0;
 	overflow: hidden;
 }
 
-#sidebar .sidebar-content .scrollable .les-lieux .un-lieu .description .share
+.sidebar .sidebar-content .les-lieux .un-lieu .description .share
 	{
 	padding-top: 20px;
 	padding-bottom: 10px;
 }
 
-#sidebar .sidebar-content .scrollable .les-lieux .un-lieu .description .share .left
+.sidebar .sidebar-content .les-lieux .un-lieu .description .share .left
 	{
 	padding-top: 5px;
 	height: 28px;
 	line-height: 28px;
 }
 
-#sidebar .sidebar-content .scrollable .les-lieux .un-lieu .description .share .right
+.sidebar .sidebar-content .les-lieux .un-lieu .description .share .right
 	{
 	padding-top: 5px;
 	margin-right: 15px;
 }
 
-#sidebar .sidebar-content .scrollable .les-lieux .un-lieu .description .share-mask
+.sidebar .sidebar-content .les-lieux .un-lieu .description .share-mask
 	{
 	height: 0;
 	overflow: hidden;
 }
 
-#sidebar .sidebar-content .scrollable .les-lieux .un-lieu .description .input-permalien
+.sidebar .sidebar-content .les-lieux .un-lieu .description .input-permalien
 	{
 	width: 90%;
 	padding: 5px;
@@ -1041,12 +1034,14 @@ body.lightbox-open {
 	margin-top: 5px;
 }
 
-#sidebar .sidebar-content .scrollable .les-lieux .un-lieu .description .long p,#sidebar .sidebar-content .scrollable .les-lieux .un-lieu .description .long .creation,#sidebar .sidebar-content .scrollable .les-lieux .un-lieu .description .long .tags
+.sidebar .sidebar-content .les-lieux .un-lieu .description .long p,
+.sidebar .sidebar-content .les-lieux .un-lieu .description .long .creation,
+.sidebar .sidebar-content .les-lieux .un-lieu .description .long .tags
 	{
 	margin-bottom: 20px;
 }
 
-#sidebar .sidebar-content .powered {
+.sidebar .sidebar-content .powered {
 	height: 50px;
 	line-height: 50px;
 	border-top: 1px solid #dedede;
@@ -1056,18 +1051,18 @@ body.lightbox-open {
 	background: #fff;
 }
 
-#sidebar .sidebar-content .powered .sync-trigger {
+.sidebar .sidebar-content .powered .sync-trigger {
 	height: 50px;
 	width: 50px;
 	background: silver;
 	display: block;
 }
 
-#sidebar .sidebar-content .powered .sync-trigger.on {
+.sidebar .sidebar-content .powered .sync-trigger.on {
 	background: pink;
 }
 
-#sidebar .sidebar-content .powered .logo {
+.sidebar .sidebar-content .powered .logo {
 	position: relative;
 	top: 8px;
 	left: 8px;
@@ -1241,20 +1236,85 @@ a.leaflet-control-zoom-out {
 	font-style: italic;
 }
 /*media queries*/
-@media screen and (max-width: 970px) and (min-width: 481px) {
+@media screen and (max-width: 1024px) and (min-width: 768px) {
 	#topbar {
 		position: static;
+		height: 70px;
+	}
+	#topbar .left{
+		float: left;
+	}
+	#topbar .left h2{
+		font-size: 11px;
+	}
+	#topbar .social{
+		display: none;
 	}
 	#map {
-		height: 300px;
+		height: 600px !important;
 		position: relative;
 		overflow: hidden;
 	}
-	#sidebar {
+	.desktop.sidebar {
 		position: static;
 		width: auto;
+		height: auto !important;
 	}
-	#sidebar .sidebar-content {
+	.desktop.sidebar .sidebar-content[style],
+	.desktop.sidebar .slidable[style],
+	.desktop.sidebar[style] {
+		height: auto !important;
+	}
+	.desktop.sidebar .result,
+	.desktop.sidebar .les-filtres,
+	.desktop.sidebar .category-section,
+	.desktop.sidebar .zone-section
+	{
+		display: none;
+	}
+	.desktop.sidebar .slidable{
+		padding-bottom: 0 !important;
+	}
+	.desktop.sidebar .scrollable{
+		height: auto;
+	}
+	.desktop.sidebar .long{
+		padding-top: 10px !important;
+	}
+	.desktop.sidebar .location{
+		padding-top: 8px !important;
+	}
+	.desktop.sidebar .long-mask,
+	.desktop.sidebar .share-mask
+	{
+		height: auto!important;
+	}
+	.desktop.sidebar .les-lieux .description
+	{
+		width:88% !important;
+		padding-right: 10px;
+		float: right;
+	}
+	.desktop.sidebar .location,
+	.desktop.sidebar .url,
+	.desktop.sidebar .share-mask,
+	.desktop.sidebar .twitter
+	{
+		float: right;
+		clear:right;
+		width: 35%;
+	}
+	.desktop.sidebar .long-mask{
+		float:left;
+		clear:left;
+		width: 60%;
+	}
+	.responsive.sidebar {
+		position: static;
+		width: auto;
+		display: block;
+	}
+	.responsive.sidebar .sidebar-content {
 		padding-top: 0;
 		height: auto !important;
 		width: 100%;
@@ -1262,98 +1322,112 @@ a.leaflet-control-zoom-out {
 		border-left: 0;
 		margin-top: -1px;
 	}
-	#sidebar .sidebar-content .slidable-content {
-		width: 100%;
-		left: 0 !important;
+	.responsive.sidebar .sidebar-content .result{
+		background: #EB6564;
+		color:#fff;
+		text-align: right;
 	}
-	#sidebar .sidebar-content .slidable-content[style] {
-		left: 0 !important;
+	.responsive.sidebar .sidebar-content .result .text,
+	.responsive.sidebar .sidebar-content .result .text .right .val,
+	.responsive.sidebar .sidebar-content .result .text .right .slash,
+	.responsive.sidebar .sidebar-content .result .text .right .total
+	{
+		color:#fff;
 	}
-	#sidebar .sidebar-content .slidable-mask {
-		max-width: 100%;
-		width: 100%;
-		height: 100% !important;
+	.responsive.sidebar .sidebar-content .result .text .right
+	{
+		margin-left: 15px;
 	}
-	#sidebar .sidebar-content .slidable {
-		max-width: 45%;
-		float: right;
-	}
-	#sidebar .sidebar-content .slidable-1 {
-		max-width: 55%;
-	}
-	#sidebar .sidebar-content .slidable:last-child {
-		float: left;
-	}
-	#sidebar .sidebar-content .slidable .les-filtres .search {
-		height: 37px;
+
+	.responsive.sidebar .sidebar-content .search {
+		height: 44px;
 		line-height: 0;
+		width: 28%;
+		padding: 0;
+		float: left;
+		border-bottom: 1px solid #EEEEEE;
 	}
-	#sidebar .sidebar-content .slidable .les-filtres .search input {
-		height: 37px;
-		line-height: 37px;
+	.responsive.sidebar .sidebar-content .search input {
+		height: 44px;
 	}
-	#sidebar .sidebar-content .result .text {
+	.responsive.sidebar .sidebar-content .search .search-input {
+		border-left: 1px solid #EEEEEE;
+		padding-left: 5px;
+	}
+	.responsive.sidebar .sidebar-content .result .text {
 		width: 98%;
 		padding: 0;
 		border-right: 0;
 	}
-	#sidebar .sidebar-content .result .picto.maximize-sidebar,#sidebar .sidebar-content .result .picto.minimize-sidebar
-		{
-		display: none;
+	.responsive.sidebar .zone-section,
+	.responsive.sidebar .category-section{
+		float: left;
+		width: 36%;
 	}
-	#sidebar .sidebar-content .slidable .zone-list-une,#sidebar .sidebar-content .slidable .category-list-une
-		{
-		font-size: 14px;
+	.responsive .zone-selected,
+	.responsive .category-selected{
+		display: inline !important;
+	}
+
+	.responsive.sidebar .sidebar-content .zone-list-une,
+	.responsive.sidebar .sidebar-content .category-list-une{
 		line-height: 1.2;
 		padding-top: 10px;
 		padding-bottom: 10px;
 		height: auto;
+		font-weight: normal;
+		background: url("../images/arrow-left.png") no-repeat scroll 93% 50%;
+		padding-left: 10px;
 	}
-	#sidebar .sidebar-content .slidable .les-filtres .go-zone,#sidebar .sidebar-content .slidable .les-filtres .go-category
-		{
+	.responsive.sidebar .sidebar-content .les-filtres .go-zone,
+	.responsive.sidebar .sidebar-content .les-filtres .go-category{
 		display: none;
 	}
-	#sidebar .sidebar-content .slidable .zone-list li,#sidebar .sidebar-content .slidable .category-list li
-		{
-		padding-left: 15px;
-		background: none;
-		font-size: 14px;
+	.responsive.sidebar .sidebar-content .zone-list li,
+	.responsive.sidebar .sidebar-content .category-list li{
+		padding-left: 10px;
+		font-size: 17px;
 	}
-	#sidebar .sidebar-content .slidable .zone-list li .tip,#sidebar .sidebar-content .slidable .category-list li .tip
-		{
-		font-size: 11px;
-	}
-	#sidebar .sidebar-content .slidable .switch-filter {
+	.responsive.sidebar .sidebar-content .zone-list li .picto-gray,
+	.responsive.sidebar .sidebar-content .category-list li .picto-gray{
 		display: none;
 	}
-	#sidebar .sidebar-content .slidable .category-list li .picto-gray {
-		display: none;
-	}
-	#sidebar .sidebar-content .scrollable .les-lieux .un-lieu .description {
+	.responsive.sidebar .sidebar-content .les-lieux .un-lieu .description {
 		width: 180px;
 	}
-	#sidebar .sidebar-content .powered {
+	.responsive.sidebar .sidebar-content .powered {
 		display: none;
 	}
 }
-
-@media screen and (max-width: 580px) and (min-width: 481px) {
-	#sidebar .sidebar-content .slidable .zone-list li .tip,#sidebar .sidebar-content .slidable .category-list li .tip
-		{
-		display: none;
-	}
-}
-
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 767px) {
 	#topbar {
 		position: static;
+		height: 70px;
+	}
+	#topbar .left{
+		float: left;
+	}
+	#topbar .left h2{
+		font-size: 11px;
+	}
+	#topbar .social{
+		display: none;
+	}
+	#topbar .aside{
+		display: none;
+	}
+	#topbar .ban{
+		margin-right: 0 !important;
 	}
 	#map {
-		height: 300px;
+		height: 300px !important;
 		position: relative;
 		overflow: hidden;
 	}
-	#sidebar {
+	.responsive.sidebar {
+		display: none;
+	}
+	.desktop.sidebar {
 		position: static;
 		min-width: 320px;
 		width: 100%;
@@ -1361,7 +1435,7 @@ a.leaflet-control-zoom-out {
 		margin: auto;
 		margin-bottom: 5px;
 	}
-	#sidebar .sidebar-content {
+	.desktop.sidebar .sidebar-content {
 		padding-top: 0;
 		margin-top: -1px;
 		height: auto !important;
@@ -1372,68 +1446,42 @@ a.leaflet-control-zoom-out {
 		width: 100%;
 		border: 0;
 	}
-	#sidebar .sidebar-content .slidable-mask {
+	.desktop.sidebar .sidebar-content .slidable-mask {
 		max-width: 100%;
 		overflow: hidden;
 		width: 100%;
 	}
-	#sidebar .sidebar-content .slidable-content {
+	.desktop.sidebar .sidebar-content .slidable-content {
 		width: 300%;
 	}
-	#sidebar .sidebar-content .scrollable .les-filtres li {
+	.desktop.sidebar .sidebar-content .scrollable .les-filtres li {
 		background: url("../images/arrow-right.png") no-repeat scroll 95% 50%
 			transparent;
 	}
-	#sidebar .sidebar-content .slidable {
+	.desktop.sidebar .sidebar-content .slidable {
 		min-width: 320px;
 		width: 33.33%;
 		max-width: 100%;
 	}
-	#sidebar .sidebar-content .scrollable .les-lieux .un-lieu .description {
+	.desktop.sidebar .sidebar-content .scrollable .les-lieux .un-lieu .description {
 		width: 240px;
 	}
-	#sidebar .sidebar-content .result .text {
+	.desktop.sidebar .sidebar-content .result .text {
 		width: 98%;
 		padding: 0;
 		border-right: 0;
 	}
-	#sidebar .sidebar-content .powered {
+	.desktop.sidebar .sidebar-content .powered {
 		display: none;
 	}
-	#sidebar .sidebar-content .result .picto.maximize-sidebar,#sidebar .sidebar-content .result .picto.minimize-sidebar
+	.desktop.sidebar .sidebar-content .result .picto.maximize-sidebar,.sidebar .sidebar-content .result .picto.minimize-sidebar
 		{
 		display: none;
 	}
 }
 
-@media screen and (max-width: 970px) {
-	/*menu*/
-	#topbar {
-		height: auto;
-	}
-	#topbar .header .ban {
-		margin-right: 0;
-		width: 100%;
-		float: none;
-	}
-	#topbar .header .ban .left {
-		width: auto;
-		text-align: center;
-		float: none;
-		border-bottom: 1px solid #dedede;
-		padding-bottom: 10px;
-	}
-	#topbar .header .ban .right {
-		width: auto;
-		text-align: center;
-		float: none;
-	}
-	#topbar .header .aside {
-		float: none;
-		text-align: center;
-		width: 100%;
-		display: none; /*pas sûr ?*/
-	}
+@media screen and (max-width: 1024px) {
+
 
 	/*titre lightbox*/
 	.lightbox .lightbox-container .lightbox-top .lightbox-title {
@@ -1450,5 +1498,4 @@ a.leaflet-control-zoom-out {
 	color: red;
 	z-index: 1000;
 	padding: 3px 0.5em;
-}
 }
