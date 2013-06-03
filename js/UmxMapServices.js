@@ -323,6 +323,11 @@
             return this.filteredItemsIndex[id];
         },
 
+        /** Returns the currently used search filter */
+        getFilter : function() {
+            return this.filter;
+        },
+
         /** Returns the currently selected item */
         getSelectedItem : function() {
             return this.selectedItem;

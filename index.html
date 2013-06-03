@@ -37,11 +37,12 @@
 </head>
 <body>
 	<script type="text/javascript">
-		var params = $.deparam.querystring();
-		if (params && (params.mode === 'embed')) {
-			$('body').addClass('mode-embed');
-		}
-	</script>
+        var params = $.deparam.querystring();
+        if (params && params.mode) {
+            var css = 'mode-' + params.mode;
+            $('body').addClass(css);
+        }
+    </script>
 
 	<div id="toto"></div>
 	<div id="topbar">
@@ -102,11 +103,10 @@
 									<li class="level-2 lightbox-trigger" id="lightbox-faq"><a
 										href="#"> <span class="picto picto-faq "></span> FAQ
 									</a></li>
-									<li class="level-2 lightbox-trigger" id="lightbox-embeded">
-										<a href="#"> <span class="picto picto-embeded"></span>
-											Embed
-									</a>
-									</li>
+									<li class="level-2"><a href="#"
+										class="generate-embed-trigger"> <span
+											class="picto picto-embeded"></span> Embed
+									</a></li>
 									<li class="level-2"><a
 										href="mailto:techonmap@lafonderie-idf.fr"> <span
 											class="picto picto-contact"></span> Contact
@@ -560,14 +560,24 @@
 				<div class="lightbox-close"></div>
 			</div>
 			<div class="lightbox-content">
-				<div>
-					La carte complete:
-					<textarea class="embed embed-full"></textarea>
+				<div class="embed-readonly">
+                    <h3>Read-only map</h3>
+					<div>
+						<textarea class="embed"></textarea>
+					</div>
+					<div>
+						<a href="#" class="preview">Voir resultat</a>
+					</div>
 				</div>
-				<div>
-					La carte simple:
-					<textarea class="embed embed-full"></textarea>
-				</div>
+				<div class="embed-full">
+                    <h3>Full map</h3>
+                    <div>
+                        <textarea class="embed"></textarea>
+                    </div>
+                    <div>
+                        <a href="#" class="preview">Voir resultat</a>
+                    </div>
+                </div>
 			</div>
 		</div>
 
@@ -653,6 +663,5 @@
     }
 }
 </script>
-
 </body>
 </html>

@@ -417,7 +417,7 @@ body.lightbox-open {
 	color: #AAAAAA;
 	font-size: 16px;
 	margin-bottom: 20px;
-	font-family: 'Open Sans', ​sans-serif;
+	font-family: 'Open Sans', â€‹sans-serif;
 }
 
 .lightbox .lightbox-container.lightbox-contact .submit-container {
@@ -476,7 +476,7 @@ body.lightbox-open {
 	padding-bottom: 30px;
 }
 
-/*lightbox à propos*/
+/*lightbox Ã  propos*/
 .lightbox .lightbox-container.lightbox-about .lightbox-content {
 	padding-top: 20px;
 	color: #666666;
@@ -965,17 +965,9 @@ body.lightbox-open {
 	background: url(../images/picto-cible.png) 50% 50% no-repeat;
 	display: none;
 }
-body.mode-embed .sidebar .sidebar-content .les-lieux .un-lieu .description .edit {
-    display: none;
-}
-
 .sidebar .sidebar-content .les-lieux .un-lieu.open .description .edit {
 	display: block;
 }
-body.mode-embed .sidebar .sidebar-content .les-lieux .un-lieu.open .description .edit {
-    display : none;
-}
-
 
 .sidebar .sidebar-content .les-lieux .un-lieu .description strong {
 	display: block;
@@ -1062,7 +1054,7 @@ body.mode-embed .sidebar .sidebar-content .les-lieux .un-lieu.open .description 
 	left: 8px;
 }
 
-/*page édition*/
+/*page Ã©dition*/
 .edition .pagetitle {
 	font-weight: 300;
 	color: #666;
@@ -1101,7 +1093,7 @@ body.mode-embed .sidebar .sidebar-content .les-lieux .un-lieu.open .description 
 	font-weight: 300;
 	font-size: 16px;
 	padding-left: 10px;
-	font-family: 'Open Sans', ​sans-serif;
+	font-family: 'Open Sans', â€‹sans-serif;
 	box-sizing: content-box;
 	-moz-box-sizing: content-box;
 }
@@ -1115,7 +1107,7 @@ body.mode-embed .sidebar .sidebar-content .les-lieux .un-lieu.open .description 
 	color: #666666;
 	font-weight: 300;
 	font-size: 16px;
-	font-family: 'Open Sans', ​sans-serif;
+	font-family: 'Open Sans', â€‹sans-serif;
 }
 
 .edition .une-ligne.tags input {
@@ -1128,7 +1120,7 @@ body.mode-embed .sidebar .sidebar-content .les-lieux .un-lieu.open .description 
 	font-size: 16px;
 	padding-left: 10px;
 	margin-right: 10px;
-	font-family: 'Open Sans', ​sans-serif;
+	font-family: 'Open Sans', â€‹sans-serif;
 	box-sizing: content-box;
 	-moz-box-sizing: content-box;
 }
@@ -1168,7 +1160,7 @@ body.mode-embed .sidebar .sidebar-content .les-lieux .un-lieu.open .description 
 }
 
 .edition .condition {
-	font-family: 'Open Sans', ​sans-serif;
+	font-family: 'Open Sans', â€‹sans-serif;
 	font-size: 14;
 	font-weight: 300;
 	color: #666666;
@@ -1213,7 +1205,7 @@ a.leaflet-control-zoom-out {
 	line-height: 1.3;
 	margin: 10px;
 	margin-right: 20px;
-	font-family: 'Open Sans', ​sans-serif;
+	font-family: 'Open Sans', â€‹sans-serif;
 }
 
 .leaflet-popup-content a {
@@ -1479,14 +1471,26 @@ a.leaflet-control-zoom-out {
 
 textarea.embed {
 	width: 80%;
-	height: 15em;
+	height: 7em;
 	border: 1px solid silver;
 	background-color: #eee;
 	padding: 0.5em;
 }
 
-body.mode-embed #topbar {
+body.mode-embed-readonly #topbar {
     display : none;
 }
+
+body.mode-embed-readonly .sidebar .sidebar-content .les-lieux .un-lieu .description .edit {
+    display: none;
+}
+body.mode-embed-readonly .sidebar .sidebar-content .les-lieux .un-lieu.open .description .edit {
+    display : none;
+}
+body.mode-embed-full #topbar .social {
+    display : none;         
+}
+
+
 
 }

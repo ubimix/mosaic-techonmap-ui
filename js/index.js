@@ -3,6 +3,8 @@
 // Stats updates
 dataManager.on('search:end', function(e){
     jQuery('.result .val').html(e.result.length + '');
+    // TODO: add categories selection here
+    // TODO: add postcode selection here
 });
 dataManager.on('load:end', function() {
     var allItems = dataManager.getAllItems();
@@ -24,7 +26,7 @@ dataManager.on('load:end', function() {
         var e = $(this);
         var value = e.attr('data-postcode');
         var list = dataManager.getAllItems(function(item) {
-            if (!value || value === '*') {
+            if (!value || value === '*') {
                 return true;
             } 
             var val = item.properties.postcode;
@@ -72,7 +74,7 @@ $(window).load(function(){
         item.find('.url a').html(props.url).attr('href', props.url);
         var pageUrl = $(location).attr('href') +  '';
         var idx = pageUrl.indexOf('#');
-        if (idx >= 0) {
+        if (idx >= 0) {
             pageUrl = pageUrl.substring(0, idx);
         }
         var picto = item.find('.picto');
@@ -142,7 +144,7 @@ $(window).load(function(){
     var markerLayer = null;
     var markerIndex = {};
     /** Visualize all markers on the map */
-    function showMarkers(callback) {
+    function showMarkers(callback) {
         hideMarkers();
         /** Returns a map icon corresponding to the specified point category */
         function newMapMarker(point) {
@@ -226,7 +228,7 @@ $(window).load(function(){
     }
     function showList(callback) {
         hideList();
-        if (!callback) callback = function() {}
+        if (!callback) callback = function() {}
         dataManager.fire('list-reload:begin', {});
         setTimeout(function() {
             var bounds = map.getBounds();
@@ -335,7 +337,7 @@ $(window).load(function(){
         closeLieu(e);
     });
     
-    jQuery('.picto-heatmap').click(function() {
+    jQuery('.picto-heatmap').click(function() {
         jQuery(this).toggleClass('on');
         dataManager.fire('switchHeatmap', {});
     });
@@ -371,7 +373,55 @@ $(window).load(function(){
             });
         }, 100);
     });
-    jQuery('.save-image-trigger').on('click', function(e) {
+    jQuery('.generate-embed-trigger').on('click', function() {
+        function getTextarea(selector) {
+            var block = jQuery(selector);
+            var textarea = block.find('textarea');
+            var initialized = block.data('initialized');
+            if (!initialized) {
+                block.find('a.preview').click(function() {
+                    var h = textarea.data('embed-height');
+                    var w = textarea.data('embed-width');
+                    var code = textarea.val();
+                    console.log('Width: ' + w, 'Height: ' + h, 'Code: ' + code)
+                    var newwindow2=window.open('','name','height=' + (h) + ',width=' + (w));
+                    var tmp = newwindow2.document;
+                    tmp.write('<html><head><title></title>');
+                    tmp.write('<style>body { margin: 0; padding: 0; overflow: hidden; }</style>');
+                    tmp.write('</head><body>');
+                    tmp.write(code);
+                    tmp.write('</body></html>');
+                    tmp.close();
+                })
+                block.data('initialized', true);
+            }
+            return textarea;
+        }
+        function setTextareaParams(textarea, mode, width, height) {
+            var params = dataManager.getFilter();
+            var str = jQuery.param(params.properties);
+            var pageUrl = $(location).attr('href') +  '';
+            var idx = pageUrl.indexOf('?');
+            if (idx > 0) {
+                pageUrl = pageUrl.substring(0, idx);
+            }
+            pageUrl += '?mode=' + mode + '&' + str;
+            var fullEmbed = '<iframe width="' + width + '" height="' + height + '" src="' + pageUrl + '" frameborder="0"></iframe>'
+            textarea.val(fullEmbed);
+            textarea.data('embed-height', height);
+            textarea.data('embed-width', width);
+            textarea.data('embed-code', fullEmbed);
+        }
+        
+        var textarea = getTextarea('.lightbox-embeded .embed-readonly');
+        setTextareaParams(textarea, 'embed-readonly', 1025, 500);
+
+        textarea = getTextarea('.lightbox-embeded .embed-full');
+        setTextareaParams(textarea, 'embed-full', 1025, 500);
+
+     	 openLightbox('lightbox-embeded');
+    });
+    jQuery('.save-image-trigger').on('click', function(e) {
         e.preventDefault();
         if (imgCanvas[0]) {
             Canvas2Image.saveAsPNG(imgCanvas[0]);
@@ -529,7 +579,7 @@ $(window).load(function(){
 		}
 
 	});
-	var updateNameSearch = function(event) {
+	var updateNameSearch = function(event) {
 	    var val = jQuery('.search .search-input').val();
 	    dataManager.setNameFilter(val);
 	    event.preventDefault();
@@ -551,9 +601,9 @@ $(window).load(function(){
 		currentSlidable = nextSlide;
 
 		slideUpdateHeight();/*
-							 * maintenant pour anticiper changement largeur dut
-							 * à la scrollbar
-							 */
+                             * maintenant pour anticiper changement largeur dut
+                             * à la scrollbar
+                             */
 
 		jQuery('.desktop .'+ target +'-section')
 			.insertAfter('.desktop slidable-'+ actualSlidable +':first')
@@ -629,13 +679,6 @@ $(window).load(function(){
         }, 200);
 
 		/*---update slide mask---*/
-
-		// FIXME: replace it by a more robust re-sizeing code ??
-        // NICOLAS : ive updated slideUpdateHeight() function,
-        // this 'list-reload:end' event is not needed anymore
-		dataManager.on('list-reload:end', function(){
-            // slideUpdateHeight();
-        });
 		
 	}
 	function closeLieu($lieu){
@@ -663,21 +706,12 @@ $(window).load(function(){
 	/* redimensionne sidebar en fonction de la taille de la fenêtre */
 	function getSidebarHeight(){
 		var h = jQuery(window).height();
-		jQuery('.maximized.desktop.sidebar').height(h-110); /*
-															 * 110 = topbar +
-															 * top marge
-															 */
-		jQuery('.maximized.desktop .sidebar-content').height(h-210); /*
-																		 * 210 =
-																		 * topbar
-																		 * +top
-																		 * marge +
-																		 * resultat +
-																		 * "propulsé
-																		 * par
-																		 * la
-																		 * fonderie"
-																		 */
+		
+		/* 110 = topbar + top marge */
+		jQuery('.maximized.desktop.sidebar').height(h-110); 
+		
+		/* 210 = topbar+top marge + resultat + "propulsé par la fonderie" */
+		jQuery('.maximized.desktop .sidebar-content').height(h-210); 
 	}
 	jQuery(window).resize(function(){
 		getSidebarHeight();
@@ -707,7 +741,7 @@ $(window).load(function(){
     function mapHeight(){
         var $map = jQuery('#map');
         var wh = jQuery(window).height();
-        var embedded = jQuery('body').hasClass('mode-embed');
+        var embedded = jQuery('body').hasClass('mode-embed-readonly');
         var tbh = embedded ? 0 : jQuery('#topbar').height();
         $map.height(jQuery(window).height() - tbh);   
     }
@@ -791,10 +825,10 @@ $(window).load(function(){
    
     
     /*
-	 * create a cache system ?
-	 * $.getJSON("https://api.twitter.com/1/statuses/user_timeline/"+twitterUser+".json?count=1&include_rts=1&callback=?",
-	 * function(data) { showTwitter(data); });
-	 */
+     * create a cache system ?
+     * $.getJSON("https://api.twitter.com/1/statuses/user_timeline/"+twitterUser+".json?count=1&include_rts=1&callback=?",
+     * function(data) { showTwitter(data); });
+     */
     showTwitter(noCachejSon);
 
     function showTwitter(data){
