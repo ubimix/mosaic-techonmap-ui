@@ -36,6 +36,13 @@
 <title>TechOnMap</title>
 </head>
 <body>
+	<script type="text/javascript">
+		var params = $.deparam.querystring();
+		if (params && (params.mode === 'embed')) {
+			$('body').addClass('mode-embed');
+		}
+	</script>
+
 	<div id="toto"></div>
 	<div id="topbar">
 		<div class="social">
@@ -122,16 +129,16 @@
 			</div>
 		</div>
 	</div>
-	<div class="responsive sidebar"><!-- only visible between 1024px && 768px-->
+	<div class="responsive sidebar">
+		<!-- only visible between 1024px && 768px-->
 		<div class="sidebar-content">
 			<!--  results -->
 			<div class="result">
 				<div class="text left">
 					Résultat :
 					<div class="right">
-						<span class="val">24</span>
-						<span class="slash">/</span>
-						<span class="total">1120</span>
+						<span class="val">24</span> <span class="slash">/</span> <span
+							class="total">1120</span>
 					</div>
 				</div>
 				<div class="clear"></div>
@@ -143,24 +150,21 @@
 					Catégories : <span class="bold category-selected">Toutes</span>
 				</div>
 				<ul class="category-list">
-					<li data-value="Toutes" data-category-id="*" class="active">
-						<span class="picto-gray picto-gray-toutes"></span> Toutes <span
-						class="tip right">1120</span>
-					</li>
-					<li data-value="Entreprises" data-category-id="entreprise">
-						<span class="picto-gray picto-gray-entreprise"></span>
-						Entreprises <span class="tip right">1120</span>
-					</li>
-					<li data-value="Tiers-lieux" data-category-id="third-place">
-						<span class="picto-gray picto-gray-tierslieu"></span>
-						Tiers-lieux <span class="tip right">1120</span>
-					</li>
+					<li data-value="Toutes" data-category-id="*" class="active"><span
+						class="picto-gray picto-gray-toutes"></span> Toutes <span
+						class="tip right">1120</span></li>
+					<li data-value="Entreprises" data-category-id="entreprise"><span
+						class="picto-gray picto-gray-entreprise"></span> Entreprises <span
+						class="tip right">1120</span></li>
+					<li data-value="Tiers-lieux" data-category-id="third-place"><span
+						class="picto-gray picto-gray-tierslieu"></span> Tiers-lieux <span
+						class="tip right">1120</span></li>
 					<li data-value="Incubateurs" data-category-id="incubator"><span
 						class="picto-gray picto-gray-incubateur"></span> Incubateurs <span
 						class="tip right">1120</span></li>
 					<li data-value="Investisseurs" data-category-id="investor"><span
-						class="picto-gray picto-gray-investisseur"></span>
-						Investisseurs <span class="tip right">1120</span></li>
+						class="picto-gray picto-gray-investisseur"></span> Investisseurs <span
+						class="tip right">1120</span></li>
 					<li data-value="Communautés" data-category-id="community"><span
 						class="picto-gray picto-gray-communaute"></span> Communautés <span
 						class="tip right">1120</span></li>
@@ -172,8 +176,8 @@
 						class="picto-gray picto-gray-ecole"></span> Écoles <span
 						class="tip right">1120</span></li>
 					<li data-value="Acteurs publics" data-category-id="public-actor"><span
-						class="picto-gray picto-gray-publique"></span> Acteurs
-						publics <span class="tip right">1120</span></li>
+						class="picto-gray picto-gray-publique"></span> Acteurs publics <span
+						class="tip right">1120</span></li>
 				</ul>
 			</div>
 
@@ -202,8 +206,8 @@
 						class="picto-gray picto-gray-92"></span> Hauts-de-Seine (92) <span
 						class="tip right">1120</span></li>
 					<li data-value="Seine-Saint-Denis" data-postcode="93"><span
-						class="picto-gray picto-gray-93"></span> Seine-Saint-Denis (93)
-						<span class="tip right">1120</span></li>
+						class="picto-gray picto-gray-93"></span> Seine-Saint-Denis (93) <span
+						class="tip right">1120</span></li>
 					<li data-value="Val-de-Marne" data-postcode="94"><span
 						class="picto-gray picto-gray-94"></span> Val-de-Marne (94) <span
 						class="tip right">1120</span></li>
@@ -215,8 +219,8 @@
 			<div class="search">
 				<form action="">
 					<input type="text" class="search-input"
-						placeholder="Taper votre recherche ici" /> <input
-						type="submit" class="search-submit" value="" />
+						placeholder="Taper votre recherche ici" /> <input type="submit"
+						class="search-submit" value="" />
 				</form>
 			</div>
 		</div>
@@ -361,8 +365,8 @@
 									class="picto-gray picto-gray-ecole"></span> Écoles <span
 									class="tip right">1120</span></li>
 								<li data-value="Acteurs publics" data-category-id="public-actor"><span
-									class="picto-gray picto-gray-publique"></span> Acteurs
-									publics <span class="tip right">1120</span></li>
+									class="picto-gray picto-gray-publique"></span> Acteurs publics
+									<span class="tip right">1120</span></li>
 							</ul>
 							<!--
                             <div

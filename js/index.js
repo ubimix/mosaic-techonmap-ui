@@ -35,14 +35,6 @@ dataManager.on('load:end', function() {
     });
 });
 
-
-// var request = {
-// properties: params
-// }
-// var serialized = $.param(request.properties);
-// console.log('PARAM_FILTER: ', JSON.stringify(request), serialized);
-
-
 /* ------------------------------------------------------------------------ */
 $(window).load(function(){
 	
@@ -318,8 +310,9 @@ $(window).load(function(){
             marker.openPopup();
         }
     });
-    var query = $.deparam.querystring();
-    dataManager.setPropertyFilter(query);
+    var searchParams = $.deparam.querystring();
+    delete searchParams.mode;
+    dataManager.setPropertyFilter(searchParams);
     
 // });
 
@@ -558,9 +551,9 @@ $(window).load(function(){
 		currentSlidable = nextSlide;
 
 		slideUpdateHeight();/*
-                             * maintenant pour anticiper changement largeur dut
-                             * à la scrollbar
-                             */
+							 * maintenant pour anticiper changement largeur dut
+							 * à la scrollbar
+							 */
 
 		jQuery('.desktop .'+ target +'-section')
 			.insertAfter('.desktop slidable-'+ actualSlidable +':first')
@@ -670,14 +663,21 @@ $(window).load(function(){
 	/* redimensionne sidebar en fonction de la taille de la fenêtre */
 	function getSidebarHeight(){
 		var h = jQuery(window).height();
-		jQuery('.maximized.desktop.sidebar').height(h-110); /* 110 = topbar + top marge */
+		jQuery('.maximized.desktop.sidebar').height(h-110); /*
+															 * 110 = topbar +
+															 * top marge
+															 */
 		jQuery('.maximized.desktop .sidebar-content').height(h-210); /*
-                                                                 * 210 = topbar
-                                                                 * +top marge +
-                                                                 * resultat +
-                                                                 * "propulsé par
-                                                                 * la fonderie"
-                                                                 */
+																		 * 210 =
+																		 * topbar
+																		 * +top
+																		 * marge +
+																		 * resultat +
+																		 * "propulsé
+																		 * par
+																		 * la
+																		 * fonderie"
+																		 */
 	}
 	jQuery(window).resize(function(){
 		getSidebarHeight();
@@ -707,8 +707,8 @@ $(window).load(function(){
     function mapHeight(){
         var $map = jQuery('#map');
         var wh = jQuery(window).height();
-        var tbh = jQuery('#topbar').height();
-
+        var embedded = jQuery('body').hasClass('mode-embed');
+        var tbh = embedded ? 0 : jQuery('#topbar').height();
         $map.height(jQuery(window).height() - tbh);   
     }
 
@@ -791,10 +791,10 @@ $(window).load(function(){
    
     
     /*
-     * create a cache system ?
-     * $.getJSON("https://api.twitter.com/1/statuses/user_timeline/"+twitterUser+".json?count=1&include_rts=1&callback=?",
-     * function(data) { showTwitter(data); });
-     */
+	 * create a cache system ?
+	 * $.getJSON("https://api.twitter.com/1/statuses/user_timeline/"+twitterUser+".json?count=1&include_rts=1&callback=?",
+	 * function(data) { showTwitter(data); });
+	 */
     showTwitter(noCachejSon);
 
     function showTwitter(data){

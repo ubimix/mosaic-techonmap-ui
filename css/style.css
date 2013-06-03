@@ -965,10 +965,17 @@ body.lightbox-open {
 	background: url(../images/picto-cible.png) 50% 50% no-repeat;
 	display: none;
 }
+body.mode-embed .sidebar .sidebar-content .les-lieux .un-lieu .description .edit {
+    display: none;
+}
 
 .sidebar .sidebar-content .les-lieux .un-lieu.open .description .edit {
 	display: block;
 }
+body.mode-embed .sidebar .sidebar-content .les-lieux .un-lieu.open .description .edit {
+    display : none;
+}
+
 
 .sidebar .sidebar-content .les-lieux .un-lieu .description strong {
 	display: block;
@@ -1477,4 +1484,9 @@ textarea.embed {
 	background-color: #eee;
 	padding: 0.5em;
 }
+
+body.mode-embed #topbar {
+    display : none;
+}
+
 }
