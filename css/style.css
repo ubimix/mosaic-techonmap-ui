@@ -1451,4 +1451,12 @@ a.leaflet-control-zoom-out {
 	z-index: 1000;
 	padding: 3px 0.5em;
 }
+
+textarea.embed {
+	width: 80%;
+	height: 15em;
+	border: 1px solid silver;
+	background-color: #eee;
+	padding: 0.5em;
+}
 }

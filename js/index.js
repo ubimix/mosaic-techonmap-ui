@@ -33,8 +33,15 @@ dataManager.on('load:end', function() {
         var value = list.length;
         e.find('.tip.right').html(value + '');
     });
-
 });
+
+
+// var request = {
+// properties: params
+// }
+// var serialized = $.param(request.properties);
+// console.log('PARAM_FILTER: ', JSON.stringify(request), serialized);
+
 
 /* ------------------------------------------------------------------------ */
 $(window).load(function(){
@@ -54,15 +61,11 @@ $(window).load(function(){
     }));
     
     /* ---------------------------------------------------------------------- */
-    
 	var list = $('.les-lieux');
-	var listItemTemplate = list.html();
-	list.remove('li');
+	var listItemTemplate = getTemplate(list.find('li'));
 	
 	var popup = $('.map-popup');
-	popup.remove();
-	popup.show();
-	var popupTemplate = popup.wrapAll('<div></div>').parent().html();
+	var popupTemplate = getTemplate(popup);
 	
 	function fillTemplate(point, item) {
         var props = point.properties;
@@ -315,7 +318,9 @@ $(window).load(function(){
             marker.openPopup();
         }
     });
-    dataManager.setNameFilter('');
+    var query = $.deparam.querystring();
+    dataManager.setPropertyFilter(query);
+    
 // });
 
 

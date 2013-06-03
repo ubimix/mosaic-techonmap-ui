@@ -359,20 +359,24 @@
                     'item:deactivate', force);
         },
 
+        /** Updates the properties filter */
+        setPropertyFilter : function(properties) {
+            properties = properties || {};
+            this._updateFilter({
+                properties : properties
+            });
+        },
+
         /** Updates the name filter. */
         setNameFilter : function(name) {
-            this._updateFilter({
-                properties : {
-                    name : name
-                }
+            this.setPropertyFilter({
+                name : name
             });
         },
         /** Updates the category filter. */
         setCategoryFilter : function(category) {
-            this._updateFilter({
-                properties : {
-                    category : category
-                }
+            this.setPropertyFilter({
+                category : category
             });
         },
         /** Sets the bounding box for search results */
