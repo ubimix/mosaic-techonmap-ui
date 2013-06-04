@@ -545,11 +545,15 @@ body.lightbox-open {
 	font-weight: 300;
 	font-family: Open Sans;
 	cursor:pointer;
+	border: 5px solid white;
 }
-.lightbox .lightbox-container.lightbox-embeded .embed-type-1{
+.lightbox .lightbox-container.lightbox-embeded .embed-type.embed-type-active {
+    border-color: #EB6565;
+}
+.lightbox .lightbox-container.lightbox-embeded .embed-full {
 	background: url(../images/embed-type-1.png) no-repeat 50% 30px;
 }
-.lightbox .lightbox-container.lightbox-embeded .embed-type-2{
+.lightbox .lightbox-container.lightbox-embeded .embed-readonly {
 	background: url(../images/embed-type-2.png) no-repeat 50% 30px;
 	margin-left: 20px;
 }

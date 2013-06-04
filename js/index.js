@@ -374,28 +374,6 @@ $(window).load(function(){
         }, 100);
     });
     jQuery('.generate-embed-trigger').on('click', function() {
-        function getTextarea(selector) {
-            var block = jQuery(selector);
-            var textarea = block.find('textarea');
-            var initialized = block.data('initialized');
-            if (!initialized) {
-                block.find('a.preview').click(function() {
-                    var h = textarea.data('embed-height');
-                    var w = textarea.data('embed-width');
-                    var code = textarea.val();
-                    var newwindow2=window.open('','name','height=' + (h) + ',width=' + (w));
-                    var tmp = newwindow2.document;
-                    tmp.write('<html><head><title></title>');
-                    tmp.write('<style>body { margin: 0; padding: 0; overflow: hidden; }</style>');
-                    tmp.write('</head><body>');
-                    tmp.write(code);
-                    tmp.write('</body></html>');
-                    tmp.close();
-                })
-                block.data('initialized', true);
-            }
-            return textarea;
-        }
         function setTextareaParams(textarea, mode, width, height) {
             var params = dataManager.getFilter();
             var str = jQuery.param(params.properties);
@@ -416,14 +394,60 @@ $(window).load(function(){
             textarea.data('embed-width', width);
             textarea.data('embed-code', fullEmbed);
         }
-        
-        var textarea = getTextarea('.lightbox-embeded .embed-readonly');
-        setTextareaParams(textarea, 'embed-readonly', 1025, 500);
-
-        textarea = getTextarea('.lightbox-embeded .embed-full');
-        setTextareaParams(textarea, 'embed-full', 1025, 500);
-
-     	 openLightbox('lightbox-embeded');
+        var block = jQuery('.lightbox-embeded .active-zone');
+        var textarea = block.find('textarea');
+        var initialized = block.data('initialized');
+        if (!initialized) {
+            block.find('a.preview').click(function() {
+                var h = textarea.data('embed-height');
+                var w = textarea.data('embed-width');
+                var code = textarea.val();
+                var newwindow2=window.open('','name','height=' + (h) + ',width=' + (w));
+                var tmp = newwindow2.document;
+                tmp.write('<html><head><title></title>');
+                tmp.write('<style>body { margin: 0; padding: 0; overflow: hidden; }</style>');
+                tmp.write('</head><body>');
+                tmp.write(code);
+                tmp.write('</body></html>');
+                tmp.close();
+            })
+            block.data('initialized', true);
+            
+            var configZone = jQuery('.lightbox-embeded .configuration-zone');
+            var MIN_WIDTH = 1025;
+            var MIN_HEIGHT = 400;
+            var mode = 'embed-readonly';
+            var widthTracker = new ValueTracker(configZone.find('.embed-width'));
+            var heightTracker = new ValueTracker(configZone.find('.embed-height'));
+            function updateTextarea() {
+                console.log("updateTextarea")
+                var width = widthTracker.getValue()||MIN_WIDTH;
+                var height = heightTracker.getValue()||MIN_HEIGHT;
+                setTextareaParams(textarea, mode, width, height);
+            }
+            block[0].updateTextarea = updateTextarea;
+            jQuery('div.embed-type').click(function() {
+                jQuery('div.embed-type').each(function() {
+                    jQuery(this).removeClass('embed-type-active');
+                })
+                var div = jQuery(this);
+                div.addClass('embed-type-active');
+                mode = div.hasClass('embed-readonly') ? 'embed-readonly' : 'embed-full';
+                updateTextarea();
+            });
+            jQuery('div.embed-type.embed-readonly').addClass('embed-type-active');
+            // Add zone parameters
+            widthTracker.setValue(MIN_WIDTH);
+            widthTracker.on('changed', updateTextarea);
+            heightTracker.setValue(MIN_HEIGHT);
+            heightTracker.on('changed', updateTextarea);
+            
+            jQuery('.lightbox-container.lightbox-embeded .btn-green').click(function() {
+                closeLightbox();
+            });
+        }
+        block[0].updateTextarea();
+        openLightbox('lightbox-embeded');
     });
     jQuery('.save-image-trigger').on('click', function(e) {
         e.preventDefault();

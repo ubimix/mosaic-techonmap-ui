@@ -567,27 +567,28 @@
 				<div class="lightbox-close"></div>
 			</div>
 			<div class="lightbox-content">
-				<div class="embed-readonly">
+				<div class="configuration-zone">
 					<div>
 	                    <h3>Choisissez votre style</h3>
-	                    <div class="left embed-type embed-type-1">
-	                    	Avec menu
-	                    </div>
-	                    <div class="right embed-type embed-type-2">
+	                    <div class="left embed-type embed-readonly">
 	                    	Sans menu
+	                    </div>
+	                    <div class="right embed-type embed-full">
+	                    	Avec menu
 	                    </div>
 					</div>
 					<div>
 	                    <h3>Choisissez votre taille (770px de largeur minimum)</h3>
-						<label>Largeur : <input type="text" /></label>
-						<label>Hauteur : <input type="text" /></label>
+						<label>Largeur : <input type="text" class="embed-width"/></label>
+						<label>Hauteur : <input type="text" class="embed-height"/></label>
 					</div>
 				</div>
-				<div class="embed-full">
+				<div class="active-zone">
                     <h3>Code d’embarquement à copier et coller dans votre site</h3>
                     <div>
                         <textarea class="embed"></textarea>
                     </div>
+                    <p><a href="#" class="preview">Afficher les resultats</a></p>
                 </div>
                 <input class="btn-green" type="submit" value="Fermer la fenêtre">
 			</div>
