@@ -150,11 +150,11 @@ a:hover .picto-faq,.picto-faq.active {
 }
 
 .picto-embeded {
-	background: url(../images/menu-sprite.png) -96px 8px no-repeat;
+	background: url(../images/menu-sprite.png) -96px 10px no-repeat;
 }
 
 a:hover .picto-embeded,.picto-embeded.active {
-	background: url(../images/menu-sprite.png) -96px -34px no-repeat;
+	background: url(../images/menu-sprite.png) -96px -32px no-repeat;
 }
 
 .picto-contact {
@@ -515,16 +515,82 @@ body.lightbox-open {
 	padding-right: 30px;
 }
 
-.lightbox .lightbox-container.lightbox-about .lightbox-content .footer-links
-	{
+.lightbox .lightbox-container.lightbox-about .lightbox-content .footer-links{
 	padding: 20px;
 	margin-top: 20px;
 	border-top: 1px solid #DDDDDD;
 }
 
-.lightbox .lightbox-container.lightbox-about .lightbox-content .footer-links img
-	{
+.lightbox .lightbox-container.lightbox-about .lightbox-content .footer-links img{
 	margin-right: 15px;
+}
+
+/*lightbox Embed*/
+.lightbox .lightbox-container.lightbox-embeded .lightbox-content {
+	padding-right: 40px;
+}
+
+.lightbox .lightbox-container.lightbox-embeded h3{
+	color: #52C591;
+	font-weight: 300;
+	font-size: 18px;
+	margin-bottom: 15px;
+}
+.lightbox .lightbox-container.lightbox-embeded .embed-type{
+	width:230px;
+	text-align: center;
+	height: 145px;
+	font-size: 14px;
+	color: #333333;
+	font-weight: 300;
+	font-family: Open Sans;
+	cursor:pointer;
+}
+.lightbox .lightbox-container.lightbox-embeded .embed-type-1{
+	background: url(../images/embed-type-1.png) no-repeat 50% 30px;
+}
+.lightbox .lightbox-container.lightbox-embeded .embed-type-2{
+	background: url(../images/embed-type-2.png) no-repeat 50% 30px;
+	margin-left: 20px;
+}
+.lightbox .lightbox-container.lightbox-embeded .embed-type.active{
+	background: #EEEEEE;
+}
+.lightbox .lightbox-container.lightbox-embeded label{
+	font-size: 16px;
+	color: #333333;
+	height: 25px;
+	line-height: 25px;
+	font-weight: 300;
+}
+.lightbox .lightbox-container.lightbox-embeded label input{
+	font-size: 13px;
+	color: #333333;
+	height: 25px;
+	line-height: 25px;
+	border:1px solid #eeeeee;
+	width: 135px;
+	margin-left: 7px;
+	margin-right: 10px;
+	padding:0 5px;
+}
+.lightbox .lightbox-container.lightbox-embeded textarea.embed{
+	background: none;
+	width: 484px;
+	height: 140px;
+	border:1px solid #CCCCCC;
+	color: #333333;
+	font-size: 14px;
+	font-weight: 300;
+	font-family: Open Sans;
+	padding: 8px;
+}
+.lightbox .lightbox-container.lightbox-embeded .btn-green{
+	float: right;
+	background: url(../images/btn-green-tick.png) 100% 50% no-repeat #53c591;
+	width: 150px;
+	margin-right: 7px;
+	margin-top: 15px;
 }
 /*squelette*/
 #map {
@@ -1386,10 +1452,22 @@ a.leaflet-control-zoom-out:hover {
 		{
 		display: none;
 	}
-	.responsive.sidebar .sidebar-content .zone-list li,.responsive.sidebar .sidebar-content .category-list li
-		{
+	.responsive.sidebar .sidebar-content .zone-list li,
+	.responsive.sidebar .sidebar-content .category-list li
+	{
 		padding-left: 10px;
-		font-size: 17px;
+		font-size: 14px;
+	}
+	.responsive.sidebar .sidebar-content .zone-list li,
+	.responsive.sidebar .sidebar-content .category-list li
+	{
+    	height: 35px;
+   		line-height: 35px;
+	}
+	.responsive.sidebar .sidebar-content .zone-list li .tip,
+	.responsive.sidebar .sidebar-content .category-list li .tip
+	{
+    	margin-top: 5px;
 	}
 	.responsive.sidebar .sidebar-content .zone-list li .picto-gray,.responsive.sidebar .sidebar-content .category-list li .picto-gray
 		{
@@ -1508,13 +1586,6 @@ a.leaflet-control-zoom-out:hover {
 	padding: 3px 0.5em;
 }
 
-textarea.embed {
-	width: 80%;
-	height: 7em;
-	border: 1px solid silver;
-	background-color: #eee;
-	padding: 0.5em;
-}
 
 body.mode-embed-readonly #topbar {
     display : none;
