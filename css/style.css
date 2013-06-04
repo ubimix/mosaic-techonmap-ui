@@ -129,6 +129,10 @@ table {
 	background: url(../images/picto-cible.png) 99% 50% no-repeat;
 }
 
+.picto-edit {
+	background: url(../images/picto-edit.png) 50% 50% no-repeat;
+}
+
 .picto-about {
 	background: url(../images/menu-sprite.png) 0 8px no-repeat;
 }
@@ -177,6 +181,31 @@ a:hover .picto-contact,.picto-contact.active {
 	background: url(../images/menu-sprite.png) -235px -34px no-repeat;
 }
 
+.picto-generate {
+	background: url(../images/menu-sprite.png) -290px 9px no-repeat;
+}
+
+a:hover .picto-generate,.picto-generate.active {
+	background: url(../images/menu-sprite.png) -290px -33px no-repeat;
+}
+
+.picto-export {
+	background: url(../images/menu-sprite.png) -345px 9px no-repeat;
+}
+
+a:hover .picto-export,.picto-export.active {
+	background: url(../images/menu-sprite.png) -345px -33px no-repeat;
+}
+
+.picto-sync {
+	background: url(../images/picto-sync.png) 50% 50% no-repeat;
+	width: 33px;
+	height: 29px;
+}
+
+a:hover .picto-sync,.picto-sync.on {
+	background: url(../images/picto-sync.png) 50% 50% no-repeat;
+}
 .picto-investisseur {
 	background: url(../images/sprite.png) 0 0 no-repeat;
 }
@@ -962,7 +991,6 @@ body.lightbox-open {
 	width: 45px;
 	height: 25px;
 	float: right;
-	background: url(../images/picto-cible.png) 50% 50% no-repeat;
 	display: none;
 }
 .sidebar .sidebar-content .les-lieux .un-lieu.open .description .edit {
@@ -1014,23 +1042,23 @@ body.lightbox-open {
 	overflow: hidden;
 }
 
-.sidebar .sidebar-content .les-lieux .un-lieu .description .input-permalien
-	{
+.sidebar .sidebar-content .les-lieux .un-lieu .description .input-permalien{
 	width: 90%;
 	padding: 5px;
 	color: gray;
 	margin-top: 5px;
 }
 
-.sidebar .sidebar-content .les-lieux .un-lieu .description .long p,.sidebar .sidebar-content .les-lieux .un-lieu .description .long .creation,.sidebar .sidebar-content .les-lieux .un-lieu .description .long .tags
-	{
+.sidebar .sidebar-content .les-lieux .un-lieu .description .long p,
+.sidebar .sidebar-content .les-lieux .un-lieu .description .long .creation,
+.sidebar .sidebar-content .les-lieux .un-lieu .description .long .tags{
 	margin-bottom: 20px;
 }
 
 .sidebar .sidebar-content .powered {
 	height: 50px;
 	line-height: 50px;
-	border-top: 1px solid #dedede;
+	border-top: 1px solid #EEEEEE;
 	color: #999999;
 	font-size: 12px;
 	text-align: center;
@@ -1038,14 +1066,13 @@ body.lightbox-open {
 }
 
 .sidebar .sidebar-content .powered .sync-trigger {
-	height: 50px;
+	height: 100%;
 	width: 50px;
-	background: silver;
 	display: block;
+	border-right: 1px solid #EEEEEE;
 }
 
 .sidebar .sidebar-content .powered .sync-trigger.on {
-	background: pink;
 }
 
 .sidebar .sidebar-content .powered .logo {
@@ -1188,6 +1215,13 @@ a.leaflet-control-zoom-out {
 	height: 41px;
 	text-indent: -999px;
 	background: url(../images/picto-zoom-out.png) 50% 50% no-repeat;
+}
+a.leaflet-control-zoom-in:hover {
+	background: url(../images/picto-zoom-in-active.png) 50% 50% no-repeat;
+}
+
+a.leaflet-control-zoom-out:hover {
+	background: url(../images/picto-zoom-out-active.png) 50% 50% no-repeat;
 }
 
 #map .leaflet-popup-content-wrapper {
