@@ -611,7 +611,7 @@ $(window).load(function(){
                              */
 
 		jQuery('.desktop .'+ target +'-section')
-			.insertAfter('.desktop slidable-'+ actualSlidable +':first')
+			.insertAfter('.desktop .slidable-'+ actualSlidable +':first')
 			.removeClass('slidable-2 slidable-3')
 			.addClass('slidable-'+ nextSlide);
 		jQuery('.desktop .slidable-content').animate({
