@@ -726,16 +726,16 @@ $(window).load(function(){
 	/* gestion du js/mediaqueries */
 	function mediaqueries(){ /* hum, ... je pense que je peux améliorer ça */
 		var width = jQuery(window).width();
-		if(width <= 970){
+		if(width <= 1024){
 			maximizeSidebar();
 		}
-		if(width <= 970 && width > 480){
+		if(width <= 1024 && width > 768){
 			jQuery('.slidable-content').addClass('disabled');
 		}
 		else{
 			jQuery('.slidable-content').removeClass('disabled');
 		}
-		if(width <= 480){
+		if(width <= 768){
 			currentSlidable;
 			jQuery('.slidable-content').css({
 				left : -(currentSlidable-1) * jQuery('.slidable-mask').width()  		
