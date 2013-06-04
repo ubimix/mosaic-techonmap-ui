@@ -549,10 +549,10 @@ $(window).load(function(){
 
 	// Reflects postcode changes in UI.
 	function selectPostcode(postcode) {
-	   if (postcode == '*')
-	        postcode = null;
+	   if (!postcode)
+	        postcode = '*';
        jQuery('.zone-list li').removeClass('active');
-       var activeItem = jQuery('.zone-list li[data-postcode=' + postcode + ']'); 
+       var activeItem = jQuery('.zone-list li[data-postcode="' + postcode + '"]'); 
        activeItem.addClass('active');
        jQuery('.zone-selected').text(activeItem.data('value'));
        if(!slideIsDisabled()){
@@ -573,9 +573,13 @@ $(window).load(function(){
 	// Reflects category changes in UI
 	function selectCategory(category) {
 	    jQuery('.category-list li').removeClass('active');
-	    var activeItem = jQuery('.category-list li[data-category="' + category + '"]'); 
-        activeItem.addClass('active');
-        jQuery('.category-selected').text(activeItem.data('value'));
+	    if (!category)
+	        category = '*'
+	    jQuery('.category-list li[data-category-id="' + category + '"]').each(function() {
+	        var activeItem = $(this);
+	        activeItem.addClass('active');
+	        jQuery('.category-selected').text(activeItem.data('value'));
+	    })
         if(!slideIsDisabled()){
             jQuery('.scrollable').scrollTop(0);
             slidePrev();
@@ -619,10 +623,10 @@ $(window).load(function(){
             tracker.setValue(query, false);
         }
         var category = properties.category;
-        selectCategory(category);
+        // selectCategory(category);
         
         var postcode = properties.postcode||'*';
-        selectPostcode(postcode);
+        // selectPostcode(postcode);
     });
 
 	/* functions */
