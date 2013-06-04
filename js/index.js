@@ -383,7 +383,6 @@ $(window).load(function(){
                     var h = textarea.data('embed-height');
                     var w = textarea.data('embed-width');
                     var code = textarea.val();
-                    console.log('Width: ' + w, 'Height: ' + h, 'Code: ' + code)
                     var newwindow2=window.open('','name','height=' + (h) + ',width=' + (w));
                     var tmp = newwindow2.document;
                     tmp.write('<html><head><title></title>');
@@ -548,53 +547,83 @@ $(window).load(function(){
 		slideFirst();
 	});
 
+	// Reflects postcode changes in UI.
+	function selectPostcode(postcode) {
+	   if (postcode == '*')
+	        postcode = null;
+       jQuery('.zone-list li').removeClass('active');
+       var activeItem = jQuery('.zone-list li[data-postcode=' + postcode + ']'); 
+       activeItem.addClass('active');
+       jQuery('.zone-selected').text(activeItem.data('value'));
+       if(!slideIsDisabled()){
+            jQuery('.scrollable').scrollTop(0);
+            slidePrev();
+       }
+	}
 	jQuery('.zone-list li').on('click', function(){
-
 		// functions to update the map & filtering the list go here
 	    var postcode = jQuery(this).data('postcode');
 	    if (postcode == '*') {
 	        postcode = null;
 	    }
 	    dataManager.setPostcodeFilter(postcode);
-
-		jQuery('.zone-list li').removeClass('active');
-		jQuery(this).addClass('active');
-		jQuery('.zone-selected').text(jQuery(this).data('value'));
-		if(!slideIsDisabled()){
-			jQuery('.scrollable').scrollTop(0);
-			slidePrev();
-		}
+	    selectPostcode(postcode);
 	});
-	jQuery('.category-list li').on('click', function(){
 
+	// Reflects category changes in UI
+	function selectCategory(category) {
+	    jQuery('.category-list li').removeClass('active');
+	    var activeItem = jQuery('.category-list li[data-category="' + category + '"]'); 
+        activeItem.addClass('active');
+        jQuery('.category-selected').text(activeItem.data('value'));
+        if(!slideIsDisabled()){
+            jQuery('.scrollable').scrollTop(0);
+            slidePrev();
+        }
+    }
+	jQuery('.category-list li').on('click', function(){
 		// functions to update the map & filtering the list go here
 	    var val = jQuery(this).data('category-id');
 	    if (val == '*'){
 	        val = null;
 	    }
 	    dataManager.setCategoryFilter(val);
-
-		jQuery('.category-list li').removeClass('active');
-		jQuery(this).addClass('active');
-		jQuery('.category-selected').text(jQuery(this).data('value'));
-
-		if(!slideIsDisabled()){
-			jQuery('.scrollable').scrollTop(0);
-			slidePrev();
-		}
-
+	    selectCategory(val);
 	});
-	var updateNameSearch = function(event) {
-	    var val = jQuery('.search .search-input').val();
-	    dataManager.setNameFilter(val);
-	    event.preventDefault();
-	}
-    jQuery('.search .search-submit').on('click', updateNameSearch);
-    jQuery('.search .search-input').on('keypress', function(event){
-        if ( event.which == 13 ) {
-            updateNameSearch(event);
+	 
+	// This action is required to 'trottle' search requests to avoid too
+	// much search requests in a short period of time.
+    var searchAction = new umx.DelayedAction();
+    var searchBoxTrackers = [];
+    // Add value trackers to query input boxes.
+    // These trackers are used to notify about field changes.
+    jQuery('.search .search-input').each(function() {
+        var input = jQuery(this);
+        var tracker = new ValueTracker(input);
+        tracker.on('changed', function() {
+            searchAction.run(function() {
+                var query = tracker.getValue();
+                dataManager.setNameFilter(query);
+            })
+        })
+        searchBoxTrackers.push(tracker);
+    });
+    // Update UI based on changes of request parameters.
+    dataManager.on('search:begin', function(e) {
+        if (!e || !e.filter || !e.filter.properties)
+            return; 
+        var properties = e.filter.properties;
+        var query = properties.name||'';
+        for (var i = 0; i<searchBoxTrackers.length;i++) {
+            var tracker = searchBoxTrackers[i];
+            tracker.setValue(query, false);
         }
-    }).on('blur', updateNameSearch); 
+        var category = properties.category;
+        selectCategory(category);
+        
+        var postcode = properties.postcode||'*';
+        selectPostcode(postcode);
+    });
 
 	/* functions */
 	function slideIsDisabled(){

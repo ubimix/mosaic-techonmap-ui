@@ -22,14 +22,17 @@
                 that._notifyChanges();
             }
             this.element.focus(validateValue);
-            this.element.change(validateValue);
             this.element.blur(validateValue);
-            this.element.keydown(validateValue);
-            this.element.keyup(validateValue);
+            this.element.on('input', validateValue);
+            // this.element.change(validateValue);
+            // this.element.keydown(validateValue);
+            // this.element.keyup(validateValue);
             this.element.keypress(function(e) {
                 validateValue();
-                if (e.code == 13) {
+                if (e.keyCode == 13) {
                     console.log('Enter was pressed!')
+                    e.preventDefault();
+                    return false;
                 }
             });
             this.reset();
@@ -42,7 +45,7 @@
         },
         _notifyChanges : function() {
             var newValue = this.getValue();
-            if (newValue != this.prevValue && newValue != this.prevNotified) {
+            if (newValue != this.prevNotified) {
                 this.fire('changed', {
                     oldValue : this.prevValue,
                     value : newValue
