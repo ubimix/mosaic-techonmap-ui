@@ -401,7 +401,12 @@ $(window).load(function(){
             var params = dataManager.getFilter();
             var str = jQuery.param(params.properties);
             var pageUrl = $(location).attr('href') +  '';
-            var idx = pageUrl.indexOf('?');
+            var idx;
+            idx = pageUrl.indexOf('#');
+            if (idx > 0) {
+                pageUrl = pageUrl.substring(0, idx);
+            }
+            idx = pageUrl.indexOf('?');
             if (idx > 0) {
                 pageUrl = pageUrl.substring(0, idx);
             }

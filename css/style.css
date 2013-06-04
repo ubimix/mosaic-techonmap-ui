@@ -1458,6 +1458,11 @@ a.leaflet-control-zoom-out {
 	}
 }
 
+.lightbox .lightbox-container .lightbox-content h3 {
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+}
+
 #loading {
 	position: fixed;
 	top: 1px;

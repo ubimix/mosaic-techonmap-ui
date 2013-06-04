@@ -37,10 +37,10 @@
 </head>
 <body>
 	<script type="text/javascript">
-        var params = $.deparam.querystring();
+        var params = jQuery.deparam.querystring();
         if (params && params.mode) {
             var css = 'mode-' + params.mode;
-            $('body').addClass(css);
+            jQuery('body').addClass(css);
         }
     </script>
 
