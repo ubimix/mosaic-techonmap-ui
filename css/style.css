@@ -366,6 +366,13 @@ body.lightbox-open {
 .lightbox .lightbox-container.large .lightbox-content {
 	max-width: 800px;
 }
+.lightbox .lightbox-container.small {
+	max-height: 350px;
+}
+
+.lightbox .lightbox-container.small .lightbox-content {
+	max-height: 350px;
+}
 
 .lightbox .lightbox-container .lightbox-top {
 	height: 45px;
@@ -524,10 +531,34 @@ body.lightbox-open {
 .lightbox .lightbox-container.lightbox-about .lightbox-content .footer-links img{
 	margin-right: 15px;
 }
-
+/*lightbox export data*/
+.lightbox .lightbox-container.lightbox-export-data .lightbox-content{
+	padding: 40px;
+}
+.lightbox .lightbox-container.lightbox-export-data p{
+	font-weight: 300;
+	font-size: 14px;
+	line-height: 1.2;
+	color: #333333;
+}
+.lightbox .lightbox-container.lightbox-export-data h3{
+	color: #EB7A65;
+	font-weight: 300;
+	font-size: 18px;
+	margin-bottom: 15px;
+	text-align: center;
+}
+.lightbox .lightbox-container.lightbox-export-data .links{
+	text-align: center;
+	margin-top: 20px;
+}
+.lightbox .lightbox-container.lightbox-export-data .links .btn-blue{
+	background: url(../images/export-btn.png) 100% 50% no-repeat #385f98;
+	padding-right: 50px;
+}
 /*lightbox Embed*/
 .lightbox .lightbox-container.lightbox-embeded .lightbox-content {
-	padding-right: 40px;
+	padding: 40px;
 }
 
 .lightbox .lightbox-container.lightbox-embeded h3{
