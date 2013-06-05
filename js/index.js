@@ -1,11 +1,9 @@
 /*map*/
-/* ------------------------------------------------------------------------ */
-// Stats updates
 dataManager.on('search:end', function(e){
     jQuery('.result .val').html(e.result.length + '');
-    // TODO: add categories selection here
-    // TODO: add postcode selection here
-});
+})
+/* ------------------------------------------------------------------------ */
+// Stats updates
 dataManager.on('load:end', function() {
     var allItems = dataManager.getAllItems();
     jQuery('.result .total').html(allItems.length);
@@ -579,10 +577,6 @@ $(window).load(function(){
        var activeItem = jQuery('.zone-list li[data-postcode="' + postcode + '"]'); 
        activeItem.addClass('active');
        jQuery('.zone-selected').text(activeItem.data('value'));
-       if(!slideIsDisabled()){
-            jQuery('.scrollable').scrollTop(0);
-            slidePrev();
-       }
 	}
 	jQuery('.zone-list li').on('click', function(){
 		// functions to update the map & filtering the list go here
@@ -592,6 +586,10 @@ $(window).load(function(){
 	    }
 	    dataManager.setPostcodeFilter(postcode);
 	    selectPostcode(postcode);
+	    if(!slideIsDisabled()){
+            jQuery('.scrollable').scrollTop(0);
+            slidePrev();
+       }
 	});
 
 	// Reflects category changes in UI
@@ -604,10 +602,6 @@ $(window).load(function(){
 	        activeItem.addClass('active');
 	        jQuery('.category-selected').text(activeItem.data('value'));
 	    })
-        if(!slideIsDisabled()){
-            jQuery('.scrollable').scrollTop(0);
-            slidePrev();
-        }
     }
 	jQuery('.category-list li').on('click', function(){
 		// functions to update the map & filtering the list go here
@@ -617,6 +611,10 @@ $(window).load(function(){
 	    }
 	    dataManager.setCategoryFilter(val);
 	    selectCategory(val);
+        if(!slideIsDisabled()){
+            jQuery('.scrollable').scrollTop(0);
+            slidePrev();
+        }
 	});
 	 
 	// This action is required to 'trottle' search requests to avoid too
@@ -646,11 +644,10 @@ $(window).load(function(){
             var tracker = searchBoxTrackers[i];
             tracker.setValue(query, false);
         }
-        var category = properties.category;
-        // selectCategory(category);
-        
+        var category = properties.category||'*';
         var postcode = properties.postcode||'*';
-        // selectPostcode(postcode);
+        selectCategory(category);
+        selectPostcode(postcode);
     });
 
 	/* functions */
