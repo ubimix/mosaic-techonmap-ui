@@ -578,16 +578,19 @@ body.lightbox-open {
 	margin-right: 10px;
 	padding:0 5px;
 }
+.lightbox .lightbox-container textarea.code {
+    background: none;
+    width: 484px;
+    height: 140px;
+    border:1px solid #CCCCCC;
+    color: #333333;
+    font-size: 14px;
+    font-weight: 300;
+    font-family: Open Sans;
+    padding: 8px;
+}
+
 .lightbox .lightbox-container.lightbox-embeded textarea.embed{
-	background: none;
-	width: 484px;
-	height: 140px;
-	border:1px solid #CCCCCC;
-	color: #333333;
-	font-size: 14px;
-	font-weight: 300;
-	font-family: Open Sans;
-	padding: 8px;
 }
 .lightbox .lightbox-container.lightbox-embeded .btn-green{
 	float: right;

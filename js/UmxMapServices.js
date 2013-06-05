@@ -342,6 +342,11 @@
             return this.filterService.filterItems(list, filteringFunction);
         },
 
+        /** Returns all internal data */
+        getData : function() {
+            return this.data;
+        },
+        
         /** Returns a list of all items */
         getAllItems : function(filteringFunction) {
             var list = this.data.features;

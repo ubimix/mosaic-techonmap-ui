@@ -459,13 +459,81 @@ $(window).load(function(){
     /*----------------------------------*/
     jQuery('.export-data-geojson-trigger').on('click', function(e){
         e.preventDefault();
-        // function to export geoJSON go here
-        console.log('export geoJSON');
+        var data = dataManager.getData();
+        var json = JSON.stringify(data, null, 2);
+        jQuery('.code.export').val(json);
     });
+    
     jQuery('.export-data-csv-trigger').on('click', function(e){
         e.preventDefault();
-        // function to export CSV go here
-        console.log('export CSV');
+        function escape(str) {
+            str = str ? '' + str : '';
+            return str.replace(/,/, "\\,").replace(/\\/, '\\\\').replace(/[\r\n]/, '\\n').replace(/\t/,'\\t');
+        }
+        function serializeArray(array, delimiter) {
+            delimiter = delimiter||',';
+            return array.join(delimiter);
+        }
+        function formatCSV(data) {
+            var array = [];
+            var properties = data.properties||{};
+            var coordinates = data.geometry&&data.geometry.coordinates||[];
+            array.push(properties.id);
+            array.push(properties.category);
+            array.push(properties.name);
+            array.push(properties.description);
+            array.push(coordinates[0]);
+            array.push(coordinates[1]);
+            var tags = properties.tags||[];
+            array.push(tags[0]);
+            array.push(tags[1]);
+            array.push(tags[2]);
+            array.push(properties.address);
+            array.push(properties.postcode);
+            array.push(properties.city);
+            array.push(properties.creationyear);
+            array.push(properties.url);
+            array.push(properties.twitter);
+            array.push(properties.googleplus);
+            array.push(properties.linkedin);
+            array.push(properties.viadeo);
+            for (var i=0; i<array.length;i++) {
+                array[i] = escape(array[i]);
+            }
+            var str = serializeArray(array);
+            return str;
+        }
+        var lines = [];
+        var headers = [
+                       'ID',
+                       'Category',
+                       'Nom',
+                       'Description',
+                       'Latitude',
+                       'Longitude',
+                       'Tag 1',
+                       'Tag 2',
+                       'Tag 3',
+                       'Adresse : N° et nom de rue',
+                       'Adresse : CP',
+                       'Adresse : Ville',
+                       'Année de création',
+                       'Url site web',
+                       'Nom compte Twitter',
+                       'Url page Facebook',
+                       'Url page Google +',
+                       'Url page Linkedin',
+                       'Url page Viadeo'];
+        lines.push(serializeArray(headers));
+        var data = dataManager.getData();
+        var list = data.features||[]; 
+        for (var i=0; i<list.length; i++) {
+            var line = formatCSV(list[i]);
+            lines.push(line);
+        }
+        var str = serializeArray(lines, '\n');
+        console.log(str);
+        jQuery('.code.export').val(str);
     });
 
     /*----------------------------------*/
