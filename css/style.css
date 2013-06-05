@@ -558,7 +558,7 @@ body.lightbox-open {
 }
 /*lightbox Embed*/
 .lightbox .lightbox-container.lightbox-embeded .lightbox-content {
-	padding: 40px;
+	padding-right: 40px;
 }
 
 .lightbox .lightbox-container.lightbox-embeded h3{
@@ -568,7 +568,7 @@ body.lightbox-open {
 	margin-bottom: 15px;
 }
 .lightbox .lightbox-container.lightbox-embeded .embed-type{
-	width:230px;
+	width:220px;
 	text-align: center;
 	height: 145px;
 	font-size: 14px;
@@ -577,9 +577,12 @@ body.lightbox-open {
 	font-family: Open Sans;
 	cursor:pointer;
 	border: 5px solid white;
+	margin-bottom: 17px;
+	margin-top: 10px;
+	padding-top: 5px;
 }
 .lightbox .lightbox-container.lightbox-embeded .embed-type.embed-type-active {
-    border-color: #EB6565;
+    border-color: #52C591;
 }
 .lightbox .lightbox-container.lightbox-embeded .embed-full {
 	background: url(../images/embed-type-1.png) no-repeat 50% 30px;
@@ -587,9 +590,6 @@ body.lightbox-open {
 .lightbox .lightbox-container.lightbox-embeded .embed-readonly {
 	background: url(../images/embed-type-2.png) no-repeat 50% 30px;
 	margin-left: 20px;
-}
-.lightbox .lightbox-container.lightbox-embeded .embed-type.active{
-	background: #EEEEEE;
 }
 .lightbox .lightbox-container.lightbox-embeded label{
 	font-size: 16px;
@@ -612,7 +612,7 @@ body.lightbox-open {
 .lightbox .lightbox-container textarea.code {
     background: none;
     width: 484px;
-    height: 140px;
+    height: 65px;
     border:1px solid #CCCCCC;
     color: #333333;
     font-size: 14px;
