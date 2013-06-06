@@ -413,7 +413,7 @@ $(window).load(function(){
             
             var configZone = jQuery('.lightbox-embeded .configuration-zone');
             var MIN_WIDTH = 1025;
-            var MIN_HEIGHT = 400;
+            var MIN_HEIGHT = 600;
             var mode = 'embed-readonly';
             var widthTracker = new ValueTracker(configZone.find('.embed-width'));
             var heightTracker = new ValueTracker(configZone.find('.embed-height'));

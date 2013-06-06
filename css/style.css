@@ -203,8 +203,8 @@ a:hover .picto-export,.picto-export.active {
 	height: 29px;
 }
 
-a:hover .picto-sync,.picto-sync.on {
-	background: url(../images/picto-sync.png) 50% 50% no-repeat;
+.picto-sync:hover,.picto-sync.on {
+	background: url(../images/picto-sync-on.png) 50% 50% no-repeat;
 }
 .picto-investisseur {
 	background: url(../images/sprite.png) 0 0 no-repeat;
@@ -556,6 +556,20 @@ body.lightbox-open {
 	background: url(../images/export-btn.png) 100% 50% no-repeat #385f98;
 	padding-right: 50px;
 }
+.lightbox .lightbox-container.lightbox-export-data textarea.code {
+    background: none;
+    width: 466px;
+    height: 200px;
+    border:1px solid #CCCCCC;
+    color: #333333;
+    font-size: 14px;
+    font-weight: 300;
+    font-family: Open Sans;
+    padding: 8px;
+    display: block;
+    margin:auto;
+    margin-top: 20px;
+}
 /*lightbox Embed*/
 .lightbox .lightbox-container.lightbox-embeded .lightbox-content {
 	padding-right: 40px;
@@ -609,7 +623,7 @@ body.lightbox-open {
 	margin-right: 10px;
 	padding:0 5px;
 }
-.lightbox .lightbox-container textarea.code {
+.lightbox .lightbox-container.lightbox-embeded textarea.code {
     background: none;
     width: 484px;
     height: 65px;
@@ -621,14 +635,17 @@ body.lightbox-open {
     padding: 8px;
 }
 
-.lightbox .lightbox-container.lightbox-embeded textarea.embed{
-}
+
 .lightbox .lightbox-container.lightbox-embeded .btn-green{
 	float: right;
 	background: url(../images/btn-green-tick.png) 100% 50% no-repeat #53c591;
 	width: 150px;
 	margin-right: 7px;
 	margin-top: 15px;
+}
+.lightbox .lightbox-container.lightbox-embeded .preview.btn-green{
+	float: left;
+	background: url(../images/btn-green-eye.png) 100% 50% no-repeat #53c591;
 }
 /*squelette*/
 #map {
@@ -689,9 +706,12 @@ body.lightbox-open {
 
 #topbar .social .right a {
 	color: #fff;
-	font-weight: 700;
-	font-size: 18px;
+	font-weight: 300;
+	font-size: 14px;
 	padding-left: 4px;
+	background: #A44646;
+	display: inline-block;
+	padding: 0 17px;
 }
 
 #topbar .social .left {
