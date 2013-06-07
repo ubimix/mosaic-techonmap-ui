@@ -46,15 +46,22 @@ jQuery(function() {
         try {
             if (jQuery('#edit-form').parsley('validate')) {
                 var result = getDataFromForm();
-                var msg = '[TEST]: save data: \n' + JSON.stringify(result);
-                if (confirm(msg)) {
-                    var elm = $(this);
-                    var confirmMsg = elm.data('confirmation-message');
-                    if (confirmMsg) {
-                        alert(confirmMsg);
+                var elm = $(this);
+                dataManager.storeData(result, function(e) {
+                    if (e.error) {
+                        var errorMsg = elm.data('error-message');
+                        if (errorMsg) {
+                            alert(errorMsg);
+                        }
+                        console.log('Store error: ', e.error);
+                    } else {
+                        var confirmMsg = elm.data('confirmation-message');
+                        if (confirmMsg) {
+                            alert(confirmMsg);
+                        }
                         redirectToMainPage();
                     }
-                }
+                });
             }
         } catch (e) {
             console.log(e);

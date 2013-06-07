@@ -66,9 +66,6 @@
     /**
      * This class is used to search/filter list of items by specific search
      * criteria.
-     * 
-     * @param store
-     *            a StoreService instance used to load content from the server
      */
     var FilterService = new umx.Class();
     function search(str, mask) {
@@ -275,9 +272,8 @@
      * DataManager is used to manage search criteria, perform search operations
      * and notify about all modifications.
      * 
-     * @param filterService
-     *            an instance of the <code>FilterService</code> class used to
-     *            perform search operations.
+     * @param store
+     *            a StoreService instance used to load content from the server F
      */
     var DataManager = new umx.Class();
     DataManager.extend(umx.EventManager);
@@ -346,7 +342,7 @@
         getData : function() {
             return this.data;
         },
-        
+
         /** Returns a list of all items */
         getAllItems : function(filteringFunction) {
             var list = this.data.features;
@@ -410,6 +406,36 @@
             this._updateFilter({
                 properties : {
                     postcode : postcode
+                }
+            });
+        },
+
+        /**
+         * Stores the specified data on the server using an internal
+         * StoreService object
+         */
+        storeData : function(item, callback) {
+            this.fire('store:begin', {
+                item : item
+            });
+            var that = this;
+            this.store.store(item, function(data) {
+                var result = {
+                    item : item,
+                    result : data
+                }
+                that.fire('store:end', result);
+                if (callback) {
+                    callback.call(that, result);
+                }
+            }, function(error) {
+                var result = {
+                    item : item,
+                    error : error
+                };
+                that.fire('store:end', result);
+                if (callback) {
+                    callback.call(that, result);
                 }
             });
         },

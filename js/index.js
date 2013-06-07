@@ -356,7 +356,8 @@ $(window).load(function(){
         openLightbox('lightbox-image');
         setTimeout(function(){
             var elementToSave = jQuery('.header');
-            // elementToSave = jQuery('#map');
+            elementToSave = jQuery('#map .leaflet-map-pane');
+            // elementToSave = jQuery('#test');
             // elementToSave = jQuery('#map .leaflet-popup-pane');
             html2canvas(elementToSave.get(0), {
                 onrendered : function(canvas) {
