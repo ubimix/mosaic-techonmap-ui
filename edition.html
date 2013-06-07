@@ -28,23 +28,23 @@
 
 /* Form validation visualization */
 .parsley-validated {
-	
+				
 }
 
 .parsley-validated.parsley-success {
-	color: inherit;
-	background-color: inherit;
-	border: inherit;
+				color: inherit;
+				background-color: inherit;
+				border: inherit;
 }
 
 .parsley-validated.parsley-error {
-	color: #B94A48 !important;
-	background-color: #F2DEDE !important;
-	border: 1px solid #EB6564;
+				color: #B94A48 !important;
+				background-color: #F2DEDE !important;
+				border: 1px solid #EB6564;
 }
 
 .errormsg {
-	color: #B94A48 !important;
+				color: #B94A48 !important;
 }
 </style>
 
@@ -59,7 +59,9 @@
 		</div>
 		<div class="header">
 			<div class="aside">
-				<a href="" class="btn-gray cancel">Annulez et revenez à la carte</a>
+				<a href="" class="btn-gray cancel"
+					data-confirmation-question="Confirmer l'annulation et revenir à la carte ?">Annuler
+					et revenir à la carte</a>
 			</div>
 			<div class="ban">
 				<div class="left">
@@ -220,7 +222,10 @@
 			</div>
 
 			<div class="inputs">
-				<a href="" class="btn-gray cancel">Annulez</a> <input type="submit"
+				<a href="" class="btn-gray cancel"
+					data-confirmation-question="Confirmer l'annulation et revenir à la carte ?">Annulez</a>
+				<input type="submit"
+					data-confirmation-message="Merci pour votre contribution, les informations saisies ont été sauvegardées. \nElles apparaitront sur TechOnMap après validation par notre modérateur."
 					class="btn-green" value="Validez l'ajout" />
 			</div>
 		</form>
@@ -251,6 +256,7 @@
 			odio dignissim qui blandit praesent luptatum zzril delenit augue duis
 			dolore te feugait nulla facilisi.</p>
 	</div>
+
 	<script type="content/json" id="categories">
 {
     "investor" : {
