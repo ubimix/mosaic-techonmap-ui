@@ -19,16 +19,43 @@ jQuery(function() {
             jQuery('.carac-count').removeClass('red');
         }
     }
+    function redirectToMainPage() {
+        var pageUrl = jQuery(location).attr('href') + '';
+        var idx = pageUrl.indexOf('#');
+        if (idx >= 0) {
+            pageUrl = pageUrl.substring(0, idx);
+        }
+        idx = pageUrl.lastIndexOf('/');
+        if (idx >= 0) {
+            pageUrl = pageUrl.substring(0, idx);
+        }
+        pageUrl += '/index.html';
+        window.location = pageUrl;
+    }
     jQuery('.count-field').keyup(checkDescriptionLength);
     jQuery('.cancel').click(function() {
-        alert('Annulez!')
+        var e = $(this);
+        var question = e.data('confirmation-question');
+        var redirect = !question || confirm(question);
+        if (redirect) {
+            redirectToMainPage();
+        }
         return false;
     });
     jQuery('input[type=submit]').click(function() {
         try {
-            jQuery('#edit-form').parsley('validate');
-            var result = getDataFromForm();
-            console.log(JSON.stringify(result));
+            if (jQuery('#edit-form').parsley('validate')) {
+                var result = getDataFromForm();
+                var msg = '[TEST]: save data: \n' + JSON.stringify(result);
+                if (confirm(msg)) {
+                    var elm = $(this);
+                    var confirmMsg = elm.data('confirmation-message');
+                    if (confirmMsg) {
+                        alert(confirmMsg);
+                        redirectToMainPage();
+                    }
+                }
+            }
         } catch (e) {
             console.log(e);
         }
@@ -42,14 +69,6 @@ jQuery(function() {
         var name = category.name;
         jQuery('<option></option>').attr('data-category-id', categoryId).html(
                 name).appendTo(categorySelector);
-    }
-    // categorySelector.live('[data-category-id]').change(function() {
-    // alert(jQuery(this).find('option:selected').data('category-id'))
-    // });
-
-    function checkForm() {
-        console.log("Form checking...")
-        // jQuery('form').parsley('validate');
     }
 
     var formFields = {};
@@ -166,9 +185,10 @@ jQuery(function() {
             var option = categorySelector.find('option[data-category-id='
                     + category + ']');
             option.prop('selected', true);
+            var categoryTracker = getField('category', true);
+            categoryTracker.validate();
         }
         checkDescriptionLength();
-        checkForm();
     }
 
     function getDataFromForm() {
