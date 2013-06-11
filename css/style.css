@@ -1235,7 +1235,8 @@ body.lightbox-open {
 	padding-top: 5px;
 }
 
-.edition .une-ligne.std input,.edition .une-ligne.std select {
+.edition .une-ligne.std input,.edition .une-ligne.std select,
+.edition .une-ligne.textarea textarea {
 	width: 420px;
 	height: 34px;
 	border: 1px solid #cccccc;
@@ -1253,12 +1254,6 @@ body.lightbox-open {
 	width: 530px;
 	height: 100px;
 	padding: 10px;
-	border: 1px solid #cccccc;
-	float: left;
-	color: #666666;
-	font-weight: 300;
-	font-size: 16px;
-	font-family: 'Open Sans', â€‹sans-serif;
 }
 
 .edition .une-ligne.tags input {

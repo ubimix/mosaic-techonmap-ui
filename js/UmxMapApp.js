@@ -178,8 +178,8 @@
     /* A global DataManager and event bus used to propagate events */
     var storeService = context.storeService = new umx.StoreService({
         // loadUrl : './data/data-test.json',
-        loadUrl : './data/data.json',
-        storeUrl : './store' // TODO: should be changed
+        loadUrl : './geoitems',
+        storeUrl : './geoitems' // TODO: should be changed
     });
     var dataManager = context.dataManager = new umx.DataManager(storeService);
 

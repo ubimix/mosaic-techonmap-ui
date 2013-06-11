@@ -26,38 +26,17 @@
          * This method is used to store the specified point.
          */
         store : function(point, onSuccess, onFailure) {
-            this._ajax({
-                url : this.options.storeUrl || DEFAULT_STORE_URL,
-                method : 'POST',
-                data : point
-            }, onSuccess, onFailure);
+            var url = this.options.storeUrl || DEFAULT_STORE_URL;
+            // var data = JSON.stringify(point);
+            $.post(url, point, onSuccess).fail(onFailure);
         },
 
         /**
          * Loads all data corresponding to the specified search criteria.
          */
         load : function(onSuccess, onFailure) {
-            this._ajax({
-                url : this.options.loadUrl || DEFAULT_LOAD_URL,
-                method : 'GET'
-            }, onSuccess, onFailure);
-        },
-
-        /**
-         * This is an internal method performing the real AJAX call to the
-         * server
-         */
-        _ajax : function(params, onSuccess, onFailure) {
-            params.dataType = 'json';
-            params.success = onSuccess;
-            params.error = function(jqXHR, status, error) {
-                if (onFailure) {
-                    onFailure.apply(this, arguments);
-                } else {
-                    console.log(jqXHR, status, error);
-                }
-            }
-            $.ajax(params);
+            var url = this.options.loadUrl || DEFAULT_LOAD_URL;
+            $.getJSON(url, onSuccess).fail(onFailure);
         }
 
     })
@@ -526,6 +505,12 @@
             that.fire('load:begin', {});
             that.store.load(function(result) {
                 var data = result;
+                if (isArray(data)) {
+                    data = {
+                        "type" : "FeatureCollection",
+                        "features" : data
+                    };
+                }
                 that.data = data;
                 that.fire('load:end', {
                     data : data

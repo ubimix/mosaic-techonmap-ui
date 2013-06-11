@@ -7,7 +7,7 @@ jQuery(function() {
     function trim(str) {
         return str ? str.replace(/^\s+|\s+$/g, '') : '';
     }
-    /* counting caracters length */
+    /* counting characters length */
     function checkDescriptionLength() {
         var max = 250;
         var val = jQuery('[data-field=description]').val();

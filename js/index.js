@@ -151,6 +151,10 @@ $(window).load(function(){
             var marker = L.marker(coords, {
                 icon: categoryInfo.getMapIcon(props.category, false)
             });
+            marker.setSelection = function(selected) {
+                var icon = categoryInfo.getMapIcon(props.category, selected);
+                marker.setIcon(icon);
+            }
             var visible = false;
             marker.on('click', function() {
                 var id = dataManager.getItemId(point);
@@ -283,6 +287,15 @@ $(window).load(function(){
     dataManager.on('search:end', redrawPanels);
     
     // Zoom to the selected item.
+    dataManager.on('item:deselect', function(item) {
+        if (!markerLayer)
+            return ;
+        var id = dataManager.getItemId(item);
+        var marker = markerIndex[id];
+        if (marker) {
+            marker.setSelection(false);
+        }
+    })
     dataManager.on('item:select', function(item) {
         if (!markerLayer)
             return ;
@@ -294,6 +307,7 @@ $(window).load(function(){
                 map.panTo(latLng);
                 marker.openPopup();
             });
+            marker.setSelection(true);
         }
     });
     // Open a callout window (a 'lollipop') on an active item
@@ -397,7 +411,7 @@ $(window).load(function(){
         var textarea = block.find('textarea');
         var initialized = block.data('initialized');
         if (!initialized) {
-            block.find('a.preview').click(function() {
+            block.find('.preview').click(function() {
                 var h = textarea.data('embed-height');
                 var w = textarea.data('embed-width');
                 var code = textarea.val();
@@ -414,12 +428,11 @@ $(window).load(function(){
             
             var configZone = jQuery('.lightbox-embeded .configuration-zone');
             var MIN_WIDTH = 1025;
-            var MIN_HEIGHT = 600;
+            var MIN_HEIGHT = 800;
             var mode = 'embed-readonly';
             var widthTracker = new ValueTracker(configZone.find('.embed-width'));
             var heightTracker = new ValueTracker(configZone.find('.embed-height'));
             function updateTextarea() {
-                console.log("updateTextarea")
                 var width = widthTracker.getValue()||MIN_WIDTH;
                 var height = heightTracker.getValue()||MIN_HEIGHT;
                 setTextareaParams(textarea, mode, width, height);
@@ -461,6 +474,14 @@ $(window).load(function(){
     jQuery('.export-data-geojson-trigger').on('click', function(e){
         e.preventDefault();
         var data = dataManager.getData();
+        data = JSON.parse(JSON.stringify(data));
+        var list = data.features;
+        var len = list && list.length ? list.length : 0;
+        // Remove all internal identifiers
+        for (var i=0; i<len; i++) {
+            var item = list[i];
+            delete item._id;
+        }
         var json = JSON.stringify(data, null, 2);
         jQuery('.code.export').val(json);
     });
@@ -533,7 +554,6 @@ $(window).load(function(){
             lines.push(line);
         }
         var str = serializeArray(lines, '\n');
-        console.log(str);
         jQuery('.code.export').val(str);
     });
 
@@ -947,17 +967,13 @@ $(window).load(function(){
     /*---------------------------*/
     /*------topbar>TWITTER-------*/
     /*---------------------------*/
-    var twitterUser = 'LaFonderie_idf';
-    var noCachejSon = [{"created_at":"Sat May 04 11:47:03 +0000 2013","id":330649770366468097,"id_str":"330649770366468097","text":"RT @ClioMeyer: @laviecheap pose la question \u00e0 la @CNIL du droit \u00e0 l'oubli de nos donnees personnelles #open #data #Ouisharefest","source":"\u003ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003eTwitter for iPhone\u003c\/a\u003e","truncated":false,"in_reply_to_status_id":null,"in_reply_to_status_id_str":null,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"in_reply_to_screen_name":null,"user":{"id":455814168,"id_str":"455814168","name":"La Fonderie","screen_name":"lafonderie_idf","location":"Paris","url":"http:\/\/www.lafonderie-idf.fr","description":"La Fonderie est un organisme associ\u00e9 de la R\u00e9gion \u00eele-de-France charg\u00e9  d'accompagner ses politiques num\u00e9riques et d\u2019encourager le foisonnement d'initiatives.","protected":false,"followers_count":2143,"friends_count":683,"listed_count":125,"created_at":"Thu Jan 05 15:02:03 +0000 2012","favourites_count":34,"utc_offset":3600,"time_zone":"Paris","geo_enabled":true,"verified":false,"statuses_count":578,"lang":"fr","contributors_enabled":false,"is_translator":false,"profile_background_color":"E80E0E","profile_background_image_url":"http:\/\/a0.twimg.com\/profile_background_images\/447293283\/background_twitter.png","profile_background_image_url_https":"https:\/\/si0.twimg.com\/profile_background_images\/447293283\/background_twitter.png","profile_background_tile":false,"profile_image_url":"http:\/\/a0.twimg.com\/profile_images\/1884715164\/avatar_normal.jpg","profile_image_url_https":"https:\/\/si0.twimg.com\/profile_images\/1884715164\/avatar_normal.jpg","profile_link_color":"000000","profile_sidebar_border_color":"C0DEED","profile_sidebar_fill_color":"DDEEF6","profile_text_color":"333333","profile_use_background_image":true,"default_profile":false,"default_profile_image":false,"following":null,"follow_request_sent":null,"notifications":null},"geo":null,"coordinates":null,"place":null,"contributors":null,"retweeted_status":{"created_at":"Sat May 04 11:45:00 +0000 2013","id":330649256027369472,"id_str":"330649256027369472","text":"@laviecheap pose la question \u00e0 la @CNIL du droit \u00e0 l'oubli de nos donnees personnelles #open #data #Ouisharefest","source":"web","truncated":false,"in_reply_to_status_id":null,"in_reply_to_status_id_str":null,"in_reply_to_user_id":570309693,"in_reply_to_user_id_str":"570309693","in_reply_to_screen_name":"laviecheap","user":{"id":817032949,"id_str":"817032949","name":"Clio Meyer","screen_name":"ClioMeyer","location":"","url":"http:\/\/soundcloud.com\/clio-meyer\/","description":"Meeting curious minds is a my #venture. Besides, I like to capture special moments by #sound ! #sharing #science #bidouille #theatre #corevolution #education","protected":false,"followers_count":385,"friends_count":313,"listed_count":18,"created_at":"Tue Sep 11 09:06:58 +0000 2012","favourites_count":96,"utc_offset":null,"time_zone":null,"geo_enabled":true,"verified":false,"statuses_count":1607,"lang":"fr","contributors_enabled":false,"is_translator":false,"profile_background_color":"C0DEED","profile_background_image_url":"http:\/\/a0.twimg.com\/profile_background_images\/741551708\/785aaae03f01653ecc5d45b09ef840b9.jpeg","profile_background_image_url_https":"https:\/\/si0.twimg.com\/profile_background_images\/741551708\/785aaae03f01653ecc5d45b09ef840b9.jpeg","profile_background_tile":true,"profile_image_url":"http:\/\/a0.twimg.com\/profile_images\/2598776238\/291848_10150353106481480_3912797_n_normal.jpg","profile_image_url_https":"https:\/\/si0.twimg.com\/profile_images\/2598776238\/291848_10150353106481480_3912797_n_normal.jpg","profile_banner_url":"https:\/\/pbs.twimg.com\/profile_banners\/817032949\/1355839429","profile_link_color":"0084B4","profile_sidebar_border_color":"000000","profile_sidebar_fill_color":"DDEEF6","profile_text_color":"333333","profile_use_background_image":true,"default_profile":false,"default_profile_image":false,"following":null,"follow_request_sent":null,"notifications":null},"geo":null,"coordinates":null,"place":null,"contributors":null,"retweet_count":1,"favorite_count":0,"favorited":false,"retweeted":false,"lang":"fr"},"retweet_count":1,"favorite_count":0,"favorited":false,"retweeted":false,"lang":"fr"}];
 
-   
-    
-    /*
-     * create a cache system ?
-     * $.getJSON("https://api.twitter.com/1/statuses/user_timeline/"+twitterUser+".json?count=1&include_rts=1&callback=?",
-     * function(data) { showTwitter(data); });
-     */
-    showTwitter(noCachejSon);
+    function loadLastTweet() {
+        $.getJSON("./tw",function(data){
+            showTwitter(data);
+        });
+    }
+    loadLastTweet();
 
     function showTwitter(data){
       var status = linkifyStatus(data[0].text);
