@@ -61,6 +61,25 @@ $(window).load(function(){
 	
 	function fillTemplate(point, item) {
         var props = point.properties;
+        function formatAddress() {
+            var address = props.address;
+            var city = props.city;
+            var postcode = props.postcode;
+            var str = address;
+            if (postcode &&  postcode != '') {
+                if (str.length > 0) {
+                    str += ', ';
+                }
+                str += postcode;
+            }
+            if (city &&  city != '') {
+                if (str.length > 0) {
+                    str += ', ';
+                }
+                str += city;
+            }
+            return str;
+        }
         var id = dataManager.getItemId(point);
         item.attr('data-id', id);
         item.find('.title').html(props.name).on('click', function() {
@@ -70,6 +89,10 @@ $(window).load(function(){
         item.find('.category a').html(categoryName);
         item.find('.long-mask .long').html(props.description);
         item.find('.url a').html(props.url).attr('href', props.url);
+        
+        var address = formatAddress();
+        item.find('.location').text(address);
+        
         var pageUrl = $(location).attr('href') +  '';
         var idx = pageUrl.indexOf('#');
         if (idx >= 0) {
@@ -490,7 +513,12 @@ $(window).load(function(){
         e.preventDefault();
         function escape(str) {
             str = str ? '' + str : '';
-            return str.replace(/,/, "\\,").replace(/\\/, '\\\\').replace(/[\r\n]/, '\\n').replace(/\t/,'\\t');
+            str = str.replace(/[\r\n\t]+/gi, ' ');
+            str = str.replace(/["]/gi, "'");
+            if (str.indexOf(',') > 0) {
+                str = '"' + str + '"';
+            }
+            return str;
         }
         function serializeArray(array, delimiter) {
             delimiter = delimiter||',';
