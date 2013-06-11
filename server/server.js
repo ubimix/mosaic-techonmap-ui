@@ -24,7 +24,7 @@ app.get('/data/data.json', geoitem.findAll);
 
 app.get('/geoitems/geo', geoitem.findByBounds);
 app.post('/geoitems', geoitem.addGeoItem);
-// app.get('/geoitems/:id', geoitem.findById);
+app.get('/geoitems/:id', geoitem.findById);
 // app.put('/geoitems/:id', geoitem.updateGeoItem);
 // app.delete('/geoitems/:id', geoitem.deleteGeoItem);
 app.use(express.static('../'));
