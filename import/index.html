@@ -77,6 +77,13 @@
                 return '';
             return str.replace(/^\s+|\s+$/g, '');
         }
+        function buildId(str) {
+            str = trim(str);
+            str = str.replace(/[\s,;\\/]+/gi, '_');
+            str = str.replace(/^_+|_+$/g, '');
+            str = str.toLowerCase();
+            return str;
+        }
         function getFieldsFromHeader(fieldMapping, header) {
             var result = [];
             for ( var i = 0; i < header.length; i++) {
@@ -102,6 +109,8 @@
                     }
                 }
             }
+            var id = buildId(properties.url);
+            properties.id = id;
             var coordinates = [ parseFloat(removeProp('lat')),
                     parseFloat(removeProp('lng')) ];
             var tags = [];
