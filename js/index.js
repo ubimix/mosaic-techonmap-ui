@@ -14,7 +14,7 @@ dataManager.on('load:end', function() {
             if (categoryId == '*') {
                 return true;
             } 
-            var category = item.properties.category;
+            var category = item.properties.category||'';
             return (category.indexOf(categoryId) == 0);
         });
         var value = list.length;
@@ -27,7 +27,7 @@ dataManager.on('load:end', function() {
             if (!value || value === '*') {
                 return true;
             } 
-            var val = item.properties.postcode;
+            var val = ''+(item.properties.postcode||'');
             return (val && val.indexOf(value) == 0);
         });
         var value = list.length;
