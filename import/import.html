@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="../lib/jquery/jquery.js" type="text/javascript"></script>
+<script src="../lib/jquery-csv/jquery.csv-0.71.js"
+	type="text/javascript"></script>
+
+<style>
+.container table tr td {
+				border: 1px solid red;
+}
+</style>
+</head>
+<body>
+	<script type="text/javascript">
+        var categories = {
+            "investor" : {
+                "name" : "Investisseur",
+                "url" : null
+            },
+            "incubator" : {
+                "name" : "Incubateur",
+                "url" : '3-INCUBATEURS ok - Feuil1.csv'
+            },
+            "third-place" : {
+                "name" : "Tiers-lieux",
+                "url" : '2-TIERSLIEUX ok - Feuil1.csv'
+            },
+            "school" : {
+                "name" : "École",
+                "url" : '7-ECOLES ok - Feuil1.csv'
+            },
+            "public-actor" : {
+                "name" : "Acteurs publics",
+                "url" : null
+            },
+            "community" : {
+                "name" : "Communauté",
+                "url" : null
+            },
+            "entreprise" : {
+                "name" : "Entreprises",
+                "url" : '1-ENTREPRISES ok - Feuil1.csv'
+            },
+            "prestataire" : {
+                "name" : "Prestatair",
+                "url" : null
+            }
+        }
+
+        var fieldMapping = {
+            'Nom' : 'name',
+            'Description' : 'description',
+            'Tag 1' : 'tag1',
+            'Tag 2' : 'tag2',
+            'Tag 3' : 'tag3',
+            'Latitude' : 'lat',
+            'Longitude' : 'lng',
+            'N° et nom de rue' : 'address',
+            'CP' : 'postcode',
+            'Ville' : 'city',
+            'Année de création' : 'creationyear',
+            'Url site web' : 'url',
+            'Nom compte Twitter' : 'twitter',
+            'Url page Facebook' : 'facebook',
+            'Url page Google +' : 'googleplus',
+            'Url page Linkedin' : 'linkedin',
+            'Url page Viadeo' : 'viadeo'
+        }
+        function isEmpty(str) {
+            if (!str)
+                return true;
+            return str + '' == '';
+        }
+        function trim(str) {
+            if (!str)
+                return '';
+            return str.replace(/^\s+|\s+$/g, '');
+        }
+        function getFieldsFromHeader(fieldMapping, header) {
+            var result = [];
+            for ( var i = 0; i < header.length; i++) {
+                var h = header[i];
+                var field = fieldMapping[h];
+                result.push(field);
+            }
+            return result;
+        }
+        function toGeoJsonPoint(fields, array) {
+            var properties = {};
+            function removeProp(name) {
+                var value = properties[name];
+                delete properties[name];
+                return value;
+            }
+            for ( var i = 0; i < fields.length; i++) {
+                var field = fields[i];
+                if (field) {
+                    var value = trim(array[i]);
+                    if (!isEmpty(value)) {
+                        properties[field] = value;
+                    }
+                }
+            }
+            var coordinates = [ parseFloat(removeProp('lat')),
+                    parseFloat(removeProp('lng')) ];
+            var tags = [];
+            var tag;
+            if (!isEmpty(tag = removeProp('tag1')))
+                tags.push(tag);
+            if (!isEmpty(tag = removeProp('tag2')))
+                tags.push(tag);
+            if (!isEmpty(tag = removeProp('tag3')))
+                tags.push(tag);
+            var point = {
+                "type" : "Feature",
+                "geometry" : {
+                    "type" : "Point",
+                    "coordinates" : coordinates
+                },
+                "properties" : properties
+            };
+
+            return point;
+        }
+
+        function toGeoJson(category, array) {
+            var features = [];
+            var fields = getFieldsFromHeader(fieldMapping, array[0]);
+            for ( var i = 1; i < array.length; i++) {
+                var point = toGeoJsonPoint(fields, array[i]);
+                point.properties.category = category;
+                features.push(point);
+            }
+            return features;
+        }
+
+        function loadPoints(info, callback) {
+            $.ajax({
+                url : info.url,
+                dataType : "text",
+                success : function(data) {
+                    var array = $.csv.toArrays(data);
+                    var result = toGeoJson(info.category, array);
+                    callback(info, result);
+                }
+            });
+        }
+
+        $(function() {
+            var features = [];
+            var counter = 0;
+            function showResults() {
+                var result = {
+                    "type" : "FeatureCollection",
+                    "features" : features
+                };
+                var pre = $('<pre></pre>').appendTo('body');
+                pre.text(JSON.stringify(result, null, 2));
+            }
+            for ( var category in categories) {
+                var info = categories[category];
+                if (!info.url)
+                    continue;
+                counter++;
+                console.log(info.name + ' ("' + info.url + '"): start loading');
+                info.category = category;
+                loadPoints(info, function(info, list) {
+                    console.log(info.name + ' ("' + info.url + '"): done');
+                    features = features.concat(list);
+                    counter--;
+                    if (counter == 0) {
+                        showResults();
+                    }
+                });
+            }
+        })
+    </script>
+
+</body>
+</html>

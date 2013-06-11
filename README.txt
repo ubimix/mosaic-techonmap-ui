@@ -5,10 +5,15 @@
 * MongoDB
 * Git 
 
-== Launching == 
+== Launching ==
+ 
 > cd server
 > npm install
 > nodejs ./server.js
+# To start as a deamon:
+> nohup nodejs ./server.js > output.log &
+
+See http://linux.101hacks.com/unix/nohup-command/
 
 Open the browser: 
 > http://localhost:3000/
