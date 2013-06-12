@@ -570,6 +570,12 @@ body.lightbox-open {
     margin:auto;
     margin-top: 20px;
 }
+.lightbox .lightbox-container.lightbox-export-data .help{
+	text-align: center;
+    margin: auto;
+	color: gray;
+}
+
 /*lightbox Embed*/
 .lightbox .lightbox-container.lightbox-embeded .lightbox-content {
 	padding-right: 40px;

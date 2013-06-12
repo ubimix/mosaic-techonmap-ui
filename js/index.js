@@ -536,7 +536,7 @@ $(window).load(function(){
             delete item.dirty;
         }
         var json = JSON.stringify(data, null, 2);
-        jQuery('.code.export').val(json);
+        jQuery('.code.export').val(json).select();
     });
     
     jQuery('.export-data-csv-trigger').on('click', function(e){
@@ -612,7 +612,7 @@ $(window).load(function(){
             lines.push(line);
         }
         var str = serializeArray(lines, '\n');
-        jQuery('.code.export').val(str);
+        jQuery('.code.export').val(str).select();
     });
 
     /*----------------------------------*/
