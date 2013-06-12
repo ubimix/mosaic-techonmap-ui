@@ -54,7 +54,7 @@ The following environment variables are used to define access to tweets:
 * TWITTER_PASS - a mandatory password to access the service.
 
 > export TWITTER_PASS=MyPass
-> node ./service.js 
+> node ./server.js 
    
 
    

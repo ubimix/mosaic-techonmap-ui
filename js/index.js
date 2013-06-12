@@ -40,6 +40,16 @@ $(window).load(function(){
 	
 	var mapContainer = $('#map');
 	var map = newMap(mapContainer);
+	
+//	(function(){
+//	    var popup = L.popup();
+//	    map.on('click', function(e) {
+//	        popup.setLatLng(e.latlng).setContent(
+//	                '[' + e.latlng.lat + ',' + e.latlng.lng + ']')
+//	                .openOn(map);
+//	    });
+//	})();
+     
 	var tilesUrl = mapContainer.data('map-tiles');
     map.addControl(new umx.MinimapControl(tilesUrl, {
         maxZoom : 10,

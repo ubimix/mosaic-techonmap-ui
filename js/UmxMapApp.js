@@ -24,14 +24,26 @@
             var array = center.split(',');
             mapCenter = L.latLng(array);
         }
+        var boundingBox = container.data('map-bounding-box');
+        if (boundingBox && boundingBox.length) {
+            boundingBox = L.latLngBounds(L.latLng(boundingBox[0]), L
+                    .latLng(boundingBox[1]));
+        } else {
+            boundingBox = null;
+        }
         var tilesUrl = container.data('map-tiles');
         var maxZoom = container.data('map-max-zoom') || 18;
+        var minZoom = container.data('map-min-zoom') || 2;
 
         var options = {
             tilesUrl : tilesUrl,
-            maxZoom : maxZoom
+            maxZoom : maxZoom,
+            minZoom : minZoom
         }
         var map = L.map(container[0], options);
+        if (boundingBox) {
+            map.setMaxBounds(boundingBox);
+        }
         map.setView(mapCenter, mapZoom);
         L.tileLayer(tilesUrl, options).addTo(map);
         return map;
