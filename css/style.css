@@ -521,6 +521,9 @@ body.lightbox-open {
 	line-height: 1.2;
 	padding-right: 30px;
 }
+.lightbox .lightbox-container.lightbox-about .lightbox-content p {
+	margin-bottom: 1em;
+}
 
 .lightbox .lightbox-container.lightbox-about .lightbox-content .footer-links{
 	padding: 20px;
