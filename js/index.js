@@ -41,14 +41,14 @@ $(window).load(function(){
 	var mapContainer = $('#map');
 	var map = newMap(mapContainer);
 	
-//	(function(){
-//	    var popup = L.popup();
-//	    map.on('click', function(e) {
-//	        popup.setLatLng(e.latlng).setContent(
-//	                '[' + e.latlng.lat + ',' + e.latlng.lng + ']')
-//	                .openOn(map);
-//	    });
-//	})();
+// (function(){
+// var popup = L.popup();
+// map.on('click', function(e) {
+// popup.setLatLng(e.latlng).setContent(
+// '[' + e.latlng.lat + ',' + e.latlng.lng + ']')
+// .openOn(map);
+// });
+// })();
      
 	var tilesUrl = mapContainer.data('map-tiles');
     map.addControl(new umx.MinimapControl(tilesUrl, {
@@ -71,11 +71,16 @@ $(window).load(function(){
 	
 	function fillTemplate(point, item) {
         var props = point.properties;
-        function getUrl(str) {
-            if (!(str.match(/^http(s):\/\//))) {
-                str = 'http://' + str;
+        function setUrl(selector, url) {
+            if (url && url != '') {
+                if (!(url.match(/^http(s)?:\/\//))) {
+                    url = 'http://' + url;
+                }
+                var label = url.replace(/^http(s)?:\/\//, '');
+                item.find(selector + ' a').html(label).attr('href', url);
+            } else {
+                item.find(selector).remove();
             }
-            return str;
         }
         function formatAddress() {
             var address = props.address;
@@ -102,9 +107,15 @@ $(window).load(function(){
             dataManager.selectItemById(id, true);
         });
         var categoryName = categoryInfo.getCategoryName(props.category);
-        item.find('.category a').html(categoryName);
-        item.find('.long-mask .long').html(props.description);
-        item.find('.url a').html(props.url).attr('href', getUrl(props.url));
+        item.find('.category').html(categoryName);
+        item.find('.description-field').html(props.description);
+        if (props.creationyear) {
+            item.find('.creation .red').html(props.creationyear);
+        }
+        setUrl('.url', props.url);
+        setUrl('.facebook', props.facebook);
+        setUrl('.linkedin', props.linkedin);
+        setUrl('.viadeo', props.viadeo);
         
         var address = formatAddress();
         item.find('.location').text(address);
@@ -396,6 +407,7 @@ $(window).load(function(){
     /*----------------------------------*/
     /*---------generate image-----------*/
     /*----------------------------------*/
+    /*
     var imgCanvas = [null];
     jQuery('.generate-image-trigger').on('click', function(e){
         e.preventDefault();
@@ -425,6 +437,7 @@ $(window).load(function(){
             });
         }, 100);
     });
+    */
     jQuery('.generate-embed-trigger').on('click', function() {
         function setTextareaParams(textarea, mode, width, height) {
             var params = dataManager.getFilter();

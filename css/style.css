@@ -1130,7 +1130,7 @@ body.lightbox-open {
 	margin-right: 45px;
 }
 
-.sidebar .sidebar-content .les-lieux .un-lieu .description .category {
+.sidebar .sidebar-content .les-lieux .un-lieu .description .details {
 	font-style: italic;
 }
 
@@ -1655,5 +1655,28 @@ body.mode-embed-full #topbar .social {
 }
 
 
+.sidebar .sidebar-content .info-line {
+	color : silver;
+}
+.sidebar .sidebar-content .info-line a {
+    margin-left: 0.4em
+}
+.sidebar .sidebar-content .info-line {
+    margin-top: 0.3em;
+    white-space: nowrap;
+    overflow: hidden;
+}
+ .sidebar .sidebar-content .info-line.location {
+    margin: 0.5em 0;
+	white-space: normal;
+	color: gray;
+	font-size: 1.1em;
+}
+.un-lieu .info-line.more {
+    display: none;
+}
+.un-lieu.open .info-line.more {
+    display: block;
+}
 
 }
