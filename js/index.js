@@ -61,6 +61,12 @@ $(window).load(function(){
 	
 	function fillTemplate(point, item) {
         var props = point.properties;
+        function getUrl(str) {
+            if (!(str.match(/^http(s):\/\//))) {
+                str = 'http://' + str;
+            }
+            return str;
+        }
         function formatAddress() {
             var address = props.address;
             var city = props.city;
@@ -88,7 +94,7 @@ $(window).load(function(){
         var categoryName = categoryInfo.getCategoryName(props.category);
         item.find('.category a').html(categoryName);
         item.find('.long-mask .long').html(props.description);
-        item.find('.url a').html(props.url).attr('href', props.url);
+        item.find('.url a').html(props.url).attr('href', getUrl(props.url));
         
         var address = formatAddress();
         item.find('.location').text(address);
@@ -1004,14 +1010,19 @@ $(window).load(function(){
     loadLastTweet();
 
     function showTwitter(data){
-      var status = linkifyStatus(data[0].text);
-      var date = parseTwitterDate(data[0].created_at);
-      var user = data[0].user.screen_name;
-      var id = data[0].id_str;
+        var tweet = data[0];
+        if (!tweet) {
+            jQuery('.social .left').html('&nbsp;').removeClass('left');
+            return ;
+        }
+        var status = linkifyStatus(tweet.text);
+        var date = parseTwitterDate(tweet.created_at);
+        var user = tweet.user?tweet.user.screen_name:'';
+        var id = tweet.id_str;
 
-      jQuery('.social .left .lastTweet').html(status);
-      jQuery('.social .left .lastTweetDate').html(date).attr('href', 'https://twitter.com/' + user + '/status/' + id);
-      jQuery('.social .left .lastTweetAuthor').html('@'+user).attr('href', 'https://twitter.com/'+user);
+        jQuery('.social .left .lastTweet').html(status);
+        jQuery('.social .left .lastTweetDate').html(date).attr('href', 'https://twitter.com/' + user + '/status/' + id);
+        jQuery('.social .left .lastTweetAuthor').html('@'+user).attr('href', 'https://twitter.com/'+user);
     }
     function linkifyStatus(text) {
         text = text.replace(/(https?:\/\/\S+)/gi, function (s) {
