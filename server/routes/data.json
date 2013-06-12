@@ -6,6 +6,630 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          48.866089,
+          2.28628
+        ]
+      },
+      "properties": {
+        "name": "123 Venture",
+        "description": "123Venture est une société de gestion indépendante avec plus de 800M€ investis dans le capital-investissement et l'immobilier.",
+        "address": "42 avenue Raymond Poincaré",
+        "postcode": "75016",
+        "city": "Paris",
+        "creationyear": "2000",
+        "url": "www.123venture.com",
+        "twitter": "123Venture",
+        "linkedin": "http://www.linkedin.com/company/79342",
+        "viadeo": "http://fr.viadeo.com/fr/company/123venture",
+        "id": "www.123venture.com",
+        "category": "investor"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.87104,
+          2.34584
+        ]
+      },
+      "properties": {
+        "name": "360° Capital Partners",
+        "description": "360° Capital Partners regroupe des investisseurs dynamiques et agiles, profondément passionnés par la création de sociétés durables et offrant aux entrepreneurs un soutien de tous les instants.",
+        "address": "16 boulevard Poissonnière",
+        "postcode": "75009",
+        "city": "Paris",
+        "url": "www.360capitalpartners.com",
+        "twitter": "360CP",
+        "linkedin": "http://www.linkedin.com/company/360-capital-partners",
+        "id": "www.360capitalpartners.com",
+        "category": "investor"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.869508,
+          2.341908
+        ]
+      },
+      "properties": {
+        "name": "5M Ventures",
+        "description": "Fonds de \"Media for Equity\", 5M Ventures propose à des sociétés B2C en forte croissance de l'espace publicitaire dans des médias de premier plan en échange d'une ouverture de leur capital.",
+        "address": "28 place de la Bourse",
+        "postcode": "75002",
+        "city": "Paris",
+        "url": "www.5M-ventures.com",
+        "id": "www.5m-ventures.com",
+        "category": "investor"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.863708,
+          2.33481
+        ]
+      },
+      "properties": {
+        "name": "Alven Capital",
+        "description": "Alven Capital est un fonds de venture capital indépendant qui investit principalement dans les secteurs d'internet, des médias et de l’IT.",
+        "address": "1 place André Malraux",
+        "postcode": "75001",
+        "city": "Paris",
+        "creationyear": "2000",
+        "url": "www.alvencapital.com",
+        "twitter": "alvencap",
+        "linkedin": "http://www.linkedin.com/company/2177951",
+        "id": "www.alvencapital.com",
+        "category": "investor"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.872349,
+          2.33599
+        ]
+      },
+      "properties": {
+        "name": "Banexi Ventures Partners",
+        "description": "Banexi Ventures Partners est une société de gestion indépendante qui investit à partir de fonds de venture capital dans des entreprises hightech à fort potentiel de croissance.",
+        "address": "13 rue Taitbout",
+        "postcode": "75009",
+        "city": "Paris",
+        "url": "www.banexiventures.com",
+        "linkedin": "http://www.linkedin.com/company/137667",
+        "id": "www.banexiventures.com",
+        "category": "investor"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.868301,
+          2.33333
+        ]
+      },
+      "properties": {
+        "name": "CapHorn Invest",
+        "description": "Caphorn Invest est un fonds d'investissement et d'accompagnement qui a pour vocation d’accélérer le  développement commercial de jeunes PME à fort potentiel.",
+        "address": "32 avenue de l'Opéra",
+        "postcode": "75002",
+        "city": "Paris",
+        "creationyear": "2009",
+        "url": "www.caphorninvest.fr",
+        "twitter": "CapHornInvest",
+        "linkedin": "http://www.linkedin.com/company/caphorn-invest",
+        "id": "www.caphorninvest.fr",
+        "category": "investor"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.887192,
+          2.25095
+        ]
+      },
+      "properties": {
+        "name": "Cleantech Business Angels",
+        "description": "Cleantech Business Angels est une association dont la mission est de faciliter l’investissement dans les startups cleantech et greentech.",
+        "address": "8 terrasse Bellini",
+        "postcode": "92800",
+        "city": "Puteaux",
+        "creationyear": "2008",
+        "url": "www.cleantechbusinessangels.com",
+        "twitter": "CleantechBA",
+        "linkedin": "http://www.linkedin.com/company/285538",
+        "id": "www.cleantechbusinessangels.com",
+        "category": "investor"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.8717,
+          2.30638
+        ]
+      },
+      "properties": {
+        "name": "Elaia Partners",
+        "description": "Elaia Partners est une société indépendante de capital investissement focalisée sur l'économie numérique.",
+        "address": "54 rue de Ponthieu",
+        "postcode": "75008",
+        "city": "Paris",
+        "creationyear": "2002",
+        "url": "www.elaia.com",
+        "twitter": "Elaia_Partners",
+        "linkedin": "http://www.linkedin.com/company/114482",
+        "id": "www.elaia.com",
+        "category": "investor"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.87257,
+          2.29889
+        ]
+      },
+      "properties": {
+        "name": "IdInvest Partners",
+        "description": "Idinvest Partners est un des leaders européens du financement et de l'investissement dans des entreprises de taille moyenne non cotées.",
+        "address": "117 avenue des Champs Elysées",
+        "postcode": "75008",
+        "city": "Paris",
+        "creationyear": "1997",
+        "url": "www.idinvest.com",
+        "linkedin": "http://www.linkedin.com/company/1223140",
+        "id": "www.idinvest.com",
+        "category": "investor"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.841808,
+          2.23779
+        ]
+      },
+      "properties": {
+        "name": "Investessor",
+        "description": "Les Angels d'Investessor accompagnent et financent des startups innovantes de tous secteurs d’activité à Paris et en Ile-de-France.",
+        "address": "146 rue du Château",
+        "postcode": "92100",
+        "city": "Boulogne Billancourt",
+        "url": "www.investessor.fr",
+        "twitter": "investessor",
+        "googleplus": "https://plus.google.com/+investessor",
+        "linkedin": "http://www.linkedin.com/company/682652",
+        "id": "www.investessor.fr",
+        "category": "investor"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.869629,
+          2.30357
+        ]
+      },
+      "properties": {
+        "name": "Iris Capital",
+        "description": "Iris Capital est un investisseur en capital risque, spécialisé en économie numérique, surtout actif en Europe.",
+        "address": "62 rue Pierre Charron",
+        "postcode": "75008",
+        "city": "Paris",
+        "creationyear": "1986",
+        "url": "www.iriscapital.com",
+        "linkedin": "http://www.linkedin.com/company/117523",
+        "id": "www.iriscapital.com",
+        "category": "investor"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.874884,
+          2.292473
+        ]
+      },
+      "properties": {
+        "name": "ISAI Capital",
+        "description": "ISAI est un fonds d'entrepreneurs qui a pour vocation de financer et accompagner des sociétés Internet à fort potentiel.",
+        "address": "10 avenue de la Grande Armée",
+        "postcode": "75017",
+        "city": "Paris",
+        "url": "www.isai.fr",
+        "twitter": "isai_fr",
+        "linkedin": "http://www.linkedin.com/company/755069",
+        "id": "www.isai.fr",
+        "category": "investor"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.893959,
+          2.35278
+        ]
+      },
+      "properties": {
+        "name": "IT Angels",
+        "description": "IT Angels finance l'excellence et l'innovation dans le secteur des technologies de l'information et de la communication en France.",
+        "address": "110 rue des Poissonniers",
+        "postcode": "75018",
+        "city": "Paris",
+        "url": "www.itangels.fr",
+        "twitter": "Itangelsparis",
+        "id": "www.itangels.fr",
+        "category": "investor"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.865238,
+          2.30959
+        ]
+      },
+      "properties": {
+        "name": "Jaïna Capital",
+        "description": "Jaïna Capital est un fonds d'investissement qui accompagne les nouveaux entrepreneurs talentueux dans la réussite de leur entreprise.",
+        "address": "1 rue François 1er",
+        "postcode": "75008",
+        "city": "Paris",
+        "creationyear": "2010",
+        "url": "www.jaina.fr",
+        "twitter": "jainacapital",
+        "facebook": "https://www.facebook.com/pages/Ja%C3%AFna-Capital/119217028094570",
+        "linkedin": "http://www.linkedin.com/company/847524",
+        "id": "www.jaina.fr",
+        "category": "investor"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.871311,
+          2.32112
+        ]
+      },
+      "properties": {
+        "name": "Kima Ventures",
+        "description": "Kima Ventures est un fonds d'investissement destiné à financer et à soutenir les entreprises internet et hightech les plus talentueuses.",
+        "address": "8 rue de la ville l'Evèque",
+        "postcode": "75008",
+        "city": "Paris",
+        "creationyear": "2010",
+        "url": "www.kimaventures.com",
+        "twitter": "kimaventures",
+        "facebook": "https://www.facebook.com/KimaVentures",
+        "id": "www.kimaventures.com",
+        "category": "investor"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.874069,
+          2.31002
+        ]
+      },
+      "properties": {
+        "name": "Next World Capital",
+        "description": "Next World Capital est un fonds d'investissement international en expansion qui finance les entreprises des secteurs de l'internet, du mobile et du logiciel.",
+        "address": "11 avenue Myron Herrick",
+        "postcode": "75008",
+        "city": "Paris",
+        "url": "www.nextworldcap.com",
+        "linkedin": "http://www.linkedin.com/company/493473",
+        "id": "www.nextworldcap.com",
+        "category": "investor"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.877522,
+          2.32089
+        ]
+      },
+      "properties": {
+        "name": "Omnes Capital",
+        "description": "Spécialiste du capital investissement, Omnes Capital participe directement au financement de l’économie en apportant aux entreprises les fonds propres nécessaires à leur développement.",
+        "address": "37 rue du Rocher",
+        "postcode": "75008",
+        "city": "Paris",
+        "url": "www.omnescapital.com",
+        "id": "www.omnescapital.com",
+        "category": "investor"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.87619,
+          2.3391
+        ]
+      },
+      "properties": {
+        "name": "Orkos Capital",
+        "description": "Orkos Capital est une société d'investissement indépendante spécialisée dans les technologies de l'information et de la communication.",
+        "address": "2 rue Fléchier",
+        "postcode": "75009",
+        "city": "Paris",
+        "creationyear": "2006",
+        "url": "www.orkoscapital.com",
+        "linkedin": "http://www.linkedin.com/company/2066411",
+        "id": "www.orkoscapital.com",
+        "category": "investor"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.868328,
+          2.36601
+        ]
+      },
+      "properties": {
+        "name": "P.I.Nk",
+        "description": "P.I.Nk est une société d’investissement créée par faberNovel dont l’objectif est de répondre au manque de capital amorçage sur le marché européen en faveur des startups technologiques.",
+        "address": "17 rue du Faubourg du Temple",
+        "postcode": "75010",
+        "city": "Paris",
+        "creationyear": "2009",
+        "url": "www.pinkbyfaber.com",
+        "id": "www.pinkbyfaber.com",
+        "category": "investor"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.863991,
+          2.34968
+        ]
+      },
+      "properties": {
+        "name": "Paris Angels Capital",
+        "description": "Paris Angels Capital est une société d’investissement spécialisée dans l’accompagnement en capital de jeunes entreprises innovantes à fortes perspectives de croissance.",
+        "address": "16 rue de Turbigo",
+        "postcode": "75002",
+        "city": "Paris",
+        "creationyear": "2008",
+        "url": "www.parisangelscapital.com",
+        "linkedin": "http://www.linkedin.com/company/605739",
+        "id": "www.parisangelscapital.com",
+        "category": "investor"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.863991,
+          2.34968
+        ]
+      },
+      "properties": {
+        "name": "Paris Business Angels",
+        "description": "Paris Business Angels est une association qui réunit plus de 150 business angels de la région Parisienne et dont la vocation est de contribuer au développement de jeunes entreprises innovantes à fort potentiel de croissance.",
+        "address": "16 rue de Turbigo",
+        "postcode": "75002",
+        "city": "Paris",
+        "creationyear": "2004",
+        "url": "www.parisbusinessangels.com",
+        "twitter": "Paris_BA",
+        "facebook": "https://www.facebook.com/ParisBusinessAngels",
+        "linkedin": "http://www.linkedin.com/profile/view?id=86591254",
+        "id": "www.parisbusinessangels.com",
+        "category": "investor"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.872978,
+          2.31639
+        ]
+      },
+      "properties": {
+        "name": "Partech International",
+        "description": "Partech International est une société d'investissement en venture capital spécialisée dans les techologies de l'information et de la communication.",
+        "address": "12 rue de Penthièvre",
+        "postcode": "75008",
+        "city": "Paris",
+        "creationyear": "1982",
+        "url": "www.partechventures.com",
+        "twitter": "partechventures",
+        "linkedin": "http://www.linkedin.com/company/563769",
+        "id": "www.partechventures.com",
+        "category": "investor"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.873119,
+          2.31596
+        ]
+      },
+      "properties": {
+        "name": "Pléiade Venture",
+        "description": "Pléiade Venture est un investisseur engagé pratiquant l'investissement équitable aux côtés d'entrepreneurs innovants.",
+        "address": "29 rue de Miromesnil",
+        "postcode": "75008",
+        "city": "Paris",
+        "creationyear": "1999",
+        "url": "www.pleiadeventure.com",
+        "linkedin": "http://www.linkedin.com/company/2445493",
+        "id": "www.pleiadeventure.com",
+        "category": "investor"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.859852,
+          2.31766
+        ]
+      },
+      "properties": {
+        "name": "Pole Capital",
+        "description": "Pole Capital est une société d’investissement spécialisée dans la prise de participations à long-terme dans des entreprises non-cotées.",
+        "address": "41 rue Saint-Dominique",
+        "postcode": "75007",
+        "city": "Paris",
+        "creationyear": "2008",
+        "url": "www.polecapital.com",
+        "linkedin": "http://www.linkedin.com/company/2216660",
+        "id": "www.polecapital.com",
+        "category": "investor"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.873409,
+          2.32763
+        ]
+      },
+      "properties": {
+        "name": "Serena Capital",
+        "description": "Serena Capital est une société d'investissement spécialisée dans le financement d'entreprises à fort potentiel de croissance des secteurs technologiques : internet, mobile,logiciel, services en ligne.",
+        "address": "21 rue Auber",
+        "postcode": "75009",
+        "city": "Paris",
+        "creationyear": "2008",
+        "url": "www.serenacapital.com",
+        "twitter": "serenacap",
+        "linkedin": "http://www.linkedin.com/company/486780",
+        "id": "www.serenacapital.com",
+        "category": "investor"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.86955,
+          2.33656
+        ]
+      },
+      "properties": {
+        "name": "Sofinnova Partners",
+        "description": "Sofinnova Partners est une société de capital-risque indépendante spécialisée dans le financement de jeunes sociétés, de spin-offs ou d'opérations de retournement dans les technologies, les sciences de la vie et les cleantechs.",
+        "address": "16 rue du Quatre Septembre",
+        "postcode": "75002",
+        "city": "Paris",
+        "creationyear": "1972",
+        "url": "www.sofinnova.fr",
+        "linkedin": "http://www.linkedin.com/company/45298",
+        "id": "www.sofinnova.fr",
+        "category": "investor"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.859619,
+          2.29962
+        ]
+      },
+      "properties": {
+        "name": "Ventech Capital",
+        "description": "Ventech est un fonds d'investissement qui s'associe avec les meilleurs entrepreneurs dans les secteurs des technologies de l'information et des sciences de la vie.",
+        "address": "5 rue de Monttessuy",
+        "postcode": "75007",
+        "city": "Paris",
+        "creationyear": "1998",
+        "url": "www.ventech.fr",
+        "twitter": "Ventech_VC",
+        "linkedin": "http://www.linkedin.com/company/591100",
+        "id": "www.ventech.fr",
+        "category": "investor"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.871712,
+          2.3257
+        ]
+      },
+      "properties": {
+        "name": "XAnge Private Equity",
+        "description": "XAnge Private Equity est un fonds en venture capital qui investit dans des sociétés innovantes à croissance rapide, notamment liées aux technologies de l'information.",
+        "address": "12 rue Tronchet",
+        "postcode": "75008",
+        "city": "Paris",
+        "creationyear": "2003",
+        "url": "www.xange.fr",
+        "twitter": "xangevc",
+        "linkedin": "http://www.linkedin.com/company/57586",
+        "id": "www.xange.fr",
+        "category": "investor"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           48.846191,
           2.32823
         ]
