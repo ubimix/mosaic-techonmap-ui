@@ -4,19 +4,23 @@
     var fs = require('fs')
     var umxUtils = require('./utils.js');
 
-    var twitterUser = 'LaFonderie_idf';
-    var twitterHost = 'api.twitter.com';
+    var twitterUser = process.env['TWITTER_NAME'] || 'TechOnMap';
+    var twitterPwd = process.env['TWITTER_PASS'] || '';
+    // console.log('TWITTER_PASS:', twitterPwd);
+    var twitterHost = 'api.supertweet.net';
     var twitterPort = 80;
-    var twitterPath = '/1/statuses/user_timeline/' + twitterUser
-            + '.json?count=1&include_rts=1';
-    var twitterUrl = "http://api.twitter.com/1/statuses/user_timeline/"
-            + twitterUser + ".json?count=1&include_rts=1"
+    var twitterPath = '/1.1/statuses/home_timeline.json';
 
     var twitterRequestOptions = {
         hostname : twitterHost,
         port : twitterPort,
         path : twitterPath,
-        method : 'GET'
+        method : 'GET',
+        headers : {
+            'Authorization' : 'Basic '
+                    + new Buffer(twitterUser + ':' + twitterPwd)
+                            .toString('base64')
+        }
     };
     var twitterFile = './twitter.json';
 

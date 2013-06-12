@@ -510,6 +510,7 @@ $(window).load(function(){
         for (var i=0; i<len; i++) {
             var item = list[i];
             delete item._id;
+            delete item.dirty;
         }
         var json = JSON.stringify(data, null, 2);
         jQuery('.code.export').val(json);

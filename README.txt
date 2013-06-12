@@ -44,6 +44,18 @@ Disabled features:
   content of the request should contain a GeoJSON-point 
 * DELETE /geoitems/:id - deletes an item with the specified identifier
 
+=== Twitter account === 
+
+To retrieve the latest tweets this service uses the http://www.supertweet.net/ 
+twitter proxy. 
+The following environment variables are used to define access to tweets:
+* TWITTER_NAME - the name of the tweeter account (as registered in the SuperTweet service)
+  By default it is 'TechOnMap'.
+* TWITTER_PASS - a mandatory password to access the service.
+
+> export TWITTER_PASS=MyPass
+> node ./service.js 
+   
 
    
 
