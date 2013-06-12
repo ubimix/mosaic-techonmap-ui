@@ -36,6 +36,7 @@ jQuery(function() {
     jQuery('.cancel').click(function() {
         var e = $(this);
         var question = e.data('confirmation-question');
+        question = null; // FIXME:
         var redirect = !question || confirm(question);
         if (redirect) {
             redirectToMainPage();
@@ -90,7 +91,7 @@ jQuery(function() {
         }
         function setField(name, value) {
             var tracker = getField(name, true);
-            tracker.setValue(value, true);
+            tracker.setValue(value, false);
         }
 
         // -------------------------------
@@ -127,7 +128,7 @@ jQuery(function() {
                 str += ', ' + trim(city);
             }
             // setField('address', str);
-            addressTracker.setValue(str);
+            addressTracker.setValue(str, false);
         }
         {
             var coords = point.geometry ? point.geometry.coordinates : null;
@@ -193,7 +194,7 @@ jQuery(function() {
                     + category + ']');
             option.prop('selected', true);
             var categoryTracker = getField('category', true);
-            categoryTracker.validate();
+            // categoryTracker.validate();
         }
         checkDescriptionLength();
     }

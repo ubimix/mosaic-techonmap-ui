@@ -4,8 +4,8 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link
-	href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700"
-	rel="stylesheet" type="text/css">
+    href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700"
+    rel="stylesheet" type="text/css">
 
 <link rel="stylesheet" href="lib/leaflet/leaflet.css" />
 <!--[if lte IE 8]><link rel="stylesheet" href="lib/leaflet/leaflet.ie.css" /><![endif]-->
@@ -46,199 +46,353 @@
 .errormsg {
 				color: #B94A48 !important;
 }
+
+.parsley-error+.label>.help {
+				display: none;
+}
+
+.field-marker {
+				float: left;
+				margin-top: 0.5em;
+				margin-left: -1em;
+}
+
+.field-marker.mandatory:before {
+				content: '*';
+				color: #B94A48 !important;
+}
+
+.field-marker.twitter:before {
+				content: '@';
+				color: gray;
+}
+
+#content h3,#content p {
+				margin-top: 1em;
+}
+
+#referesh-marker {
+				background: url(./images/btn-green-tick.png) 100% 50% no-repeat #53c591;
+				margin-bottom: 0.5em;
+				margin-right: 0.5em;
+				float: left;
+}
+
+.help {
+				color: #AAAAAA;
+				vertical-align: baseline;
+}
+
+p.help {
+				margin-bottom: 0.5em;
+}
+
+.help .mandatory {
+				color: #B94A48 !important;
+}
+
+/* -------------------------------------------------------------------------- */
+#explanation {
+				margin: 1em 0;
+				font-size: 0.8em;
+}
+
+#explanation .question a {
+				color: gray;
+				text-decoration: underline;
+				margin-top: 0.5em;
+}
+
+#explanation .description ul {
+				list-style-type: circle;
+				list-style-position: inside;
+				padding: 0.5em;
+}
+
+#explanation .description {
+				display: none;
+				padding: 1em 0.5em;
+				background-color: #eee;
+}
+
+#explanation .description>* {
+				margin-bottom: 1em;
+}
+
+#explanation .description {
+				border-top: 1px solid silver;
+				border-bottom: 1px solid silver;
+}
+
+#explanation .description h4 {
+				/*		font-size: 1.2em; */
+				font-weight: bold;
+}
 </style>
 
 <title>TechOnMap</title>
 </head>
 <body class="edition">
-	<div id="topbar">
-		<div class="social">
-			<div>&nbsp;</div>
-		</div>
-		<div class="header">
-			<div class="aside">
-				<a href="" class="btn-gray cancel"
-					data-confirmation-question="Confirmer l'annulation et revenir à la carte ?">Annuler
-					et revenir à la carte</a>
-			</div>
-			<div class="ban">
-				<div class="left">
-					<h1>
-						<a href="./"><img src="images/banner.png" alt="Techonmap"></img></a>
-					</h1>
-					<h2>La carte des acteurs du numérique en Île-de-France</h2>
-				</div>
-				<div class="right"></div>
-				<div class="clear"></div>
-			</div>
-		</div>
-	</div>
-	<div id="content">
-		<h3 class="pagetitle">Ajoutez votre organisation</h3>
-		<form action="" id="edit-form">
-			<div class="une-ligne std">
-				<input data-field="name" type="text" data-required="true"
-					data-error-message="Le nom d'entreprise n'est pas défini."
-					data-error-container="#name-error"
-					placeholder="Nom de votre organisation">
-				<div class="label">
-					<span class="errormsg" id="name-error"></span> Champs obligatoire,
-					Vérification automatique de présence dans la base
-				</div>
-			</div>
-			<div class="une-ligne std">
-				<input type="text" id="data-email" data-required="true"
-					data-field="email" data-type="email" placeholder="Votre email"
-					data-error-message="L'adresse email n'est pas valide."
-					data-error-container="#mail-error">
-				<div class="label">
-					<span class="errormsg" id="mail-error"></span> Champs obligatoire.
-					Pour vous contacter si nous avons besoin de vérifier la validité de
-					vos ajouts/modifications
-				</div>
-			</div>
-			<div class="une-ligne textarea">
-				<textarea class="count-field" data-required="true"
-					data-field="description" data-maxlength="250"
-					data-error-message="La message est plus longue que 250 charactèrs."
-					data-error-container="#description-error"
-					placeholder="Description de votre organisation. Limitation automatique à 250 caractères maximum."></textarea>
-				<div class="label">
-					<span class="errormsg" id="description-error"></span> Champs
-					obligatoire (<span class="bold"><span class="carac-count">0</span>/250</span>)
-				</div>
-			</div>
-			<div class="une-ligne std">
-				<select data-field="category" data-required="true"
-					data-error-message="La catégorie n'est pas définie."
-					data-error-container="#category-error">
-					<option value="">Choisissez une catégorie / type
-						d’organisation</option>
-				</select>
-				<div class="label">
-					<span class="errormsg" id="category-error"></span> Champs
-					obligatoire
-				</div>
-			</div>
-			<div class="une-ligne tags">
-				<input type="text" data-field="tag" placeholder="Tag"></input> <input
-					data-field="tag" type="text" placeholder="Tag"></input> <input
-					type="text" data-field="tag" placeholder="Tag"></input>
-				<div class="label">Ajoutez 3 mots-clés maximum pour
-					personnaliser la qualification de votre organisation</div>
-			</div>
-			<div class="une-ligne std">
-				<input type="text" data-field="address" data-required="true"
-					placeholder="Adresse de votre organisation"
-					data-error-message="L'address n'est pas définie."
-					data-error-container="#address-error"></input>
-				<div class="label">
-					<span class="errormsg" id="address-error"></span> Champs
-					obligatoire, Tapez votre adresse : N° et nom de rue, Code postal,
-					Ville. Voir et ajuster sur mini map
-				</div>
-			</div>
-			<div class="une-ligne">
-				<button id="referesh-marker">Rechercher</button>
-			</div>
-			<div class="map" data-map-center="48.872630327,2.3357025512"
-				data-map-zoom="13" data-map-min-zoom="3" data-map-max-zoom="16"
-				data-map-bounding-box="[[49.24270720875383, 1.351318359375],[48.10743118848039, 3.6419677734374996]]"
-				data-map-tiles-old="http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/997/256/{z}/{x}/{y}.png"
-				data-map-tiles="http://{s}.tiles.mapbox.com/v3/antony.map-vrkg66p0/{z}/{x}/{y}.png"></div>
+    <div id="topbar">
+        <div class="social">
+            <div>&nbsp;</div>
+        </div>
+        <div class="header">
+            <div class="aside">
+                <a href="" class="btn-gray cancel"
+                    data-confirmation-question="Confirmer l'annulation et revenir à la carte ?">Annuler
+                    et revenir à la carte</a>
+            </div>
+            <div class="ban">
+                <div class="left">
+                    <h1>
+                        <a href="./"><img src="images/banner.png"
+                            alt="Techonmap"></img></a>
+                    </h1>
+                    <h2>La carte des acteurs du numérique en
+                        Île-de-France</h2>
+                </div>
+                <div class="right"></div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+    <div id="content">
+        <h3 class="pagetitle">Ajoutez ou modifiez des informations
+            concernant votre organisation</h3>
+        <div id="explanation">
+            <p class="question">
+                <a
+                    href="javascript:$('#explanation .description').toggle()">Quels
+                    sont les critères requis pour se référencer sur
+                    TechOnMap ?</a>
+            </p>
+            <div class="description">
+                <h4>Critères à respecter pour se référencer sur
+                    TechOnMap</h4>
+                <p>Pour ajouter une organisation, vous devez vous
+                    assurer que celle-ci :</p>
+                <ul>
+                    <li>a une activité effective liée à
+                        l’informatique, aux télécoms, à internet, au
+                        web, au numérique ;</li>
+                    <li>a une adresse de localisation physique
+                        située en Ile-de-France ;</li>
+                    <li>peut faire l’objet d’un classement dans une
+                        des 8 catégories prédéfinies ;</li>
+                    <li>a un site web avec une url valide
+                        (génération automatique du permalien à partir de
+                        celle-ci).</li>
+                </ul>
+            </div>
+        </div>
 
-			<div class="une-ligne std">
-				<input type="text" data-field="creationyear" data-type="number"
-					data-range="[1900, 2013]" data-required="true"
-					placeholder="Année de création"
-					data-error-message="Année de création n'est pas définie."
-					data-error-container="#creationyear-error"></input>
-				<div class="label">
-					<span class="errormsg" id="creationyear-error"></span> Champs
-					obligatoire, Quand votre organisation est-elle née ?
-				</div>
-			</div>
-			<div class="une-ligne std">
-				<input type="text" data-field="url" placeholder="Site web"
-					data-required="true" data-type="url"
-					data-error-message="URL n'est pas définie."
-					data-error-container="#url-error" />
-				<div class="label">
-					<span class="errormsg" id="url-error"></span> Champs obligatoire,
-					Tapez l’url du site web de votre organisation
-				</div>
-			</div>
-			<div class="une-ligne std">
-				<input type="text" data-field="twitter" data-type="alphanum"
-					placeholder="Twitter"
-					data-error-message="Compte twitter devrait avoir des chifres et des lettres."
-					data-error-container="#twitter-error">
-				<div class="label">
-					<span class="errormsg" id="twitter-error"></span> Tapez le nom du
-					compte twitter de votre organisation
-				</div>
-			</div>
-			<div class="une-ligne std">
-				<input type="text" data-field="facebook"
-					data-regexp="^https?://www\.facebook\.com.*$" data-type="url"
-					placeholder="Facebook"
-					data-error-message="URL de la page Facebook n'est pas valide."
-					data-error-container="#facebook-error"></input>
-				<div class="label">
-					<span class="errormsg" id="facebook-error"></span> Tapez l’url de
-					la page facebook de votre organisation
-				</div>
-			</div>
-			<div class="une-ligne std">
-				<input type="text" data-field="googleplus" data-type="url"
-					data-regexp="^https?://plus\.google\.\w+.*$" placeholder="Google+"
-					data-error-message="URL de la page Google+ n'est pas valide."
-					data-error-container="#googleplus-error"></input>
-				<div class="label">
-					<span class="errormsg" id="googleplus-error"></span> Tapez l’url de
-					la page Google + de votre organisation
-				</div>
-			</div>
-			<div class="une-ligne std">
-				<input type="text" data-field="linkedin" data-type="url"
-					data-regexp="^https?://www\.linkedin\.\w+.*$"
-					placeholder="Linkedin"
-					data-error-message="URL de la page Linkedin n'est pas valide."
-					data-error-container="#linkedin-error"></input>
-				<div class="label">
-					<span class="errormsg" id="linkedin-error"></span> Tapez l’url de
-					la page linkedin de votre organisation
-				</div>
-			</div>
-			<div class="une-ligne std">
-				<input type="text" data-field="viadeo" data-type="url"
-					data-regexp="^https?://www\.viadeo\.\w+.*$" placeholder="Viadeo"
-					data-error-message="URL de la page Viadeo n'est pas valide."
-					data-error-container="#viadeo-error"></input>
-				<div class="label">
-					<span class="errormsg" id="viadeo-error"></span> Tapez l’url de la
-					page viadeo de votre organisation
-				</div>
-			</div>
+        <form action="" id="edit-form">
+            <p class="help">
+                Tous les champs marqués avec <span class="mandatory">*</span>
+                sont obligatoires.
+            </p>
+            <div class="une-ligne std">
+                <span class="field-marker mandatory"></span> <input
+                    data-field="name" type="text" data-required="true"
+                    data-error-message="Oups ! Ce champ est obligatoire : vous devez saisir le nom de votre organisation."
+                    data-error-container="#name-error"
+                    placeholder="Nom de votre organisation">
+                <div class="label">
+                    <span class="help">Tapez le nom de votre
+                        organisation</span> <span class="errormsg"
+                        id="name-error"></span>
+                </div>
+            </div>
+            <div class="une-ligne std">
+                <span class="field-marker mandatory"></span> <input
+                    type="text" id="data-email" data-required="true"
+                    data-field="email" data-type="email"
+                    placeholder="Votre email"
+                    data-error-message="Oups ! Ce champ obligatoire est vide ou invalide."
+                    data-error-container="#mail-error">
+                <div class="label">
+                    <span class="help">Tapez votre email. Nous ne
+                        sommes pas des spammeurs mais pourrions avoir
+                        besoin de vous contacter pour valider vos
+                        informations.</span> <span class="errormsg"
+                        id="mail-error"></span>
+                </div>
+            </div>
+            <div class="une-ligne textarea">
+                <span class="field-marker mandatory"></span>
+                <textarea class="count-field" data-required="true"
+                    data-field="description" data-maxlength="250"
+                    data-error-message="Oups ! Votre description dépasse les 250 caractères autorisés ou n’est pas renseignée."
+                    data-error-container="#description-error"
+                    placeholder="Description de votre organisation limitée à 250 caractères maximum"></textarea>
+                <div class="label">
+                    (<span class="bold"><span class="carac-count">0</span>/250</span>)
+                    <span class="help"> Décrivez votre
+                        organisation sans excéder 250 caractères.</span> <span
+                        class="errormsg" id="description-error"></span>
+                </div>
+            </div>
+            <div class="une-ligne std">
+                <span class="field-marker mandatory"></span> <select
+                    data-field="category" data-required="true"
+                    data-error-message="Oups ! Vous devez choisir une catégorie (champs obligatoire)."
+                    data-error-container="#category-error">
+                    <option value="">Choisissez une catégorie /
+                        type d’organisation</option>
+                </select>
+                <div class="label">
+                    <span class="help"></span> <span class="errormsg"
+                        id="category-error"></span>
+                </div>
+            </div>
+            <div class="une-ligne tags">
+                <input type="text" data-field="tag" placeholder="Tag"></input>
+                <input data-field="tag" type="text" placeholder="Tag"></input>
+                <input type="text" data-field="tag" placeholder="Tag"></input>
+                <div class="label">Ajoutez 3 mots-clés maximum
+                    pour personnaliser la qualification de votre
+                    organisation</div>
+            </div>
+            <div class="une-ligne std">
+                <span class="field-marker mandatory"></span> <input
+                    type="text" data-field="address"
+                    data-required="true"
+                    placeholder="Adresse de votre organisation"
+                    data-error-message="Oups ! Votre adresse de localisation est incorrecte ou n’a pas été renseignée."
+                    data-error-container="#address-error"></input>
+                <div class="label">
+                    <span class="help"> Tapez votre adresse de
+                        type : n° et nom de rue, code postal, ville.</span> <span
+                        class="errormsg" id="address-error"></span>
+                </div>
+            </div>
+            <div class="une-ligne">
+                <a href="#" class="btn-gray" id="referesh-marker">Géolocaliser</a>
+                <span class="help">Cliquez sur le bouton
+                    Géolocaliser pour afficher le résultat sur la
+                    mini-carte. Si nécessaire, ajustez la localisation
+                    en glissant-déposant le marqueur.</span>
+                <div class="clear"></div>
+            </div>
+            <div class="map" data-map-center="48.872630327,2.3357025512"
+                data-map-zoom="13" data-map-min-zoom="3"
+                data-map-max-zoom="16"
+                data-map-bounding-box="[[49.24270720875383, 1.351318359375],[48.10743118848039, 3.6419677734374996]]"
+                data-map-tiles-old="http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/997/256/{z}/{x}/{y}.png"
+                data-map-tiles="http://{s}.tiles.mapbox.com/v3/antony.map-vrkg66p0/{z}/{x}/{y}.png"></div>
 
-			<div class="inputs">
-				<a href="" class="btn-gray cancel"
-					data-confirmation-question="Confirmer l'annulation et revenir à la carte ?">Annulez</a>
-				<input type="submit"
-					data-error-message="Erreur! Les informations ne peut pas être sauvegarder."
-					data-confirmation-message="Merci pour votre contribution, les informations saisies ont été sauvegardées. Elles apparaitront sur TechOnMap après validation par notre modérateur."
-					class="btn-green" value="Validez l'ajout" />
-			</div>
-		</form>
-	</div>
+            <div class="une-ligne std">
+                <span class="field-marker mandatory"></span> <input
+                    type="text" data-field="creationyear"
+                    data-type="number" data-range="[1900, 2013]"
+                    data-required="true" placeholder="Année de création"
+                    data-error-message="Oups ! Ce champ obligatoire est vide ou invalide."
+                    data-error-container="#creationyear-error"></input>
+                <div class="label">
+                    <span class="help">Quand votre organisation
+                        est-elle née ? </span> <span class="errormsg"
+                        id="creationyear-error"></span>
+                </div>
+            </div>
+            <div class="une-ligne std">
+                <span class="field-marker mandatory"></span> <input
+                    type="text" data-field="url" placeholder="Site web"
+                    data-required="true" data-type="url"
+                    data-error-message="Oups ! Ce champ obligatoire est vide ou invalide."
+                    data-error-container="#url-error" />
+                <div class="label">
+                    <span class="help">Tapez l’URL du site web de
+                        votre organisation</span> <span class="errormsg"
+                        id="url-error"></span>
+                </div>
+            </div>
+            <div class="une-ligne std">
+                <span class="field-marker twitter"></span> <input
+                    type="text" data-field="twitter"
+                    data-type="alphanum" placeholder="Twitter"
+                    data-error-message="Le nom de compte Twitter n’est pas valide !"
+                    data-error-container="#twitter-error">
+                <div class="label">
+                    <span class="help">Tapez le nom du compte
+                        twitter de votre organisation</span> <span
+                        class="errormsg" id="twitter-error"></span>
+                </div>
+            </div>
+            <div class="une-ligne std">
+                <input type="text" data-field="facebook"
+                    data-regexp="^https?://www\.facebook\.com.*$"
+                    data-type="url" placeholder="Facebook"
+                    data-error-message="URL de la page Facebook n'est pas valide !"
+                    data-error-container="#facebook-error"></input>
+                <div class="label">
+                    <span class="help">Tapez l’URL de la page
+                        Facebook de votre organisation. </span> <span
+                        class="errormsg" id="facebook-error"></span>
+                </div>
+            </div>
+            <div class="une-ligne std">
+                <input type="text" data-field="googleplus"
+                    data-type="url"
+                    data-regexp="^https?://plus\.google\.\w+.*$"
+                    placeholder="Google+"
+                    data-error-message="URL de la page Google + n'est pas valide !"
+                    data-error-container="#googleplus-error"></input>
+                <div class="label">
+                    <span class="help">Tapez l’URL de la page
+                        Google+ de votre organisation. </span> <span
+                        class="errormsg" id="googleplus-error"></span>
+                </div>
+            </div>
+            <div class="une-ligne std">
+                <input type="text" data-field="linkedin" data-type="url"
+                    data-regexp="^https?://www\.linkedin\.\w+.*$"
+                    placeholder="Linkedin"
+                    data-error-message="URL de la page LinkedIn n'est pas valide !"
+                    data-error-container="#linkedin-error"></input>
+                <div class="label">
+                    <span class="help">Tapez l’URL de la page
+                        Linkedin de votre organisation. </span> <span
+                        class="errormsg" id="linkedin-error"></span>
+                </div>
+            </div>
+            <div class="une-ligne std">
+                <input type="text" data-field="viadeo" data-type="url"
+                    data-regexp="^https?://www\.viadeo\.\w+.*$"
+                    placeholder="Viadeo"
+                    data-error-message="URL de la page Viadeo n'est pas valide !"
+                    data-error-container="#viadeo-error"></input>
+                <div class="label">
+                    <span class="help">Tapez l’URL de la page
+                        viadeo de votre organisation</span> <span
+                        class="errormsg" id="viadeo-error"></span>
+                </div>
+            </div>
 
-	<script type="content/json" id="categories">
+            <div class="inputs">
+                <a href="" class="btn-gray cancel"
+                    data-confirmation-question="Confirmer l'annulation et revenir à la carte ?">Annulez</a>
+                <input type="submit"
+                    data-error-message="Erreur! Les informations ne peut pas être sauvegarder."
+                    data-confirmation-message="Merci pour votre contribution, les informations saisies ont été sauvegardées. Elles apparaitront sur TechOnMap après validation par notre modérateur."
+                    class="btn-green" value="Envoyer" />
+            </div>
+        </form>
+    </div>
+
+    <script type="content/json" id="categories">
 {
-    "investor" : {
-        "name": "Investisseur",
-        "iconOff" : "images/marker-investisseur-off.png",
-        "iconOn" : "images/marker-investisseur-on.png",
-        "pictoClass" : "picto-investisseur"
+    "entreprise" : {
+        "name" : "Entreprise",
+        "iconOff" : "images/marker-entreprise-off.png",
+        "iconOn" : "images/marker-entreprise-on.png",
+        "pictoClass" : "picto-entreprise"
+    },
+    "third-place" : {
+        "name" : "Tiers-lieu",
+        "iconOff" : "images/marker-tierslieux-off.png",
+        "iconOn" : "images/marker-tierslieux-on.png",
+        "pictoClass" : "picto-tierslieux"
     },
     "incubator" : {
         "name" : "Incubateur",
@@ -246,11 +400,23 @@
         "iconOn" : "images/marker-incubateur-on.png",
         "pictoClass" : "picto-incubateur"
     },
-    "third-place" : {
-        "name" : "Tiers-lieux",
-        "iconOff" : "images/marker-tierslieux-off.png",
-        "iconOn" : "images/marker-tierslieux-on.png",
-        "pictoClass" : "picto-tierslieux"
+    "investor" : {
+        "name": "Investisseur",
+        "iconOff" : "images/marker-investisseur-off.png",
+        "iconOn" : "images/marker-investisseur-on.png",
+        "pictoClass" : "picto-investisseur"
+    },
+    "community" : {
+        "name" : "Communauté",
+        "iconOff" : "images/marker-communaute-off.png",
+        "iconOn" : "images/marker-communaute-on.png",
+        "pictoClass" : "picto-communaute"
+    },
+    "prestataire" : {
+        "name" : "Prestataire",
+        "iconOff" : "images/marker-prestataire-off.png",
+        "iconOn" : "images/marker-prestataire-on.png",
+        "pictoClass" : "picto-prestataire"
     },
     "school" : {
         "name" : "École",
@@ -259,32 +425,14 @@
         "pictoClass" : "picto-ecole"
     },
     "public-actor" : {
-        "name" : "Acteurs publiques",
+        "name" : "Acteur public",
         "iconOff" : "images/marker-publique-off.png",
         "iconOn" : "images/marker-publique-on.png",
         "pictoClass" : "picto-publique"
-    },
-    "community" : {
-        "name" : "Communauté",
-        "iconOff" : "images/marker-communaute-off.png",
-        "iconOn" : "images/marker-communaute-on.png",
-        "pictoClass" : "picto-communaute"
-    },
-    "entreprise" : {
-        "name" : "Entreprises",
-        "iconOff" : "images/marker-entreprise-off.png",
-        "iconOn" : "images/marker-entreprise-on.png",
-        "pictoClass" : "picto-entreprise"
-    },
-    "prestataire" : {
-        "name" : "Prestatair",
-        "iconOff" : "images/marker-prestataire-off.png",
-        "iconOn" : "images/marker-prestataire-on.png",
-        "pictoClass" : "picto-prestataire"
     }
 }
 </script>
-	<div id="loading" style="display: none;">Loading...</div>
+    <div id="loading" style="display: none;">Chargement...</div>
 
 </body>
 </html>
