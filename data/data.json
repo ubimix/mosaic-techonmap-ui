@@ -727,7 +727,10 @@
         "address": "11 rue Carnot",
         "postcode": "94270",
         "city": "Le Kremlin Bicêtre",
+        "creationyear": "2011",
         "url": "www.creative-valley.fr",
+        "twitter": "CreativeValley_",
+        "facebook": "https://www.facebook.com/incubateur.creative.valley",
         "id": "www.creative-valley.fr",
         "category": "incubator"
       }
@@ -3042,6 +3045,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          48.854352,
+          2.435775
+        ]
+      },
+      "properties": {
+        "name": "Simplon.co",
+        "description": "Simplon.co est une fabrique accélérée et rémunérée de développeurs web et d'entrepreneurs sociaux du numérique destinée aux jeunes issus de la diversité, des quartiers populaires, en décrochage scolaire et aux filles.",
+        "address": "55 rue de Vincennes",
+        "postcode": "93100",
+        "city": "Montreuil",
+        "creationyear": "2013",
+        "url": "www.simplon.co",
+        "twitter": "simplonco",
+        "facebook": "http://www.facebook.com/Simplon.co",
+        "linkedin": "http://www.linkedin.com/company/3148332",
+        "id": "www.simplon.co",
+        "category": "school"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           48.823189,
           2.22122
         ]
@@ -3280,6 +3307,2784 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          48.864944,
+          2.310285
+        ]
+      },
+      "properties": {
+        "name": "Académie des Technologies",
+        "description": "L’Académie des Technologies a pour vocation d'émettre des propositions et des recommandations auprès des pouvoirs publics et des acteurs socio-économiques pour une meilleure exploitation des technologies au service de l'homme.",
+        "address": "Avenue Franklin D. Roosevelt",
+        "postcode": "75008",
+        "city": "Paris",
+        "creationyear": "2000",
+        "url": "www.academie-technologies.fr",
+        "googleplus": "https://plus.google.com/109615914757422944025",
+        "linkedin": "https://www.facebook.com/pages/Acad%C3%A9mie-des-technologies/122184864647451",
+        "id": "www.academie-technologies.fr",
+        "category": "public-actor"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.840511,
+          2.31775
+        ]
+      },
+      "properties": {
+        "name": "ARCEP",
+        "description": "L'Autorité de Régulation des Communications Electroniques et des Postes est une autorité administrative indépendante dotée de pouvoirs spécifiques en matière de régulation des télécommunications.",
+        "address": "7 square Max Hymans",
+        "postcode": "75015",
+        "city": "Paris",
+        "creationyear": "2005",
+        "url": "www.arcep.fr",
+        "facebook": "https://www.facebook.com/pages/Arcep/108139302552232",
+        "linkedin": "http://www.linkedin.com/company/20857",
+        "id": "www.arcep.fr",
+        "category": "public-actor"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.851768,
+          2.37415
+        ]
+      },
+      "properties": {
+        "name": "Cap Digital",
+        "description": "Cap Digital est le pôle de compétitivité à vocation mondiale consacré aux technologies de l'information et de la communication et spécialisé dans la filière des contenus et services numériques.",
+        "address": "74 rue du Faubourg Saint-Antoine",
+        "postcode": "75012",
+        "city": "Paris",
+        "creationyear": "2006",
+        "url": "www.capdigital.com",
+        "twitter": "Cap_Digital",
+        "facebook": "https://www.facebook.com/capdigitalparisregion",
+        "googleplus": "https://plus.google.com/107727636172461341994",
+        "linkedin": "http://www.linkedin.com/company/142118",
+        "id": "www.capdigital.com",
+        "category": "public-actor"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.83226,
+          2.38726
+        ]
+      },
+      "properties": {
+        "name": "CCNum",
+        "description": "Le Conseil National du Numérique est une commission consultative qui a pour mission de formuler et de rendre publics des avis et des recommandations sur toute question relative à l’impact du numérique sur la société et sur l’économie.",
+        "address": "14 place des Vins de France",
+        "postcode": "75012",
+        "city": "Paris",
+        "creationyear": "2011",
+        "url": "www.cnnumerique.fr",
+        "twitter": "CNNum",
+        "facebook": "https://www.facebook.com/pages/Conseil-National-du-Num%C3%A9rique/151801241552481",
+        "id": "www.cnnumerique.fr",
+        "category": "public-actor"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.851768,
+          2.37415
+        ]
+      },
+      "properties": {
+        "name": "Centre Francilien de l'Innovation",
+        "description": "Le Centre Francilien de l’Innovation soutient le développement des entreprises franciliennes en accompagnant la maturation et la mise en œuvre de leurs projets d’innovation à forte valeur ajoutée économique, sociale et environnementale.",
+        "address": "74 rue du Faubourg Saint Antoine",
+        "postcode": "75012",
+        "city": "Paris",
+        "url": "www.innovation-idf.org",
+        "twitter": "InnovationIdF",
+        "linkedin": "http://www.linkedin.com/company/1415024",
+        "id": "www.innovation-idf.org",
+        "category": "public-actor"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.867359,
+          2.33921
+        ]
+      },
+      "properties": {
+        "name": "CNIL",
+        "description": "La Commission Nationale de l’Informatique et des Libertés est chargée de veiller à ce que l’informatique soit au service du citoyen et qu’elle ne porte atteinte aux libertés individuelles ou publiques.",
+        "address": "8 rue Vivienne",
+        "postcode": "75002",
+        "city": "Paris",
+        "creationyear": "1978",
+        "url": "www.cnil.fr",
+        "twitter": "CNIL",
+        "facebook": "https://www.facebook.com/CNIL",
+        "googleplus": "https://plus.google.com/+cnil",
+        "linkedin": "http://www.linkedin.com/company/1213297",
+        "id": "www.cnil.fr",
+        "category": "public-actor"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.8508,
+          2.32389
+        ]
+      },
+      "properties": {
+        "name": "DDEI",
+        "description": "La Direction du Développement Economique et de l'Innovation de la Région Ile-de-France est chargée de mettre en œuvre la politique régionale de développement économique et d'innovation, notamment le soutien aux acteurs de l'économie numérique.",
+        "address": "142 rue du Bac",
+        "postcode": "75007",
+        "city": "Paris",
+        "url": "www.iledefrance.fr",
+        "twitter": "iledefrancefr",
+        "facebook": "https://www.facebook.com/RegionIledeFrance",
+        "id": "www.iledefrance.fr",
+        "category": "public-actor"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.847229,
+          2.34855
+        ]
+      },
+      "properties": {
+        "name": "DUI",
+        "description": "Liée à 2 ministères, la Délégation aux Usages de l'Internet est chargée de diffuser les technologies de l’Internet auprès de l’ensemble des citoyens et d’accompagner les entreprises de l’Internet face aux mutations du réseau.",
+        "address": "1 rue Descartes",
+        "postcode": "75005",
+        "city": "Paris",
+        "creationyear": "2007",
+        "url": "www.delegation.internet.gouv.fr",
+        "twitter": "netpublic",
+        "facebook": "https://www.facebook.com/NetPublic",
+        "googleplus": "https://plus.google.com/101400531434532387710",
+        "id": "www.delegation.internet.gouv.fr",
+        "category": "public-actor"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.850651,
+          2.30872
+        ]
+      },
+      "properties": {
+        "name": "Etalab",
+        "description": "Etalab est un service du Premier Ministre en charge de l'ouverture des données publiques et du développement de la plateforme Open Data de l'Etat français.",
+        "address": "20 avenue de Ségur",
+        "postcode": "75007",
+        "city": "Paris",
+        "creationyear": "2012",
+        "url": "www.etalab.gouv.fr",
+        "twitter": "Etalab",
+        "facebook": "https://www.facebook.com/etalab",
+        "linkedin": "http://www.linkedin.com/company/2572583",
+        "id": "www.etalab.gouv.fr",
+        "category": "public-actor"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.82836,
+          2.356641
+        ]
+      },
+      "properties": {
+        "name": "Inria",
+        "description": "Inria est un organisme public de recherche dédié aux sciences et technologies du numérique.",
+        "address": "23 avenue d'Italie",
+        "postcode": "75013",
+        "city": "Paris",
+        "creationyear": "1973",
+        "url": "www.inria.fr",
+        "twitter": "Inria",
+        "facebook": "https://www.facebook.com/Inria.fr",
+        "googleplus": "https://plus.google.com/113588681551484613564",
+        "linkedin": "http://www.linkedin.com/company/164385",
+        "id": "www.inria.fr",
+        "category": "public-actor"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.83596,
+          2.39575
+        ]
+      },
+      "properties": {
+        "name": "La Fonderie",
+        "description": "La Fonderie - agence numérique d'Ile-de-France - est un organisme associé du conseil régional en charge du numérique qui pilote notamment le projet TechOnMap.",
+        "address": "39 rue de Wattignies",
+        "postcode": "75012",
+        "city": "Paris",
+        "creationyear": "2012",
+        "url": "www.lafonderie-idf.fr",
+        "twitter": "lafonderie_idf",
+        "facebook": "https://www.facebook.com/lafonderie.idf",
+        "googleplus": "https://plus.google.com/106271588359503534146",
+        "linkedin": "http://www.linkedin.com/company/2972733",
+        "id": "www.lafonderie-idf.fr",
+        "category": "public-actor"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.841091,
+          2.37808
+        ]
+      },
+      "properties": {
+        "name": "Ministère chargé des PME, de l'Innovation et de l'Economie numérique",
+        "description": "Délégué auprès de celui du redressement productif, ce ministère est notamment chargé de la mise en œuvre de la politique nationale d'innovation et de développement de l'économie numérique.",
+        "address": "139 rue de Bercy",
+        "postcode": "75012",
+        "city": "Paris",
+        "creationyear": "2012",
+        "id": "",
+        "category": "public-actor"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.871109,
+          2.393599
+        ]
+      },
+      "properties": {
+        "name": "Paris Région Lab",
+        "description": "Le Laboratoire Paris Région Innovation créé à l'initiative de la Ville de Paris et de la Région Ile-de-France a pour but d'encourager le déploiement de solutions innovantes in vivo in situ sur le territoire francilien.",
+        "address": "24 rue de l'Est",
+        "postcode": "75020",
+        "city": "Paris",
+        "url": "www.parisregionlab.com",
+        "twitter": "innovcity",
+        "id": "www.parisregionlab.com",
+        "category": "public-actor"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.713076,
+          2.146325
+        ]
+      },
+      "properties": {
+        "name": "Systematic",
+        "description": "Le Pôle Systematic a pour finalité de faire de l’Ile-de-France l’un des quelques territoires visibles au niveau mondial sur le thème de la conception, de la réalisation et de la maîtrise des systèmes complexes.",
+        "address": "Parc Technologique Les Algorithmes\nBâtiment Euripide",
+        "postcode": "91190",
+        "city": "Saint Aubin",
+        "creationyear": "2005",
+        "url": "www.systematic-paris-region.org",
+        "twitter": "Pole_Systematic",
+        "googleplus": "https://plus.google.com/101427002816612370124",
+        "linkedin": "http://www.linkedin.com/company/597598",
+        "id": "www.systematic-paris-region.org",
+        "category": "public-actor"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.851768,
+          2.37415
+        ]
+      },
+      "properties": {
+        "name": "Capital Games",
+        "description": "Capital Games est un cluster qui fédère l’ensemble des professionnels franciliens du Jeu vidéo, tout métier, toute plateforme et tout segment confondus.",
+        "address": "74 rue du Faubourg Saint-Antoine",
+        "postcode": "75012",
+        "city": "Paris",
+        "creationyear": "2003",
+        "url": "www.capital-games.org",
+        "twitter": "capital_games",
+        "facebook": "https://www.facebook.com/pages/Capital-Games/467194419959887",
+        "googleplus": "https://plus.google.com/104493716062521584728",
+        "id": "www.capital-games.org",
+        "category": "community"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.855919,
+          2.38606
+        ]
+      },
+      "properties": {
+        "name": "Eseniors",
+        "description": "Eseniors est une association dont l'activité consiste à initier les seniors et les handicapés aux TICs avec pour objectif de réduire la fracture numérique entre générations et de désenclaver les seniors de leur situation d’isolement.",
+        "address": "19 cité de Phalsbourg",
+        "postcode": "75011",
+        "city": "Paris",
+        "creationyear": "2005",
+        "url": "www.e-seniors.asso.fr",
+        "facebook": "https://www.facebook.com/pages/E-seniors/108732705910346",
+        "id": "www.e-seniors.asso.fr",
+        "category": "community"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          49.033215,
+          2.078779
+        ]
+      },
+      "properties": {
+        "name": "ESSEC eclub",
+        "description": "ESSEC eclub est le club d'entrepreneuriat de l'ESSEC.",
+        "address": "Avenue Bernard Hirsch",
+        "postcode": "95021",
+        "city": "Cergy-Pontoise",
+        "creationyear": "2013",
+        "url": "www.essececlub.com",
+        "twitter": "essececlub",
+        "facebook": "http://www.facebook.com/essececlub",
+        "id": "www.essececlub.com",
+        "category": "community"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.866707,
+          2.292297
+        ]
+      },
+      "properties": {
+        "name": "Ficam",
+        "description": "La Fédération des Industries du Cinéma, de l’Audiovisuel et du Multimédia est une organisation syndicale patronale qui regroupe plus de 170 entreprises dont l’activité couvre l’ensemble des métiers et du savoir-faire technique de l’image et du son.",
+        "address": "11 rue de l'Amiral Hamelin",
+        "postcode": "75016",
+        "city": "Paris",
+        "url": "www.ficam.fr",
+        "linkedin": "http://www.linkedin.com/company/1296443",
+        "id": "www.ficam.fr",
+        "category": "community"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.84967,
+          2.38001
+        ]
+      },
+      "properties": {
+        "name": "Fing",
+        "description": "La Fondation Internet Nouvelle Génération aide les entreprises, les institutions et les territoires à anticiper les mutations liées aux technologies et à leurs usages.",
+        "address": "8 passage Brûlon",
+        "postcode": "75012",
+        "city": "Paris",
+        "creationyear": "2000",
+        "url": "www.fing.org",
+        "twitter": "la_fing",
+        "facebook": "https://www.facebook.com/fing.org",
+        "linkedin": "http://www.linkedin.com/company/51624",
+        "id": "www.fing.org",
+        "category": "community"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.8717,
+          2.30638
+        ]
+      },
+      "properties": {
+        "name": "France Digitale",
+        "description": "France Digitale est une association qui réunit plus de 100 professionnels du numérique (entrepreneurs, investisseurs et startups) et dont l'objectif est de promouvoir et de soutenir l’économie numérique en France.",
+        "address": "54 rue de Ponthieu",
+        "postcode": "75008",
+        "city": "Paris",
+        "creationyear": "2012",
+        "url": "www.francedigitale.org",
+        "twitter": "Frdigitale",
+        "facebook": "https://www.facebook.com/FranceDigitale",
+        "googleplus": "https://plus.google.com/111534238157443352030",
+        "id": "www.francedigitale.org",
+        "category": "community"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.863831,
+          2.36086
+        ]
+      },
+      "properties": {
+        "name": "Frenchweb",
+        "description": "FrenchWeb a pour mission de présenter les différentes initiatives des acteurs français du net et regroupe une communauté de plus de 20 000 professionnels (entrepreneurs, experts, investisseurs).",
+        "address": "55 rue de Bretagne",
+        "postcode": "75003",
+        "city": "Paris",
+        "creationyear": "2010",
+        "url": "www.frenchweb.fr",
+        "twitter": "frenchweb",
+        "facebook": "https://www.facebook.com/frenchweb.fr",
+        "googleplus": "https://plus.google.com/101649764048667722872",
+        "id": "www.frenchweb.fr",
+        "category": "community"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.869381,
+          2.33879
+        ]
+      },
+      "properties": {
+        "name": "GESTE",
+        "description": "Le Groupement des Editeurs de Services en Ligne rassemble les professionnels éditeurs en ligne, tous horizons confondus (médias, vidéo, musique, jeux et petites annonces), et oeuvre en faveur d’un écosystème pérenne et équitable",
+        "address": "76 rue de Richelieu",
+        "postcode": "75002",
+        "city": "Paris",
+        "creationyear": "1987",
+        "url": "www.geste.fr",
+        "id": "www.geste.fr",
+        "category": "community"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.882408,
+          2.34836
+        ]
+      },
+      "properties": {
+        "name": "Girlz In Web",
+        "description": "Girlz In Web est un collectif professionnel dont l'objectif est de valoriser les femmes qui travaillent et agissent dans les métiers du web, du numérique et des nouvelles technos.",
+        "address": "9 rue du Delta",
+        "postcode": "75009",
+        "city": "Paris",
+        "creationyear": "2009",
+        "url": "www.girlzinweb.com",
+        "twitter": "girlzinweb",
+        "facebook": "https://www.facebook.com/GirlzInWeb",
+        "id": "www.girlzinweb.com",
+        "category": "community"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.903931,
+          2.35896
+        ]
+      },
+      "properties": {
+        "name": "Grand Paris Pôle Média",
+        "description": "Grand Paris Pôle Média est un cluster qui fédère les acteurs de la filière Image pour contribuer au développement du secteur sur le territoire du Nord Parisien.",
+        "address": "50 avenue du Président Wilson",
+        "postcode": "93214",
+        "city": "Saint-Denis",
+        "creationyear": "2003",
+        "url": "www.lepole.org",
+        "twitter": "PoleMedia",
+        "facebook": "https://www.facebook.com/PoleMediaGrandParis",
+        "googleplus": "https://plus.google.com/104003997581942245023",
+        "linkedin": "http://www.linkedin.com/company/2635602",
+        "id": "www.lepole.org",
+        "category": "community"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.86363,
+          2.436492
+        ]
+      },
+      "properties": {
+        "name": "Knowtex",
+        "description": "Knowtex est une communauté qui explore les transformations du XXIe siècle provoquées par la recherche scientifique, le design industriel et l’innovation technologique.",
+        "address": "104 avenue de la Résistance",
+        "postcode": "93100",
+        "city": "Montreuil",
+        "creationyear": "2010",
+        "url": "www.knowtex.com",
+        "twitter": "Knowtex",
+        "facebook": "https://www.facebook.com/knowtex",
+        "googleplus": "https://plus.google.com/114157731755244061915",
+        "linkedin": "http://www.linkedin.com/company/2891676",
+        "id": "www.knowtex.com",
+        "category": "community"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.871792,
+          2.34127
+        ]
+      },
+      "properties": {
+        "name": "Mozilla",
+        "description": "Mozilla est une organisation à but non lucratif qui se consacre à la promotion de l'ouverture, de l'innovation et des possiblités que peut offrir le web.",
+        "address": "16 boulevard Montmartre",
+        "postcode": "75009",
+        "city": "Paris",
+        "creationyear": "1998",
+        "url": "www.mozfr.org",
+        "twitter": "mozilla_fr",
+        "facebook": "https://www.facebook.com/Firefox",
+        "id": "www.mozfr.org",
+        "category": "community"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.8079,
+          2.46498
+        ]
+      },
+      "properties": {
+        "name": "Open Food Facts",
+        "description": "Open Food Facts est une communauté qui construit une base de données collaborative, libre et ouverte sur les produits alimentaires.",
+        "address": "21 rue des Iles",
+        "postcode": "94100",
+        "city": "Saint-Maur des Fossés",
+        "creationyear": "2012",
+        "url": "www.openfoodfacts.org",
+        "twitter": "OpenFoodFactsFr",
+        "facebook": "https://www.facebook.com/OpenFoodFacts.fr",
+        "id": "www.openfoodfacts.org",
+        "category": "community"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.879761,
+          2.37198
+        ]
+      },
+      "properties": {
+        "name": "Ouishare",
+        "description": "OuiShare est une communauté ouverte internationale composée de passionnés qui oeuvrent pour le développement de l’économie collaborative.",
+        "address": "29 rue de Meaux",
+        "postcode": "75019",
+        "city": "Paris",
+        "creationyear": "2012",
+        "url": "www.ouishare.net",
+        "twitter": "OuiShare",
+        "facebook": "https://www.facebook.com/OuiShare",
+        "linkedin": "http://www.linkedin.com/company/2670616",
+        "id": "www.ouishare.net",
+        "category": "community"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.887118,
+          2.299198
+        ]
+      },
+      "properties": {
+        "name": "Renaissance Numérique",
+        "description": "Renaissance Numérique est un think-tank qui oeuvre en faveur du développement d'internet en France en focalisant ses réflexions et ses actions sur la réduction des fractures numériques.",
+        "address": "13 rue Eugène Flachat",
+        "postcode": "75017",
+        "city": "Paris",
+        "creationyear": "2005",
+        "url": "www.renaissancenumerique.org",
+        "twitter": "Rnumerique",
+        "facebook": "https://www.facebook.com/renaissancenumerique",
+        "googleplus": "https://plus.google.com/110672692941004322746",
+        "id": "www.renaissancenumerique.org",
+        "category": "community"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.870529,
+          2.342367
+        ]
+      },
+      "properties": {
+        "name": "Silicon Sentier",
+        "description": "Silicon Sentier est une association d’entreprises destinée à promouvoir les startups et mutualiser des ressources pour diffuser largement la culture du numérique et favoriser l’émergence de projets individuels ou collectifs en Ile-de-France.",
+        "address": "12 passage Montmartre",
+        "postcode": "75002",
+        "city": "Paris",
+        "creationyear": "2000",
+        "url": "www.siliconsentier.org",
+        "twitter": "SiliconSentier",
+        "facebook": "https://www.facebook.com/siliconsentier",
+        "linkedin": "http://www.linkedin.com/company/123109",
+        "id": "www.siliconsentier.org",
+        "category": "community"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.85334,
+          2.3704
+        ]
+      },
+      "properties": {
+        "name": "SNJV",
+        "description": "Le Syndicat National du Jeu Vidéo défend les intérêts des professionnels du jeu vidéo et intervient dans tous les domaines permettant de préserver ou développer la compétitivité des entreprises de production de jeu vidéo implantées en France.",
+        "address": "2 rue de la Roquette",
+        "postcode": "75011",
+        "city": "Paris",
+        "creationyear": "2008",
+        "url": "www.snjv.org",
+        "twitter": "Julv_SNJV",
+        "facebook": "https://www.facebook.com/dgsyndicatnationaldujeuvideo",
+        "id": "www.snjv.org",
+        "category": "community"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.870899,
+          2.3429
+        ]
+      },
+      "properties": {
+        "name": "Start In Paris",
+        "description": "Start In Paris est un évènement mensuel permettant à 5 startups de présenter leur service en 5mn à la communauté tech parisienne.",
+        "address": "161 rue Montmartre",
+        "postcode": "75009",
+        "city": "Paris",
+        "creationyear": "2010",
+        "url": "www.startinparis.com",
+        "twitter": "StartInParis",
+        "facebook": "https://www.facebook.com/StartinParis",
+        "id": "www.startinparis.com",
+        "category": "community"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.851219,
+          2.26986
+        ]
+      },
+      "properties": {
+        "name": "Syntec Numérique",
+        "description": "Syntec Numérique est l'un des syndicats professionnels rattaché au Syntec qui représente les métiers et les industries du numérique en France.",
+        "address": "3 rue Léon Bonnat",
+        "postcode": "75016",
+        "city": "Paris",
+        "creationyear": "1970",
+        "url": "www.syntec-numerique.fr",
+        "twitter": "syntecnumerique",
+        "facebook": "https://www.facebook.com/pages/Syntec-informatique/208505175827301",
+        "linkedin": "http://www.linkedin.com/company/2970743",
+        "id": "www.syntec-numerique.fr",
+        "category": "community"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.895222,
+          2.32246
+        ]
+      },
+      "properties": {
+        "name": "UnionWeb",
+        "description": "UnionWeb fédère les acteurs, associations et entrepreneurs du Web français. Son objectif est de développer un réseau d'entraide entre les métiers du web. Elle a pour vocation de représenter la profession auprès de l'Etat.",
+        "address": "24 rue des Epinettes",
+        "postcode": "75017",
+        "city": "Paris",
+        "creationyear": "2013",
+        "url": "www.unionweb.fr",
+        "twitter": "Union_Web",
+        "facebook": "https://www.facebook.com/UnionWeb",
+        "googleplus": "https://plus.google.com/117641795723809855982",
+        "linkedin": "http://www.linkedin.com/company/unionweb",
+        "id": "www.unionweb.fr",
+        "category": "community"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.887901,
+          2.26128
+        ]
+      },
+      "properties": {
+        "name": "Villes Internet",
+        "description": "L’association Villes Internet a pour objet de coordonner le développement et l’animation d’un réseau des acteurs de l’Internet citoyen, et tout particulièrement des élus et agents des collectivités qui animent le territoire public.",
+        "address": "9 rue Soyer",
+        "postcode": "92200",
+        "city": "Neuilly sur Seine",
+        "creationyear": "1999",
+        "url": "www.villes-internet.net",
+        "twitter": "Villes_Internet",
+        "facebook": "https://www.facebook.com/villes.internet",
+        "linkedin": "http://www.linkedin.com/company/3091720",
+        "id": "www.villes-internet.net",
+        "category": "community"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.871559,
+          2.35025
+        ]
+      },
+      "properties": {
+        "name": "50A",
+        "description": "50A accompagne les grands comptes, les PME et les fédérations dans la conception et la mise en oeuvre de leur stratégie de communication digitale.",
+        "address": "32 rue de l'Echéquier",
+        "postcode": "75010",
+        "city": "Paris",
+        "url": "www.50a.fr",
+        "twitter": "agence50A",
+        "linkedin": "http://www.linkedin.com/company/1108309",
+        "id": "www.50a.fr",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.85672,
+          2.37418
+        ]
+      },
+      "properties": {
+        "name": "5e Rue",
+        "description": "5e Rue est un agenceur digital qui conseille et accompagne les entreprises et les institutions sur les enjeux d'image, de business et d'organisation soulevés par le web social.",
+        "address": "36 rue Sedaine",
+        "postcode": "75011",
+        "city": "Paris",
+        "creationyear": "2010",
+        "url": "www.5erue.com",
+        "twitter": "5erue",
+        "facebook": "www.facebook.com/5eRue",
+        "googleplus": "https://plus.google.com/106826478280245133986",
+        "id": "www.5erue.com",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.87135,
+          2.33764
+        ]
+      },
+      "properties": {
+        "name": "99Metrics",
+        "description": "99Metrics aide les startups web à augmenter leurs revenus sur Internet en particulier sur l'acquisition d'audience, la conversion en client puis la rétention.",
+        "address": "13 rue de Marivaux",
+        "postcode": "75009",
+        "city": "Paris",
+        "creationyear": "2012",
+        "url": "www.99metrics.fr",
+        "twitter": "99metrics",
+        "linkedin": "http://www.linkedin.com/company/3001973",
+        "id": "www.99metrics.fr",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.880669,
+          2.36465
+        ]
+      },
+      "properties": {
+        "name": "Abstrakt",
+        "description": "Abstrakt est une agence digitale qui assure la promotion de marques et produits numériques en ligne.",
+        "address": "213 rue du Faubourg Saint Martin",
+        "postcode": "75010",
+        "city": "Paris",
+        "creationyear": "1998",
+        "url": "www.abstrakt.fr",
+        "twitter": "abstraktnews",
+        "facebook": "https://www.facebook.com/pages/abstrakt/102356576469615",
+        "linkedin": "http://www.linkedin.com/company/688039",
+        "id": "www.abstrakt.fr",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.854858,
+          2.40352
+        ]
+      },
+      "properties": {
+        "name": "Actialuna",
+        "description": "Actialuna est une agence de design de livre numérique qui orchestre avec les éditeurs le travail des ingénieurs et des auteurs, en créant des interfaces innovantes et ergonomiques pour le livre.",
+        "address": "80 rue des Haies",
+        "postcode": "75020",
+        "city": "Paris",
+        "creationyear": "2009",
+        "url": "www.actialuna.com",
+        "twitter": "Actialuna",
+        "linkedin": "http://www.linkedin.com/company/1574984",
+        "id": "www.actialuna.com",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.83054,
+          2.3292
+        ]
+      },
+      "properties": {
+        "name": "Adminext",
+        "description": "Adminext est un cabinet de conseil spécialisé dans la réingénierie des processus publics, le pilotage stratégique des systèmes d’information et la mise en oeuvre de solutions innovantes de dématérialisation.",
+        "address": "48 avenue du Général Leclerc",
+        "postcode": "75014",
+        "city": "Paris",
+        "creationyear": "2007",
+        "url": "www.adminext.com",
+        "linkedin": "http://www.linkedin.com/company/3036042",
+        "id": "www.adminext.com",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.869228,
+          2.3478
+        ]
+      },
+      "properties": {
+        "name": "af83",
+        "description": "af83 est une agence spécialisée en conception d’expérience, technologie et communication, qui accompagne ses clients dans la transformation de leur activité sur le digital pour offrir des services innovants à leurs utilisateurs.",
+        "address": "15 rue Poissonnière",
+        "postcode": "75002",
+        "city": "Paris",
+        "creationyear": "2006",
+        "url": "www.af83.com",
+        "twitter": "af83",
+        "linkedin": "http://www.linkedin.com/company/af83",
+        "id": "www.af83.com",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.9487,
+          3.08767
+        ]
+      },
+      "properties": {
+        "name": "Agence Française Informatique",
+        "description": "L'AFI est une société de conseil spécialiste de l'informatique et des métiers des collectivités territoriales.",
+        "address": "4 rue de la Couture",
+        "postcode": "77260",
+        "city": "Sammeron",
+        "creationyear": "1981",
+        "url": "www.afi-sa.fr",
+        "id": "www.afi-sa.fr",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.889542,
+          2.34958
+        ]
+      },
+      "properties": {
+        "name": "Agence Propal",
+        "description": "L'Agence Propal est une agence digitale spécialiste de Drupal qui offre développement, conseil et expertise.",
+        "address": "57 boulevard Barbès",
+        "postcode": "75018",
+        "city": "Paris",
+        "url": "www.propal.net",
+        "id": "www.propal.net",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.85968,
+          2.34602
+        ]
+      },
+      "properties": {
+        "name": "Antenna",
+        "description": "Antenna créée des parcours de visite audio et multimedia pour aider les musées et les sites culturels à enrichir l'expérience de leurs visiteurs.",
+        "address": "3 rue des Déchargeurs",
+        "postcode": "75001",
+        "city": "Paris",
+        "creationyear": "1984",
+        "url": "www.antennaaudio.com",
+        "twitter": "AntennaIntl",
+        "facebook": "https://www.facebook.com/AntennaInternational",
+        "linkedin": "http://www.linkedin.com/company/antenna-international",
+        "id": "www.antennaaudio.com",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.86993,
+          2.34624
+        ]
+      },
+      "properties": {
+        "name": "AntVoice",
+        "description": "AntVoice édite une solution innovante et puissante de recommandation sociale permettant aux sites marchands et medias de proposer les produits et les contenus pertinents pour chacun de leurs utilisateurs.",
+        "address": "28 rue du Sentier",
+        "postcode": "75009",
+        "city": "Paris",
+        "creationyear": "2009",
+        "url": "www.antvoice.com",
+        "twitter": "antvoice",
+        "facebook": "https://www.facebook.com/AntvoiceGroup",
+        "linkedin": "http://www.linkedin.com/company/antvoice",
+        "id": "www.antvoice.com",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.64901,
+          2.44693
+        ]
+      },
+      "properties": {
+        "name": "AplusB",
+        "description": "AplusB est une société innovante d’étude et de conseil en stratégie centrée utilisateurs qui regroupe des ergonomes et des experts en accessibilité numérique.",
+        "address": "63 boulevard de la République",
+        "postcode": "91450",
+        "city": "Soisy sur Seine",
+        "creationyear": "2010",
+        "url": "www.aplusb.pro",
+        "linkedin": "http://www.linkedin.com/company/1788192",
+        "id": "www.aplusb.pro",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.86005,
+          2.361
+        ]
+      },
+      "properties": {
+        "name": "Apocope",
+        "description": "Apocope est une agence marketing spécialisée internet et mobile.",
+        "address": "93 rue Vieille du Temple",
+        "postcode": "75003",
+        "city": "Paris",
+        "creationyear": "2000",
+        "url": "www.apocope.com",
+        "twitter": "AgenceApocope",
+        "linkedin": "http://www.linkedin.com/company/51154",
+        "id": "www.apocope.com",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.792641,
+          2.03611
+        ]
+      },
+      "properties": {
+        "name": "Ardans",
+        "description": "Ardans est un cabinet de conseil spécialisé dans la gestion des connaissances au sein des organisations.",
+        "address": "6 rue Jean-Pierre Timbaud",
+        "postcode": "78180",
+        "city": "Montigny le Bretonneux",
+        "creationyear": "1999",
+        "url": "www.ardans.fr",
+        "twitter": "ardanssas",
+        "linkedin": "http://www.linkedin.com/company/ardans",
+        "id": "www.ardans.fr",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.847031,
+          2.19654
+        ]
+      },
+      "properties": {
+        "name": "Arom Productions",
+        "description": "Arom Productions est une agence de communication web, vidéos et création graphique.",
+        "address": "71 rue de Suresnes",
+        "postcode": "92380",
+        "city": "Garches",
+        "creationyear": "1997",
+        "url": "www.arom-productions.com",
+        "id": "www.arom-productions.com",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.885101,
+          2.34145
+        ]
+      },
+      "properties": {
+        "name": "Ars Aperta",
+        "description": "Ars Aperta est un cabinet de conseil qui intervient sur la stratégie des organisations dans le domaine des standards ouverts et de l'open source.",
+        "address": "8  rue André Barsacq",
+        "postcode": "75018",
+        "city": "Paris",
+        "creationyear": "2005",
+        "url": "www.arsaperta.com",
+        "id": "www.arsaperta.com",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.694931,
+          2.61527
+        ]
+      },
+      "properties": {
+        "name": "Axiz eBusiness",
+        "description": "Axiz eBusiness, spécialiste des méthodes webmarketing, accompagne les entreprises dans la mise en oeuvre de leur stratégie de développement commercial.",
+        "address": "1 allée François Villon",
+        "postcode": "77170",
+        "city": "Brie-Comte-Robert",
+        "creationyear": "2002",
+        "url": "www.axiz.fr",
+        "twitter": "axizebusiness",
+        "facebook": "https://www.facebook.com/formation.web.marketing",
+        "linkedin": "http://www.linkedin.com/company/axiz-ebusiness",
+        "id": "www.axiz.fr",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.88068,
+          2.32629
+        ]
+      },
+      "properties": {
+        "name": "Backelite",
+        "description": "Backelite est une agence spécialisée dans le design, la conception et le développement de services mobiles, tablettes et télévisions connectées.",
+        "address": "7 rue de Bucarest",
+        "postcode": "75008",
+        "city": "Paris",
+        "creationyear": "2006",
+        "url": "www.backelite.com",
+        "twitter": "AgenceBackelite",
+        "facebook": "https://www.facebook.com/pages/Agence-Backelite/211793522252484",
+        "linkedin": "http://www.linkedin.com/company/246525",
+        "id": "www.backelite.com",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.83646,
+          2.24385
+        ]
+      },
+      "properties": {
+        "name": "Be Angels",
+        "description": "Be Angels est une agence 100% communication digitale et réseaux sociaux.",
+        "address": "52 rue de la Belle Feuille",
+        "postcode": "92100",
+        "city": "Boulogne Billancourt",
+        "url": "be-angels.fr",
+        "twitter": "_beangels_",
+        "facebook": "https://www.facebook.com/just.be.angels",
+        "id": "be-angels.fr",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.859219,
+          2.38637
+        ]
+      },
+      "properties": {
+        "name": "Beasty Prod",
+        "description": "Beasty Prod est une agence de production et de conseil qui développe des programmes multi-supports, participatifs et communautaires et s'oriente vers de nouvelles façons de raconter l’information, la fiction et la communication.",
+        "address": "151 rue de la Roquette",
+        "postcode": "75011",
+        "city": "Paris",
+        "url": "www.beastyprod.fr",
+        "twitter": "Beastyprod",
+        "facebook": "http://fr-fr.facebook.com/beasty.prod.7",
+        "id": "www.beastyprod.fr",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.83601,
+          2.23545
+        ]
+      },
+      "properties": {
+        "name": "Blueight",
+        "description": "Blueight est une société spécialisée dans linformatique et le développement durable qui propose des service de conseil, d’audit, d’intégration et d’ingénierie.",
+        "address": "150 rue Galliéni",
+        "postcode": "92100",
+        "city": "Boulogne-Billancourt",
+        "creationyear": "2011",
+        "url": "www.blueight.com",
+        "id": "www.blueight.com",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.841164,
+          2.23722
+        ]
+      },
+      "properties": {
+        "name": "Bluenove",
+        "description": "Bluenove est une agence conseil pour la stratégie et la mise en œuvre de démarches d'open innovation.",
+        "address": "67 rue d'Aguesseau",
+        "postcode": "92100",
+        "city": "Boulogne Billancourt",
+        "creationyear": "2008",
+        "url": "www.bluenove.com",
+        "twitter": "bluenove",
+        "linkedin": "http://www.linkedin.com/company/227145",
+        "id": "www.bluenove.com",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.86187,
+          2.35063
+        ]
+      },
+      "properties": {
+        "name": "Chugulu Games",
+        "description": "Chugulu Games est une agence spécialisée en communication ludo-éducative et en divertissement digital qui fabrique des créations numériques pour le web et le mobile.",
+        "address": "64 rue Rambuteau",
+        "postcode": "75003",
+        "city": "Paris",
+        "creationyear": "2006",
+        "url": "www.chugulu.biz",
+        "twitter": "Chugulu",
+        "facebook": "https://www.facebook.com/chugulugames",
+        "linkedin": "http://www.linkedin.com/company/1441529",
+        "id": "www.chugulu.biz",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.8564,
+          2.43744
+        ]
+      },
+      "properties": {
+        "name": "Communication Digitale",
+        "description": "Communication Digitale conseille et accompagne le développement des entreprises (startup, TPE ou PME) des agences ou des professionnels.",
+        "address": "5 rue Marcelin Berthelot",
+        "postcode": "93100",
+        "city": "Montreuil",
+        "creationyear": "1995",
+        "url": "www.fondation-communication.com",
+        "twitter": "reseau_france",
+        "facebook": "https://www.facebook.com/france.miremont",
+        "googleplus": "https://plus.google.com/110486748496810380827",
+        "linkedin": "http://www.linkedin.com/in/francemiremont",
+        "id": "www.fondation-communication.com",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.867641,
+          2.34602
+        ]
+      },
+      "properties": {
+        "name": "Creads",
+        "description": "Creads est une agence participative spécialisée dans la création de noms, logos, webdesign, print qui s'appuie sur le talent des membres de sa plateforme communautaire.",
+        "address": "112 rue reaumur",
+        "postcode": "75002",
+        "city": "Paris",
+        "creationyear": "2008",
+        "url": "www.creads.org",
+        "twitter": "creads",
+        "facebook": "https://www.facebook.com/creads",
+        "googleplus": "https://plus.google.com/+creads",
+        "linkedin": "http://www.linkedin.com/company/336973",
+        "id": "www.creads.org",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.8679,
+          2.351414
+        ]
+      },
+      "properties": {
+        "name": "Creaktif",
+        "description": "Creaktif est un studio de création numérique, spécialisé dans la création de sites web, d'applications mobile et tablette, applications facebook, serious game, motions, et d'installations interactive.",
+        "address": "3 rue d'Alexandrie",
+        "postcode": "75002",
+        "city": "Paris",
+        "creationyear": "2010",
+        "url": "www.creaktif.com",
+        "twitter": "creaktif",
+        "facebook": "https://www.facebook.com/creaktifagency",
+        "linkedin": "http://www.linkedin.com/company/creaktif",
+        "id": "www.creaktif.com",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.89006,
+          2.40316
+        ]
+      },
+      "properties": {
+        "name": "Dataveyes",
+        "description": "Dataveyes raconte des histoires à partir de vos données sous la forme de visualisations interactives.",
+        "address": "24 rue du Pré Saint-Gervais",
+        "postcode": "93500",
+        "city": "Pantin",
+        "creationyear": "2010",
+        "url": "www.dataveyes.com",
+        "twitter": "dataveyes",
+        "facebook": "https://www.facebook.com/dataveyes",
+        "linkedin": "http://www.linkedin.com/company/1576301",
+        "id": "www.dataveyes.com",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.80925,
+          2.36479
+        ]
+      },
+      "properties": {
+        "name": "DayDreamer Studio",
+        "description": "DayDreamer Studio est spécialisé dans le game marketing, la communication à travers l’événementiel, les gadgets et la réalisation d'expériences vidéoludiques.",
+        "address": "11 rue Carnot",
+        "postcode": "94270",
+        "city": "Kremlin Bicêtre",
+        "creationyear": "2013",
+        "url": "www.daydreamerstudio.fr",
+        "twitter": "DDreamer_S",
+        "facebook": "https://www.facebook.com/DDreamer.Studio",
+        "googleplus": "https://plus.google.com/110422884673786418364",
+        "id": "www.daydreamerstudio.fr",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.83942,
+          2.25769
+        ]
+      },
+      "properties": {
+        "name": "Digital Immersion",
+        "description": "Digital Immersion est une agence d’imagerie virtuelle spécialisée dans la création et la diffusion de vidéos 360°, de photos panoramiques et de visites virtuelles pour le web et le mobile.",
+        "address": "114 rue Michel-Ange",
+        "postcode": "75016",
+        "city": "Paris",
+        "url": "www.digitalimmersion.com",
+        "id": "www.digitalimmersion.com",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.87685,
+          2.3329
+        ]
+      },
+      "properties": {
+        "name": "Digital Mammouth",
+        "description": "Digital Mammouth est une agence de développement web spécialisée dans la conception et l'implémentation d'applications sociales et e-commerce avec un focus sur les méthodologies agiles, la qualité des interfaces et la haute performance.",
+        "address": "62 rue Saint-Lazare",
+        "postcode": "75009",
+        "city": "Paris",
+        "creationyear": "2010",
+        "url": "www.digitalmammouth.com",
+        "twitter": "digitalmammouth",
+        "facebook": "https://www.facebook.com/digitalmammouth",
+        "id": "www.digitalmammouth.com",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.864071,
+          2.35502
+        ]
+      },
+      "properties": {
+        "name": "Digitalkeys",
+        "description": "Digitalkeys est une agence de communication digitale.",
+        "address": "78 rue Beaubourg",
+        "postcode": "75003",
+        "city": "Paris",
+        "creationyear": "2007",
+        "url": "www.digitalkeys.fr",
+        "facebook": "https://www.facebook.com/WLoveW",
+        "linkedin": "http://www.linkedin.com/company/1345826",
+        "id": "www.digitalkeys.fr",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.869598,
+          2.35122
+        ]
+      },
+      "properties": {
+        "name": "Digiworks",
+        "description": "Digiworks est une agence marketing de création interactive : advergame, socialgame, gamification.",
+        "address": "41 rue Beauregard",
+        "postcode": "75002",
+        "city": "Paris",
+        "creationyear": "2008",
+        "url": "www.digiworks.fr",
+        "twitter": "DigiworksStudio",
+        "facebook": "https://www.facebook.com/digiworksStudio",
+        "linkedin": "http://www.linkedin.com/company/2084227",
+        "id": "www.digiworks.fr",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.85868,
+          2.44043
+        ]
+      },
+      "properties": {
+        "name": "Drixe",
+        "description": "Drixe est une agence conseil en en communications digitales.",
+        "address": "51 avenue du Président Wilson",
+        "postcode": "93100",
+        "city": "Montreuil",
+        "creationyear": "2010",
+        "url": "www.drixe.net",
+        "twitter": "drixe",
+        "facebook": "https://www.facebook.com/drixe69",
+        "googleplus": "https://plus.google.com/115916426717344588499",
+        "linkedin": "http://www.linkedin.com/in/drixe",
+        "id": "www.drixe.net",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.872162,
+          2.30904
+        ]
+      },
+      "properties": {
+        "name": "eYeka",
+        "description": "eYeka est une plateforme communautaire d'innovation ouverte qui permet à ses membres de relever des défis et de résoudre des problèmes avec leurs idées.",
+        "address": "79 rue la Boetie",
+        "postcode": "75008",
+        "city": "Paris",
+        "creationyear": "2006",
+        "url": "www.eyeka.net",
+        "twitter": "eyeka",
+        "facebook": "https://www.facebook.com/eYekaGlobal",
+        "linkedin": "http://www.linkedin.com/company/eyeka",
+        "id": "www.eyeka.net",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.868328,
+          2.36601
+        ]
+      },
+      "properties": {
+        "name": "faberNovel",
+        "description": "faberNovel est une agence d’innovation qui associe les technologies, le design et les usages émergents pour inventer de nouveaux produits, services et expériences.",
+        "address": "17  rue Faubourg du Temple",
+        "postcode": "75010",
+        "city": "Paris",
+        "creationyear": "2003",
+        "url": "www.fabernovel.com",
+        "twitter": "faberNovel",
+        "facebook": "http://www.facebook.com/faberNovel",
+        "linkedin": "http://www.linkedin.com/company/78988",
+        "id": "www.fabernovel.com",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.857342,
+          2.38393
+        ]
+      },
+      "properties": {
+        "name": "Fivetouch",
+        "description": "Fivetouch est une agence de création mobile et d'ingénierie applicative.",
+        "address": "10 rue Mercœur",
+        "postcode": "75011",
+        "city": "Paris",
+        "creationyear": "2011",
+        "url": "www.fivetouch.fr",
+        "twitter": "fivetouch",
+        "facebook": "https://www.facebook.com/fivetouch",
+        "linkedin": "http://www.linkedin.com/company/fivetouch",
+        "id": "www.fivetouch.fr",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.86298,
+          2.36815
+        ]
+      },
+      "properties": {
+        "name": "Grouek",
+        "description": "Grouek est un studio de création interactive qui conçoit et créée des expériences numériques innovantes.",
+        "address": "7 rue Oberkampf",
+        "postcode": "75011",
+        "city": "Paris",
+        "creationyear": "2000",
+        "url": "www.grouek.com",
+        "twitter": "grouek",
+        "facebook": "https://www.facebook.com/grouek",
+        "linkedin": "http://www.linkedin.com/company/1139284",
+        "id": "www.grouek.com",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.87859,
+          2.31381
+        ]
+      },
+      "properties": {
+        "name": "Guru Guru",
+        "description": "Guru Guru est une agence conseil en stratégie et en production digitale.",
+        "address": "16 rue de Vezelay",
+        "postcode": "75008",
+        "city": "Paris",
+        "creationyear": "2012",
+        "url": "www.guruguru.fr",
+        "twitter": "gurugurufr",
+        "facebook": "https://www.facebook.com/GuruGuruFR",
+        "googleplus": "https://plus.google.com/100265576806038381133",
+        "id": "www.guruguru.fr",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.856041,
+          2.37583
+        ]
+      },
+      "properties": {
+        "name": "Happy Content",
+        "description": "Happy Content fournit des contenus aux professionnels de l’Internet.",
+        "address": "80 rue de la Roquette",
+        "postcode": "75011",
+        "city": "Paris",
+        "creationyear": "2007",
+        "url": "www.happycontent.com",
+        "id": "www.happycontent.com",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.849447,
+          2.35398
+        ]
+      },
+      "properties": {
+        "name": "i-Marginal",
+        "description": "i-Marginal est une agence digitale pour la conception, la réalisation, le développement et la création de contenus pour tous les écrans et supports numériques.",
+        "address": "16 boulevard Saint Germain",
+        "postcode": "75005",
+        "city": "Paris",
+        "creationyear": "1997",
+        "url": "www.imarginal.com",
+        "twitter": "imarginal",
+        "linkedin": "http://www.linkedin.com/company/2448073",
+        "id": "www.imarginal.com",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.825986,
+          2.226908
+        ]
+      },
+      "properties": {
+        "name": "Incognito Interactive",
+        "description": "Incognito Interactive est un studio de design interactif.",
+        "address": "16 rue Troyon",
+        "postcode": "92310",
+        "city": "Sèvres",
+        "creationyear": "2004",
+        "url": "www.incognito-interactive.com",
+        "twitter": "jcbaudot",
+        "id": "www.incognito-interactive.com",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.883362,
+          2.34782
+        ]
+      },
+      "properties": {
+        "name": "Inovia-Team",
+        "description": "Inovia-Team est une société d'ingénierie web qui accompagne des startups dans leurs projets d'innovation.",
+        "address": "13 boulevard de Rochechouart",
+        "postcode": "75009",
+        "city": "Paris",
+        "creationyear": "2007",
+        "url": "www.inovia.fr",
+        "twitter": "inoviateam",
+        "facebook": "https://www.facebook.com/pages/Inovia-Team/147815591928404",
+        "linkedin": "http://www.linkedin.com/company/inovia-team",
+        "id": "www.inovia.fr",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.816872,
+          2.3006
+        ]
+      },
+      "properties": {
+        "name": "ISlean Consulting",
+        "description": "ISlean Consulting est un cabinet de conseil en stratégie, Lean management et organisation des systèmes d'informations.",
+        "address": "32 rue Guy Moquet",
+        "postcode": "92240",
+        "city": "Malakoff",
+        "creationyear": "2008",
+        "url": "www.islean-consulting.fr",
+        "twitter": "isleanfr",
+        "linkedin": "http://www.linkedin.com/company/islean-consulting",
+        "id": "www.islean-consulting.fr",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.86031,
+          2.36797
+        ]
+      },
+      "properties": {
+        "name": "ITEMS International",
+        "description": "ITEMS International est une société de conseil qui rassemble des associés et consultants de haut niveau dans les secteurs de l’internet, des télécoms, de la télévision et des systèmes d’information.",
+        "address": "70 rue Amelot",
+        "postcode": "75011",
+        "city": "Paris",
+        "creationyear": "1992",
+        "url": "www.items.fr",
+        "twitter": "ITEMSint",
+        "facebook": "https://www.facebook.com/ItemsInternational",
+        "linkedin": "http://www.linkedin.com/company/items-international",
+        "id": "www.items.fr",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.405788,
+          2.70192
+        ]
+      },
+      "properties": {
+        "name": "Izimobi",
+        "description": "Izimobi est spécialisée dans le marketing direct sur téléphone mobile pour les points de vente.",
+        "address": "74 rue Grande",
+        "postcode": "77300",
+        "city": "Fontainebleau",
+        "creationyear": "2009",
+        "url": "www.izimobi.fr",
+        "twitter": "izimobi",
+        "facebook": "https://www.facebook.com/izimobi.france",
+        "id": "www.izimobi.fr",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.859589,
+          2.37914
+        ]
+      },
+      "properties": {
+        "name": "JoliCode",
+        "description": "JoliCode est une agence experte dans la réalisation de projets web et mobiles de qualité.",
+        "address": "16 avenue Parmentier",
+        "postcode": "75011",
+        "city": "Paris",
+        "creationyear": "2012",
+        "url": "www.jolicode.com",
+        "twitter": "JoliCode",
+        "facebook": "https://www.facebook.com/JoliCode",
+        "googleplus": "https://plus.google.com/113059909911594633484",
+        "id": "www.jolicode.com",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.86462,
+          2.35804
+        ]
+      },
+      "properties": {
+        "name": "Journalism++",
+        "description": "Journalism++ est un réseau de journalistes de données qui développent des récits à partir de données.",
+        "address": "21 rue des Vertus",
+        "postcode": "75003",
+        "city": "Paris",
+        "creationyear": "2011",
+        "url": "www.jplusplus.org",
+        "twitter": "jplusplus_",
+        "id": "www.jplusplus.org",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.84967,
+          2.38001
+        ]
+      },
+      "properties": {
+        "name": "La Netscouade",
+        "description": "La Netscouade est une agence digitale pionnière du web social, leader en innovation, communication d'influence, rich media et production web et mobile.",
+        "address": "8 passage Brûlon",
+        "postcode": "75012",
+        "city": "Paris",
+        "creationyear": "2007",
+        "url": "www.lanetscouade.com",
+        "twitter": "lanetscouade",
+        "facebook": "https://www.facebook.com/lanetscouade",
+        "linkedin": "http://www.linkedin.com/company/260333",
+        "id": "www.lanetscouade.com",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.828751,
+          2.24049
+        ]
+      },
+      "properties": {
+        "name": "Le Grand Studio",
+        "description": "Le Grand Studio est une agence spécialisée dans les médias sociaux.",
+        "address": "1 place Paul Verlaine",
+        "postcode": "92100",
+        "city": "Boulogne Billancourt",
+        "creationyear": "2009",
+        "url": "www.legrandstudio.com",
+        "twitter": "legrandstudio",
+        "facebook": "https://www.facebook.com/legrandstudio",
+        "id": "www.legrandstudio.com",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.849602,
+          2.38784
+        ]
+      },
+      "properties": {
+        "name": "Les Argonautes",
+        "description": "Les Argonautes est une agence de communication à l'ère du digital, une agence hybride et responsive.",
+        "address": "224 rue du Faubourg Saint-Antoine",
+        "postcode": "75012",
+        "city": "Paris",
+        "creationyear": "1994",
+        "url": "www.les-argonautes.fr",
+        "twitter": "lesargonautes",
+        "facebook": "https://www.facebook.com/lesargonautes.fr",
+        "linkedin": "http://www.linkedin.com/company/les-argonautes",
+        "id": "www.les-argonautes.fr",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.855629,
+          2.36317
+        ]
+      },
+      "properties": {
+        "name": "Les Chinois",
+        "description": "Les Chinois est une agence de communication interactive.",
+        "address": "4 rue de Jarente",
+        "postcode": "75004",
+        "city": "Paris",
+        "creationyear": "2002",
+        "url": "www.leschinois.com",
+        "twitter": "leschinoistweet",
+        "facebook": "https://www.facebook.com/AgenceLesChinois",
+        "linkedin": "http://www.linkedin.com/company/69106",
+        "id": "www.leschinois.com",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.868865,
+          2.350711
+        ]
+      },
+      "properties": {
+        "name": "Lesmobilizers",
+        "description": "Lesmobilizers est une agence spécialisée dans la conception et le développement d'applications mobiles innovantes.",
+        "address": "127 rue d'Aboukir",
+        "postcode": "75002",
+        "city": "Paris",
+        "creationyear": "2009",
+        "url": "www.lesmobilizers.com",
+        "twitter": "lesmobilizers",
+        "facebook": "https://www.facebook.com/pages/Lesmobilizers/151035719380",
+        "linkedin": "http://www.linkedin.com/company/565593",
+        "id": "www.lesmobilizers.com",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.867821,
+          2.34089
+        ]
+      },
+      "properties": {
+        "name": "L'Ile des Médias",
+        "description": "L'Ile des Médias est une agence digitale interactive qui intègre une unité spécialisée sur les nouvelles technologies d'affichage interactif.",
+        "address": "15 rue de la Banque",
+        "postcode": "75002",
+        "city": "Paris",
+        "creationyear": "1996",
+        "url": "www.ile-des-medias.com",
+        "linkedin": "http://www.linkedin.com/company/1892169",
+        "id": "www.ile-des-medias.com",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.88517,
+          2.2447
+        ]
+      },
+      "properties": {
+        "name": "Linagora",
+        "description": "Linagora est un éditeur de logiciels de communication et de collaboration opensource qui propose également une gamme de services professionnels, de formations et de conseil.",
+        "address": "80 rue Roque de Fillol",
+        "postcode": "92800",
+        "city": "Puteaux",
+        "creationyear": "2000",
+        "url": "www.linagora.com",
+        "twitter": "linagora",
+        "facebook": "https://www.facebook.com/Linagora",
+        "googleplus": "https://plus.google.com/110831155962387402340",
+        "linkedin": "http://www.linkedin.com/company/21242",
+        "id": "www.linagora.com",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.848862,
+          2.32424
+        ]
+      },
+      "properties": {
+        "name": "Localeo",
+        "description": "Localeo est un fournisseur d’applications hébergées au service des collectivités territoriales, des associations ou organisations professionnelles qui servent à optimiser ou simplifier la Gestion Relation Citoyen.",
+        "address": "15 rue de l'Abbé Grégoire",
+        "postcode": "75006",
+        "city": "Paris",
+        "creationyear": "2002",
+        "url": "www.localeo.com",
+        "twitter": "localeo",
+        "facebook": "https://www.facebook.com/Localeo",
+        "linkedin": "http://www.linkedin.com/company/1111360",
+        "id": "www.localeo.com",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.8708,
+          2.34321
+        ]
+      },
+      "properties": {
+        "name": "Miratech",
+        "description": "Miratech est une entreprise d’ergonomie web et de conception centrée utilisateurs qui intervient sur tous les types d'interfaces numériques.",
+        "address": "14 rue d'Uzès",
+        "postcode": "75002",
+        "city": "Paris",
+        "creationyear": "2005",
+        "url": "www.miratech.fr",
+        "twitter": "miratech",
+        "id": "www.miratech.fr",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.93803,
+          2.13286
+        ]
+      },
+      "properties": {
+        "name": "Motiv'Solutions",
+        "description": "Motiv'Solutions propose des solutions interactives pour l'éducation et l'enseignement.",
+        "address": "14 rue gambetta",
+        "postcode": "78600",
+        "city": "Mesnil le Roi",
+        "creationyear": "2008",
+        "url": "www.motivsol.com",
+        "id": "www.motivsol.com",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.876961,
+          2.31503
+        ]
+      },
+      "properties": {
+        "name": "Multeam",
+        "description": "Multeam accompagne les entreprises qui ont des projets de développement dans leur démarche de levée de fonds auprès des investisseurs.",
+        "address": "3 rue Treilhard",
+        "postcode": "75008",
+        "city": "Paris",
+        "url": "www.multeam.fr",
+        "id": "www.multeam.fr",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.82148,
+          2.252705
+        ]
+      },
+      "properties": {
+        "name": "Navidis",
+        "description": "Navidis apporte des solutions innovantes aux acteurs et usagers de la Smart City et, avec ses solutions interactives multimédias, se positionne sur le segment du SoLoMo (Social / Local / Mobile).",
+        "address": "2 place Jules Gévelot",
+        "postcode": "92130",
+        "city": "Issy-les-Moulineaux",
+        "url": "www.navidis.com",
+        "twitter": "NaviTwitt",
+        "id": "www.navidis.com",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.871448,
+          2.34791
+        ]
+      },
+      "properties": {
+        "name": "Nealite",
+        "description": "Nealite est une agence de design de services et d'expérience utilisateur.",
+        "address": "10 rue du Faubourg Poissonnière",
+        "postcode": "75010",
+        "city": "Paris",
+        "creationyear": "2005",
+        "url": "www.nealite.fr",
+        "twitter": "nealite",
+        "facebook": "https://www.facebook.com/nealite",
+        "linkedin": "http://www.linkedin.com/company/32775",
+        "id": "www.nealite.fr",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.825661,
+          2.3835
+        ]
+      },
+      "properties": {
+        "name": "Nearbee",
+        "description": "Nearbee propose la création d'outils collaboratifs sur-mesure pour les entreprises.",
+        "address": "15 rue Jean-Baptiste Berlier",
+        "postcode": "75013",
+        "city": "Paris",
+        "creationyear": "2007",
+        "url": "www.nearbee.com",
+        "linkedin": "http://www.linkedin.com/company/312493",
+        "id": "www.nearbee.com",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.848579,
+          2.32087
+        ]
+      },
+      "properties": {
+        "name": "Neocamino",
+        "description": "Neocamino accompagne les TPE/PME dans leur développement sur internet et propose un outil en ligne pour les aider à trouver des clients.",
+        "address": "101 rue de Sèvres",
+        "postcode": "75001",
+        "city": "Paris",
+        "creationyear": "2012",
+        "url": "www.neocamino.com",
+        "twitter": "neocamino",
+        "facebook": "https://www.facebook.com/neocamino",
+        "linkedin": "http://www.linkedin.com/company/2675641",
+        "id": "www.neocamino.com",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.825661,
+          2.3835
+        ]
+      },
+      "properties": {
+        "name": "NetDevices",
+        "description": "NetDevices est une société spécialiste des technologies Internet qui conçoit et réalise des applications web et mobiles.",
+        "address": "15 rue Jean-Baptiste Berlier",
+        "postcode": "75013",
+        "city": "Paris",
+        "creationyear": "2009",
+        "url": "www.netdevices.fr",
+        "twitter": "NetDevicesSAS",
+        "facebook": "https://www.facebook.com/pages/NetDevices/179904762046034",
+        "linkedin": "http://www.linkedin.com/company/netdevices-sas",
+        "id": "www.netdevices.fr",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.834278,
+          2.41382
+        ]
+      },
+      "properties": {
+        "name": "New3S",
+        "description": "New3S est un éditeur d'applications web et mobiles, un intégrateur de technologies et un prestataire de services.",
+        "address": "62 avenue Robert André Vivien",
+        "postcode": "94160",
+        "city": "Saint-Mandé",
+        "creationyear": "2003",
+        "url": "www.new3s.com",
+        "twitter": "New3S",
+        "facebook": "https://www.facebook.com/New3S",
+        "linkedin": "http://www.linkedin.com/company/472468",
+        "id": "www.new3s.com",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.851509,
+          2.3927
+        ]
+      },
+      "properties": {
+        "name": "NoDesign",
+        "description": "Nodesign est une agence d'innovations et de design numérique qui conçoit des produits, des services, des espaces innovants urbains et des projets de recherches.",
+        "address": "12 passage Turquetil",
+        "postcode": "75011",
+        "city": "Paris",
+        "creationyear": "2001",
+        "url": "www.nodesign.net",
+        "twitter": "nodesign",
+        "facebook": "https://www.facebook.com/nodesign.net",
+        "id": "www.nodesign.net",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.84465,
+          2.23993
+        ]
+      },
+      "properties": {
+        "name": "Nokinomo",
+        "description": "Nokinomo est une agence de design interactif qui développe des outils innovants au service de la créativité, de l’architecture, de la communication et du marketing.",
+        "address": "54 rue des Tilleuls",
+        "postcode": "92100",
+        "city": "Boulogne-Billancourt",
+        "creationyear": "2007",
+        "url": "www.nokinomo.com",
+        "twitter": "nokinomo",
+        "facebook": "https://www.facebook.com/nokinomo",
+        "linkedin": "http://www.linkedin.com/company/853711",
+        "id": "www.nokinomo.com",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.859638,
+          2.3553
+        ]
+      },
+      "properties": {
+        "name": "Octave & Octave",
+        "description": "Octave & Octave est une agence digitale qui allie design créatif et innovation technologique pour concevoir et créer des applications web et mobiles.",
+        "address": "38 rue des Blancs Manteaux",
+        "postcode": "75004",
+        "city": "Paris",
+        "creationyear": "2008",
+        "url": "www.octaveoctave.com",
+        "twitter": "OctaveOctave",
+        "facebook": "https://www.facebook.com/octaveoctave",
+        "linkedin": "http://www.linkedin.com/company/453250",
+        "id": "www.octaveoctave.com",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          49.000622,
+          1.6755
+        ]
+      },
+      "properties": {
+        "name": "Pasteke.com",
+        "description": "Pasteke.com est une agence de communication globale.",
+        "address": "8 rue costes et bellonte",
+        "postcode": "78200",
+        "city": "Mantes la Jolie",
+        "creationyear": "2005",
+        "url": "www.pasteke.com",
+        "twitter": "pasteke_",
+        "facebook": "Www.facebook.com/pastekefan",
+        "googleplus": "https://plus.google.com/113645891726293520009",
+        "id": "www.pasteke.com",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.87083,
+          2.34703
+        ]
+      },
+      "properties": {
+        "name": "Pierlis",
+        "description": "Pierlis est une agence spécialisée dans le développement d'applications web, mobiles et de bureau et propose des solutions de plateformes e-commerce, de publication de contenu et de diffusion de vidéos.",
+        "address": "8 boulevard Poissonnière",
+        "postcode": "75009",
+        "city": "Paris",
+        "url": "www.pierlis.com",
+        "id": "www.pierlis.com",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.865629,
+          2.392446
+        ]
+      },
+      "properties": {
+        "name": "PlaySoft",
+        "description": "Playsoft est une agence de communication digitale spécialisée dans la création d'applications et de jeux vidéo mobiles.",
+        "address": "18 rue Soleillet",
+        "postcode": "75020",
+        "city": "Paris",
+        "creationyear": "2004",
+        "url": "www.playsoft.fr",
+        "twitter": "PlaysoftCorp",
+        "facebook": "https://www.facebook.com/pages/Playsoft/228311306331",
+        "linkedin": "http://www.linkedin.com/company/playsoft",
+        "id": "www.playsoft.fr",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.84364,
+          2.32258
+        ]
+      },
+      "properties": {
+        "name": "Profileo",
+        "description": "Profileo est un agence de création de sites web spécialisée dans le e-commerce et le webmarketing avec une expertise Prestashop et Magento.",
+        "address": "3 rue de l'Arrivée",
+        "postcode": "75014",
+        "city": "Paris",
+        "creationyear": "2001",
+        "url": "www.profileo.com",
+        "twitter": "Profileo",
+        "facebook": "https://www.facebook.com/pages/Profileo/496374283729871",
+        "googleplus": "https://plus.google.com/106570232975916296219",
+        "id": "www.profileo.com",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.85952,
+          2.38269
+        ]
+      },
+      "properties": {
+        "name": "Reciproque",
+        "description": "Reciproque est une société de conseil et d'ingénierie multimédia pour les musées et les centres culturels.",
+        "address": "12 rue Saint Maur",
+        "postcode": "75011",
+        "city": "Paris",
+        "creationyear": "2006",
+        "url": "www.reciproque.com",
+        "twitter": "reciproque",
+        "facebook": "https://www.facebook.com/reciproque.multimedia",
+        "linkedin": "http://www.linkedin.com/company/reciproque",
+        "id": "www.reciproque.com",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.888969,
+          2.353587
+        ]
+      },
+      "properties": {
+        "name": "Remu",
+        "description": "Remu est une agence créative qui développe et réalise des contenus multimédias pour des dispositifs de diffusions innovants et des scénographies sonores.",
+        "address": "12 rue d'Oran",
+        "postcode": "75018",
+        "city": "Paris",
+        "creationyear": "2006",
+        "url": "www.remu.fr",
+        "facebook": "https://www.facebook.com/pages/REMU/462934270146",
+        "id": "www.remu.fr",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.876446,
+          2.351271
+        ]
+      },
+      "properties": {
+        "name": "Skeelbox",
+        "description": "Skeelbox est une agence de conseil et de stratégie ecommerce.",
+        "address": "82 rue d'Hauteville",
+        "postcode": "75010",
+        "city": "Paris",
+        "creationyear": "2012",
+        "url": "www.skeelbox.com",
+        "twitter": "skeelbox",
+        "facebook": "https://www.facebook.com/Skeelbox",
+        "linkedin": "http://www.linkedin.com/company/2939195",
+        "id": "www.skeelbox.com",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.850472,
+          2.38901
+        ]
+      },
+      "properties": {
+        "name": "Spintank",
+        "description": "Spintank est une agence de conseil en communication corporate et publique, à l’heure du web.",
+        "address": "50 rue de Montreuil",
+        "postcode": "75011",
+        "city": "Paris",
+        "creationyear": "2006",
+        "url": "www.spintank.fr",
+        "twitter": "spintank",
+        "facebook": "https://www.facebook.com/spintank",
+        "linkedin": "http://www.linkedin.com/company/841679",
+        "id": "www.spintank.fr",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.867458,
+          2.33608
+        ]
+      },
+      "properties": {
+        "name": "Steaw",
+        "description": "Steaw est un studio de webdesign.",
+        "address": "46 rue Sainte-Anne",
+        "postcode": "75002",
+        "city": "Paris",
+        "creationyear": "2008",
+        "url": "www.steaw-webdesign.com",
+        "id": "www.steaw-webdesign.com",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.866539,
+          2.3758
+        ]
+      },
+      "properties": {
+        "name": "Studio Lumini",
+        "description": "Lumini est un studio de production digitale pluridisciplinaire.",
+        "address": "6 passage de la fonderie",
+        "postcode": "75011",
+        "city": "Paris",
+        "creationyear": "2004",
+        "url": "www.lumini.fr",
+        "twitter": "lumini",
+        "facebook": "http://www.facebook.com/StudioLumini",
+        "linkedin": "http://www.linkedin.com/company/lumini-",
+        "id": "www.lumini.fr",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.875851,
+          2.3741
+        ]
+      },
+      "properties": {
+        "name": "ThePixelHunt",
+        "description": "ThePixelHunt, spécialiste d'architecture transmedia et de scénarisation interactive, fait de l'info en jeu vidéo.",
+        "address": "8 rue Burnouf",
+        "postcode": "75019",
+        "city": "Paris",
+        "creationyear": "2009",
+        "url": "www.thepixelhunt.com",
+        "twitter": "thepixelhunt",
+        "linkedin": "http://www.linkedin.com/florentmaurin",
+        "id": "www.thepixelhunt.com",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.863682,
+          2.37025
+        ]
+      },
+      "properties": {
+        "name": "Think-Out",
+        "description": "Think-Out est un cabinet d’étude et de conseil spécialisé dans les médias, les marques et la mutation numérique.",
+        "address": "40 boulevard Voltaire",
+        "postcode": "75011",
+        "city": "Paris",
+        "creationyear": "2004",
+        "url": "www.think-out.fr",
+        "twitter": "thinkoutfr",
+        "facebook": "http://www.facebook.com/pages/Think-Out/113943681955823",
+        "linkedin": "http://www.linkedin.com/company/think-out",
+        "id": "www.think-out.fr",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.81586,
+          2.362014
+        ]
+      },
+      "properties": {
+        "name": "Ubimix",
+        "description": "Ubimix développe des outils d'automatisation pour la création d'information sous la forme de cartes, d'images zoomables, et de mashups entre différentes sources hétérogènes.",
+        "address": "14 rue Voltaire",
+        "postcode": "94270",
+        "city": "Le Kremlin-Bicêtre",
+        "creationyear": "2010",
+        "url": "www.ubimix.com",
+        "twitter": "ubimix",
+        "linkedin": "http://www.linkedin.com/company/ubimix",
+        "id": "www.ubimix.com",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.893959,
+          2.35278
+        ]
+      },
+      "properties": {
+        "name": "User Studio",
+        "description": "User Studio est une agence d'innovation par le design de services qui aide les entreprises et les collectivités à imaginer, concevoir et réaliser leurs nouveaux services.",
+        "address": "110 rue des Poissonniers",
+        "postcode": "75018",
+        "city": "Paris",
+        "creationyear": "2009",
+        "url": "www.userstudio.fr",
+        "twitter": "UserStudio",
+        "facebook": "http://www.facebook.com/userstudio",
+        "linkedin": "http://www.linkedin.com/company/242322",
+        "id": "www.userstudio.fr",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.859081,
+          2.42587
+        ]
+      },
+      "properties": {
+        "name": "Uzful",
+        "description": "Uzful est une agence digitale et social media à vocation utile.",
+        "address": "135 boulevard chanzy",
+        "postcode": "93100",
+        "city": "Montreuil",
+        "creationyear": "2010",
+        "url": "www.uzful.fr",
+        "twitter": "uzful",
+        "facebook": "https://www.facebook.com/uzful",
+        "linkedin": "http://www.linkedin.com/company/uzful",
+        "id": "www.uzful.fr",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.851143,
+          2.372503
+        ]
+      },
+      "properties": {
+        "name": "Vectuel",
+        "description": "Vectuel est spécialisée dans la création de maquettes 3D temps réel et propose la réalisation de simulations permettant de valoriser des projets en les rendant intelligibles au plus grand nombre.",
+        "address": "47 rue de Charenton",
+        "postcode": "75012",
+        "city": "Paris",
+        "creationyear": "2004",
+        "url": "www.vectuel.com",
+        "facebook": "http://www.facebook.com/pages/Vectuel/221058037962612",
+        "id": "www.vectuel.com",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.874039,
+          2.34561
+        ]
+      },
+      "properties": {
+        "name": "WeDoData",
+        "description": "WeDoData est une agence de design d'informations, spécialisée dans la création de dataviz print et web : recherche de données, scrapping, narration, interactivité, création graphique originale, développement HTML5.",
+        "address": "26 rue Richer",
+        "postcode": "75009",
+        "city": "Paris",
+        "creationyear": "2010",
+        "url": "www.wedodata.fr",
+        "facebook": "https://www.facebook.com/WeDoData",
+        "id": "www.wedodata.fr",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.867762,
+          2.390652
+        ]
+      },
+      "properties": {
+        "name": "Youand",
+        "description": "Youand est une agence spécialisée en design interactif et propose une approche centrée sur l'utilisateur dont l'objectif est de faciliter et de simplifier l'appropriation, l'adhésion et la relation.",
+        "address": "56 rue de la Bidassoa",
+        "postcode": "75020",
+        "city": "Paris",
+        "url": "www.youand.eu",
+        "id": "www.youand.eu",
+        "category": "prestataire"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           48.831558,
           2.31361
         ]
@@ -3340,6 +6145,54 @@
         "twitter": "1001menus",
         "linkedin": "http://www.linkedin.com/company/1161449",
         "id": "www.1001menus.com",
+        "category": "entreprise"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.850102,
+          2.35272
+        ]
+      },
+      "properties": {
+        "name": "1X1connect",
+        "description": "1x1 connect développe différents outils de marketing d’interaction web pour des sites média, e-commerce ou des marques.",
+        "address": "5 rue Cochin",
+        "postcode": "75005",
+        "city": "Paris",
+        "creationyear": "2010",
+        "url": "www.1x1connect.com",
+        "twitter": "1x1connect",
+        "facebook": "https://www.facebook.com/1x1connect",
+        "linkedin": "http://www.linkedin.com/company/2909903",
+        "id": "www.1x1connect.com",
+        "category": "entreprise"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.84922,
+          2.35151
+        ]
+      },
+      "properties": {
+        "name": "292 Contents",
+        "description": "292 Contents est un producteurs de livres pour le troisième millénaire.",
+        "address": "22 rue de Pontoise",
+        "postcode": "75005",
+        "city": "Paris",
+        "creationyear": "2010",
+        "url": "www.civilized.fr",
+        "twitter": "292Contents",
+        "googleplus": "https://plus.google.com/102260489490743437407",
+        "linkedin": "http://www.linkedin.com/company/1467931",
+        "id": "www.civilized.fr",
         "category": "entreprise"
       }
     },
@@ -3927,6 +6780,31 @@
         "url": "www.alioscopy.com",
         "twitter": "Alioscopy",
         "id": "www.alioscopy.com",
+        "category": "entreprise"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.89254,
+          2.16894
+        ]
+      },
+      "properties": {
+        "name": "All Together",
+        "description": "All Together est un réseau social de partage d'activités de loisirs en réel.",
+        "address": "17 rue Raymond Queneau",
+        "postcode": "92500",
+        "city": "Rueil-Malmaison",
+        "creationyear": "2012",
+        "url": "www.all-together.net",
+        "twitter": "AllTogetherNet",
+        "facebook": "http://facebook.com/AllTogether",
+        "googleplus": "https://plus.google.com/103028441603721567999",
+        "linkedin": "http://www.linkedin.com/company/all-together",
+        "id": "www.all-together.net",
         "category": "entreprise"
       }
     },
@@ -5032,15 +7910,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          48.86438,
-          2.34412
+          48.891374,
+          2.34803
         ]
       },
       "properties": {
         "name": "BeeChannels",
         "description": "BeeChannels édite et publie Beebac, un réseau social gratuit de partage des savoirs scolaires et professionnels.",
-        "address": "68 rue Jean-Jacques Rousseau",
-        "postcode": "75001",
+        "address": "28 rue Eugène Sue",
+        "postcode": "75018",
         "city": "Paris",
         "creationyear": "2007",
         "url": "www.beechannels.com",
@@ -7639,6 +10517,27 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          48.713051,
+          2.58033
+        ]
+      },
+      "properties": {
+        "name": "EuroSmart",
+        "description": "EuroSmart est spécialisée dans la conception et la fabrication de systèmes ATIDEx (Acquisition et Traitements Informatisés de Données Expérimentales) ou ExAO (Expérimentations Assistées par Ordinateur) à destination des professionnels de l'éducation.",
+        "address": "162 rue des Roses",
+        "postcode": "77170",
+        "city": "Servon",
+        "creationyear": "1988",
+        "url": "www.eurosmart.biz",
+        "id": "www.eurosmart.biz",
+        "category": "entreprise"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           48.870628,
           2.34659
         ]
@@ -7676,6 +10575,28 @@
         "city": "Lognes",
         "url": "www.eversim.com",
         "id": "www.eversim.com",
+        "category": "entreprise"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.845402,
+          2.41694
+        ]
+      },
+      "properties": {
+        "name": "Everwin",
+        "description": "Everwin développe et propose des logiciels de gestion d’affaires et des ERP pour sociétés de services.",
+        "address": "5 rue de l'Amiral Courbet",
+        "postcode": "94160",
+        "city": "Saint-Mandé",
+        "creationyear": "1995",
+        "url": "www.everwin.fr",
+        "linkedin": "http://www.linkedin.com/company/3131687",
+        "id": "www.everwin.fr",
         "category": "entreprise"
       }
     },
@@ -7927,6 +10848,28 @@
         "twitter": "fasterize",
         "linkedin": "http://www.linkedin.com/company/2318787",
         "id": "www.fasterize.com",
+        "category": "entreprise"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.865601,
+          2.28926
+        ]
+      },
+      "properties": {
+        "name": "Faveod",
+        "description": "Faveod Designer est une solution industrielle pour produire des applications web de qualité et parfaitement spécifique.",
+        "address": "71 avenue Kléber",
+        "postcode": "75016",
+        "city": "Paris",
+        "creationyear": "2007",
+        "url": "www.faveod.com",
+        "linkedin": "http://www.linkedin.com/company/952450",
+        "id": "www.faveod.com",
         "category": "entreprise"
       }
     },
@@ -8330,6 +11273,31 @@
         "twitter": "globulos",
         "facebook": "https://www.facebook.com/pages/Globulos/54605020497",
         "id": "www.globz.com",
+        "category": "entreprise"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.88551,
+          2.33787
+        ]
+      },
+      "properties": {
+        "name": "GNUside",
+        "description": "Société d’ingénierie en électronique et informatique, spécialisées dans les technologies du libre, de l’opensource et du open-hardware.",
+        "address": "8 rue Ravignan",
+        "postcode": "75018",
+        "city": "Paris",
+        "creationyear": "2010",
+        "url": "www.gnuside.com",
+        "twitter": "gnuside",
+        "facebook": "https://www.facebook.com/gnuside",
+        "googleplus": "https://plus.google.com/101627706356097767505",
+        "linkedin": "http://www.linkedin.com/company/1195571",
+        "id": "www.gnuside.com",
         "category": "entreprise"
       }
     },
@@ -10158,6 +13126,29 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          48.85107,
+          2.3771
+        ]
+      },
+      "properties": {
+        "name": "Les Bons Profs",
+        "description": "Les Bons Profs proposent des ressources pédagogiques de qualité pour les élèves du secondaire.",
+        "address": "123 rue du Faubourg Saint Antoine",
+        "postcode": "75011",
+        "city": "Paris",
+        "creationyear": "2011",
+        "url": "www.lesbonsprofs.com",
+        "twitter": "LesBonsProfs",
+        "facebook": "https://www.facebook.com/pages/Les-Bons-Profs/181074061992673",
+        "id": "www.lesbonsprofs.com",
+        "category": "entreprise"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           48.795261,
           2.13859
         ]
@@ -11393,6 +14384,27 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          48.850479,
+          2.27359
+        ]
+      },
+      "properties": {
+        "name": "Neoap",
+        "description": "Neoap est un créateur de logiciels d'analyse de données multi-sources.",
+        "address": "17 avenue Théophile Gautier",
+        "postcode": "75016",
+        "city": "Paris",
+        "creationyear": "2008",
+        "url": "www.neoap.fr",
+        "id": "www.neoap.fr",
+        "category": "entreprise"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           48.89201,
           2.3752
         ]
@@ -11803,6 +14815,29 @@
         "facebook": "https://www.facebook.com/pages/OnMobile/109668765718438",
         "linkedin": "http://www.linkedin.com/company/15836",
         "id": "www.onmobile.com",
+        "category": "entreprise"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.879761,
+          2.37198
+        ]
+      },
+      "properties": {
+        "name": "Open Initiative",
+        "description": "Nous lançons Open Funding, une plate-forme de crowdfunding de logiciel libre qui permet aux utilisateurs de logiciels libres de financer l'évolution des logiciels, fonctionnalité par fonctionnalité",
+        "address": "29 rue de Meaux",
+        "postcode": "75019",
+        "city": "Paris",
+        "creationyear": "2010",
+        "url": "www.openinitiative.com",
+        "twitter": "Open_Initiative",
+        "facebook": "http://www.facebook.com/myopeninitiative",
+        "id": "www.openinitiative.com",
         "category": "entreprise"
       }
     },
@@ -12683,6 +15718,53 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          48.826069,
+          2.27308
+        ]
+      },
+      "properties": {
+        "name": "Rich Analysis",
+        "description": "RichAnalysis imagine des services digitaux innovants en croisant et en visualisant des données de manière inédite. Elle est experte dans les domaines suivant : synchronisation, géolocalisation et visualisation de grands flux de données.",
+        "address": "16 rue Kléber",
+        "postcode": "92130",
+        "city": "Issy-les-Moulineaux",
+        "creationyear": "2007",
+        "url": "www.richanalysis.net",
+        "facebook": "https://www.facebook.com/pages/Rich-Analysis/132718836740940",
+        "id": "www.richanalysis.net",
+        "category": "entreprise"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.853199,
+          2.39858
+        ]
+      },
+      "properties": {
+        "name": "Runorg",
+        "description": "Runorg propose des plateformes web dédiées aux entreprises ou aux associations qui offrent des fonctions de gestion et de communication à destination des dirigeants et des membres.",
+        "address": "22 rue Planchat",
+        "postcode": "75020",
+        "city": "Paris",
+        "creationyear": "2010",
+        "url": "www.runorg.com",
+        "twitter": "RunOrg",
+        "facebook": "https://www.facebook.com/RunOrg",
+        "googleplus": "https://plus.google.com/105717032059999732993",
+        "linkedin": "http://www.linkedin.com/company/1281871",
+        "id": "www.runorg.com",
+        "category": "entreprise"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           48.859409,
           2.29737
         ]
@@ -13180,6 +16262,29 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          48.852779,
+          2.36791
+        ]
+      },
+      "properties": {
+        "name": "Social Media Analyzer",
+        "description": "Social Media Analyzer est un panel de données issues des réseaux sociaux adapté à votre métier.",
+        "address": "47 boulevard Henri IV",
+        "postcode": "75004",
+        "city": "Paris",
+        "creationyear": "2012",
+        "url": "www.socialmediaanalyzer.fr",
+        "twitter": "NEOAP_SMA",
+        "facebook": "https://www.facebook.com/SocialMediaAnalyzer",
+        "id": "www.socialmediaanalyzer.fr",
+        "category": "entreprise"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           48.825661,
           2.3835
         ]
@@ -13267,6 +16372,30 @@
         "googleplus": "https://plus.google.com/+Spotify",
         "linkedin": "http://www.linkedin.com/company/207470",
         "id": "www.spotify.com",
+        "category": "entreprise"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.871342,
+          2.2886
+        ]
+      },
+      "properties": {
+        "name": "Sproteens",
+        "description": "Sporteens est une application web et mobile permettant aux parents de mieux choisir un club de sport pour leurs enfants.",
+        "address": "28 rue Paul Valéry",
+        "postcode": "75116",
+        "city": "Paris",
+        "creationyear": "2012",
+        "url": "www.sporteens.com",
+        "twitter": "sporteens",
+        "facebook": "https://www.facebook.com/sporteensapp",
+        "googleplus": "https://plus.google.com/103191901694666542523",
+        "id": "www.sporteens.com",
         "category": "entreprise"
       }
     },
@@ -14301,6 +17430,29 @@
         "facebook": "https://www.facebook.com/unishared",
         "googleplus": "https://plus.google.com/116892219445549110974",
         "id": "www.unishared.com",
+        "category": "entreprise"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.820042,
+          2.27231
+        ]
+      },
+      "properties": {
+        "name": "Urban Expé",
+        "description": "Urban Expé propose des expériences urbaines qui mélangent parcours, jeu et narration transmédia. Les participants sont transportés dans un territoire \"augmenté\" par des technologies et par un scénario immersif.",
+        "address": "8 impasse Wagner",
+        "postcode": "92130",
+        "city": "Issy-les-Moulineaux",
+        "creationyear": "2012",
+        "url": "www.urbanexpe.com",
+        "twitter": "UrbanExpe",
+        "facebook": "www.facebook.com/UrbanExpe",
+        "id": "www.urbanexpe.com",
         "category": "entreprise"
       }
     },

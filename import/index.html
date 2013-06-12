@@ -3,7 +3,7 @@
 <head>
 <script src="../lib/jquery/jquery.js" type="text/javascript"></script>
 <script src="../lib/jquery-csv/jquery.csv-0.71.js"
-	type="text/javascript"></script>
+    type="text/javascript"></script>
 
 <style>
 .container table tr td {
@@ -12,7 +12,7 @@
 </style>
 </head>
 <body>
-	<script type="text/javascript">
+    <script type="text/javascript">
         var categories = {
             "investor" : {
                 "name" : "Investisseur",
@@ -32,11 +32,11 @@
             },
             "public-actor" : {
                 "name" : "Acteurs publics",
-                "url" : null
+                "url" : "8-ACTEURSPUBLICS ok - Feuil1.csv"
             },
             "community" : {
                 "name" : "Communauté",
-                "url" : null
+                "url" : "5-COMMUNAUTES ok - Feuil1.csv"
             },
             "entreprise" : {
                 "name" : "Entreprises",
@@ -44,7 +44,7 @@
             },
             "prestataire" : {
                 "name" : "Prestatair",
-                "url" : null
+                "url" : "6-PRESTATAIRES ok - Feuil1.csv"
             }
         }
 
@@ -111,8 +111,8 @@
             }
             var id = buildId(properties.url);
             properties.id = id;
-            var coordinates = [ parseFloat(removeProp('lat')),
-                    parseFloat(removeProp('lng')) ];
+            var coordinates = [ parseFloat(removeProp('lat'))||0,
+                    parseFloat(removeProp('lng'))||0 ];
             var tags = [];
             var tag;
             if (!isEmpty(tag = removeProp('tag1')))
@@ -166,6 +166,7 @@
                 };
                 var pre = $('<pre></pre>').appendTo('body');
                 pre.text(JSON.stringify(result, null, 2));
+                console.log('Loaded ' + features.length + ' items.')
             }
             for ( var category in categories) {
                 var info = categories[category];

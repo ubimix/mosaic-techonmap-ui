@@ -218,9 +218,15 @@ var populateDB = function() {
                 "geometry.coordinates" : "2dsphere"
             });
 
+            console.log('[' + data.features.length + '] items to insert.');
             collection.insert(data.features, {
                 safe : true
             }, function(err, result) {
+                if (err) {
+                    console.log("ERROR!", err);
+                } else {
+                    console.log('[' + data.features.length + '] items were inserted.');
+                }
             });
         });
 
