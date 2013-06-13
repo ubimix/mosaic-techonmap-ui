@@ -60,9 +60,10 @@
                 this._map.off('load', onLoad, this);
             };
             this._map.on('load', onLoad, this);
+            var that = this;
             setTimeout(function() {
-                this._update();
-            }.bind(this), 100)
+                that._update();
+            }, 100)
             return this._container;
         },
         _update : function() {
