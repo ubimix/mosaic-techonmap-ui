@@ -57,6 +57,42 @@ The following environment variables are used to define access to tweets:
 > node ./server.js 
    
 
-   
+=== Usage of local map tiles ===
+
+All local tiles should be copied in the "tiles" folder. Structure will be 
+like this:
+* techonmap
+  * ...
+  * tiles
+    * 10
+      * 515
+        * 350.png
+        * 351.png
+        * 352.png
+        * ...
+      * 516
+      * ...
+    * 11
+    * 12
+    * ...
+ 
+References to local tiles should be updated in the following files:
+ * index.html
+ * edition.html
+
+Tag: <div id="map" ....>
+Tag attribute: "data-map-tiles" should be set to "./tiles/{z}/{x}/{y}.png".
+
+<div id="map" data-map-center="48.872630327,2.3357025512"
+        data-map-zoom="13" data-map-min-zoom="3" data-map-max-zoom="16"
+        data-map-bounding-box="[[49.24270720875383, 1.351318359375],[48.10743118848039, 3.6419677734374996]]"
+        data-map-tiles="./tiles/{z}/{x}/{y}.png"
+        ></div>
+
+ 
+ 
+ 
+
+
 
  
