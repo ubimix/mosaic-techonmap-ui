@@ -7,7 +7,7 @@
 
 <style>
 .container table tr td {
-				border: 1px solid red;
+    border: 1px solid red;
 }
 </style>
 </head>
@@ -121,6 +121,16 @@
                 tags.push(tag);
             if (!isEmpty(tag = removeProp('tag3')))
                 tags.push(tag);
+            if (tags.length) {
+                for (var i =0; i<tags.length; i++) {
+                    var str = tags[i];
+                    if (str.indexOf('#') == 0) {
+                        str = str.substring(1);
+                        tags[i] = str;
+                    }
+                }
+                properties.tags = tags;
+            }
             var point = {
                 "type" : "Feature",
                 "geometry" : {
