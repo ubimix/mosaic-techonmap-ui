@@ -229,6 +229,25 @@
         },
 
         /**
+         * This method checks that tags corresponds to the filter
+         */
+        _matchProperty_tags : function(filter, properties, key) {
+            var tags = filter['tags'];
+            if (!tags || !tags.length)
+                return true;
+            var list = properties['tags'];
+            if (!list || !list.length)
+                return false;
+            var result = false;
+            for ( var i = 0; !result && i < tags.length; i++) {
+                for ( var j = 0; !result && j < list.length; j++) {
+                    result = this._checkValue(tags[i], list[j]);
+                }
+            }
+            return result;
+        },
+
+        /**
          * Checks that the specified value matches with the given filter mask.
          * This an internal utility method used by the '_match*' methods.
          */
@@ -358,6 +377,15 @@
                 name : name
             });
         },
+
+        /** Updates tag filter. */
+        setTagFilter : function(tags) {
+            tags = toArray(tags);
+            this.setPropertyFilter({
+                tags : tags
+            });
+        },
+
         /** Updates the category filter. */
         setCategoryFilter : function(category) {
             this.setPropertyFilter({

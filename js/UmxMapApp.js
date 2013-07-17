@@ -189,20 +189,27 @@
 
     /* A global DataManager and event bus used to propagate events */
     var storeService = context.storeService = new umx.StoreService({
-        loadUrl : './data/data.json',
-        // loadUrl : './geoitems',
+        // loadUrl : './data/data.json',
+        loadUrl : './geoitems',
         storeUrl : './geoitems' // TODO: should be changed
     });
     var dataManager = context.dataManager = new umx.DataManager(storeService);
 
     // URL hash management
     var hashTracker = context.hashTracker = new umx.HashTracker();
+    var getTagFromHash = context.getTagFromHash = function() {
+        var result = null;
+        var hash = hashTracker.getHash();
+        if (hash && hash.match(/^#tag\//)) {
+            result = hash.substring('#tag/'.length);
+        }
+        return result;
+    }
     var getItemIdFromHash = context.getItemIdFromHash = function() {
         var result = null;
         var hash = hashTracker.getHash();
         if (hash && hash.match(/^#/)) {
-            hash = hash.substring(1);
-            result = hash;
+            result = (hash.indexOf('/') < 0) ? hash.substring(1) : null;
         }
         return result;
     }
@@ -213,8 +220,14 @@
     hashTracker.start();
 
     hashTracker.on('hash:changed', function() {
-        var id = getItemIdFromHash();
-        dataManager.selectItemById(id);
+        var tag = getTagFromHash();
+        if (tag) {
+            dataManager.setTagFilter([tag]);
+        } else {
+            var id = getItemIdFromHash();
+            dataManager.setTagFilter([]);
+            dataManager.selectItemById(id);
+        }
     });
     dataManager.on('item:select', function(e) {
         var id = dataManager.getItemId(e);

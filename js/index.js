@@ -86,7 +86,7 @@ $(window).load(function(){
             var address = props.address;
             var city = props.city;
             var postcode = props.postcode;
-            var str = address;
+            var str = address||'';
             if (postcode &&  postcode != '') {
                 if (str.length > 0) {
                     str += ', ';
@@ -98,6 +98,16 @@ $(window).load(function(){
                     str += ', ';
                 }
                 str += city;
+            }
+            return str;
+        }
+        function formatTags(tags) {
+            var str = '';
+            var len = tags ? tags.length : 0;
+            for (var i=0; i<len; i++) {
+                var tag = tags[i];
+                // str += ' <a href="#tag/' + tag + '">#' + tag + '</a>';
+                str += ' <a href="javascript:void(0);">#' + tag + '</a>';
             }
             return str;
         }
@@ -119,6 +129,21 @@ $(window).load(function(){
         
         var address = formatAddress();
         item.find('.location').text(address);
+        
+        var tagTmpl = item.find('.tags');
+        var tags = formatTags(props.tags);
+        if (tags != '') {
+            tagTmpl.html(tags);
+            tagTmpl.find('a').click(function() {
+                var tag = $(this).html();
+                tag = tag.substring(1);
+                dataManager.setTagFilter([tag]);
+                return false;
+            });
+        } else {
+            tagTmpl.remove();
+        }
+        
         
         var pageUrl = $(location).attr('href') +  '';
         var idx = pageUrl.indexOf('#');
@@ -408,36 +433,21 @@ $(window).load(function(){
     /*---------generate image-----------*/
     /*----------------------------------*/
     /*
-    var imgCanvas = [null];
-    jQuery('.generate-image-trigger').on('click', function(e){
-        e.preventDefault();
-
-        var dialog = jQuery('.lightbox-image');
-        var msgPanel = dialog.find('.message');
-        var imgPanel = dialog.find('.image');
-        msgPanel.show();
-        imgPanel.html("");
-        imgPanel.hide();
-        openLightbox('lightbox-image');
-        setTimeout(function(){
-            var elementToSave = jQuery('.header');
-            elementToSave = jQuery('#map .leaflet-map-pane');
-            // elementToSave = jQuery('#test');
-            // elementToSave = jQuery('#map .leaflet-popup-pane');
-            html2canvas(elementToSave.get(0), {
-                onrendered : function(canvas) {
-                    var url = canvas.toDataURL();
-                    var img = jQuery('<img style="max-width:100%;"/>').attr('src', url);
-                    imgPanel.append(img);
-                    // imgPanel.append(canvas)
-                    msgPanel.hide();
-                    imgPanel.show();
-                    imgCanvas[0] = canvas;
-                }
-            });
-        }, 100);
-    });
-    */
+     * var imgCanvas = [null]; jQuery('.generate-image-trigger').on('click',
+     * function(e){ e.preventDefault();
+     * 
+     * var dialog = jQuery('.lightbox-image'); var msgPanel =
+     * dialog.find('.message'); var imgPanel = dialog.find('.image');
+     * msgPanel.show(); imgPanel.html(""); imgPanel.hide();
+     * openLightbox('lightbox-image'); setTimeout(function(){ var elementToSave =
+     * jQuery('.header'); elementToSave = jQuery('#map .leaflet-map-pane'); //
+     * elementToSave = jQuery('#test'); // elementToSave = jQuery('#map
+     * .leaflet-popup-pane'); html2canvas(elementToSave.get(0), { onrendered :
+     * function(canvas) { var url = canvas.toDataURL(); var img = jQuery('<img
+     * style="max-width:100%;"/>').attr('src', url); imgPanel.append(img); //
+     * imgPanel.append(canvas) msgPanel.hide(); imgPanel.show(); imgCanvas[0] =
+     * canvas; } }); }, 100); });
+     */
     jQuery('.generate-embed-trigger').on('click', function() {
         function setTextareaParams(textarea, mode, width, height) {
             var params = dataManager.getFilter();
