@@ -196,7 +196,7 @@ exports.deleteGeoItem = function(req, res) {
 var populateDB = function() {
 
     var fs = require('fs');
-    var file = __dirname + '/data.json';
+    var file = __dirname + '/../../data/data.json';
 
     fs.readFile(file, 'utf8', function(err, data) {
         if (err) {
