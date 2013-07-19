@@ -1280,6 +1280,34 @@ body.lightbox-open {
 	-moz-box-sizing: content-box;
 }
 
+.edition .une-ligne.full-address .label {
+        margin-left: 0px;
+        margin-bottom: 0.5em;
+}
+
+.edition .une-ligne.full-address input {
+    height: 34px;
+    border: 1px solid #cccccc;
+    float: left;
+    color: #666666;
+    font-weight: 300;
+    font-size: 16px;
+    padding-left: 10px;
+    margin-right: 10px;
+    font-family: 'Open Sans', â€‹sans-serif;
+    box-sizing: content-box;
+    -moz-box-sizing: content-box;
+}
+.edition .une-ligne.full-address input[data-field="address-street"] {
+    width: 350px;
+}
+.edition .une-ligne.full-address input[data-field="address-postcode"] {
+    width: 50px;
+}
+.edition .une-ligne.full-address input[data-field="address-city"] {
+    width: 150px;
+}
+
 .edition .une-ligne.textarea .label {
 	margin-left: 560px;
 }

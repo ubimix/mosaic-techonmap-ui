@@ -115,20 +115,19 @@ jQuery(function() {
             setField('creationyear', creationyear);
         }
 
-        var addressTracker = getField('address', true);
-        if (addressTracker) { // Address
-            var address = properties.address;
-            var postcode = properties.postcode;
-            var city = properties.city;
-            var str = (address ? trim(address) : '');
+        var addressStreetTracker = getField('address', true);
+        var addressPostcodeTracker = getField('postcode', true);
+        var addressCityTracker = getField('city', true);
+
+        var formatAddress = function(street, postcode, city) {
+            var str = (street ? trim(street) : '');
             if (str != '' && postcode) {
                 str += ', ' + trim(postcode);
             }
             if (str != '' && city) {
                 str += ', ' + trim(city);
             }
-            // setField('address', str);
-            addressTracker.setValue(str, false);
+            return str;
         }
         {
             var coords = point.geometry ? point.geometry.coordinates : null;
@@ -148,16 +147,24 @@ jQuery(function() {
             });
 
             var refreshAddr = jQuery('#referesh-marker');
-            addressTracker.on('changed', function() {
+            var onAddressChange = function() {
                 refreshAddr.removeAttr('disabled');
-            })
-            addressTracker.on('reset', function() {
+            };
+            var onAddressReset = function() {
                 marker.setLatLng(coords);
                 map.panTo(coords);
                 var zoom = Math.max(map.getZoom(), 16);
                 map.setZoom(zoom);
                 refreshAddr.attr('disabled', 'disabled');
-            })
+            };
+            addressStreetTracker.on('changed', onAddressChange);
+            addressPostcodeTracker.on('changed', onAddressChange);
+            addressCityTracker.on('changed', onAddressChange);
+            // onAddressReset();
+            addressStreetTracker.on('reset', onAddressReset);
+            addressPostcodeTracker.on('reset', onAddressReset);
+            addressCityTracker.on('reset', onAddressReset);
+
             marker.on('dragend', function() {
                 refreshAddr.removeAttr('disabled');
             })
@@ -167,7 +174,9 @@ jQuery(function() {
             var searchAction = new umx.SearchAction();
             refreshAddr.click(function(e) {
                 e.preventDefault();
-                var address = addressTracker.getValue();
+                var address = formatAddress(addressStreetTracker.getValue(),
+                        addressPostcodeTracker.getValue(), addressCityTracker
+                                .getValue());
                 searchAction.search({
                     address : address,
                     onSuccess : function(suggestions) {
@@ -178,7 +187,9 @@ jQuery(function() {
                                 coords = L.latLng(point.lat, point.lng);
                             }
                         }
-                        addressTracker.reset();
+                        addressStreetTracker.reset();
+                        addressPostcodeTracker.reset();
+                        addressCityTracker.reset();
                     },
                     onFailure : function(e) {
                         console.log(JSON.stringify(e));
@@ -186,7 +197,9 @@ jQuery(function() {
                 });
             });
 
-            addressTracker.reset();
+            addressStreetTracker.reset();
+            addressPostcodeTracker.reset();
+            addressCityTracker.reset();
         }
         {// Categories
             var category = properties.category;
@@ -222,6 +235,7 @@ jQuery(function() {
             if (!validator.validate()) {
                 console.log("Field [" + key + "] is invalid!");
             } else {
+                console.log(key, validator);
                 var value = validator.getValue();
                 if (value != '') {
                     if (properties[key]) {
@@ -241,15 +255,6 @@ jQuery(function() {
         // var category = categorySelector.find('options:selected').data(
         // 'category-id');
         // properties.category = category;
-
-        var address = properties.address;
-        if (address) {
-            var array = address.split(/,/);
-            var i = 0;
-            properties.address = trim(array[i++]);
-            properties.postcode = trim(array[i++]);
-            properties.city = trim(array[i++]);
-        }
         return result;
     }
 

@@ -28,105 +28,105 @@
 
 /* Form validation visualization */
 .parsley-validated {
-				
+    
 }
 
 .parsley-validated.parsley-success {
-				color: inherit;
-				background-color: inherit;
-				border: inherit;
+    color: inherit;
+    background-color: inherit;
+    border: inherit;
 }
 
 .parsley-validated.parsley-error {
-				color: #B94A48 !important;
-				background-color: #F2DEDE !important;
-				border: 1px solid #EB6564;
+    color: #B94A48 !important;
+    background-color: #F2DEDE !important;
+    border: 1px solid #EB6564;
 }
 
 .errormsg {
-				color: #B94A48 !important;
+    color: #B94A48 !important;
 }
 
 .parsley-error+.label>.help {
-				display: none;
+    display: none;
 }
 
 .field-marker {
-				float: left;
-				margin-top: 0.5em;
-				margin-left: -1em;
+    float: left;
+    margin-top: 0.5em;
+    margin-left: -1em;
 }
 
 .field-marker.mandatory:before {
-				content: '*';
-				color: #B94A48 !important;
+    content: '*';
+    color: #B94A48 !important;
 }
 
 .field-marker.twitter:before {
-				content: '@';
-				color: gray;
+    content: '@';
+    color: gray;
 }
 
 #content h3,#content p {
-				margin-top: 1em;
+    margin-top: 1em;
 }
 
 #referesh-marker {
-				background: url(./images/btn-green-tick.png) 100% 50% no-repeat #53c591;
-				margin-bottom: 0.5em;
-				margin-right: 0.5em;
-				float: left;
+    background: url(./images/btn-green-tick.png) 100% 50% no-repeat #53c591;
+    margin-bottom: 0.5em;
+    margin-right: 0.5em;
+    float: left;
 }
 
 .help {
-				color: #AAAAAA;
-				vertical-align: baseline;
+    color: #AAAAAA;
+    vertical-align: baseline;
 }
 
 p.help {
-				margin-bottom: 1em;
+    margin-bottom: 1em;
 }
 
 .help .mandatory {
-				color: #B94A48 !important;
+    color: #B94A48 !important;
 }
 
 /* -------------------------------------------------------------------------- */
 #explanation {
-				margin: 1em 0;
-				font-size: 0.8em;
+    margin: 1em 0;
+    font-size: 0.8em;
 }
 
 #explanation .question a {
-				color: gray;
-				text-decoration: underline;
-				margin-top: 0.5em;
+    color: gray;
+    text-decoration: underline;
+    margin-top: 0.5em;
 }
 
 #explanation .description ul {
-				list-style-type: circle;
-				list-style-position: inside;
-				padding: 0.5em;
+    list-style-type: circle;
+    list-style-position: inside;
+    padding: 0.5em;
 }
 
 #explanation .description {
-				display: none;
-				padding: 1em 0.5em;
-				background-color: #eee;
+    display: none;
+    padding: 1em 0.5em;
+    background-color: #eee;
 }
 
 #explanation .description>* {
-				margin-bottom: 1em;
+    margin-bottom: 1em;
 }
 
 #explanation .description {
-				border-top: 1px solid silver;
-				border-bottom: 1px solid silver;
+    border-top: 1px solid silver;
+    border-bottom: 1px solid silver;
 }
 
 #explanation .description h4 {
-				/*		font-size: 1.2em; */
-				font-weight: bold;
+    /*		font-size: 1.2em; */
+    font-weight: bold;
 }
 </style>
 
@@ -254,15 +254,27 @@ p.help {
                     pour personnaliser la qualification de votre
                     organisation</div>
             </div>
-            <div class="une-ligne std">
-                <span class="field-marker mandatory"></span> <input
-                    type="text" data-field="address"
+            <div class="une-ligne full-address">
+                <!-- No et nom de rue -->
+                <span><input type="text" data-field="address"
+                    placeholder="N° et nom de rue" data-required="true"
+                    data-error-message="N° et nom de rue est incorrecte ou n’a pas été renseignée"
+                    data-error-container="#address-error"></input></span>
+                <!-- Code postale -->
+                <span><input type="text" data-field="postcode"
+                    data-type="number" placeholder="Code postal"
+                    data-error-message="Code postale est incorrecte"
                     data-required="true"
-                    placeholder="Adresse de votre organisation"
-                    data-error-message="Votre adresse de localisation est incorrecte ou n’a pas été renseignée."
-                    data-error-container="#address-error"></input>
+                    data-error-container="#address-error"></input></span>
+                <!-- Ville -->
+                <span><input type="text" data-field="city"
+                    placeholder="Ville"
+                    data-error-message="Ville est incorrecte ou n’a pas été renseignée"
+                    data-required="true"
+                    data-error-container="#address-error"></input></span>
+                <div class="clear"></div>
                 <div class="label">
-                    <span class="help">Tapez votre adresse de
+                    <span class="help1">Tapez votre adresse de
                         type : n° et nom de rue, code postal, ville.</span> <span
                         class="errormsg" id="address-error"></span>
                 </div>
