@@ -1,0 +1,166 @@
+/*media queries*/
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+    #topbar {
+        position: static;
+        height: 70px;
+    }
+    #topbar .left {
+        float: left;
+    }
+    #topbar .left h2 {
+        font-size: 11px;
+    }
+    #topbar .social {
+        display: none;
+    }
+    #map {
+        height: 600px !important;
+        position: relative;
+        overflow: hidden;
+    }
+    .desktop.sidebar {
+        position: static;
+        width: auto;
+        height: auto !important;
+    }
+    .desktop.sidebar .sidebar-content[style],.desktop.sidebar .slidable[style],.desktop.sidebar[style]
+        {
+        height: auto !important;
+    }
+    .desktop.sidebar .result,.desktop.sidebar .les-filtres,.desktop.sidebar .category-section,.desktop.sidebar .zone-section
+        {
+        display: none;
+    }
+    .desktop.sidebar .slidable {
+        padding-bottom: 0 !important;
+    }
+    .desktop.sidebar .scrollable {
+        height: auto;
+    }
+    .desktop.sidebar .long {
+        padding-top: 10px !important;
+    }
+    .desktop.sidebar .location {
+        padding-top: 8px !important;
+    }
+    .desktop.sidebar .long-mask,.desktop.sidebar .share-mask {
+        height: auto !important;
+    }
+    .desktop.sidebar .les-lieux .description {
+        width: 88% !important;
+        padding-right: 10px;
+        float: right;
+    }
+    .desktop.sidebar .location,.desktop.sidebar .url,.desktop.sidebar .share-mask,.desktop.sidebar .twitter
+        {
+        float: right;
+        clear: right;
+        width: 35%;
+    }
+    .desktop.sidebar .long-mask {
+        float: left;
+        clear: left;
+        width: 60%;
+    }
+    .responsive.sidebar {
+        position: static;
+        width: auto;
+        display: block;
+    }
+    .responsive.sidebar .sidebar-content {
+        padding-top: 0;
+        height: auto !important;
+        width: 100%;
+        float: left;
+        border-left: 0;
+        margin-top: -1px;
+    }
+    .responsive.sidebar .sidebar-content .result {
+        background: #EB6564;
+        color: #fff;
+        text-align: right;
+    }
+    .responsive.sidebar .sidebar-content .result .text,.responsive.sidebar .sidebar-content .result .text .right .val,.responsive.sidebar .sidebar-content .result .text .right .slash,.responsive.sidebar .sidebar-content .result .text .right .total
+        {
+        color: #fff;
+    }
+    .responsive.sidebar .sidebar-content .result .text .right {
+        margin-left: 15px;
+    }
+    .responsive.sidebar .sidebar-content .search {
+        height: 44px;
+        line-height: 0;
+        width: 28%;
+        padding: 0;
+        float: left;
+        border-bottom: 1px solid #EEEEEE;
+    }
+    .responsive.sidebar .sidebar-content .search input {
+        height: 44px;
+    }
+    .responsive.sidebar .sidebar-content .search .search-input {
+        border-left: 1px solid #EEEEEE;
+        padding-left: 5px;
+    }
+    .responsive.sidebar .sidebar-content .result .text {
+        width: 98%;
+        padding: 0;
+        border-right: 0;
+    }
+    .responsive.sidebar .zone-section,.responsive.sidebar .category-section
+        {
+        float: left;
+        width: 36%;
+    }
+    .responsive .zone-selected,.responsive .category-selected {
+        display: inline !important;
+    }
+    .responsive.sidebar .sidebar-content .zone-list-une,.responsive.sidebar .sidebar-content .category-list-une
+        {
+        line-height: 1.2;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        height: auto;
+        font-weight: normal;
+        background: url("../images/arrow-left.png") no-repeat scroll 93% 50%;
+        padding-left: 10px;
+    }
+    .responsive.sidebar .sidebar-content .les-filtres .go-zone,.responsive.sidebar .sidebar-content .les-filtres .go-category
+        {
+        display: none;
+    }
+    .responsive.sidebar .sidebar-content .zone-list li,
+    .responsive.sidebar .sidebar-content .category-list li
+    {
+        padding-left: 10px;
+        font-size: 14px;
+    }
+    .responsive.sidebar .sidebar-content .zone-list li,
+    .responsive.sidebar .sidebar-content .category-list li
+    {
+        height: 35px;
+        line-height: 35px;
+    }
+    .responsive.sidebar .sidebar-content .zone-list li .tip,
+    .responsive.sidebar .sidebar-content .category-list li .tip
+    {
+        margin-top: 5px;
+    }
+    .responsive.sidebar .sidebar-content .zone-list li .picto-gray,.responsive.sidebar .sidebar-content .category-list li .picto-gray
+        {
+        display: none;
+    }
+    .responsive.sidebar .sidebar-content .les-lieux .un-lieu .description {
+        width: 180px;
+    }
+    .responsive.sidebar .sidebar-content .powered {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    /*titre lightbox*/
+    .lightbox .lightbox-container .lightbox-top .lightbox-title {
+        font-size: 13px;
+    }
+}

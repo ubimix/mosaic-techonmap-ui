@@ -1,0 +1,83 @@
+
+@media screen and (max-width: 767px) {
+    #topbar {
+        position: static;
+        height: 70px;
+    }
+    #topbar .left {
+        float: left;
+    }
+    #topbar .left h2 {
+        font-size: 11px;
+    }
+    #topbar .social {
+        display: none;
+    }
+    #topbar .aside {
+        display: none;
+    }
+    #topbar .ban {
+        margin-right: 0 !important;
+    }
+    #map {
+        height: 300px !important;
+        position: relative;
+        overflow: hidden;
+    }
+    .responsive.sidebar {
+        display: none;
+    }
+    .desktop.sidebar {
+        position: static;
+        min-width: 320px;
+        width: 100%;
+        height: auto !important;
+        margin: auto;
+        margin-bottom: 5px;
+    }
+    .desktop.sidebar .sidebar-content {
+        padding-top: 0;
+        margin-top: -1px;
+        height: auto !important;
+        float: left;
+        border-left: 1px solid #dedede;
+        border-right: 1px solid #dedede;
+        min-width: 320px;
+        width: 100%;
+        border: 0;
+    }
+    .desktop.sidebar .sidebar-content .slidable-mask {
+        max-width: 100%;
+        overflow: hidden;
+        width: 100%;
+    }
+    .desktop.sidebar .sidebar-content .slidable-content {
+        width: 300%;
+    }
+    .desktop.sidebar .sidebar-content .scrollable .les-filtres li {
+        background: url("../images/arrow-right.png") no-repeat scroll 95% 50%
+            transparent;
+    }
+    .desktop.sidebar .sidebar-content .slidable {
+        min-width: 320px;
+        width: 33.33%;
+        max-width: 100%;
+    }
+    .desktop.sidebar .sidebar-content .scrollable .les-lieux .un-lieu .description
+        {
+        width: 240px;
+    }
+    .desktop.sidebar .sidebar-content .result .text {
+        width: 98%;
+        padding: 0;
+        border-right: 0;
+    }
+    .desktop.sidebar .sidebar-content .powered {
+        display: none;
+    }
+    .desktop.sidebar .sidebar-content .result .picto.maximize-sidebar,.sidebar .sidebar-content .result .picto.minimize-sidebar
+        {
+        display: none;
+    }
+}
+
