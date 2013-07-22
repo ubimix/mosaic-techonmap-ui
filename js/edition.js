@@ -42,6 +42,14 @@ jQuery(function() {
         }
         return false;
     });
+
+    jQuery('.twitter-auth').click(function() {
+    	var e = $(this);
+        var href = '/xwiki/bin/login/XWiki/XWikiLogin?sl_provider=twitter&xredirect=/techonmap-dev/edition.html%23www.aaa.copm';
+        document.location = href;
+ 	return false;
+    });
+
     var form = jQuery('#edit-form')
     form.parsley({
         validators : {

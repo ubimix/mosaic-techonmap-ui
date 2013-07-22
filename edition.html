@@ -71,6 +71,11 @@
     margin-top: 1em;
 }
 
+.twitter-auth {
+  background: url(./images/btn-green-tick.png) 100% 50% no-repeat #53c591;
+  margin-right: 0.5em;
+}
+
 #referesh-marker {
     background: url(./images/btn-green-tick.png) 100% 50% no-repeat #53c591;
     margin-bottom: 0.5em;
@@ -139,6 +144,37 @@ p.help {
         </div>
         <div class="header">
             <div class="aside">
+            <div class="provider">
+
+<script>
+
+//TODO: should be executed only once page is fuly loaded
+function onUserId(data) {
+   if (data) {
+	console.log("data: ", data);
+   	var props = data.properties;
+	console.log("Properties: ", data.properties);
+        var isLogged = props.isLogged;
+	if (isLogged) {
+		$(":input").removeAttr("disabled");
+		$("#twitter-auth-panel").css("display","none");
+	}
+   }
+   
+}
+
+function onUserIdFail() {
+	alert("An error occured while checking the user credentials. Please try again later. Sorry for the inconvenience.");
+}
+
+
+$.getJSON("http://maps.ubimix.com/xwiki/bin/view/XWiki/UserIdentificationService?xpage=plain", onUserId).fail(onUserIdFail);
+
+
+</script>
+
+            </div>
+
                 <a href="" class="btn-gray cancel"
                     data-confirmation-question="Confirmer l'annulation et revenir à la carte ?">Annuler
                     et revenir à la carte</a>
@@ -160,6 +196,14 @@ p.help {
     <div id="content">
         <h3 class="pagetitle">Ajoutez ou modifiez des informations
             concernant votre organisation</h3>
+        <div id="twitter-auth-panel">
+		<p class="help">
+		    L'ajout ou la modification de données sur TechOnMap nécessite une authentification Twitter.
+		</p>
+		<p style="text-align:center; margin-top:0em; margin-bottom:1.5em;">
+        	        <a href="" class="btn-gray twitter-auth">S'identifier avec Twitter</a>
+		</p>
+	</div>
         <div id="explanation">
             <p class="question">
                 <a
@@ -460,6 +504,13 @@ p.help {
     }
 }
 </script>
+
+<script>
+
+$(":input").attr("disabled","disabled");
+
+</script>
+
     <div id="loading" style="display: none;">Chargement...</div>
 
 </body>
