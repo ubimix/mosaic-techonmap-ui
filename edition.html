@@ -248,12 +248,27 @@ p.help {
                 </div>
             </div>
             <div class="une-ligne tags">
-                <input type="text" data-field="tag" placeholder="Tag"></input>
-                <input data-field="tag" type="text" placeholder="Tag"></input>
-                <input type="text" data-field="tag" placeholder="Tag"></input>
-                <div class="label">Ajoutez 3 mots-clés maximum
-                    pour personnaliser la qualification de votre
-                    organisation</div>
+                <input type="text" data-type="alphanum"
+                    data-field="tags" placeholder="Tag 1"
+                    data-error-message="Le premier tag est vide ou invalide."
+                    data-group="taglist"
+                    data-error-container="#tags-error"></input> <input
+                    type="text" data-type="alphanum" data-field="tags"
+                    placeholder="Tag 2"
+                    data-error-message="Le dexieme tag est vide ou invalide."
+                    data-group="taglist"
+                    data-error-container="#tags-error"></input> <input
+                    type="text" data-type="alphanum" data-field="tags"
+                    placeholder="Tag 3"
+                    data-error-message="Le troisieme tag est vide ou invalide."
+                    data-group="taglist"
+                    data-error-container="#tags-error"></input>
+                <div class="label">
+                    <span class="help">Ajoutez 3 mots-clés
+                        maximum pour personnaliser la qualification de
+                        votre organisation</span> <span class="errormsg"
+                        id="tags-error"></span>
+                </div>
             </div>
             <div class="une-ligne full-address">
                 <!-- No et nom de rue -->
@@ -371,7 +386,7 @@ p.help {
             </div>
             <div class="une-ligne std">
                 <input type="text" data-field="viadeo" data-type="url"
-                    data-regexp="^https?://www\.viadeo\.\w+.*$"
+                    data-regexp="^https?://\w+\.viadeo\.\w+.*$"
                     placeholder="Viadeo"
                     data-error-message="URL de la page Viadeo n'est pas valide !"
                     data-error-container="#viadeo-error"></input>

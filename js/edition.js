@@ -114,23 +114,39 @@ jQuery(function() {
     for ( var categoryId in categories) {
         var category = categories[categoryId];
         var name = category.name;
-        jQuery('<option></option>').attr('data-category-id', categoryId).html(
-                name).appendTo(categorySelector);
+        jQuery('<option></option>').attr('data-category-id', categoryId).val(
+                categoryId).html(name).appendTo(categorySelector);
     }
 
     var formFields = {};
     function fillForm(point) {
-        function getField(name, create) {
-            var tracker = formFields[name];
-            if (!tracker && create) {
-                var e = jQuery('[data-field=' + name + ']');
-                tracker = formFields[name] = new ValueTracker(e);
+        function getFields(name, create) {
+            var trackers = formFields[name];
+            if (!trackers && create) {
+                trackers = formFields[name] = [];
+                jQuery('[data-field=' + name + ']').each(function() {
+                    var e = $(this);
+                    trackers.push(new ValueTracker(e));
+                });
             }
-            return tracker;
+            return trackers;
+        }
+        function getField(name, create) {
+            var fields = getFields(name, create);
+            return fields ? fields[0] : null;
         }
         function setField(name, value) {
             var tracker = getField(name, true);
             tracker.setValue(value, false);
+        }
+        function setFields(name, values) {
+            var trackers = getFields(name, true);
+            var len = Math.min(trackers.length, values.length);
+            for ( var i = 0; i < len; i++) {
+                var tracker = trackers[i];
+                var value = values[i];
+                tracker.setValue(value, false);
+            }
         }
 
         // -------------------------------
@@ -142,7 +158,11 @@ jQuery(function() {
         jQuery('[data-field]').each(function() {
             var name = jQuery(this).attr('data-field');
             var value = properties[name];
-            setField(name, value);
+            if (jQuery.type(value) === 'array') {
+                setFields(name, value);
+            } else {
+                setField(name, value);
+            }
         })
 
         // -------------------------------
@@ -270,22 +290,26 @@ jQuery(function() {
         for ( var key in formFields) {
             if (!(formFields.hasOwnProperty(key)))
                 continue;
-            var validator = formFields[key];
-            if (!validator.validate()) {
-                console.log("Field [" + key + "] is invalid!");
-            } else {
-                console.log(key, validator);
+            var validators = formFields[key];
+            for ( var i = 0; i < validators.length; i++) {
+                var validator = validators[i];
                 var value = validator.getValue();
-                if (value != '') {
-                    if (properties[key]) {
-                        var array = properties[key];
-                        if (jQuery.type(array) !== 'array') {
-                            array = [ array ];
-                            properties[key] = array;
+                if (!validator.validate()) {
+                    console.log('Field [' + key + '][' + i + ']="' + value
+                            + '" is invalid!');
+                } else {
+                    console.log(key, validator);
+                    if (value != '') {
+                        if (properties[key]) {
+                            var array = properties[key];
+                            if (jQuery.type(array) !== 'array') {
+                                array = [ array ];
+                                properties[key] = array;
+                            }
+                            array.push(value);
+                        } else {
+                            properties[key] = value;
                         }
-                        array.push(value);
-                    } else {
-                        properties[key] = value;
                     }
                 }
             }
