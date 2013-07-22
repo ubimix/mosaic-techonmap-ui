@@ -1,6 +1,5 @@
 jQuery(window).ready(function() {
 })
-
 jQuery(function() {
     var map = newMap('.map');
     var marker = null;
@@ -43,9 +42,49 @@ jQuery(function() {
         }
         return false;
     });
+    var form = jQuery('#edit-form')
+    form.parsley({
+        validators : {
+            unique : function(name, selector, v) {
+                if (!name || name == '')
+                    return false;
+                name = name.toLowerCase();
+                var points = dataManager.getFilteredItems(function(point) {
+                    var n = point.properties.name;
+                    return n && n.toLowerCase() === name;
+                })
+                var result = true;
+                var ref = null;
+                var point = points.length > 0 ? points[0] : null;
+                if (point) {
+                    var pointId = getItemIdFromHash();
+                    if (point.properties.id != pointId) {
+                        ref = '#' + point.properties.id;
+                        result = false;
+                    }
+                }
+                var e = $(selector)
+                if (ref) {
+                    e.bind('click', function() {
+                        var location = window.location.href + '';
+                        var idx = location.indexOf('#');
+                        if (idx > 0) {
+                            location = location.substring(0, idx);
+                        }
+                        location += ref;
+                        window.location.href = location;
+                        window.location.reload(true);
+                    })
+                } else {
+                    e.unbind('click');
+                }
+                return result;
+            }
+        }
+    })
     jQuery('input[type=submit]').click(function() {
         try {
-            if (jQuery('#edit-form').parsley('validate')) {
+            if (form.parsley('validate')) {
                 var result = getDataFromForm();
                 var elm = $(this);
                 dataManager.storeData(result, function(e) {
@@ -270,5 +309,4 @@ jQuery(function() {
         fillForm(point);
     });
     dataManager.resetFilter();
-
 });

@@ -195,8 +195,9 @@ p.help {
             <div class="une-ligne std">
                 <span class="field-marker mandatory"></span> <input
                     data-field="name" type="text" data-required="true"
-                    data-error-message="Ce champ est obligatoire : vous devez saisir le nom de votre organisation."
                     data-error-container="#name-error"
+                    data-unique="#name-error"
+                    data-unique-message="Un organisme portant ce nom est déjà référencé. Cliquez <a>ici</a> pour l'éditer."
                     placeholder="Nom de votre organisation">
                 <div class="label">
                     <span class="help">Tapez le nom de votre
