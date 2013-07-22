@@ -721,6 +721,12 @@ $(window).load(function(){
 			slideTo('category');
 		}
 	});
+    jQuery('.go-tags .clear-tags').on('click', function(){
+        if(jQuery('.sidebar').hasClass('minimized')){
+            maximizeSidebar();
+        }
+        dataManager.setTagFilter([]);
+    });
 
 	jQuery('.zone-list-une, .category-list-une').on('click', function(){
 		slideFirst();
@@ -748,7 +754,6 @@ $(window).load(function(){
             slidePrev();
        }
 	});
-
 	// Reflects category changes in UI
 	function selectCategory(category) {
 	    jQuery('.category-list li').removeClass('active');
@@ -760,6 +765,22 @@ $(window).load(function(){
 	        jQuery('.category-selected').text(activeItem.data('value'));
 	    })
     }
+	// Reflects tags changes in UI
+	var tagsPlaceholder = jQuery('.tags-selected').text();
+    function selectTags(tags) {
+        var len = tags ? tags.length : 0;
+        var str = ''
+        for (var i=0; i<len; i++) {
+            if (str.length)
+                str += ', ';
+            var tag = '#' + tags[i];
+            str += tag;
+        }
+        if (str === '')
+            str = tagsPlaceholder;
+        jQuery('.tags-selected').text(str);
+    }
+
 	jQuery('.category-list li').on('click', function(){
 		// functions to update the map & filtering the list go here
 	    var val = jQuery(this).data('category-id');
@@ -803,8 +824,10 @@ $(window).load(function(){
         }
         var category = properties.category||'*';
         var postcode = properties.postcode||'*';
+        var tags = properties.tags||[];
         selectCategory(category);
         selectPostcode(postcode);
+        selectTags(tags);
     });
 
 	/* functions */

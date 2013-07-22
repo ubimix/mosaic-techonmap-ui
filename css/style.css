@@ -978,6 +978,19 @@ body.lightbox-open {
 	background: url(../images/arrow-right.png) 320px 50% no-repeat;
 }
 
+.sidebar .sidebar-content .go-tags {
+    background: none !important;
+}
+.sidebar .sidebar-content .go-tags .clear-tags {
+    width: 45px;
+    height: 100%;
+    float: right;
+    border-left: 1px solid #DDDDDD;
+    cursor: pointer;
+    background: url(../images/picto-cross.png) 50% 50% no-repeat;
+}
+
+
 .sidebar .sidebar-content .search {
 	line-height: 0;
 	font-size: 0;
