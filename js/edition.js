@@ -45,7 +45,7 @@ jQuery(function() {
 
     jQuery('.twitter-auth').click(function() {
     	var e = $(this);
-        var href = '/xwiki/bin/login/XWiki/XWikiLogin?sl_provider=twitter&xredirect=/techonmap-dev/edition.html%23www.aaa.copm';
+        var href = '';
         document.location = href;
  	return false;
     });
@@ -340,5 +340,30 @@ jQuery(function() {
         }
         fillForm(point);
     });
+    
+    
+
+    function onUserId(data) {
+        if (data) {
+            console.log("data: ", data);
+            var props = data.properties;
+            console.log("Properties: ", data.properties);
+            var isLogged = props.isLogged;
+            if (isLogged) {
+                $(":input").removeAttr("disabled");
+                $("#twitter-auth-panel").css("display","none");
+            }
+        }
+   
+    }
+
+    function onUserIdFail() {
+        alert("An error occured while checking the user credentials. Please try again later. Sorry for the inconvenience.");
+    }
+
+
+    $.getJSON(window.appConfig.loginCheckUrl, onUserId).fail(onUserIdFail);
+    
     dataManager.resetFilter();
+    
 });
