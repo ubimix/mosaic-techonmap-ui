@@ -45,8 +45,9 @@ jQuery(function() {
 
     jQuery('.twitter-auth').click(function() {
     	var e = $(this);
-        var href = '';
-        document.location = href;
+	var id = getItemIdFromHash() || "";
+        var href = window.appConfig.authenticationUrl(id);
+        window.location = href;
  	return false;
     });
 
@@ -343,26 +344,32 @@ jQuery(function() {
     
     
 
-    function onUserId(data) {
+    function onLoginCheckSuccess(data) {
         if (data) {
             console.log("data: ", data);
             var props = data.properties;
             console.log("Properties: ", data.properties);
             var isLogged = props.isLogged;
             if (isLogged) {
-                $(":input").removeAttr("disabled");
+                //$(":input").removeAttr("disabled");
+		$('#explanation').show();
+		$('#edit-form').show();
                 $("#twitter-auth-panel").css("display","none");
-            }
+            } else {
+		$('#explanation').hide();
+		$('#edit-form').hide();
+		//$(":input").attr("disabled","disabled");
+	    }
         }
    
     }
 
-    function onUserIdFail() {
-        alert("An error occured while checking the user credentials. Please try again later. Sorry for the inconvenience.");
+    function onLoginCheckFailure() {
+        alert($('#login-error').text());
     }
 
 
-    $.getJSON(window.appConfig.loginCheckUrl, onUserId).fail(onUserIdFail);
+    $.getJSON(window.appConfig.loginCheckUrl(), onLoginCheckSuccess).fail(onLoginCheckFailure);
     
     dataManager.resetFilter();
     

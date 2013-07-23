@@ -174,7 +174,7 @@ p.help {
         	        <a href="" class="btn-gray twitter-auth">S'identifier avec Twitter</a>
 		</p>
 	</div>
-        <div id="explanation">
+        <div id="explanation" style="display:none;">
             <p class="question">
                 <a
                     href="javascript:$('#explanation .description').toggle()">Quels
@@ -201,7 +201,7 @@ p.help {
             </div>
         </div>
 
-        <form action="" id="edit-form">
+        <form action="" id="edit-form" style="display:none;">
             <p class="help">
                 Tous les champs marqués avec <span class="mandatory">*</span>
                 sont obligatoires.
@@ -475,11 +475,10 @@ p.help {
 }
 </script>
 
-<script>
+<div id="login-error" style="display:none;">
+An error occured while checking the user credentials. Please try again later. Sorry for the inconvenience.
+</div>
 
-$(":input").attr("disabled","disabled");
-
-</script>
 
     <div id="loading" style="display: none;">Chargement...</div>
 
