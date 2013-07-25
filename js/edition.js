@@ -42,6 +42,15 @@ jQuery(function() {
         }
         return false;
     });
+
+    jQuery('.twitter-auth').click(function() {
+    	var e = $(this);
+	var id = getItemIdFromHash() || "";
+        var href = window.appConfig.authenticationUrl(id);
+        window.location = href;
+ 	return false;
+    });
+
     var form = jQuery('#edit-form')
     form.parsley({
         validators : {
@@ -332,5 +341,36 @@ jQuery(function() {
         }
         fillForm(point);
     });
+    
+    
+
+    function onLoginCheckSuccess(data) {
+        if (data) {
+            console.log("data: ", data);
+            var props = data.properties;
+            console.log("Properties: ", data.properties);
+            var isLogged = props.isLogged;
+            if (isLogged) {
+                //$(":input").removeAttr("disabled");
+		$('#explanation').show();
+		$('#edit-form').show();
+                $("#twitter-auth-panel").css("display","none");
+            } else {
+		$('#explanation').hide();
+		$('#edit-form').hide();
+		//$(":input").attr("disabled","disabled");
+	    }
+        }
+   
+    }
+
+    function onLoginCheckFailure() {
+        alert($('#login-error').text());
+    }
+
+
+    $.getJSON(window.appConfig.loginCheckUrl(), onLoginCheckSuccess).fail(onLoginCheckFailure);
+    
     dataManager.resetFilter();
+    
 });

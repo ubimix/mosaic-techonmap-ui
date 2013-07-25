@@ -27,8 +27,21 @@
          */
         store : function(point, onSuccess, onFailure) {
             var url = this.options.storeUrl || DEFAULT_STORE_URL;
-            // var data = JSON.stringify(point);
-            $.post(url, point, onSuccess).fail(onFailure);
+            var data = JSON.stringify(point);
+            //$.post(url, point, onSuccess).fail(onFailure);
+
+            $.ajax({
+                url: url,
+                type: "POST",
+                data: data,
+                contentType: "application/json; charset=utf-8",
+                dataType:"json",
+                success: onSuccess,
+                error: onFailure
+            });
+
+
+
         },
 
         /**

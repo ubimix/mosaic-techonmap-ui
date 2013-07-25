@@ -1060,11 +1060,14 @@ $(window).load(function(){
     /*---------------------------*/
     /*------topbar>TWITTER-------*/
     /*---------------------------*/
+    //$.getJSON(window.appConfig.loginCheckUrl(), onLoginCheckSuccess).fail(onLoginCheckFailure);
+
 
     function loadLastTweet() {
-        $.getJSON("./tw",function(data){
-            showTwitter(data);
-        });
+	$.getJSON(window.appConfig.lastTweetUrl(), function(data) {
+		showTwitter(data);	
+	}).fail( function(error) {console.log("Error:" +error);});
+
     }
     loadLastTweet();
 
