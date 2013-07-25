@@ -806,8 +806,10 @@ $(window).load(function(){
         var tracker = new ValueTracker(input);
         tracker.on('changed', function() {
             searchAction.run(function() {
-                var query = tracker.getValue();
-                dataManager.setNameFilter(query);
+                var query = tracker.getValue()||'';
+                if (query != '') {
+                    dataManager.setNameFilter(query);
+                }
             })
         })
         searchBoxTrackers.push(tracker);

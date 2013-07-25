@@ -373,9 +373,13 @@
 
         /** Updates the name filter. */
         setNameFilter : function(name) {
-            this.setPropertyFilter({
-                name : name
-            });
+            var properties = (this.filter ? this.filter.properties : '') || {};
+            var oldValue = properties.name || '';
+            if (name != oldValue) {
+                this.setPropertyFilter({
+                    name : name
+                });
+            }
         },
 
         /** Updates tag filter. */
