@@ -116,7 +116,17 @@ table {
 .right {
 	float: right;
 }
+.tab{
+	right: 20px;
+	height: 45px;
+	width: 45px;
+	text-align: center;
+	cursor:pointer;
+	display: none;
+}
+
 /*pictos*/
+
 .picto-minus {
 	background: url(../images/picto-minus.png) 50% 50% no-repeat;
 }
@@ -855,12 +865,29 @@ body.lightbox-open {
 #topbar .header .ban .menu li.level-2.last a {
 	border: 0;
 }
+#topbar .tab{
+	border:1px solid #DDDDDD;
+	border-top: 0;
+	margin-top: 10px;
+	z-index: 9;
+	position: absolute;
+	background: url(../images/arrow-up.png) 50% 50% no-repeat #fff;
+
+}
 
 /*minimized sidebar*/
 .sidebar.minimized {
 	height: 250px !important;
 }
+.sidebar .tab{
+	position: absolute;
+	margin-top: -47px;
+	border:1px solid #DDDDDD;
+	z-index: 1000;
+	border-bottom: 0;
+	background: url(../images/arrow-down.png) 50% 50% no-repeat #fff;
 
+}
 .sidebar.minimized .sidebar-content {
 	padding-top: 0px;
 	height: 152px !important;
@@ -1362,6 +1389,8 @@ body.lightbox-open {
 	color: #666666;
 	line-height: 1.2;
 }
+
+
 /*map*/
 .leaflet-control-zoom {
 	width: 41px;

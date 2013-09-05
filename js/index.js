@@ -964,7 +964,7 @@ $(window).load(function(){
 		var width = jQuery(window).width();
 		if(width <= 960){
             if(!jQuery('html').hasClass('mobile-view')){
-                jQuery.scrollTo(' #map', 200 );
+                jQuery.scrollTo('#map', 200 );
                 jQuery('html').addClass('mobile-view');
             }
             maximizeSidebar();
@@ -986,6 +986,14 @@ $(window).load(function(){
         var tbh = embedded || mobileView ? 0 : jQuery('#topbar').height();
         $map.height(jQuery(window).height() - tbh);   
     }
+
+    /*gestion mobile view tabs (scroll to menu or list)*/
+    jQuery('.tab-to-list').on('click', function(){
+        jQuery.scrollTo('.sidebar', 200);
+    });
+    jQuery('.tab-to-menu').on('click', function(){
+        jQuery.scrollTo('#topbar', 200);
+    });
 
 	jQuery(window).resize(function(){
 		mediaqueries();
