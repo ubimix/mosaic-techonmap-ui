@@ -36,9 +36,10 @@
         var minZoom = container.data('map-min-zoom') || 2;
 
         var options = {
-            tilesUrl : tilesUrl,
-            maxZoom : maxZoom,
-            minZoom : minZoom
+            tilesUrl           : tilesUrl,
+            maxZoom            : maxZoom,
+            minZoom            : minZoom,
+            attributionControl : false
         }
         var map = L.map(container[0], options);
         if (boundingBox) {
@@ -46,6 +47,7 @@
         }
         map.setView(mapCenter, mapZoom);
         L.tileLayer(tilesUrl, options).addTo(map);
+        L.control.attribution({position: 'bottomleft'}).addTo(map);
         return map;
     }
 
