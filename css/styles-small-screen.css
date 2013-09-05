@@ -1,5 +1,5 @@
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 960px) {
     #topbar {
         position: static;
         height: 70px;
