@@ -26,6 +26,7 @@
 <script src="lib/leaflet-heatmap/heatmap-leaflet.js"></script>
 <script src="lib/html2canvas/html2canvas.js"></script>
 <script src="lib/canvas2image/canvas2image.js"></script>
+<script src="lib/jquery-scrollto/jquery.scrollTo.min.js"></script>
 
 
 <script type="text/javascript" src="js/config.js"></script>
@@ -40,12 +41,12 @@
 </head>
 <body>
     <script type="text/javascript">
-                    var params = jQuery.deparam.querystring();
-                    if (params && params.mode) {
-                        var css = 'mode-' + params.mode;
-                        jQuery('body').addClass(css);
-                    }
-                </script>
+        var params = jQuery.deparam.querystring();
+        if (params && params.mode) {
+            var css = 'mode-' + params.mode;
+            jQuery('body').addClass(css);
+        }
+    </script>
 
     <div id="toto"></div>
     <div id="topbar">

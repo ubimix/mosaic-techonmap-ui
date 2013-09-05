@@ -963,7 +963,10 @@ $(window).load(function(){
 	function mediaqueries(){
 		var width = jQuery(window).width();
 		if(width <= 960){
-            jQuery('html').addClass('mobile-view');     
+            if(!jQuery('html').hasClass('mobile-view')){
+                jQuery.scrollTo(' #map', 200 );
+                jQuery('html').addClass('mobile-view');
+            }
             maximizeSidebar();
 			currentSlidable;
 			jQuery('.slidable-content').css({
@@ -979,7 +982,8 @@ $(window).load(function(){
         var $map = jQuery('#map');
         var wh = jQuery(window).height();
         var embedded = jQuery('body').hasClass('mode-embed-readonly');
-        var tbh = embedded ? 0 : jQuery('#topbar').height();
+        var mobileView = jQuery('html').hasClass('mobile-view');
+        var tbh = embedded || mobileView ? 0 : jQuery('#topbar').height();
         $map.height(jQuery(window).height() - tbh);   
     }
 
@@ -990,6 +994,7 @@ $(window).load(function(){
 	});	
 	mediaqueries();
     mapHeight();
+    
 
 
 	/*---------------------------*/

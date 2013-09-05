@@ -21,7 +21,6 @@
         margin-right: 0 !important;
     }
     #map {
-        height: 300px !important;
         position: relative;
         overflow: hidden;
     }
