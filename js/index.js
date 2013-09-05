@@ -960,18 +960,19 @@ $(window).load(function(){
 	getSidebarHeight();
 
 	/* gestion du js/mediaqueries */
-	function mediaqueries(){ /* hum, ... je pense que je peux améliorer ça */
+	function mediaqueries(){
 		var width = jQuery(window).width();
 		if(width <= 960){
-			maximizeSidebar();
-		}
-		
-		if(width <= 960){
+            jQuery('html').addClass('mobile-view');     
+            maximizeSidebar();
 			currentSlidable;
 			jQuery('.slidable-content').css({
 				left : -(currentSlidable-1) * jQuery('.slidable-mask').width()  		
 			});
 		}
+        else{
+            jQuery('html').removeClass('mobile-view');  
+        }
 
 	}
     function mapHeight(){

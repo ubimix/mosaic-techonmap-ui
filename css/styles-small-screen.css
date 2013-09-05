@@ -1,5 +1,6 @@
 
 @media screen and (max-width: 960px) {
+    /*960 : also update js/index.js:mediaqueries();*/
     #topbar {
         position: static;
         height: 70px;
@@ -64,8 +65,12 @@
         max-width: 100%;
     }
     .desktop.sidebar .sidebar-content .scrollable .les-lieux .un-lieu .description
-        {
+    {
         width: 240px;
+    }
+    .desktop.sidebar .sidebar-content .scrollable .les-lieux .un-lieu .description .picto-edit
+    {
+        display: none;
     }
     .desktop.sidebar .sidebar-content .result .text {
         width: 98%;
