@@ -4,6 +4,9 @@
     .tab{
         display: block;
     }
+    .map-popup .info-line.more {
+         display: block;
+    }
     #topbar {
         position: static;
         height: 70px;

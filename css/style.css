@@ -1502,11 +1502,14 @@ body.mode-embed-full #topbar .social {
     white-space: nowrap;
     overflow: hidden;
 }
- .sidebar .sidebar-content .info-line.location {
+.sidebar .sidebar-content .info-line.location {
     margin: 0.5em 0;
 	white-space: normal;
 	color: gray;
 	font-size: 1.1em;
+}
+.map-popup .info-line.more {
+  	 display: none;
 }
 .un-lieu .info-line.more {
     display: none;
@@ -1515,4 +1518,3 @@ body.mode-embed-full #topbar .social {
     display: block;
 }
 
-}

@@ -177,7 +177,15 @@ $(window).load(function(){
         }
         editUrl += 'edition.html#' + id;
         item.find('.edit').attr('href', editUrl);
+
+        item.find('.more a').on('click', function(ev) {
+            ev.preventDefault();
+            var itemInList = jQuery(".un-lieu[data-id='" + id + "']");
+            jQuery.scrollTo(itemInList, 400);
+        });
 	}
+
+
 	/* ---------------------------------------------------------------------- */
     var heatmapLayer = null;
     function showHeatmap() {
