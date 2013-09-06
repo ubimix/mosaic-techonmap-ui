@@ -1508,8 +1508,15 @@ body.mode-embed-full #topbar .social {
 	color: gray;
 	font-size: 1.1em;
 }
+.sidebar .sidebar-content .info-line.location a{
+	font-size: 0.8em;
+	display: none;
+}
 .map-popup .info-line.more {
   	 display: none;
+}
+.map-popup .info-line.location a{
+	display: none;
 }
 .un-lieu .info-line.more {
     display: none;

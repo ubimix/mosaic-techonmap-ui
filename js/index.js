@@ -128,7 +128,18 @@ $(window).load(function(){
         setUrl('.viadeo', props.viadeo);
         
         var address = formatAddress();
-        item.find('.location').text(address);
+        item.find('.location').html(address);
+        var viewOnMapLink = $('<a/>',{
+            href    : '#',
+            'class' : 'view-on-map',
+            text    : 'Afficher sur la carte'
+        }).on('click', function(ev){
+            ev.preventDefault();
+            dataManager.selectItemById(id, true);   
+            jQuery.scrollTo(jQuery('#map'), 400); 
+            
+        }).appendTo(item.find('.location'));
+        
         
         var tagTmpl = item.find('.tags');
         var tags = formatTags(props.tags);
