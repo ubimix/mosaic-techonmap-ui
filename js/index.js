@@ -982,32 +982,40 @@ $(window).load(function(){
 	getSidebarHeight();
 
 	/* gestion du js/mediaqueries */
-	function mediaqueries(){ /* hum, ... je pense que je peux améliorer ça */
+	function mediaqueries(){
 		var width = jQuery(window).width();
-		if(width <= 1024){
-			maximizeSidebar();
-		}
-		if(width <= 1024 && width > 768){
-			jQuery('.slidable-content').addClass('disabled');
-		}
-		else{
-			jQuery('.slidable-content').removeClass('disabled');
-		}
-		if(width <= 768){
+		if(width <= 960){
+            if(!jQuery('html').hasClass('mobile-view')){
+                jQuery.scrollTo('#map', 200 );
+                jQuery('html').addClass('mobile-view');
+            }
+            maximizeSidebar();
 			currentSlidable;
 			jQuery('.slidable-content').css({
 				left : -(currentSlidable-1) * jQuery('.slidable-mask').width()  		
 			});
 		}
+        else{
+            jQuery('html').removeClass('mobile-view');  
+        }
 
 	}
     function mapHeight(){
         var $map = jQuery('#map');
         var wh = jQuery(window).height();
         var embedded = jQuery('body').hasClass('mode-embed-readonly');
-        var tbh = embedded ? 0 : jQuery('#topbar').height();
+        var mobileView = jQuery('html').hasClass('mobile-view');
+        var tbh = embedded || mobileView ? 0 : jQuery('#topbar').height();
         $map.height(jQuery(window).height() - tbh);   
     }
+
+    /*gestion mobile view tabs (scroll to menu or list)*/
+    jQuery('.tab-to-list').on('click', function(){
+        jQuery.scrollTo('.sidebar', 200);
+    });
+    jQuery('.tab-to-menu').on('click', function(){
+        jQuery.scrollTo('#topbar', 200);
+    });
 
 	jQuery(window).resize(function(){
 		mediaqueries();
@@ -1016,6 +1024,7 @@ $(window).load(function(){
 	});	
 	mediaqueries();
     mapHeight();
+    
 
 
 	/*---------------------------*/

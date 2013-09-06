@@ -1,5 +1,9 @@
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 960px) {
+    /*960 : also update js/index.js:mediaqueries();*/
+    .tab{
+        display: block;
+    }
     #topbar {
         position: static;
         height: 70px;
@@ -20,13 +24,10 @@
         margin-right: 0 !important;
     }
     #map {
-        height: 300px !important;
         position: relative;
         overflow: hidden;
     }
-    .responsive.sidebar {
-        display: none;
-    }
+
     .desktop.sidebar {
         position: static;
         min-width: 320px;
@@ -34,6 +35,7 @@
         height: auto !important;
         margin: auto;
         margin-bottom: 5px;
+        border-top:1px solid #DDDDDD;
     }
     .desktop.sidebar .sidebar-content {
         padding-top: 0;
@@ -64,8 +66,12 @@
         max-width: 100%;
     }
     .desktop.sidebar .sidebar-content .scrollable .les-lieux .un-lieu .description
-        {
+    {
         width: 240px;
+    }
+    .desktop.sidebar .sidebar-content .scrollable .les-lieux .un-lieu .description .picto-edit
+    {
+        display: none;
     }
     .desktop.sidebar .sidebar-content .result .text {
         width: 98%;
