@@ -12,25 +12,50 @@
     context.calculateBounds = calculateBounds;
     context.getURLParameter = getURLParameter;
     context.getTemplate = getTemplate;
+    context.toLatLng = toLatLng;
     context.newMap = newMap;
 
-    /* ---------------------------------------------------------------------- */
+    /*
+     * ----------------------------------------------------------------------
+     */
+    /** Transforms the given GeoJSON value to Leaflet's L.LatLng. */
+    function toLatLng(val) {
+        if (!val)
+            return null;
+        var lat = 0;
+        var lng = 0;
+        if (jQuery.type(val) === 'string') {
+            val = val.split(/[,;]/);
+        }
+        if (jQuery.type(val) === 'array') {
+            lng = val[0];
+            lat = val[1];
+        } else if (jQuery.type(val) === 'object') {
+            lng = val.lng;
+            lat = val.lat;
+        }
+        lng = lng || 0;
+        lat = lat || 0;
+        return L.latLng(lat, lng);
+    }
+
+    /** Transforms the specified string to the L.LatLngBounds instance */
+    function toLatLngBounds(val) {
+        if (!val)
+            return null;
+        return L.latLngBounds(toLatLng(val[0]), toLatLng(val[1]));
+    }
+    /**
+     * Creates a new L.Map instance associated with the specified container
+     */
     function newMap(container) {
         container = $(container);
-        var center = container.data('map-center');
+        var center = container.data('map-center')
+                || [ 2.3357025512, 48.872630327 ];
         var mapZoom = container.data('map-zoom') || 10;
-        var mapCenter = L.latLng(48.872630327, 2.3357025512);
-        if (!center) {
-            var array = center.split(',');
-            mapCenter = L.latLng(array);
-        }
+        var mapCenter = toLatLng(center);
         var boundingBox = container.data('map-bounding-box');
-        if (boundingBox && boundingBox.length) {
-            boundingBox = L.latLngBounds(L.latLng(boundingBox[0]), L
-                    .latLng(boundingBox[1]));
-        } else {
-            boundingBox = null;
-        }
+        boundingBox = toLatLngBounds(boundingBox);
         var tilesUrl = container.data('map-tiles');
         var maxZoom = container.data('map-max-zoom') || 18;
         var minZoom = container.data('map-min-zoom') || 2;
@@ -49,7 +74,9 @@
         return map;
     }
 
-    /* ---------------------------------------------------------------------- */
+    /*
+     * ----------------------------------------------------------------------
+     */
     /**
      * This method is used to move the specified element in view in a scrollable
      * container.
@@ -88,7 +115,9 @@
         return html;
     }
 
-    /** Calculates and returns geographical bounds of the specified set of points */
+    /**
+     * Calculates and returns geographical bounds of the specified set of points
+     */
     function calculateBounds(points) {
         var bounds = null;
         if (points.length > 0) {
@@ -97,7 +126,7 @@
                 if (!point || !point.geometry.coordinates)
                     continue;
                 var coordinates = point.geometry.coordinates;
-                var latLng = new L.LatLng(coordinates[0], coordinates[1]);
+                var latLng = toLatLng(coordinates);
                 if (bounds == null) {
                     bounds = new L.LatLngBounds(latLng, latLng);
                 } else {
@@ -108,7 +137,9 @@
         return bounds;
     }
 
-    /* ---------------------------------------------------------------------- */
+    /*
+     * ----------------------------------------------------------------------
+     */
     /**
      * This calss is used to manage point categories - their names, keys and
      * associated visual attributes (like icons) etc
@@ -178,7 +209,9 @@
         return this.categories;
     }
 
-    /* ---------------------------------------------------------------------- */
+    /*
+     * ----------------------------------------------------------------------
+     */
     /* Global variables initialization */
 
     context.categoryInfo = new CategoryInfo();
@@ -189,7 +222,7 @@
 
     /* A global DataManager and event bus used to propagate events */
     var storeService = context.storeService = new umx.StoreService({
-    	loadUrl : appConfig.loadUrl(),
+        loadUrl : appConfig.loadUrl(),
         storeUrl : appConfig.storeUrl()
 
     });
@@ -222,7 +255,7 @@
     hashTracker.on('hash:changed', function() {
         var tag = getTagFromHash();
         if (tag) {
-            dataManager.setTagFilter([tag]);
+            dataManager.setTagFilter([ tag ]);
         } else {
             var id = getItemIdFromHash();
             dataManager.setTagFilter([]);
@@ -234,7 +267,9 @@
         setHashFromItemId(id);
     });
 
-    /* ---------------------------------------------------------------------- */
+    /*
+     * ----------------------------------------------------------------------
+     */
     // 'Loading...' message visualization
     var loading = 0;
     function showLoadingMessage() {

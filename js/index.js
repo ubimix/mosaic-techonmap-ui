@@ -196,10 +196,10 @@ $(window).load(function(){
         var data = dataManager.getFilteredItems();
         var points = [];
         for ( var i = 0; i < data.length; i++) {
-            var c = data[i].geometry.coordinates;
+            var c = toLatLng(data[i].geometry.coordinates);
             points.push({
-                lat : c[0],
-                lon : c[1],
+                lat : c.lat,
+                lon : c.lng,
                 value : 1
             });
         }
@@ -221,7 +221,7 @@ $(window).load(function(){
         hideMarkers();
         /** Returns a map icon corresponding to the specified point category */
         function newMapMarker(point) {
-            var coords = point.geometry.coordinates;
+            var coords = toLatLng(point.geometry.coordinates);
             var props = point.properties;
             var marker = L.marker(coords, {
                 icon: categoryInfo.getMapIcon(props.category, false)
@@ -310,8 +310,8 @@ $(window).load(function(){
         setTimeout(function() {
             var bounds = map.getBounds();
             var coordinatesFilter = syncMapAndList ? function(point){
-                var coords = point.geometry.coordinates;
-                return bounds.contains(L.latLng(coords[0], coords[1]));
+                var coords = toLatLng(point.geometry.coordinates);
+                return bounds.contains(coords);
             } : null;
             var data = dataManager.getFilteredItems(coordinatesFilter);
             for (var i=0; i<data.length; i++) {
@@ -432,22 +432,43 @@ $(window).load(function(){
     /*----------------------------------*/
     /*---------generate image-----------*/
     /*----------------------------------*/
-    /*
-     * var imgCanvas = [null]; jQuery('.generate-image-trigger').on('click',
-     * function(e){ e.preventDefault();
-     * 
-     * var dialog = jQuery('.lightbox-image'); var msgPanel =
-     * dialog.find('.message'); var imgPanel = dialog.find('.image');
-     * msgPanel.show(); imgPanel.html(""); imgPanel.hide();
-     * openLightbox('lightbox-image'); setTimeout(function(){ var elementToSave =
-     * jQuery('.header'); elementToSave = jQuery('#map .leaflet-map-pane'); //
-     * elementToSave = jQuery('#test'); // elementToSave = jQuery('#map
-     * .leaflet-popup-pane'); html2canvas(elementToSave.get(0), { onrendered :
-     * function(canvas) { var url = canvas.toDataURL(); var img = jQuery('<img
-     * style="max-width:100%;"/>').attr('src', url); imgPanel.append(img); //
-     * imgPanel.append(canvas) msgPanel.hide(); imgPanel.show(); imgCanvas[0] =
-     * canvas; } }); }, 100); });
-     */
+
+    var imgCanvas = [ null ];
+    jQuery('.generate-image-trigger').on(
+            'click',
+            function(e) {
+                e.preventDefault();
+                var dialog = jQuery('.lightbox-image');
+                var msgPanel = dialog.find('.message');
+                var imgPanel = dialog.find('.image');
+                msgPanel.show();
+                imgPanel.html("");
+                imgPanel.hide();
+                openLightbox('lightbox-image');
+                setTimeout(function() {
+                    var elementToSave = jQuery('.header');
+// elementToSave = jQuery('#map .leaflet-map-pane');
+                    elementToSave = jQuery('.les-lieux');
+                    elementToSave = jQuery('#map .leaflet-map-pane');
+                    elementToSave = jQuery('#map');
+                    html2canvas(elementToSave.get(0), {
+                        onrendered : function(canvas) {
+                            var url = canvas.toDataURL();
+                            var img = jQuery('<img style="max-width:100%;"/>')
+                                    .attr('src', url);
+                            imgPanel.append(img);
+
+// imgPanel.append(canvas)
+// msgPanel.hide();
+// imgPanel.show();
+                            imgCanvas[0] = canvas;
+                        }
+                    });
+                }, 100);
+
+            });
+
+
     jQuery('.generate-embed-trigger').on('click', function() {
         function setTextareaParams(textarea, mode, width, height) {
             var params = dataManager.getFilter();
@@ -572,8 +593,9 @@ $(window).load(function(){
             array.push(properties.category);
             array.push(properties.name);
             array.push(properties.description);
-            array.push(coordinates[0]);
+            // GeoJSON -> Leaflet LatLng
             array.push(coordinates[1]);
+            array.push(coordinates[0]);
             var tags = properties.tags||[];
             array.push(tags[0]);
             array.push(tags[1]);
@@ -1060,7 +1082,8 @@ $(window).load(function(){
     /*---------------------------*/
     /*------topbar>TWITTER-------*/
     /*---------------------------*/
-    //$.getJSON(window.appConfig.loginCheckUrl(), onLoginCheckSuccess).fail(onLoginCheckFailure);
+    // $.getJSON(window.appConfig.loginCheckUrl(),
+    // onLoginCheckSuccess).fail(onLoginCheckFailure);
 
 
     function loadLastTweet() {
