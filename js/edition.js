@@ -346,9 +346,7 @@ jQuery(function() {
 
     function onLoginCheckSuccess(data) {
         if (data) {
-            console.log("data: ", data);
             var props = data.properties;
-            console.log("Properties: ", data.properties);
             var isLogged = props.isLogged;
             if (isLogged) {
                 //$(":input").removeAttr("disabled");
