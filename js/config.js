@@ -1,21 +1,19 @@
 window.appConfig = {
-    // 'loadUrl': function() {return
-    // '/xwiki/bin/view/ubimix/ExportService?id=wiki&xpage=plain';},
     'loadUrl' : function() {
-        return '/data/data.json';
+        return '/api/items?' + Math.random();
+        //return './data/data.json';
     },
     'storeUrl' : function() {
-        return '/xwiki/bin/view/ubimix/StoreService?id=wiki&xpage=plain';
+        return '/api/items';
     },
     'loginCheckUrl' : function() {
-        return '/xwiki/bin/view/ubimix/UserIdentificationService?xpage=plain';
+        return '/api/auth';
     },
     'authenticationUrl' : function(id) {
-        return '/xwiki/bin/login/XWiki/XWikiLogin?sl_provider=twitter&xredirect=/techonmap-dev/edition.html%23'
-                + id;
+        return '/auth/twitter?xredirect=/techonmap/edition.html%23' + id;
     },
     'lastTweetUrl' : function() {
-        return '/xwiki/bin/view/ubimix/TwitterFeedReader?xpage=plain';
+        return '/api/twitter/last';
     }
 
 }
