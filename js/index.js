@@ -390,6 +390,7 @@ $(window).load(function(){
             marker.setSelection(false);
         }
     })
+ 
     dataManager.on('item:select', function(item) {
         if (!markerLayer)
             return ;
@@ -418,6 +419,7 @@ $(window).load(function(){
             marker.openPopup();
         }
     });
+    
     var searchParams = $.deparam.querystring();
     delete searchParams.mode;
     dataManager.setPropertyFilter(searchParams);
@@ -602,13 +604,14 @@ $(window).load(function(){
             var array = [];
             var properties = data.properties||{};
             var coordinates = data.geometry&&data.geometry.coordinates||[];
+            var coords = toLatLng(coordinates);
+
             array.push(properties.id);
             array.push(properties.category);
             array.push(properties.name);
             array.push(properties.description);
-            // GeoJSON -> Leaflet LatLng
-            array.push(coordinates[1]);
-            array.push(coordinates[0]);
+            array.push(coords.lat);
+            array.push(coords.lng);
             var tags = properties.tags||[];
             array.push(tags[0]);
             array.push(tags[1]);

@@ -61,9 +61,9 @@
         var minZoom = container.data('map-min-zoom') || 2;
 
         var options = {
-            tilesUrl           : tilesUrl,
-            maxZoom            : maxZoom,
-            minZoom            : minZoom,
+            tilesUrl : tilesUrl,
+            maxZoom : maxZoom,
+            minZoom : minZoom,
             attributionControl : false
         }
         var map = L.map(container[0], options);
@@ -72,7 +72,13 @@
         }
         map.setView(mapCenter, mapZoom);
         L.tileLayer(tilesUrl, options).addTo(map);
-        L.control.attribution({position: 'bottomleft'}).addTo(map);
+        var attribution = 'Carte motorisée par <a href="http://leafletjs.com">Leaflet</a>'
+                + ' tuilée à partir de <a href="http://www.mapbox.com/">MapBox</a>'
+                + ' et composée avec les données d\'<a href="http://www.openstreetmap.org">OpenStreetMap</a>';
+        L.control.attribution({
+            position : 'bottomleft',
+            prefix : null
+        }).addAttribution(attribution).addTo(map);
         return map;
     }
 
@@ -260,7 +266,6 @@
             dataManager.setTagFilter([ tag ]);
         } else {
             var id = getItemIdFromHash();
-            dataManager.setTagFilter([]);
             dataManager.selectItemById(id);
         }
     });
