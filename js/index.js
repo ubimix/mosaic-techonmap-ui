@@ -466,20 +466,14 @@ $(window).load(function(){
                 openLightbox('lightbox-image');
                 setTimeout(function() {
                     var elementToSave = jQuery('.header');
-// elementToSave = jQuery('#map .leaflet-map-pane');
-                    elementToSave = jQuery('.les-lieux');
-                    elementToSave = jQuery('#map .leaflet-map-pane');
                     elementToSave = jQuery('#map');
                     html2canvas(elementToSave.get(0), {
                         onrendered : function(canvas) {
                             var url = canvas.toDataURL();
-                            var img = jQuery('<img style="max-width:100%;"/>')
-                                    .attr('src', url);
+                            var img = jQuery('<img style="max-width:100%;"/>').attr('src', url);
                             imgPanel.append(img);
-
-// imgPanel.append(canvas)
-// msgPanel.hide();
-// imgPanel.show();
+                            imgPanel.show();
+                            msgPanel.hide();
                             imgCanvas[0] = canvas;
                         }
                     });
@@ -1028,7 +1022,7 @@ $(window).load(function(){
         $map.height(jQuery(window).height() - tbh);   
     }
 
-    /*gestion mobile view tabs (scroll to menu or list)*/
+    /* gestion mobile view tabs (scroll to menu or list) */
     jQuery('.tab-to-list').on('click', function(){
         jQuery.scrollTo('.sidebar', 200);
     });
