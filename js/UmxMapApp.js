@@ -72,7 +72,7 @@
         }
         map.setView(mapCenter, mapZoom);
         L.tileLayer(tilesUrl, options).addTo(map);
-        var attribution = 'Carte motorisée par <a href="http://leafletjs.com">Leaflet</a>'
+        var attribution = 'Carte motorisée par <a href="http://leafletjs.com">Leaflet</a>,'
                 + ' tuilée à partir de <a href="http://www.mapbox.com/">MapBox</a>'
                 + ' et composée avec les données d\'<a href="http://www.openstreetmap.org">OpenStreetMap</a>';
         L.control.attribution({
