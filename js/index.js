@@ -1120,7 +1120,7 @@ $(window).load(function(){
     loadLastTweet();
 
     function showTwitter(data){
-        var tweet = data[0];
+        var tweet = data;
         if (!tweet) {
             jQuery('.social .left').html('&nbsp;').removeClass('left');
             return ;
