@@ -1021,7 +1021,7 @@ $(window).load(function(){
         var wh = jQuery(window).height();
         var embedded = jQuery('body').hasClass('mode-embed-readonly');
         var mobileView = jQuery('html').hasClass('mobile-view');
-        var tbh = embedded || mobileView ? 0 : jQuery('#topbar').height();
+        var tbh = embedded || mobileView ? 0 : jQuery('#topbar').outerHeight();
         $map.height(jQuery(window).height() - tbh);   
     }
 
