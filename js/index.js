@@ -129,16 +129,12 @@ $(window).load(function(){
         
         var address = formatAddress();
         item.find('.location').html(address);
-        var viewOnMapLink = $('<a/>',{
-            href    : '#',
-            'class' : 'view-on-map',
-            text    : 'Afficher sur la carte'
-        }).on('click', function(ev){
+        item.find('.view-on-map').on('click', function(ev){
             ev.preventDefault();
             dataManager.selectItemById(id, true);   
             jQuery.scrollTo(jQuery('#map'), 400); 
             
-        }).appendTo(item.find('.location'));
+        });
         
         
         var tagTmpl = item.find('.tags');
@@ -189,7 +185,7 @@ $(window).load(function(){
         editUrl += 'edition.html#' + id;
         item.find('.edit').attr('href', editUrl);
 
-        item.find('.more a').on('click', function(ev) {
+        item.find('.more').on('click', function(ev) {
             ev.preventDefault();
             var itemInList = jQuery(".un-lieu[data-id='" + id + "']");
             jQuery.scrollTo(itemInList, 400);

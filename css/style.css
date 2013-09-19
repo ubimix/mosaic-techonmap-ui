@@ -1456,8 +1456,9 @@ a.leaflet-control-zoom-out:hover {
 
 .leaflet-popup-content strong {
 	color: #999999;
-	display: block;
 	font-size: 18px;
+	display: block;
+	margin-right: 40px;
 }
 
 .leaflet-popup-content .category {
@@ -1528,6 +1529,7 @@ body.mode-embed-full #topbar .social {
 .map-popup .info-line.location a{
 	display: none;
 }
+
 .un-lieu .info-line.more {
     display: none;
 }
