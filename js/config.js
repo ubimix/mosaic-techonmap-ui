@@ -1,7 +1,7 @@
 window.appConfig = {
     'loadUrl' : function() {
-        return '/api/items?' + Math.random();
-        //return './data/data.json';
+        //return '/api/items?' + Math.random();
+        return './data/data.json';
     },
     'storeUrl' : function() {
         return '/api/items';
