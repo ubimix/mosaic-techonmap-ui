@@ -126,7 +126,12 @@ table {
 	cursor:pointer;
 	display: none;
 }
-
+.tab-up{
+	background: url(../images/arrow-up.png) 50% 50% no-repeat #fff;
+}
+.tab-down{
+	background: url(../images/arrow-down.png) 50% 50% no-repeat #fff;
+}
 /*pictos*/
 
 .picto-minus {
@@ -873,7 +878,6 @@ body.lightbox-open {
 	margin-top: 10px;
 	z-index: 9;
 	position: absolute;
-	background: url(../images/arrow-up.png) 50% 50% no-repeat #fff;
 
 }
 
@@ -887,7 +891,6 @@ body.lightbox-open {
 	border:1px solid #DDDDDD;
 	z-index: 1000;
 	border-bottom: 0;
-	background: url(../images/arrow-down.png) 50% 50% no-repeat #fff;
 
 }
 .sidebar.minimized .sidebar-content {

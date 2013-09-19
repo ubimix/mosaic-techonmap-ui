@@ -1027,16 +1027,48 @@ $(window).load(function(){
 
     /* gestion mobile view tabs (scroll to menu or list) */
     jQuery('.tab-to-list').on('click', function(){
-        jQuery.scrollTo('.sidebar', 200);
+        if(jQuery(this).hasClass('tab-up')){
+            jQuery.scrollTo('#map', 200);
+        }
+        else{
+            var wh = jQuery(window).height();
+            jQuery.scrollTo('.sidebar', 200, {offset : {top : -wh/2}});
+        }
     });
     jQuery('.tab-to-menu').on('click', function(){
-        jQuery.scrollTo('#topbar', 200);
+        if(jQuery(this).hasClass('tab-down')){
+            jQuery.scrollTo('#map', 200);
+        }
+        else{
+            jQuery.scrollTo('#topbar', 200);
+        }
+    });
+
+    jQuery(window).scroll(function(){ /*tab background managment*/
+        var topbarHeight = jQuery('#topbar').outerHeight();
+        var windowScroll = jQuery('body,html').scrollTop();
+
+        var tabToMenu = jQuery('.tab-to-menu');
+        var tabToList = jQuery('.tab-to-list');
+
+        if(windowScroll > topbarHeight){
+            tabToList.removeClass('tab-down').addClass('tab-up');
+        }
+        else if(tabToList.hasClass('tab-up')){
+            tabToList.removeClass('tab-up').addClass('tab-down');
+        }
+
+        if(windowScroll < topbarHeight){
+            tabToMenu.removeClass('tab-up').addClass('tab-down');
+        }
+        else if(tabToMenu.hasClass('tab-down')){
+            tabToMenu.removeClass('tab-down').addClass('tab-up');
+        }
     });
 
 	jQuery(window).resize(function(){
 		mediaqueries();
         mapHeight();
-
 	});	
 	mediaqueries();
     mapHeight();
