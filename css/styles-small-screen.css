@@ -9,7 +9,7 @@
          float: right;
          width: 25px;
          height: 25px;
-         background: silver;
+         background: url(../images/picto-list.png) 50% 50% no-repeat;
          margin-right: 15px;
          cursor: pointer;
     }
@@ -18,7 +18,7 @@
         float: right;
         height: 25px;
         width: 25px;
-        background: silver;
+        background: url(../images/picto-marker.png) 50% 50% no-repeat;
     }
     .sidebar .sidebar-content .un-lieu.open .view-on-map{
         display: block;
