@@ -1141,11 +1141,12 @@ $(window).load(function(){
 
     function loadLastTweet() {
 	$.getJSON(window.appConfig.lastTweetUrl(), function(data) {
+	    console.log('data:', data)
 		showTwitter(data);	
 	}).fail( function(error) {console.log("Error:" +error);});
 
     }
-    loadLastTweet();
+    //loadLastTweet();
 
     function showTwitter(data){
         var tweet = data;

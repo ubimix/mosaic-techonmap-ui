@@ -1,16 +1,22 @@
 window.appConfig = {
     'loadUrl' : function() {
-        //return '/api/items?' + Math.random();
-        return './data/data.json';
+        // return '/api/items?' + Math.random();
+        // return './data/data.json';
+        return '../api/resources/export'
     },
-    'storeUrl' : function() {
-        return '/api/items';
+    'storeUrl' : function(point) {
+        console.log(point);
+        var id = '';
+        if (point && point.properties && point.properties.id)
+            id = point.properties.id;
+        return '/api/resources/' + id;
+
     },
     'loginCheckUrl' : function() {
-        return '/api/auth';
+        return '/api/auth/user';
     },
     'authenticationUrl' : function(id) {
-        return '/auth/twitter?xredirect=/techonmap/edition.html%23' + id;
+        return '/api/auth/twitter?oauth_callback=/map/edition.html%23' + id;
     },
     'lastTweetUrl' : function() {
         return '/api/twitter/last';

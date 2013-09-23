@@ -22,33 +22,41 @@
             this.setOptions(options);
         },
 
+        getOptionValue : function(field, defaultValue, param) {
+            var value = defaultValue;
+            if (this.options[field]) {
+                if (typeof this.options[field] == 'function') {
+                    value = this.options[field](param);
+                } else {
+                    value = this.options[field];
+                }
+            }
+            return value;
+        },
+
         /**
          * This method is used to store the specified point.
          */
         store : function(point, onSuccess, onFailure) {
-            var url = this.options.storeUrl || DEFAULT_STORE_URL;
+            var url = this.getOptionValue('storeUrl', DEFAULT_STORE_URL, point);
             var data = JSON.stringify(point);
-            //$.post(url, point, onSuccess).fail(onFailure);
-
+            // $.post(url, point, onSuccess).fail(onFailure);
             $.ajax({
-                url: url,
-                type: "POST",
-                data: data,
-                contentType: "application/json; charset=utf-8",
-                dataType:"json",
-                success: onSuccess,
-                error: onFailure
+                url : url,
+                type : 'PUT',
+                data : data,
+                contentType : 'application/json; charset=utf-8',
+                dataType : 'json',
+                success : onSuccess,
+                error : onFailure
             });
-
-
-
         },
 
         /**
          * Loads all data corresponding to the specified search criteria.
          */
         load : function(onSuccess, onFailure) {
-            var url = this.options.loadUrl || DEFAULT_LOAD_URL;
+            var url = this.getOptionValue('loadUrl', DEFAULT_LOAD_URL, {});
             $.getJSON(url, onSuccess).fail(onFailure);
         }
 
@@ -103,10 +111,8 @@
                 }
             }
             filteredData.sort(function(a, b) {
-                var aName = a.properties ? (a.properties.name + '')
-                        .toLowerCase() : '';
-                var bName = b.properties ? (b.properties.name + '')
-                        .toLowerCase() : '';
+                var aName = a.properties ? (a.properties.name + '').toLowerCase() : '';
+                var bName = b.properties ? (b.properties.name + '').toLowerCase() : '';
                 return aName > bName ? 1 : aName < bName ? -1 : 0;
             })
             return filteredData;
@@ -179,13 +185,11 @@
                 return Math.min(a, b) <= value && Math.max(a, b) >= value;
             }
             var result = true;
-            var coordinates = point.geometry ? point.geometry.coordinates
-                    : null;
+            var coordinates = point.geometry ? point.geometry.coordinates : null;
             if (coordinates) {
                 var sw = bounds[0];
                 var ne = bounds[1];
-                result = inRange(coordinates[0], sw[0], ne[0])
-                        && inRange(coordinates[1], sw[1], ne[1]);
+                result = inRange(coordinates[0], sw[0], ne[0]) && inRange(coordinates[1], sw[1], ne[1]);
             }
             return result;
         },
@@ -199,8 +203,7 @@
         _match : function(point, filterProperties) {
             if (!filterProperties)
                 return true;
-            if ((point.type !== 'Feature') || (!point.geometry)
-                    || (point.geometry.type !== 'Point'))
+            if ((point.type !== 'Feature') || (!point.geometry) || (point.geometry.type !== 'Point'))
                 return false;
             var result = true;
             var properties = point.properties;
@@ -221,8 +224,7 @@
                     continue;
                 var funcName = '_matchProperty_' + key.toLowerCase();
                 if (typeof this[funcName] === 'function') {
-                    result = this[funcName].call(this, filterProperties,
-                            properties, key);
+                    result = this[funcName].call(this, filterProperties, properties, key);
                 } else {
                     result = this._checkValue(mask, properties[key]);
                 }
@@ -237,8 +239,7 @@
          */
         _matchProperty_name : function(filter, properties, key) {
             var mask = filter['name'];
-            return this._checkValue(mask, properties['name'])
-                    || this._checkValue(mask, properties['description']);
+            return this._checkValue(mask, properties['name']) || this._checkValue(mask, properties['description']);
         },
 
         /**
@@ -365,15 +366,13 @@
 
         /** Selects an item with the specified identifier */
         selectItemById : function(id, force) {
-            this._switchItem(id, 'selectedItem', 'item:select',
-                    'item:deselect', force);
+            this._switchItem(id, 'selectedItem', 'item:select', 'item:deselect', force);
             this.activateItemById(id, force);
         },
 
         /** Activates an item with the specified identifier */
         activateItemById : function(id, force) {
-            this._switchItem(id, 'activeItem', 'item:activate',
-                    'item:deactivate', force);
+            this._switchItem(id, 'activeItem', 'item:activate', 'item:deactivate', force);
         },
 
         /** Updates the properties filter */
@@ -532,10 +531,8 @@
             }
 
             var newFilter = {};
-            newFilter.geometry = update(this.filter.geometry, filter.geometry,
-                    replace);
-            newFilter.properties = update(this.filter.properties,
-                    filter.properties, replace);
+            newFilter.geometry = update(this.filter.geometry, filter.geometry, replace);
+            newFilter.properties = update(this.filter.properties, filter.properties, replace);
             if (!equal(this.filter, newFilter)) {
                 this.filter = newFilter;
                 this.fire('filter:updated', {
@@ -577,8 +574,7 @@
             this.fire('search:begin', {
                 filter : this.filter
             });
-            var result = this.filterService.filterByProperties(
-                    this.data.features, this.filter.properties);
+            var result = this.filterService.filterByProperties(this.data.features, this.filter.properties);
             this.filteredData = result;
             this.fire('search:end', {
                 filter : this.filter,

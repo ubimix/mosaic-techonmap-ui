@@ -44,11 +44,11 @@ jQuery(function() {
     });
 
     jQuery('.twitter-auth').click(function() {
-    	var e = $(this);
-	var id = getItemIdFromHash() || "";
+        var e = $(this);
+        var id = getItemIdFromHash() || "";
         var href = window.appConfig.authenticationUrl(id);
         window.location = href;
- 	return false;
+        return false;
     });
 
     var form = jQuery('#edit-form')
@@ -123,8 +123,7 @@ jQuery(function() {
     for ( var categoryId in categories) {
         var category = categories[categoryId];
         var name = category.name;
-        jQuery('<option></option>').attr('data-category-id', categoryId).val(
-                categoryId).html(name).appendTo(categorySelector);
+        jQuery('<option></option>').attr('data-category-id', categoryId).val(categoryId).html(name).appendTo(categorySelector);
     }
 
     var formFields = {};
@@ -178,8 +177,7 @@ jQuery(function() {
         // Fixing fields
 
         { // Creation year
-            var creationyear = properties.creationyear
-                    || new Date().getFullYear();
+            var creationyear = properties.creationyear || new Date().getFullYear();
             setField('creationyear', creationyear);
         }
 
@@ -242,9 +240,8 @@ jQuery(function() {
             var searchAction = new umx.SearchAction();
             refreshAddr.click(function(e) {
                 e.preventDefault();
-                var address = formatAddress(addressStreetTracker.getValue(),
-                        addressPostcodeTracker.getValue(), addressCityTracker
-                                .getValue());
+                var address = formatAddress(addressStreetTracker.getValue(), addressPostcodeTracker.getValue(),
+                        addressCityTracker.getValue());
                 searchAction.search({
                     address : address,
                     onSuccess : function(suggestions) {
@@ -269,10 +266,20 @@ jQuery(function() {
             addressPostcodeTracker.reset();
             addressCityTracker.reset();
         }
+        { // Identifier
+            var id = properties.id;
+            var idField = $('[data-field="id"]');
+            if (id) {
+                idField.parent().hide();
+                // idField.attr('disabled', 'disabled')
+            } else {
+                //idField.removeAttr('disabled');
+            }
+        }
+
         {// Categories
             var category = properties.category;
-            var option = categorySelector.find('option[data-category-id='
-                    + category + ']');
+            var option = categorySelector.find('option[data-category-id=' + category + ']');
             option.prop('selected', true);
             var categoryTracker = getField('category', true);
             // categoryTracker.validate();
@@ -304,8 +311,7 @@ jQuery(function() {
                 var validator = validators[i];
                 var value = validator.getValue();
                 if (!validator.validate()) {
-                    console.log('Field [' + key + '][' + i + ']="' + value
-                            + '" is invalid!');
+                    console.log('Field [' + key + '][' + i + ']="' + value + '" is invalid!');
                 } else {
                     console.log(key, validator);
                     if (value != '') {
@@ -341,34 +347,31 @@ jQuery(function() {
         }
         fillForm(point);
     });
-    
-    
 
     function onLoginCheckSuccess(data) {
         if (data) {
-            var props = data.properties;
-            var isLogged = props.isLogged;
+            var props = data;
+            var isLogged = props.displayName;
             if (isLogged) {
-                //$(":input").removeAttr("disabled");
-		$('#explanation').show();
-		$('#edit-form').show();
-                $("#twitter-auth-panel").css("display","none");
+                // $(":input").removeAttr("disabled");
+                $('#explanation').show();
+                $('#edit-form').show();
+                $("#twitter-auth-panel").css("display", "none");
             } else {
-		$('#explanation').hide();
-		$('#edit-form').hide();
-		//$(":input").attr("disabled","disabled");
-	    }
+                $('#explanation').hide();
+                $('#edit-form').hide();
+                // $(":input").attr("disabled","disabled");
+            }
         }
-   
+
     }
 
     function onLoginCheckFailure() {
         alert($('#login-error').text());
     }
 
-
     $.getJSON(window.appConfig.loginCheckUrl(), onLoginCheckSuccess).fail(onLoginCheckFailure);
-    
+
     dataManager.resetFilter();
-    
+
 });

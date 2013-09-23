@@ -50,8 +50,7 @@
      */
     function newMap(container) {
         container = $(container);
-        var center = container.data('map-center')
-                || [ 2.3357025512, 48.872630327 ];
+        var center = container.data('map-center') || [ 2.3357025512, 48.872630327 ];
         var mapZoom = container.data('map-zoom') || 10;
         var mapCenter = toLatLng(center);
         var boundingBox = container.data('map-bounding-box');
@@ -105,8 +104,7 @@
 
     /** This method returns named request parameters of the current page */
     function getURLParameter(name) {
-        return decodeURIComponent((new RegExp('[?|&]' + name + '='
-                + '([^&;]+?)(&|#|;|$)').exec(location.search) || [ , "" ])[1]
+        return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [ , "" ])[1]
                 .replace(/\+/g, '%20'))
                 || null;
     }
@@ -229,11 +227,7 @@
     })
 
     /* A global DataManager and event bus used to propagate events */
-    var storeService = context.storeService = new umx.StoreService({
-        loadUrl : appConfig.loadUrl(),
-        storeUrl : appConfig.storeUrl()
-
-    });
+    var storeService = context.storeService = new umx.StoreService(appConfig);
     var dataManager = context.dataManager = new umx.DataManager(storeService);
 
     // URL hash management
@@ -284,8 +278,10 @@
             jQuery('#loading').show();
         }
         loading++;
+        // console.log('loading (show):', loading, new Error().stack);
     }
     function hideLoadingMessage() {
+        // console.log('loading (hide):', loading, new Error().stack);
         loading--;
         if (loading == 0) {
             jQuery('#loading').hide();
