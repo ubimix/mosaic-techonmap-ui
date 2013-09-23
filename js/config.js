@@ -16,7 +16,7 @@ window.appConfig = {
         return '/api/auth/user';
     },
     'authenticationUrl' : function(id) {
-        return '/api/auth/twitter?oauth_callback=/map/edition.html%23' + id;
+        return '/api/auth/twitter?redirect=/map/edition.html%23' + id;
     },
     'lastTweetUrl' : function() {
         return '/api/twitter/last';
