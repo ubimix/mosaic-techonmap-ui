@@ -43,10 +43,11 @@ jQuery(function() {
         return false;
     });
 
-    jQuery('.twitter-auth').click(function() {
+    jQuery('.social-auth').click(function() {
         var e = $(this);
+        var network = e.data('network');
         var id = getItemIdFromHash() || "";
-        var href = window.appConfig.authenticationUrl(id);
+        var href = window.appConfig.authenticationUrls(network, id);
         window.location = href;
         return false;
     });

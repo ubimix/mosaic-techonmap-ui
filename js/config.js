@@ -15,8 +15,16 @@ window.appConfig = {
     'loginCheckUrl' : function() {
         return '/api/auth/user';
     },
-    'authenticationUrl' : function(id) {
-        return '/api/auth/twitter?redirect=/map/edition.html%23' + id;
+    'authenticationUrls' : function(service, id) {
+        var endpoints = {
+            twitter : '/api/auth/twitter',
+            google : '/api/auth/google',
+            facebook : '/api/auth/facebook'
+        };
+        if (service && endpoints[service])
+            return endpoints[service] + '?redirect=/map/edition.html%23' + id;
+        else
+            return '/login';
     },
     'lastTweetUrl' : function() {
         return '/api/twitter/last';
