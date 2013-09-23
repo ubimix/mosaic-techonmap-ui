@@ -1146,7 +1146,7 @@ $(window).load(function(){
 	}).fail( function(error) {console.log("Error:" +error);});
 
     }
-    //loadLastTweet();
+    loadLastTweet();
 
     function showTwitter(data){
         var tweet = data;
