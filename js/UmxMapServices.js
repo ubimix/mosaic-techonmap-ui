@@ -101,6 +101,7 @@
          *            execution context for the filtering function ('this')
          */
         filterItems : function(items, filterFunc, context) {
+
             var filteredData = [];
             context = context || this;
             var len = items ? items.length : 0;
@@ -211,12 +212,12 @@
             for ( var key in filterProperties) {
                 if (!result)
                     break;
-                if (!filterProperties.hasOwnProperty(key))
-                    continue;
-                if (!properties.hasOwnProperty(key)) {
-                    result = false;
-                    continue;
-                }
+//                if (!filterProperties.hasOwnProperty(key))
+//                    continue;
+//                if (!properties.hasOwnProperty(key)) {
+//                    result = false;
+//                    continue;
+//                }
                 var mask = filterProperties[key];
                 if (mask === '')
                     continue;
@@ -571,15 +572,30 @@
             if (!this.data) {
                 return;
             }
+            if (!this._searchId) {
+                this._searchCounter = 0;
+                this._searchId = 0;
+            }
+            var searchId = ++this._searchId;
+            ++this._searchCounter;
             this.fire('search:begin', {
+                searchId : searchId,
+                searchCounter : this._searchCounter,
                 filter : this.filter
             });
-            var result = this.filterService.filterByProperties(this.data.features, this.filter.properties);
-            this.filteredData = result;
-            this.fire('search:end', {
-                filter : this.filter,
-                result : result
-            });
+            var result = null;
+            try {
+                result = this.filterService.filterByProperties(this.data.features, this.filter.properties);
+                this.filteredData = result;
+            } finally {
+                this.fire('search:end', {
+                    searchId : searchId,
+                    searchCounter : this._searchCounter,
+                    filter : this.filter,
+                    result : result
+                });
+                this._searchCounter--;
+            }
         }
     })
 

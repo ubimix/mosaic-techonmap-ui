@@ -74,13 +74,18 @@
         fireEvent : function(/* String */topic, /* Object */
         event, /* Function - optional */callback, /* Object - optional */
         callbackContext) {
-            this._queue = {
+            var item = {
                 topic : topic,
                 event : event,
                 callback : callback,
                 callbackContext : callbackContext,
-                next : this._queue
-            };
+            }
+            if (!this._queue) {
+                this._queue = item;
+                this._top = item;
+            } else {
+                this._top.next = item;
+            }
             if (!this._running) {
                 this._running = true;
                 try {
@@ -92,13 +97,11 @@
                         if (list) {
                             for ( var i = 0; i < list.length; i++) {
                                 var slot = list[i];
-                                slot.listener.call(slot.context || this,
-                                        top.event);
+                                slot.listener.call(slot.context || this, top.event);
                             }
                         }
                         if (top.callback) {
-                            top.callback.call(top.callbackContext
-                                    || top.callback, top.event);
+                            top.callback.call(top.callbackContext || top.callback, top.event);
                         }
                     }
                 } finally {
@@ -123,8 +126,7 @@
                     context = context || this;
                     while (len--) {
                         var slot = list[len];
-                        if (slot.listener === callback
-                                && (!context || slot.context === context)) {
+                        if (slot.listener === callback && (!context || slot.context === context)) {
                             list.splice(len, 1);
                         }
                     }

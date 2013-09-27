@@ -1018,8 +1018,15 @@ body.lightbox-open {
     height: 100%;
     float: right;
     border-left: 1px solid #DDDDDD;
-    cursor: pointer;
     background: url(../images/picto-cross.png) 50% 50% no-repeat;
+}
+
+.sidebar .sidebar-content .les-filtres li.go-tags {
+	cursor: default;
+}
+
+.clear-tags {
+	cursor: pointer;
 }
 
 
@@ -1537,3 +1544,7 @@ body.mode-embed-full #topbar .social {
     display: block;
 }
 
+
+.go-tags {
+	display: none;	
+}

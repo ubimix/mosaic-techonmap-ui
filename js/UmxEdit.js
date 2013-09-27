@@ -63,6 +63,9 @@
                 this._notifyChanges();
             }
         },
+        getOriginalValue : function() {
+            return this.prevValue;
+        },
         validate : function() {
             var result = !this.options.validate || !this.element.parsley
                     || this.element.parsley('validate');
