@@ -1011,7 +1011,12 @@ $(window).load(function(){
         var embedded = jQuery('body').hasClass('mode-embed-readonly');
         var mobileView = jQuery('html').hasClass('mobile-view');
         var tbh = embedded || mobileView ? 0 : jQuery('#topbar').outerHeight();
-        $map.height(jQuery(window).height() - tbh);   
+        if(/iP/.test(navigator.platform) && /Safari/i.test(navigator.userAgent)){
+            $map.height(jQuery(window).height() + 60); // because of the safari url bar on iphone/ipads   
+        }
+        else{
+            $map.height(jQuery(window).height() - tbh);   
+        }
     }
 
     /* gestion mobile view tabs (scroll to menu or list) */
@@ -1034,6 +1039,13 @@ $(window).load(function(){
     });
 
     jQuery(window).scroll(function(){ /* tab background managment */
+        if(/iP/.test(navigator.platform) && /Safari/i.test(navigator.userAgent)){
+            var topbarHeight = jQuery('#topbar').outerHeight() + 60;
+        }
+        else{
+            var topbarHeight = jQuery('#topbar').outerHeight();
+        }
+        
         var topbarHeight = jQuery('#topbar').outerHeight();
         var windowScroll = jQuery('body,html').scrollTop();
 
