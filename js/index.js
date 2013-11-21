@@ -574,7 +574,7 @@ $(window).load(function(){
         // Remove all internal identifiers
         for (var i=0; i<len; i++) {
             var item = list[i];
-            delete item._id;
+            delete item.id;
             delete item.dirty;
         }
         var json = JSON.stringify(data, null, 2);
