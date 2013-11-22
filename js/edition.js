@@ -47,10 +47,11 @@ jQuery(function() {
         return false;
     });
 
-    jQuery('.twitter-auth').click(function() {
+    jQuery('.social-auth').click(function() {
         var e = $(this);
+        var network = e.data('network');
         var id = getItemIdFromHash() || "";
-        var href = window.appConfig.authenticationUrl(id);
+        var href = window.appConfig.authenticationUrls(network, id);
         window.location = href;
         return false;
     });
@@ -253,7 +254,8 @@ jQuery(function() {
                 refreshAddr.removeAttr('disabled');
             })
             marker.addTo(map);
-            map.setView(coords, zoom);
+            map.setView(coords, zoom, {reset: true});
+            map.invalidateSize(true);
 
             var searchAction = new umx.SearchAction();
             refreshAddr.click(function(e) {
@@ -305,8 +307,38 @@ jQuery(function() {
             var categoryTracker = getField('category', true);
             // categoryTracker.validate();
         }
+        
+        
+        var idTracker = getField('id', true);
+        var nameTracker = getField('name', true);
+        nameTracker.on('changed', function() {
+            var id = normalizeName(nameTracker.getValue());
+            idTracker.setValue(id, true);
+        });
+        
         checkDescriptionLength();
     }
+    
+   function normalizeName(str) {
+        if (!str || str == '')
+            return '';
+        str = str + '';
+        str = str.toLowerCase();
+        str = str.replace(/[\s.|<>&\'"()\\\/%]+/g, '-');
+        str = str.replace(/-+/g, '-');
+        str = str.replace(/^\s+|\s+$/g, '');
+        str = str.replace(/[ùûü]/g, 'u');
+        str = str.replace(/[ÿ]/g, 'y');
+        str = str.replace(/[àâ]/g, 'a');
+        str = str.replace(/[æ]/g, 'ae');
+        str = str.replace(/[ç]/g, 'c');
+        str = str.replace(/[éèêë]/g, 'e');
+        str = str.replace(/[ïî]/g, 'i');
+        str = str.replace(/[ô]/g, 'o');
+        str = str.replace(/[œ]/g, 'oe');
+        return str;
+    }
+
 
     function getDataFromForm(errors) {
         errors = errors || {};

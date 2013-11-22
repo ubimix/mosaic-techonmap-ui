@@ -144,6 +144,7 @@ $(window).load(function(){
             tagTmpl.find('a').click(function() {
                 var tag = $(this).html();
                 tag = tag.substring(1);
+                $('.go-tags').css('display','block');
                 dataManager.setTagFilter([tag]);
                 return false;
             });
@@ -262,7 +263,6 @@ $(window).load(function(){
         if (!callback) {
             callback = function() {}
         }
-        dataManager.fire('map-reload:begin', {});
         setTimeout(function() {
             hideMarkers();
             markerLayer = new L.MarkerClusterGroup({
@@ -280,13 +280,7 @@ $(window).load(function(){
             var bounds = calculateBounds(data);
             if (bounds) {
                 map.fitBounds(bounds);
-                var f = function() {
-                    map.off('zoomend', f);
-                    dataManager.fire('map-reload:end', {}, callback);
-                }
-                map.on('zoomend', f);
             } else {
-                dataManager.fire('map-reload:end', {}, callback);
             }
         }, 10);
     }
@@ -759,6 +753,7 @@ $(window).load(function(){
         if(jQuery('.sidebar').hasClass('minimized')){
             maximizeSidebar();
         }
+        $('.go-tags').css('display','none');
         dataManager.setTagFilter([]);
     });
 
@@ -839,12 +834,10 @@ $(window).load(function(){
         var input = jQuery(this);
         var tracker = new ValueTracker(input);
         tracker.on('changed', function() {
-            searchAction.run(function() {
                 var query = tracker.getValue()||'';
-                if (query != '') {
+                searchAction.run(function() {
                     dataManager.setNameFilter(query);
-                }
-            })
+                })
         })
         searchBoxTrackers.push(tracker);
     });
@@ -1018,7 +1011,12 @@ $(window).load(function(){
         var embedded = jQuery('body').hasClass('mode-embed-readonly');
         var mobileView = jQuery('html').hasClass('mobile-view');
         var tbh = embedded || mobileView ? 0 : jQuery('#topbar').outerHeight();
-        $map.height(jQuery(window).height() - tbh);   
+        if(/iP/.test(navigator.platform) && /Safari/i.test(navigator.userAgent)){
+            $map.height(jQuery(window).height() + 60); // because of the safari url bar on iphone/ipads   
+        }
+        else{
+            $map.height(jQuery(window).height() - tbh);   
+        }
     }
 
     /* gestion mobile view tabs (scroll to menu or list) */
@@ -1040,7 +1038,14 @@ $(window).load(function(){
         }
     });
 
-    jQuery(window).scroll(function(){ /*tab background managment*/
+    jQuery(window).scroll(function(){ /* tab background managment */
+        if(/iP/.test(navigator.platform) && /Safari/i.test(navigator.userAgent)){
+            var topbarHeight = jQuery('#topbar').outerHeight() + 60;
+        }
+        else{
+            var topbarHeight = jQuery('#topbar').outerHeight();
+        }
+        
         var topbarHeight = jQuery('#topbar').outerHeight();
         var windowScroll = jQuery('body,html').scrollTop();
 
@@ -1146,7 +1151,7 @@ $(window).load(function(){
 	}).fail( function(error) {console.log("Error:" +error);});
 
     }
-    //loadLastTweet();
+    loadLastTweet();
 
     function showTwitter(data){
         var tweet = data;

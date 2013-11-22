@@ -72,9 +72,10 @@
 	margin-top: 1em;
 }
 
-.twitter-auth {
+.social-auth {
 	background: url(./images/btn-green-tick.png) 100% 50% no-repeat #53c591;
 	margin-right: 0.5em;
+	width: 25%;
 }
 
 #referesh-marker {
@@ -167,8 +168,16 @@ p.help {
 			<p class="help">L'ajout ou la modification de données sur
 				TechOnMap nécessite une authentification Twitter.</p>
 			<p style="text-align: center; margin-top: 0em; margin-bottom: 1.5em;">
-				<a href="" class="btn-gray twitter-auth">S'identifier avec
-					Twitter</a>
+				<a href="" class="btn-gray social-auth" data-network="twitter">S'identifier
+					avec Twitter</a>
+			</p>
+			<p style="text-align: center; margin-top: 0em; margin-bottom: 1.5em;">
+				<a href="" class="btn-gray social-auth" data-network="google">S'identifier
+					avec Google</a>
+			</p>
+			<p style="text-align: center; margin-top: 0em; margin-bottom: 1.5em;">
+				<a href="" class="btn-gray social-auth" data-network="facebook">S'identifier
+					avec Facebook</a>
 			</p>
 		</div>
 		<div id="explanation" style="display: none;">
@@ -199,18 +208,6 @@ p.help {
 				obligatoires.
 			</p>
 			<div class="une-ligne std">
-				<span
-					class="field-marker mandatory"></span> <input data-field="id"
-					type="text" data-regexp="^.*$" data-required="true"
-					data-error-container="#id-error" data-unique="#id-error"
-					data-unique-message="Un organisme portant une clef est déjà référencé. Cliquez <a>ici</a> pour l'éditer."
-					placeholder="Nom de votre organisation"></input>
-				<div class="label">
-					<span class="help">ID de votre organisation</span> <span
-						class="errormsg" id="id-error"></span>
-				</div>
-			</div>
-			<div class="une-ligne std">
 				<span class="field-marker mandatory"></span> <input
 					data-field="name" type="text" data-required="true"
 					data-error-container="#name-error" data-unique="#name-error"
@@ -219,6 +216,18 @@ p.help {
 				<div class="label">
 					<span class="help">Tapez le nom de votre organisation</span> <span
 						class="errormsg" id="name-error"></span>
+				</div>
+			</div>
+			<div class="une-ligne std">
+				<span class="field-marker mandatory"></span> <input data-field="id"
+					type="text" data-regexp="^.*$" data-required="true"
+					data-error-container="#id-error" data-unique="#id-error"
+					data-unique-message="Un organisme ayant cet identifiant est déjà référencé. Cliquez <a>ici</a> pour l'éditer."
+					placeholder="Identifiant de votre organisation"></input>
+				<div class="label">
+					<span class="help">Tapez l'identifiant de votre organisation
+						(celui-ci sera utilisé pour le lien d'accès direct à votre
+						organisation sur TechOnMap).</span> <span class="errormsg" id="id-error"></span>
 				</div>
 			</div>
 			<div class="une-ligne std">
@@ -308,9 +317,9 @@ p.help {
 					localisation en glissant-déposant le marqueur.</span>
 				<div class="clear"></div>
 			</div>
-			<div class="map" data-map-center="48.872630327,2.3357025512"
+			<div class="map" data-map-center="2.3357025512,48.872630327"
 				data-map-zoom="13" data-map-min-zoom="3" data-map-max-zoom="16"
-		        data-map-bounding-box="[[1.351318359375, 49.24270720875383],[3.6419677734374996,48.10743118848039]]"
+		        data-map-bounding-box="[[1.351318359375,49.24270720875383],[3.6419677734374996,48.10743118848039]]"
 				data-map-tiles="http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/997/256/{z}/{x}/{y}.png"
 				data-map-tiles-mapbox="http://{s}.tiles.mapbox.com/v3/antony.map-vrkg66p0/{z}/{x}/{y}.png"></div>
 

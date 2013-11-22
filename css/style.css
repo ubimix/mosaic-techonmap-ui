@@ -1018,8 +1018,15 @@ body.lightbox-open {
     height: 100%;
     float: right;
     border-left: 1px solid #DDDDDD;
-    cursor: pointer;
     background: url(../images/picto-cross.png) 50% 50% no-repeat;
+}
+
+.sidebar .sidebar-content .les-filtres li.go-tags {
+	cursor: default;
+}
+
+.clear-tags {
+	cursor: pointer;
 }
 
 
@@ -1405,7 +1412,9 @@ body.lightbox-open {
 	box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3)
 }
 
-a.leaflet-control-zoom-in {
+.leaflet-touch a.leaflet-control-zoom-in,
+a.leaflet-control-zoom-in
+ {
 	width: 41px;
 	height: 41px;
 	border: 0 !important;
@@ -1415,7 +1424,9 @@ a.leaflet-control-zoom-in {
 	background: url(../images/picto-zoom-in.png) 50% 50% no-repeat;
 }
 
-a.leaflet-control-zoom-out {
+.leaflet-touch a.leaflet-control-zoom-out,
+a.leaflet-control-zoom-out
+ {
 	width: 41px;
 	height: 41px;
 	text-indent: -999px;
@@ -1537,3 +1548,7 @@ body.mode-embed-full #topbar .social {
     display: block;
 }
 
+
+.go-tags {
+	display: none;	
+}

@@ -63,7 +63,9 @@
             tilesUrl : tilesUrl,
             maxZoom : maxZoom,
             minZoom : minZoom,
-            attributionControl : false
+            attributionControl : false,
+            trackResize: true
+            
         }
         var map = L.map(container[0], options);
         if (boundingBox) {
@@ -278,22 +280,37 @@
             jQuery('#loading').show();
         }
         loading++;
-        // console.log('loading (show):', loading, new Error().stack);
+        //console.log('loading (show):', loading, new Error().stack);
     }
     function hideLoadingMessage() {
-        // console.log('loading (hide):', loading, new Error().stack);
+        //console.log('loading (hide):', loading, new Error().stack);
         loading--;
         if (loading == 0) {
             jQuery('#loading').hide();
         }
     }
-    dataManager.on('search:begin', showLoadingMessage)
-    dataManager.on('search:end', hideLoadingMessage);
-    dataManager.on('load:begin', showLoadingMessage);
-    dataManager.on('load:end', hideLoadingMessage);
-    dataManager.on('map-reload:begin', showLoadingMessage);
-    dataManager.on('map-reload:end', hideLoadingMessage);
-    dataManager.on('list-reload:begin', showLoadingMessage);
+    dataManager.on('search:begin', function(event) {
+        //console.log('*** [search:begin] ', JSON.stringify(event, null, 2));
+        showLoadingMessage();
+    });
+    dataManager.on('search:end', function(event) {
+        //console.log('*** [search:end] ', JSON.stringify(event, null, 2));
+        hideLoadingMessage();
+    });
+    
+    dataManager.on('filter:updated', function(event) {
+        console.log('*** [filter:updated] ', JSON.stringify(event, null, 2));
+    });
+
+    dataManager.on('load:begin', function() {
+        showLoadingMessage();
+    });
+    dataManager.on('load:end', function() {
+        hideLoadingMessage();
+    });
+    dataManager.on('list-reload:begin', function() {
+        showLoadingMessage();
+    });
     dataManager.on('list-reload:end', hideLoadingMessage);
 
 })(this);
