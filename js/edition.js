@@ -1,7 +1,11 @@
-jQuery(window).ready(function() {
-})
 jQuery(function() {
     var map = newMap('.map');
+    function updateMapSize() {
+        map.invalidateSize();
+    }
+    jQuery(window).resize(updateMapSize);
+    setTimeout(updateMapSize, 300);
+
     var marker = null;
     function trim(str) {
         return str ? str.replace(/^\s+|\s+$/g, '') : '';
@@ -57,22 +61,25 @@ jQuery(function() {
             unique : function(name, selector, v) {
                 if (!name || name == '')
                     return false;
-                name = name.toLowerCase();
-                var points = dataManager.getFilteredItems(function(point) {
-                    var n = point.properties.name;
-                    return n && n.toLowerCase() === name;
-                })
-                var result = true;
-                var ref = null;
-                var point = points.length > 0 ? points[0] : null;
-                if (point) {
-                    var pointId = getItemIdFromHash();
-                    if (point.properties.id != pointId) {
-                        ref = '#' + point.properties.id;
+                var pointId = getItemIdFromHash();
+                if (!pointId || pointId == '') {
+                    // We are editing a new point
+                    name = name.toLowerCase();
+                    var points = dataManager.getFilteredItems(function(point) {
+                        var n = point.properties.name;
+                        return n && n.toLowerCase() === name;
+                    })
+                    var result = true;
+                    var ref = null;
+                    var point = points.length > 0 ? points[0] : null;
+                    if (point) {
+                        // console.log(point, pointId, (new Error()).stack);
+                        ref = '#' + point.id;
                         result = false;
                     }
                 }
                 var e = $(selector)
+                e.unbind('click');
                 if (ref) {
                     e.bind('click', function() {
                         var location = window.location.href + '';
@@ -84,8 +91,6 @@ jQuery(function() {
                         window.location.href = location;
                         window.location.reload(true);
                     })
-                } else {
-                    e.unbind('click');
                 }
                 return result;
             }
@@ -93,8 +98,19 @@ jQuery(function() {
     })
     jQuery('input[type=submit]').click(function() {
         try {
-            if (form.parsley('validate')) {
-                var result = getDataFromForm();
+            // var valid = form.parsley('validate')
+            var errors = {};
+            var result = getDataFromForm(errors);
+            var valid = true;
+            for ( var key in errors) {
+                errors[key].forEach(function(val) {
+                    if (val.required) {
+                        valid = false;
+                        console.log('ERRORS:', val);
+                    }
+                })
+            }
+            if (valid) {
                 var elm = $(this);
                 dataManager.storeData(result, function(e) {
                     if (e.error) {
@@ -123,7 +139,8 @@ jQuery(function() {
     for ( var categoryId in categories) {
         var category = categories[categoryId];
         var name = category.name;
-        jQuery('<option></option>').attr('data-category-id', categoryId).val(categoryId).html(name).appendTo(categorySelector);
+        jQuery('<option></option>').attr('data-category-id', categoryId).val(
+                categoryId).html(name).appendTo(categorySelector);
     }
 
     var formFields = {};
@@ -177,7 +194,8 @@ jQuery(function() {
         // Fixing fields
 
         { // Creation year
-            var creationyear = properties.creationyear || new Date().getFullYear();
+            var creationyear = properties.creationyear
+                    || new Date().getFullYear();
             setField('creationyear', creationyear);
         }
 
@@ -196,7 +214,7 @@ jQuery(function() {
             return str;
         }
         {
-            var coords = point.geometry ? point.geometry.coordinates : null;
+            var coords = toLatLng(point.geometry.coordinates);
             var zoom = 12;
             if (coords) {
                 coords = L.latLng(coords);
@@ -240,8 +258,9 @@ jQuery(function() {
             var searchAction = new umx.SearchAction();
             refreshAddr.click(function(e) {
                 e.preventDefault();
-                var address = formatAddress(addressStreetTracker.getValue(), addressPostcodeTracker.getValue(),
-                        addressCityTracker.getValue());
+                var address = formatAddress(addressStreetTracker.getValue(),
+                        addressPostcodeTracker.getValue(), addressCityTracker
+                                .getValue());
                 searchAction.search({
                     address : address,
                     onSuccess : function(suggestions) {
@@ -267,19 +286,21 @@ jQuery(function() {
             addressCityTracker.reset();
         }
         { // Identifier
-            var id = properties.id;
+            var id = point.id;
             var idField = $('[data-field="id"]');
             if (id) {
                 idField.parent().hide();
+                idField.val(id);
                 // idField.attr('disabled', 'disabled')
             } else {
-                //idField.removeAttr('disabled');
+                // idField.removeAttr('disabled');
             }
         }
 
         {// Categories
             var category = properties.category;
-            var option = categorySelector.find('option[data-category-id=' + category + ']');
+            var option = categorySelector.find('option[data-category-id='
+                    + category + ']');
             option.prop('selected', true);
             var categoryTracker = getField('category', true);
             // categoryTracker.validate();
@@ -287,7 +308,8 @@ jQuery(function() {
         checkDescriptionLength();
     }
 
-    function getDataFromForm() {
+    function getDataFromForm(errors) {
+        errors = errors || {};
         var coordinates = [];
         var properties = {};
         var result = {
@@ -300,8 +322,8 @@ jQuery(function() {
         };
         if (marker) {
             var latLng = marker.getLatLng();
-            coordinates.push(latLng.lat);
             coordinates.push(latLng.lng);
+            coordinates.push(latLng.lat);
         }
         for ( var key in formFields) {
             if (!(formFields.hasOwnProperty(key)))
@@ -311,7 +333,13 @@ jQuery(function() {
                 var validator = validators[i];
                 var value = validator.getValue();
                 if (!validator.validate()) {
-                    console.log('Field [' + key + '][' + i + ']="' + value + '" is invalid!');
+                    errors[key] = errors[key] || [];
+                    errors[key].push({
+                        value : value,
+                        required : validator.isRequired(),
+                        msg : 'Field [' + key + '][' + i + ']="' + value
+                                + '" is invalid!'
+                    })
                 } else {
                     console.log(key, validator);
                     if (value != '') {
@@ -370,7 +398,8 @@ jQuery(function() {
         alert($('#login-error').text());
     }
 
-    $.getJSON(window.appConfig.loginCheckUrl(), onLoginCheckSuccess).fail(onLoginCheckFailure);
+    $.getJSON(window.appConfig.loginCheckUrl(), onLoginCheckSuccess).fail(
+            onLoginCheckFailure);
 
     dataManager.resetFilter();
 

@@ -63,6 +63,12 @@
                 this._notifyChanges();
             }
         },
+        isRequired : function() {
+            var required = this.element.data('required');
+            if (required === undefined)
+                return false;
+            return required ? true : false;
+        },
         validate : function() {
             var result = !this.options.validate || !this.element.parsley
                     || this.element.parsley('validate');
