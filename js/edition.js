@@ -215,7 +215,12 @@ jQuery(function() {
             return str;
         }
         {
-            var coords = toLatLng(point.geometry.coordinates);
+            var coords = null;
+            if (point.geometry && point.geometry.coordinates) {
+                coords = toLatLng(point.geometry.coordinates);
+            } else {
+                coords = map.getCenter();
+            }
             var zoom = 12;
             if (coords) {
                 coords = L.latLng(coords);
