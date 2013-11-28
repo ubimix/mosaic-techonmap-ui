@@ -15,6 +15,9 @@ window.appConfig = {
     'loginCheckUrl' : function() {
         return '/api/auth/user';
     },
+    'logoutUrl' : function() {
+        return '/api/logout?redirect=/';
+    },
     'authenticationUrls' : function(service, id) {
         var endpoints = {
             twitter : '/api/auth/twitter',

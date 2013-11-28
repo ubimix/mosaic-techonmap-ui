@@ -986,6 +986,22 @@ $(window).load(function(){
 	});
 	getSidebarHeight();
 
+    $.getJSON(window.appConfig.loginCheckUrl(), function(data) {
+        if (data) {
+            var props = data;
+            var isLogged = props.displayName;
+            if (isLogged) {
+                $('#auth-panel').hide();
+                $('#logout-panel').show();
+            } else {
+                $('#auth-panel').show();
+                $('#logout-panel').hide();
+            }
+        }
+    }).fail(function onLoginCheckFailure() {
+        alert($('#login-error').text());
+    });
+	
 	/* gestion du js/mediaqueries */
 	function mediaqueries(){
 		var width = jQuery(window).width();
@@ -1012,7 +1028,9 @@ $(window).load(function(){
         var mobileView = jQuery('html').hasClass('mobile-view');
         var tbh = embedded || mobileView ? 0 : jQuery('#topbar').outerHeight();
         if(/iP/.test(navigator.platform) && /Safari/i.test(navigator.userAgent)){
-            $map.height(jQuery(window).height() + 60); // because of the safari url bar on iphone/ipads   
+            $map.height(jQuery(window).height() + 60); // because of the safari
+                                                        // url bar on
+                                                        // iphone/ipads
         }
         else{
             $map.height(jQuery(window).height() - tbh);   

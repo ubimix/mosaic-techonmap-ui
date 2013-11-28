@@ -5,15 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link
-    href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700"
-    rel="stylesheet" type="text/css">
+	href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700"
+	rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="lib/leaflet/leaflet.css" />
 <!--[if lte IE 8]><link rel="stylesheet" href="lib/leaflet/leaflet.ie.css" /><![endif]-->
 
 <link href="lib/leaflet-markercluster/MarkerCluster.css"
-    rel="stylesheet"></link>
+	rel="stylesheet"></link>
 <link href="lib/leaflet-markercluster/MarkerCluster.Default.css"
-    rel="stylesheet" />
+	rel="stylesheet" />
 <!--[if lte IE 8]><link rel="stylesheet" href="lib/leaflet-markercluster/MarkerCluster.Default.ie.css"/><![endif] -->
 
 <link rel="stylesheet" href="css/styles.css" />
@@ -40,7 +40,7 @@
 <title>TechOnMap</title>
 </head>
 <body>
-    <script type="text/javascript">
+	<script type="text/javascript">
         var params = jQuery.deparam.querystring();
         if (params && params.mode) {
             var css = 'mode-' + params.mode;
@@ -48,34 +48,33 @@
         }
     </script>
 
-    <div id="topbar">
-        <div class="social">
-            <div class="left">
-                <a href="" class="lastTweetAuthor">@TechOnMap</a> : <span
-                    class="lastTweet"></span> <a href=""
-                    class="lastTweetDate"></a>
-            </div>
-            <div class="right">
-                <a href="https://twitter.com/TechOnMap" target="_blank">Suivez-nous</a>
-            </div>
-        </div>
-        <div class="header">
-            <div class="aside">
-                <a href="edition.html" class="btn-blue">Ajouter une
-                    organisation sur la carte</a>
-            </div>
-            <div class="ban">
-                <div class="left">
-                    <h1>
-                        <a href=""><img src="images/banner.png"
-                            alt="Techonmap"></a>
-                    </h1>
-                    <h2>La carte des acteurs du numérique en
-                        Île-de-France</h2>
-                </div>
-                <div class="right">
-                    <ul class="menu">
-                        <!-- old menu
+	<div id="topbar">
+		<div class="social">
+			<div class="left">
+				<a href="" class="lastTweetAuthor">@TechOnMap</a> : <span
+					class="lastTweet"></span> <a href="" class="lastTweetDate"></a>
+			</div>
+			<div class="right">
+				<a href="https://twitter.com/TechOnMap" target="_blank">Suivez-nous</a>
+				<a href="/api/logout?redirect=/" id="logout-panel" style="display:none;">Se
+					déconnecter</a>
+			</div>
+		</div>
+		<div class="header">
+			<div class="aside">
+				<a href="edition.html" class="btn-blue">Ajouter une organisation
+					sur la carte</a>
+			</div>
+			<div class="ban">
+				<div class="left">
+					<h1>
+						<a href=""><img src="images/banner.png" alt="Techonmap"></a>
+					</h1>
+					<h2>La carte des acteurs du numérique en Île-de-France</h2>
+				</div>
+				<div class="right">
+					<ul class="menu">
+						<!-- old menu
 						<li class="lightbox-trigger level-1 picto-about"
 							id="lightbox-about"></li>
 						<li class="lightbox-trigger level-1 picto-faq" id="lightbox-faq"></li>
@@ -96,21 +95,15 @@
 							id="lightbox-contact"></li>
 						-->
 
-                        <li class="level-1 picto-heatmap"
-                            title="Densité"></li>
-                        <li
-                            class="deroulant level-1 open-left picto-param"
-                            title="Menu">
-                            <div class="hide-shadow"></div>
-                            <div class="menu-mask">
-                                <ul class="menu-content">
-                                    <li class="level-2 lightbox-trigger"
-                                        id="lightbox-about"><a
-                                        href="#"> <span
-                                            class="picto picto-about"></span>
-                                            À propos
-                                    </a></li>
-                                    <!-- 
+						<li class="level-1 picto-heatmap" title="Densité"></li>
+						<li class="deroulant level-1 open-left picto-param" title="Menu">
+							<div class="hide-shadow"></div>
+							<div class="menu-mask">
+								<ul class="menu-content">
+									<li class="level-2 lightbox-trigger" id="lightbox-about"><a
+										href="#"> <span class="picto picto-about"></span> À propos
+									</a></li>
+									<!-- 
                                     <li class="level-2 lightbox-trigger"
                                         id="lightbox-faq"><a
                                         href="#"> <span
@@ -118,145 +111,117 @@
                                             FAQ
                                     </a></li>
                                      -->
-                                    <li class="level-2"><a href="#"
-                                        class="generate-embed-trigger">
-                                            <span
-                                            class="picto picto-embeded"></span>
-                                            Embarquer
-                                    </a></li>
-                                    <li class="level-2"><a
-                                        href="mailto:techonmap@lafonderie-idf.fr">
-                                            <span
-                                            class="picto picto-contact"></span>
-                                            Contact
-                                    </a></li>
-                                    <li class="level-2"><a href="#"
-                                        class="generate-image-trigger">
-                                            <span
-                                            class="picto picto-generate"></span>
-                                            Générer une image
-                                    </a></li>
-                                    <li
-                                        class="level-2 lightbox-trigger last"
-                                        id="lightbox-export-data"><a
-                                        href="" id="export-data-trigger">
-                                            <span
-                                            class="picto picto-export"></span>
-                                            Export des données
-                                    </a></li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="clear"></div>
-            </div>
-        </div>
-        <div class="tab tab-up tab-to-menu">
-            
-        </div>
-    </div>
-    <div id="map" data-map-center="[2.3357025512,48.872630327]"
-        data-map-zoom="13" data-map-min-zoom="3" data-map-max-zoom="16"
-        data-map-bounding-box="[[1.351318359375, 49.24270720875383],[3.6419677734374996,48.10743118848039]]"
-        data-map-tiles="http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/997/256/{z}/{x}/{y}.png"
-        data-map-tiles-mapbox="http://{s}.tiles.mapbox.com/v3/antony.map-vrkg66p0/{z}/{x}/{y}.png"
-        data-map-tiles-local="./tiles/{z}/{x}/{y}.png"></div>
+									<li class="level-2"><a href="#"
+										class="generate-embed-trigger"> <span
+											class="picto picto-embeded"></span> Embarquer
+									</a></li>
+									<li class="level-2"><a
+										href="mailto:techonmap@lafonderie-idf.fr"> <span
+											class="picto picto-contact"></span> Contact
+									</a></li>
+									<li class="level-2"><a href="#"
+										class="generate-image-trigger"> <span
+											class="picto picto-generate"></span> Générer une image
+									</a></li>
+									<li class="level-2 lightbox-trigger last"
+										id="lightbox-export-data"><a href=""
+										id="export-data-trigger"> <span class="picto picto-export"></span>
+											Export des données
+									</a></li>
+								</ul>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+		<div class="tab tab-up tab-to-menu"></div>
+	</div>
+	<div id="map" data-map-center="[2.3357025512,48.872630327]"
+		data-map-zoom="13" data-map-min-zoom="3" data-map-max-zoom="16"
+		data-map-bounding-box="[[1.351318359375, 49.24270720875383],[3.6419677734374996,48.10743118848039]]"
+		data-map-tiles="http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/997/256/{z}/{x}/{y}.png"
+		data-map-tiles-mapbox="http://{s}.tiles.mapbox.com/v3/antony.map-vrkg66p0/{z}/{x}/{y}.png"
+		data-map-tiles-local="./tiles/{z}/{x}/{y}.png"></div>
 
-    <div class="sidebar desktop maximized">
-        <div class="tab tab-down tab-to-list"></div>
-        <div class="sidebar-content">
-            <div class="result">
-                <div class="text left">
-                    Résultat :
-                    <div class="right">
-                        <span class="val">0</span> <span class="slash">/</span>
-                        <span class="total">0</span>
-                    </div>
-                </div>
-                <a href="#"
-                    class="picto left picto-minus minimize-sidebar"></a>
-                <a href="#"
-                    class="picto left picto-plus maximize-sidebar"></a>
-                <div class="clear"></div>
-            </div>
-            <div class="scrollable">
-                <!--scrollable zone-->
-                <div class="slidable-mask">
-                    <!--slidable mask -->
-                    <div class="slidable-content">
-                        <div class="slidable slidable-1 on">
-                            <ul class="les-filtres ">
-                                <li class="go-zone">Zone : <span
-                                    class="bold zone-selected">Toutes</span>
-                                </li>
-                                <li class="go-category">Catégorie :
-                                    <span class="bold category-selected">Toutes</span>
-                                </li>
-                                <li class="go-tags">
-                                    <div class="clear-tags"></div>
-                                    <div>
-                                        Tag : <span
-                                            class="bold tags-selected">Tous</span>
-                                    </div>
-                                </li>
-                                <li class="search">
-                                    <form action="">
-                                        <input type="text"
-                                            class="search-input"
-                                            placeholder="Taper votre recherche ici" />
-                                        <input type="submit"
-                                            class="search-submit"
-                                            value="" />
-                                    </form>
-                                </li>
-                            </ul>
-                            <ul class="les-lieux">
-                                <li class="un-lieu" data-id="123">
-                                    <div
-                                        class="left picto picto-incubateur"></div>
-                                    <div class="left description">
-                                        <a href="edition.html"
-                                            title="Modifier ce lieu"
-                                            class="edit picto-edit"></a>
-                                        <a href="#"
-                                            class="view-on-map"></a>
-                                        <strong class="title"></strong>
-                                        <div class="details">
-                                            <span class="category"></span>
-                                            <span class="creation">
-                                                créé(e) en <span
-                                                class="red">2001</span>
-                                            </span>
-                                            <div class="tags"></div>
-                                        </div>
-                                        <div class="long-mask">
-                                            <div class="long">
-                                                <div
-                                                    class="description-field"></div>
-                                            </div>
-                                        </div>
+	<div class="sidebar desktop maximized">
+		<div class="tab tab-down tab-to-list"></div>
+		<div class="sidebar-content">
+			<div class="result">
+				<div class="text left">
+					Résultat :
+					<div class="right">
+						<span class="val">0</span> <span class="slash">/</span> <span
+							class="total">0</span>
+					</div>
+				</div>
+				<a href="#" class="picto left picto-minus minimize-sidebar"></a> <a
+					href="#" class="picto left picto-plus maximize-sidebar"></a>
+				<div class="clear"></div>
+			</div>
+			<div class="scrollable">
+				<!--scrollable zone-->
+				<div class="slidable-mask">
+					<!--slidable mask -->
+					<div class="slidable-content">
+						<div class="slidable slidable-1 on">
+							<ul class="les-filtres ">
+								<li class="go-zone">Zone : <span class="bold zone-selected">Toutes</span>
+								</li>
+								<li class="go-category">Catégorie : <span
+									class="bold category-selected">Toutes</span>
+								</li>
+								<li class="go-tags">
+									<div class="clear-tags"></div>
+									<div>
+										Tag : <span class="bold tags-selected">Tous</span>
+									</div>
+								</li>
+								<li class="search">
+									<form action="">
+										<input type="text" class="search-input"
+											placeholder="Taper votre recherche ici" /> <input
+											type="submit" class="search-submit" value="" />
+									</form>
+								</li>
+							</ul>
+							<ul class="les-lieux">
+								<li class="un-lieu" data-id="123">
+									<div class="left picto picto-incubateur"></div>
+									<div class="left description">
+										<a href="edition.html" title="Modifier ce lieu"
+											class="edit picto-edit"></a> <a href="#" class="view-on-map"></a>
+										<strong class="title"></strong>
+										<div class="details">
+											<span class="category"></span> <span class="creation">
+												créé(e) en <span class="red">2001</span>
+											</span>
+											<div class="tags"></div>
+										</div>
+										<div class="long-mask">
+											<div class="long">
+												<div class="description-field"></div>
+											</div>
+										</div>
 
-                                        <div class="info-line location"></div>
-                                        <div class="info-line url">
-                                            Web: <a href="#">http://www.mycompany.foo</a>
-                                        </div>
-                                        <div class="info-line twitter">
-                                            Twitter: <a href="#">@mycompany</a>
-                                        </div>
-                                        <div
-                                            class="info-line more facebook">
-                                            Facebook: <a href="#">http://www.facebook.com/mycompany</a>
-                                        </div>
-                                        <div
-                                            class="info-line more linkedin">
-                                            LinkedIn: <a href="#">http://www.linkedin.com/mycompany</a>
-                                        </div>
-                                        <div
-                                            class="info-line more viadeo">
-                                            Viadeo: <a href="#">http://www.viadeo.com/mycompany</a>
-                                        </div>
-                                        <!--
+										<div class="info-line location"></div>
+										<div class="info-line url">
+											Web: <a href="#">http://www.mycompany.foo</a>
+										</div>
+										<div class="info-line twitter">
+											Twitter: <a href="#">@mycompany</a>
+										</div>
+										<div class="info-line more facebook">
+											Facebook: <a href="#">http://www.facebook.com/mycompany</a>
+										</div>
+										<div class="info-line more linkedin">
+											LinkedIn: <a href="#">http://www.linkedin.com/mycompany</a>
+										</div>
+										<div class="info-line more viadeo">
+											Viadeo: <a href="#">http://www.viadeo.com/mycompany</a>
+										</div>
+										<!--
 										<a href="" target="_blank">
 											<img src="images/picto-share-twitter.png" alt="partagez sur twitter">
 										</a>
@@ -267,218 +232,169 @@
 											<img src="images/picto-share-linkedin.png" alt="partagez sur linkedin">
 										</a>
 										-->
-                                        <div class="share-mask">
-                                            <div class="share">
-                                                Permalien <br /> <input
-                                                    type="text"
-                                                    class="input-permalien"
-                                                    value="http://www.wikipedia.fr" />
-                                                <div class="left">Partager
-                                                    :</div>
-                                                <div class="right">
-                                                    <a
-                                                        href="https://twitter.com/intent/tweet?source=webclient&text=URL_HERE"
-                                                        target="_blank">
-                                                        <img
-                                                        src="images/picto-share-twitter.png"
-                                                        alt="partagez sur twitter">
-                                                    </a> <a
-                                                        href="http://www.facebook.com/sharer/sharer.php?u=URL_HERE"
-                                                        target="_blank">
-                                                        <img
-                                                        src="images/picto-share-facebook.png"
-                                                        alt="partagez sur facebook">
-                                                    </a> <a
-                                                        href="http://www.linkedin.com/shareArticle?mini=true&url=URL_HERE"
-                                                        target="_blank">
-                                                        <!-- not tested-->
-                                                        <img
-                                                        src="images/picto-share-linkedin.png"
-                                                        alt="partagez sur linkedin">
-                                                    </a> <a
-                                                        href="http://www.viadeo.com/shareit/share/?url=URL_HERE"
-                                                        target="_blank">
-                                                        <!-- not tested-->
-                                                        <img
-                                                        src="images/picto-share-viadeo.png"
-                                                        alt="partagez sur viadeo">
-                                                    </a> <a
-                                                        href="https://plus.google.com/share?url=URL_HERE"
-                                                        target="_blank">
-                                                        <!-- not tested-->
-                                                        <img
-                                                        src="images/picto-share-gp.png"
-                                                        alt="partagez sur google +">
-                                                    </a>
-                                                </div>
-                                                <div class="clear"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="clear"></div>
-                                </li>
-                            </ul>
-                        </div>
-                        <div
-                            class="slidable slidable-2 category-section off">
-                            <div class="category-list-une">
-                                Catégories : <span
-                                    class="bold category-selected">Toutes</span>
-                            </div>
-                            <ul class="category-list">
-                                <li data-value="Toutes"
-                                    data-category-id="*" class="active">
-                                    <span
-                                    class="picto-gray picto-gray-toutes"></span>
-                                    Toutes <span class="tip right">0</span>
-                                </li>
-                                <li data-value="Entreprises"
-                                    data-category-id="entreprise">
-                                    <span
-                                    class="picto-gray picto-gray-entreprise"></span>
-                                    Entreprises <span class="tip right">0</span>
-                                </li>
-                                <li data-value="Tiers-lieux"
-                                    data-category-id="third-place">
-                                    <span
-                                    class="picto-gray picto-gray-tierslieu"></span>
-                                    Tiers-lieux <span class="tip right">0</span>
-                                </li>
-                                <li data-value="Incubateurs"
-                                    data-category-id="incubator"><span
-                                    class="picto-gray picto-gray-incubateur"></span>
-                                    Incubateurs <span class="tip right">0</span></li>
-                                <li data-value="Investisseurs"
-                                    data-category-id="investor"><span
-                                    class="picto-gray picto-gray-investisseur"></span>
-                                    Investisseurs <span
-                                    class="tip right">0</span></li>
-                                <li data-value="Communautés"
-                                    data-category-id="community"><span
-                                    class="picto-gray picto-gray-communaute"></span>
-                                    Communautés <span class="tip right">0</span></li>
-                                <li data-value="Prestataires"
-                                    data-category-id="prestataire">
-                                    <span
-                                    class="picto-gray picto-gray-prestataire"></span>
-                                    Prestataires <span class="tip right">0</span>
-                                </li>
-                                <li data-value="Écoles"
-                                    data-category-id="school"><span
-                                    class="picto-gray picto-gray-ecole"></span>
-                                    Écoles <span class="tip right">0</span></li>
-                                <li data-value="Acteurs publics"
-                                    data-category-id="public-actor"><span
-                                    class="picto-gray picto-gray-publique"></span>
-                                    Acteurs publics <span
-                                    class="tip right">0</span></li>
-                            </ul>
-                            <!--
+										<div class="share-mask">
+											<div class="share">
+												Permalien <br /> <input type="text" class="input-permalien"
+													value="http://www.wikipedia.fr" />
+												<div class="left">Partager :</div>
+												<div class="right">
+													<a
+														href="https://twitter.com/intent/tweet?source=webclient&text=URL_HERE"
+														target="_blank"> <img
+														src="images/picto-share-twitter.png"
+														alt="partagez sur twitter">
+													</a> <a
+														href="http://www.facebook.com/sharer/sharer.php?u=URL_HERE"
+														target="_blank"> <img
+														src="images/picto-share-facebook.png"
+														alt="partagez sur facebook">
+													</a> <a
+														href="http://www.linkedin.com/shareArticle?mini=true&url=URL_HERE"
+														target="_blank"> <!-- not tested--> <img
+														src="images/picto-share-linkedin.png"
+														alt="partagez sur linkedin">
+													</a> <a
+														href="http://www.viadeo.com/shareit/share/?url=URL_HERE"
+														target="_blank"> <!-- not tested--> <img
+														src="images/picto-share-viadeo.png"
+														alt="partagez sur viadeo">
+													</a> <a href="https://plus.google.com/share?url=URL_HERE"
+														target="_blank"> <!-- not tested--> <img
+														src="images/picto-share-gp.png"
+														alt="partagez sur google +">
+													</a>
+												</div>
+												<div class="clear"></div>
+											</div>
+										</div>
+									</div>
+									<div class="clear"></div>
+								</li>
+							</ul>
+						</div>
+						<div class="slidable slidable-2 category-section off">
+							<div class="category-list-une">
+								Catégories : <span class="bold category-selected">Toutes</span>
+							</div>
+							<ul class="category-list">
+								<li data-value="Toutes" data-category-id="*" class="active">
+									<span class="picto-gray picto-gray-toutes"></span> Toutes <span
+									class="tip right">0</span>
+								</li>
+								<li data-value="Entreprises" data-category-id="entreprise">
+									<span class="picto-gray picto-gray-entreprise"></span>
+									Entreprises <span class="tip right">0</span>
+								</li>
+								<li data-value="Tiers-lieux" data-category-id="third-place">
+									<span class="picto-gray picto-gray-tierslieu"></span>
+									Tiers-lieux <span class="tip right">0</span>
+								</li>
+								<li data-value="Incubateurs" data-category-id="incubator"><span
+									class="picto-gray picto-gray-incubateur"></span> Incubateurs <span
+									class="tip right">0</span></li>
+								<li data-value="Investisseurs" data-category-id="investor"><span
+									class="picto-gray picto-gray-investisseur"></span>
+									Investisseurs <span class="tip right">0</span></li>
+								<li data-value="Communautés" data-category-id="community"><span
+									class="picto-gray picto-gray-communaute"></span> Communautés <span
+									class="tip right">0</span></li>
+								<li data-value="Prestataires" data-category-id="prestataire">
+									<span class="picto-gray picto-gray-prestataire"></span>
+									Prestataires <span class="tip right">0</span>
+								</li>
+								<li data-value="Écoles" data-category-id="school"><span
+									class="picto-gray picto-gray-ecole"></span> Écoles <span
+									class="tip right">0</span></li>
+								<li data-value="Acteurs publics" data-category-id="public-actor"><span
+									class="picto-gray picto-gray-publique"></span> Acteurs publics
+									<span class="tip right">0</span></li>
+							</ul>
+							<!--
                             <div
                                 class="category-list-une go-zone switch-filter">
                                 Zone : <span class="bold zone-selected">Toutes</span>
                             </div>
                         -->
-                        </div>
-                        <div
-                            class="slidable slidable-3 zone-section off">
-                            <div class="zone-list-une">
-                                Zone : <span class="bold zone-selected">Toutes</span>
-                            </div>
-                            <ul class="zone-list">
-                                <li data-value="Toutes"
-                                    data-postcode="*" class="active"><span
-                                    class="picto-gray picto-gray-zones-toutes"></span>
-                                    Toutes <span class="tip right">0</span></li>
-                                <li data-value="Paris"
-                                    data-postcode="75"><span
-                                    class="picto-gray picto-gray-75"></span>
-                                    Paris (75) <span class="tip right">0</span></li>
-                                <li data-value="Seine-et-Marne"
-                                    data-postcode="77"><span
-                                    class="picto-gray picto-gray-77"></span>
-                                    Seine-et-Marne (77) <span
-                                    class="tip right">0</span></li>
-                                <li data-value="Yvelines"
-                                    data-postcode="78"><span
-                                    class="picto-gray picto-gray-78"></span>
-                                    Yvelines (78) <span
-                                    class="tip right">0</span></li>
-                                <li data-value="Essone"
-                                    data-postcode="91"><span
-                                    class="picto-gray picto-gray-91"></span>
-                                    Essonne (91) <span class="tip right">0</span></li>
-                                <li data-value="Hauts-de-Seine"
-                                    data-postcode="92"><span
-                                    class="picto-gray picto-gray-92"></span>
-                                    Hauts-de-Seine (92) <span
-                                    class="tip right">0</span></li>
-                                <li data-value="Seine-Saint-Denis"
-                                    data-postcode="93"><span
-                                    class="picto-gray picto-gray-93"></span>
-                                    Seine-Saint-Denis (93) <span
-                                    class="tip right">0</span></li>
-                                <li data-value="Val-de-Marne"
-                                    data-postcode="94"><span
-                                    class="picto-gray picto-gray-94"></span>
-                                    Val-de-Marne (94) <span
-                                    class="tip right">0</span></li>
-                                <li data-value="Val-d’Oise"
-                                    data-postcode="95"><span
-                                    class="picto-gray picto-gray-95"></span>
-                                    Val-d’Oise (95) <span
-                                    class="tip right">0</span></li>
-                            </ul>
-                            <!--
+						</div>
+						<div class="slidable slidable-3 zone-section off">
+							<div class="zone-list-une">
+								Zone : <span class="bold zone-selected">Toutes</span>
+							</div>
+							<ul class="zone-list">
+								<li data-value="Toutes" data-postcode="*" class="active"><span
+									class="picto-gray picto-gray-zones-toutes"></span> Toutes <span
+									class="tip right">0</span></li>
+								<li data-value="Paris" data-postcode="75"><span
+									class="picto-gray picto-gray-75"></span> Paris (75) <span
+									class="tip right">0</span></li>
+								<li data-value="Seine-et-Marne" data-postcode="77"><span
+									class="picto-gray picto-gray-77"></span> Seine-et-Marne (77) <span
+									class="tip right">0</span></li>
+								<li data-value="Yvelines" data-postcode="78"><span
+									class="picto-gray picto-gray-78"></span> Yvelines (78) <span
+									class="tip right">0</span></li>
+								<li data-value="Essone" data-postcode="91"><span
+									class="picto-gray picto-gray-91"></span> Essonne (91) <span
+									class="tip right">0</span></li>
+								<li data-value="Hauts-de-Seine" data-postcode="92"><span
+									class="picto-gray picto-gray-92"></span> Hauts-de-Seine (92) <span
+									class="tip right">0</span></li>
+								<li data-value="Seine-Saint-Denis" data-postcode="93"><span
+									class="picto-gray picto-gray-93"></span> Seine-Saint-Denis (93)
+									<span class="tip right">0</span></li>
+								<li data-value="Val-de-Marne" data-postcode="94"><span
+									class="picto-gray picto-gray-94"></span> Val-de-Marne (94) <span
+									class="tip right">0</span></li>
+								<li data-value="Val-d’Oise" data-postcode="95"><span
+									class="picto-gray picto-gray-95"></span> Val-d’Oise (95) <span
+									class="tip right">0</span></li>
+							</ul>
+							<!--
                             <div
                                 class="zone-list-une go-category switch-filter">
                                 Catégories : <span
                                     class="bold category-selected">Toutes</span>
                             </div>
                             -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="powered">
-                <a href="#" class="left sync-trigger picto-sync"
-                    title="Synchronisation carte/liste"></a> Fièrement
-                propulsé par <a href="http://www.lafonderie-idf.fr/"
-                    target="_blank"><img
-                    src="images/logo-lafonderie.png" class="logo"
-                    alt="La Fonderie" /></a>
-            </div>
-        </div>
-    </div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="powered">
+				<a href="#" class="left sync-trigger picto-sync"
+					title="Synchronisation carte/liste"></a> Fièrement propulsé par <a
+					href="http://www.lafonderie-idf.fr/" target="_blank"><img
+					src="images/logo-lafonderie.png" class="logo" alt="La Fonderie" /></a>
+			</div>
+		</div>
+	</div>
 
-    <div class="lightbox">
-        <!--contact page-->
-        <div class="lightbox-container lightbox-contact">
-            <div class="lightbox-top">
-                <div class="lightbox-picto picto-contact active"></div>
-                <div class="lightbox-title">CONTACTEZ-NOUS</div>
-                <div class="lightbox-close"></div>
-            </div>
-            <div class="lightbox-content">
-                <form action="">
-                    <input type="text" class="input-contact"
-                        placeholder="votre nom" /> <input type="text"
-                        class="input-contact" placeholder="votre email" />
-                    <select class="input-contact" name="" id="">
-                        <option value="">Choisissez une raison</option>
-                    </select>
-                    <textarea name="" id="" class="textarea-contact"
-                        placeholder="votre message"></textarea>
-                    <div class="submit-container">
-                        <input type="submit" class="btn-blue"
-                            value="Envoyer" />
-                        <div class="clear"></div>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <!--FAQ page-->
-        <!-- 
+	<div class="lightbox">
+		<!--contact page-->
+		<div class="lightbox-container lightbox-contact">
+			<div class="lightbox-top">
+				<div class="lightbox-picto picto-contact active"></div>
+				<div class="lightbox-title">CONTACTEZ-NOUS</div>
+				<div class="lightbox-close"></div>
+			</div>
+			<div class="lightbox-content">
+				<form action="">
+					<input type="text" class="input-contact" placeholder="votre nom" />
+					<input type="text" class="input-contact" placeholder="votre email" />
+					<select class="input-contact" name="" id="">
+						<option value="">Choisissez une raison</option>
+					</select>
+					<textarea name="" id="" class="textarea-contact"
+						placeholder="votre message"></textarea>
+					<div class="submit-container">
+						<input type="submit" class="btn-blue" value="Envoyer" />
+						<div class="clear"></div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<!--FAQ page-->
+		<!-- 
         <div class="lightbox-container lightbox-faq large">
             <div class="lightbox-top">
                 <div class="lightbox-picto picto-faq active"></div>
@@ -496,178 +412,158 @@
         </div>
         -->
 
-        <!--A propos page-->
-        <div class="lightbox-container lightbox-about large">
-            <div class="lightbox-top">
-                <div class="lightbox-picto picto-about active"></div>
-                <div class="lightbox-title">À PROPOS DE TECHONMAP</div>
-                <div class="lightbox-close"></div>
-            </div>
-            <div class="lightbox-content">
-                <p>Moteur d'innovation, d'emploi et de croissance,
-                    l'économie numérique est devenue un atout puissant
-                    pour le développement de l'économie régionale.
-                    Fondée sur l'activité d'un écosystème fertile et
-                    bouillonnant, elle permet à l'Ile-de-France, région
-                    capitale, de s'affirmer comme un hub technologique
-                    de premier rang capable de rivaliser avec ses
-                    équivalents en Europe et dans le monde.</p>
-                <p>Pour renforcer la visibilité et l’attractivité de
-                    l’écosystème numérique francilien, il apparaît
-                    primordial de représenter et de valoriser les forces
-                    en présence. Qui sont les acteurs du numérique en
-                    Ile-de-France ? Combien sont-ils ? Que font-ils ?
-                    Comment sont-ils répartis sur le territoire ? Dans
-                    la compétition engagée à l’international, il s’agit
-                    de « se compter pour compter » en cherchant à lever
-                    les approximations qui entourent parfois les
-                    réponses à ces questions.</p>
-                <p>
-                    L’objectif de TechOnMap, fièrement propulsé par <a
-                        href="http://www.lafonderie-idf.fr/"
-                        target="_blank">La Fonderie</a>, est de
-                    collecter, d’organiser et de partager les données
-                    permettant de cartographier l’ensemble des acteurs
-                    de cet écosystème. Conçue dans une logique de
-                    coproduction durable, TechOnMap est une application
-                    cartographique collaborative et ouverte qui s’appuie
-                    sur un système de mise à jour distribué
-                    (crowdsourcing) et de libre mise à disposition des
-                    données pour leur rediffusion personnalisée (widget)
-                    ou leur réutilisation (opendata) par des tiers.
-                </p>
-                <div class="footer-links">
-                    <a href="http://www.lafonderie-idf.fr/"
-                        target="_blank"><img
-                        src="images/logo-lafonderie.png"
-                        alt="La Fonderie"></a> <a
-                        href="http://www.ubimix.com/" target="_blank"><img
-                        src="images/logo-ubimix.png" alt="ubimix"></a>
-                </div>
-            </div>
-        </div>
+		<!--A propos page-->
+		<div class="lightbox-container lightbox-about large">
+			<div class="lightbox-top">
+				<div class="lightbox-picto picto-about active"></div>
+				<div class="lightbox-title">À PROPOS DE TECHONMAP</div>
+				<div class="lightbox-close"></div>
+			</div>
+			<div class="lightbox-content">
+				<p>Moteur d'innovation, d'emploi et de croissance, l'économie
+					numérique est devenue un atout puissant pour le développement de
+					l'économie régionale. Fondée sur l'activité d'un écosystème fertile
+					et bouillonnant, elle permet à l'Ile-de-France, région capitale, de
+					s'affirmer comme un hub technologique de premier rang capable de
+					rivaliser avec ses équivalents en Europe et dans le monde.</p>
+				<p>Pour renforcer la visibilité et l’attractivité de
+					l’écosystème numérique francilien, il apparaît primordial de
+					représenter et de valoriser les forces en présence. Qui sont les
+					acteurs du numérique en Ile-de-France ? Combien sont-ils ? Que
+					font-ils ? Comment sont-ils répartis sur le territoire ? Dans la
+					compétition engagée à l’international, il s’agit de « se compter
+					pour compter » en cherchant à lever les approximations qui
+					entourent parfois les réponses à ces questions.</p>
+				<p>
+					L’objectif de TechOnMap, fièrement propulsé par <a
+						href="http://www.lafonderie-idf.fr/" target="_blank">La
+						Fonderie</a>, est de collecter, d’organiser et de partager les données
+					permettant de cartographier l’ensemble des acteurs de cet
+					écosystème. Conçue dans une logique de coproduction durable,
+					TechOnMap est une application cartographique collaborative et
+					ouverte qui s’appuie sur un système de mise à jour distribué
+					(crowdsourcing) et de libre mise à disposition des données pour
+					leur rediffusion personnalisée (widget) ou leur réutilisation
+					(opendata) par des tiers.
+				</p>
+				<div class="footer-links">
+					<a href="http://www.lafonderie-idf.fr/" target="_blank"><img
+						src="images/logo-lafonderie.png" alt="La Fonderie"></a> <a
+						href="http://www.ubimix.com/" target="_blank"><img
+						src="images/logo-ubimix.png" alt="ubimix"></a>
+				</div>
+			</div>
+		</div>
 
-        <!--save image block-->
-        <div class="lightbox-container lightbox-image">
-            <div class="lightbox-top">
-                <div class="lightbox-picto picto-embeded active"></div>
-                <div class="lightbox-title">IMAGE</div>
-                <div class="lightbox-close"></div>
-            </div>
-            <div class="lightbox-content">
-                <!-- FIXME: translation -->
-                <div style="margin: 30px; border: 3px solid #eee;">
-                    <div class="message" style="display: none;">Chargement...</div>
-                    <div class="image"></div>
-                </div>
-                <div class="btns">
-                    <button class="save-image-trigger">Save</button>
-                </div>
-            </div>
-        </div>
+		<!--save image block-->
+		<div class="lightbox-container lightbox-image">
+			<div class="lightbox-top">
+				<div class="lightbox-picto picto-embeded active"></div>
+				<div class="lightbox-title">IMAGE</div>
+				<div class="lightbox-close"></div>
+			</div>
+			<div class="lightbox-content">
+				<!-- FIXME: translation -->
+				<div style="margin: 30px; border: 3px solid #eee;">
+					<div class="message" style="display: none;">Chargement...</div>
+					<div class="image"></div>
+				</div>
+				<div class="btns">
+					<button class="save-image-trigger">Save</button>
+				</div>
+			</div>
+		</div>
 
-        <!--embeded page-->
-        <div class="lightbox-container lightbox-embeded">
-            <div class="lightbox-top">
-                <div class="lightbox-picto  picto-embeded active"></div>
-                <div class="lightbox-title">EMBARQUEZ LA CARTE SUR
-                    VOTRE SITE</div>
-                <div class="lightbox-close"></div>
-            </div>
-            <div class="lightbox-content">
-                <div class="configuration-zone">
-                    <div>
-                        <h3>Choisissez votre style</h3>
-                        <div class="left embed-type embed-readonly">Sans
-                            menu</div>
-                        <div class="right embed-type embed-full">Avec
-                            menu</div>
-                        <div class="clear"></div>
-                    </div>
-                    <div>
-                        <h3>Choisissez votre taille (770px de
-                            largeur minimum)</h3>
-                        <label>Largeur : <input type="text"
-                            class="embed-width" /></label> <label>Hauteur
-                            : <input type="text" class="embed-height" />
-                        </label>
-                    </div>
-                </div>
-                <div class="active-zone">
-                    <h3>Code d’embarquement à copier et coller dans
-                        votre site</h3>
-                    <div>
-                        <textarea class="code embed"></textarea>
-                    </div>
-                    <p>
-                        <input class="btn-green preview" type="submit"
-                            value="Afficher un aperçu">
-                        <!--<a href="#" class="">Aperçu</a>-->
-                    </p>
-                </div>
-                <input class="btn-green" type="submit"
-                    value="Revenir à la carte">
-            </div>
-        </div>
+		<!--embeded page-->
+		<div class="lightbox-container lightbox-embeded">
+			<div class="lightbox-top">
+				<div class="lightbox-picto  picto-embeded active"></div>
+				<div class="lightbox-title">EMBARQUEZ LA CARTE SUR VOTRE SITE</div>
+				<div class="lightbox-close"></div>
+			</div>
+			<div class="lightbox-content">
+				<div class="configuration-zone">
+					<div>
+						<h3>Choisissez votre style</h3>
+						<div class="left embed-type embed-readonly">Sans menu</div>
+						<div class="right embed-type embed-full">Avec menu</div>
+						<div class="clear"></div>
+					</div>
+					<div>
+						<h3>Choisissez votre taille (770px de largeur minimum)</h3>
+						<label>Largeur : <input type="text" class="embed-width" /></label>
+						<label>Hauteur : <input type="text" class="embed-height" />
+						</label>
+					</div>
+				</div>
+				<div class="active-zone">
+					<h3>Code d’embarquement à copier et coller dans votre site</h3>
+					<div>
+						<textarea class="code embed"></textarea>
+					</div>
+					<p>
+						<input class="btn-green preview" type="submit"
+							value="Afficher un aperçu">
+						<!--<a href="#" class="">Aperçu</a>-->
+					</p>
+				</div>
+				<input class="btn-green" type="submit" value="Revenir à la carte">
+			</div>
+		</div>
 
-        <!--export data page-->
-        <div class="lightbox-container lightbox-export-data">
-            <div class="lightbox-top">
-                <div class="lightbox-picto  picto-export active"></div>
-                <div class="lightbox-title">TELECHARGEZ LES
-                    DONNEES DE LA CARTE</div>
-                <div class="lightbox-close"></div>
-            </div>
-            <div class="lightbox-content">
-                <p>
-                    Dans le prolongement de la <a
-                        href="http://www.iledefrance.fr/demarche-donnees-publiques"
-                        target="_black">démarche régionale
-                        d’ouverture des données publiques</a> lancée par la
-                    Région Ile-de-France, les données de TechOnMap font
-                    l’objet d’une diffusion libre et gratuite sous
-                    licence <a
-                        href="http://opendatacommons.org/licenses/odbl/1.0/"
-                        target="_blank">ODbL</a>.
-                </p>
-                <h3>Choisissez votre format d’export</h3>
-                <div class="links">
-                    <a href="#" class="btn-blue export-data-csv-trigger">Données
-                        au format csv</a> <a href="#"
-                        class="btn-blue export-data-geojson-trigger">Données
-                        au format Json</a>
-                </div>
-                <div>
-                    <textarea class="code export" id="export-content"></textarea>
-                    <p class="help">
-                        Tapez le raccourci <a
-                            href="javascript:$('#export-content').select();">Ctrl+A</a>
-                        pour sélectionner et Ctrl+C pour copier les
-                        données.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
+		<!--export data page-->
+		<div class="lightbox-container lightbox-export-data">
+			<div class="lightbox-top">
+				<div class="lightbox-picto  picto-export active"></div>
+				<div class="lightbox-title">TELECHARGEZ LES DONNEES DE LA
+					CARTE</div>
+				<div class="lightbox-close"></div>
+			</div>
+			<div class="lightbox-content">
+				<p>
+					Dans le prolongement de la <a
+						href="http://www.iledefrance.fr/demarche-donnees-publiques"
+						target="_black">démarche régionale d’ouverture des données
+						publiques</a> lancée par la Région Ile-de-France, les données de
+					TechOnMap font l’objet d’une diffusion libre et gratuite sous
+					licence <a href="http://opendatacommons.org/licenses/odbl/1.0/"
+						target="_blank">ODbL</a>.
+				</p>
+				<h3>Choisissez votre format d’export</h3>
+				<div class="links">
+					<a href="#" class="btn-blue export-data-csv-trigger">Données au
+						format csv</a> <a href="#"
+						class="btn-blue export-data-geojson-trigger">Données au format
+						Json</a>
+				</div>
+				<div>
+					<textarea class="code export" id="export-content"></textarea>
+					<p class="help">
+						Tapez le raccourci <a
+							href="javascript:$('#export-content').select();">Ctrl+A</a> pour
+						sélectionner et Ctrl+C pour copier les données.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
 
-    <!-- Map popups -->
-    <div class="map-popup" style="display: none; overflow: hidden;">
-        <div class="info-line more"></div>
-        <strong class="title">Le camping</strong>
-        <div class="info-line location">42 avenue Raymond Poincaré</div>
-        <div class="info-line url">
-            <a href="#">http://www.mycompany.foo</a>
-        </div>
-        <div class="info-line twitter">
-            <a href="#">@mycompany</a>
-        </div>
-        
-    </div>
+	<!-- Map popups -->
+	<div class="map-popup" style="display: none; overflow: hidden;">
+		<div class="info-line more"></div>
+		<strong class="title">Le camping</strong>
+		<div class="info-line location">42 avenue Raymond Poincaré</div>
+		<div class="info-line url">
+			<a href="#">http://www.mycompany.foo</a>
+		</div>
+		<div class="info-line twitter">
+			<a href="#">@mycompany</a>
+		</div>
 
-    <div id="loading" style="display: none;">
-        Chargement...
-    </div>
-    <script type="content/json" id="categories">
+	</div>
+
+	<div id="loading" style="display: none;">Chargement...</div>
+	<script type="content/json" id="categories">
 {
     "entreprise" : {
         "name" : "Entreprise",

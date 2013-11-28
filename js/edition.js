@@ -418,14 +418,17 @@ jQuery(function() {
             var props = data;
             var isLogged = props.displayName;
             if (isLogged) {
-                // $(":input").removeAttr("disabled");
+                // $(':input').removeAttr('disabled');
                 $('#explanation').show();
                 $('#edit-form').show();
-                $("#twitter-auth-panel").css("display", "none");
+                $('#auth-panel').hide();
+                $('#logout-panel').show();
             } else {
                 $('#explanation').hide();
                 $('#edit-form').hide();
-                // $(":input").attr("disabled","disabled");
+                $('#auth-panel').show();
+                $('#logout-panel').hide();
+                // $(':input').attr('disabled','disabled');
             }
         }
 
