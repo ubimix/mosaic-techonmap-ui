@@ -51,7 +51,7 @@ $(window).load(function(){
 // })();
      
 	var tilesUrl = mapContainer.data('map-tiles');
-    map.addControl(new umx.MinimapControl(tilesUrl, {
+/*    map.addControl(new umx.MinimapControl(tilesUrl, {
         maxZoom : 10,
         position : 'bottomleft',
         radius : '0px',
@@ -61,6 +61,7 @@ $(window).load(function(){
             height : '100px'
         }
     }));
+*/
     
     /* ---------------------------------------------------------------------- */
 	var list = $('.les-lieux');
@@ -118,7 +119,7 @@ $(window).load(function(){
         });
         var categoryName = categoryInfo.getCategoryName(props.category);
         item.find('.category').html(categoryName);
-        item.find('.description-field').html(props.description);
+        //item.find('.description-field').html(props.description);
         if (props.creationyear) {
             item.find('.creation .red').html(props.creationyear);
         }
@@ -343,10 +344,10 @@ $(window).load(function(){
         var prevItemId = getItemIdFromHash();
         function refocusItem() {
             reloadCounter--;
-            if (reloadCounter == 0 && prevItemId) {
+            if (reloadCounter == 1 && prevItemId) {
                 setTimeout(function() {
                     dataManager.selectItemById(prevItemId, true /* force */);
-                },250);
+                },2000);
             }
         }
         if (heatmapMode) {
@@ -932,7 +933,11 @@ $(window).load(function(){
             /*---open description---*/
             var $longMask = $lieu.find('.long-mask');
             var $longDescription = $longMask.find('.long');
-            
+            var lieuId = $lieu.data('id');
+            var lieuData = dataManager.getItemById(lieuId);
+            $longDescription.append('<div class="description-field">'+lieuData.properties.description+'</div>');           
+
+ 
             $longMask.animate({
                 height: $longDescription.outerHeight()
             },250, function(){
@@ -1164,7 +1169,6 @@ $(window).load(function(){
 
     function loadLastTweet() {
 	$.getJSON(window.appConfig.lastTweetUrl(), function(data) {
-	    console.log('data:', data)
 		showTwitter(data);	
 	}).fail( function(error) {console.log("Error:" +error);});
 
