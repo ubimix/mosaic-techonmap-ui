@@ -64,7 +64,8 @@
             maxZoom : maxZoom,
             minZoom : minZoom,
             attributionControl : false,
-            trackResize: true
+            trackResize: true,
+	    zoomControl: false
             
         }
         var map = L.map(container[0], options);
@@ -80,6 +81,9 @@
             position : 'bottomleft',
             prefix : null
         }).addAttribution(attribution).addTo(map);
+
+        new L.Control.Zoom({ position: 'bottomleft' }).addTo(map);
+
         return map;
     }
 

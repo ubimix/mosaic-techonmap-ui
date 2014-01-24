@@ -5,6 +5,8 @@
         display: block;
     }
     .map-popup .info-line.more{
+	 display: none;
+	 /*
          display: block;
          float: right;
          width: 25px;
@@ -12,6 +14,7 @@
          background: url(../images/picto-list.png) 50% 50% no-repeat;
          margin-right: 15px;
          cursor: pointer;
+	 */
     }
     .sidebar .sidebar-content .un-lieu .view-on-map{
         display: none;
@@ -110,6 +113,15 @@
         {
         display: none;
     }
+    .description-field {
+	padding-top:6px;
+	padding-bottom:6px;
+    }
+
+    .leaflet-popup {
+	max-width:300px;
+    }
+
 }
 
 

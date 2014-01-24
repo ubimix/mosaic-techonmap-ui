@@ -49,9 +49,10 @@ $(window).load(function(){
 // .openOn(map);
 // });
 // })();
-     
+	var width = jQuery(window).width(); 
 	var tilesUrl = mapContainer.data('map-tiles');
-/*    map.addControl(new umx.MinimapControl(tilesUrl, {
+/*
+    map.addControl(new umx.MinimapControl(tilesUrl, {
         maxZoom : 10,
         position : 'bottomleft',
         radius : '0px',
@@ -61,14 +62,16 @@ $(window).load(function(){
             height : '100px'
         }
     }));
-*/
-    
+*/  
     /* ---------------------------------------------------------------------- */
 	var list = $('.les-lieux');
 	var listItemTemplate = getTemplate(list.find('li'));
 	
 	var popup = $('.map-popup');
 	var popupTemplate = getTemplate(popup);
+	var shareElt = $('.share-template');
+	var shareTemplate = $(getTemplate(shareElt));
+
 	
 	function fillTemplate(point, item) {
         var props = point.properties;
@@ -119,6 +122,9 @@ $(window).load(function(){
         });
         var categoryName = categoryInfo.getCategoryName(props.category);
         item.find('.category').html(categoryName);
+	if(width <=960 && item.hasClass('map-popup')){
+	  item.find('.description-field').html(props.description);
+	}
         //item.find('.description-field').html(props.description);
         if (props.creationyear) {
             item.find('.creation .red').html(props.creationyear);
@@ -315,6 +321,11 @@ $(window).load(function(){
     }
     function showList(callback) {
         hideList();
+        if(width <= 960){
+		return setTimeout(function() {callback()}, 10);
+        }
+
+
         if (!callback) callback = function() {}
         dataManager.fire('list-reload:begin', {});
         setTimeout(function() {
@@ -909,6 +920,8 @@ $(window).load(function(){
 	/*-----gestion des lieux-----*/
 	/*---------------------------*/
 
+	//TODO: not in mobile-view
+	if (width>=960) {
 	/* events */
 	jQuery('.un-lieu .title, .un-lieu .picto').live('click', function(){
 		var $lieu = jQuery(this).parents('.un-lieu');
@@ -935,7 +948,27 @@ $(window).load(function(){
             var $longDescription = $longMask.find('.long');
             var lieuId = $lieu.data('id');
             var lieuData = dataManager.getItemById(lieuId);
+	    if (lieuId)
             $longDescription.append('<div class="description-field">'+lieuData.properties.description+'</div>');           
+
+
+        var pageUrl = $(location).attr('href') +  '';
+        var idx = pageUrl.indexOf('#');
+        if (idx >= 0) {
+            pageUrl = pageUrl.substring(0, idx);
+        }
+        var url =  pageUrl + '#' + lieuId;
+        shareTemplate.find('.share .input-permalien').val(url);
+        shareTemplate.find('.share .right a[href]').each(function() {
+                var a = $(this);
+                var href = a.attr('href');
+                var str =  encodeURIComponent(url);
+                href = href.replace('URL_HERE', str);
+                a.attr('href', href);
+        });
+ 	var $shareMask = $lieu.find('.share-mask');
+	$shareMask.append(shareTemplate);
+
 
  
             $longMask.animate({
@@ -944,7 +977,7 @@ $(window).load(function(){
             	// Scroll the opened item into the view.
         		scrollIntoView($lieu, jQuery('.scrollable'), 0,200);
             }); 
-            var $shareMask = $lieu.find('.share-mask');
+            //var $shareMask = $lieu.find('.share-mask');
             var $share = $shareMask.find('.share');
             $shareMask.animate({
                 height: $share.outerHeight()
@@ -971,7 +1004,7 @@ $(window).load(function(){
 		},250, function(){
 		});
 	}
-
+        }
 	/*---------------------------*/
 	/*-----gestion interface-----*/
 	/*---------------------------*/
@@ -1040,6 +1073,7 @@ $(window).load(function(){
         else{
             $map.height(jQuery(window).height() - tbh);   
         }
+	map.invalidateSize();
     }
 
     /* gestion mobile view tabs (scroll to menu or list) */
