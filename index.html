@@ -411,7 +411,7 @@
 		</div>
 
 		<!--save image block-->
-		<div class="lightbox-container lightbox-image">
+		<div class="lightbox-container lightbox-image lightbox-export-data">
 			<div class="lightbox-top">
 				<div class="lightbox-picto picto-embeded active"></div>
 				<div class="lightbox-title">IMAGE</div>
@@ -423,8 +423,13 @@
 					<div class="message" style="display: none;">Chargement...</div>
 					<div class="image"></div>
 				</div>
-				<div class="btns">
-					<button class="save-image-trigger">Save</button>
+
+				<p>
+				Veuillez saisir un nom de fichier avec l'extension <i>png</i>
+				une fois qu'apparaît la boîte de dialogue de sauvegarde de fichier.
+				</p>
+				<div class="links">
+					<a href="#" class="btn-blue save-image-trigger">Sauvegarder</a>
 				</div>
 			</div>
 		</div>
@@ -487,7 +492,7 @@
 				<h3>Choisissez votre format d’export</h3>
 				<div class="links">
 					<a href="#" class="btn-blue export-data-csv-trigger">Données au
-						format csv</a> <a href="#"
+						format CSV</a> <a href="#"
 						class="btn-blue export-data-geojson-trigger">Données au format
 						Json</a>
 				</div>
@@ -604,5 +609,20 @@
     }
 }
 </script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36939074-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
 </body>
 </html>
