@@ -122,6 +122,11 @@
 	max-width:300px;
     }
 
+    ul.menu li.picto-heatmap, li.embed,li.image,li.export {
+	display: none !important;
+    }
+	
+
 }
 
 
