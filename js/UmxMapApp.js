@@ -82,7 +82,7 @@
             prefix : null
         }).addAttribution(attribution).addTo(map);
 
-        new L.Control.Zoom({ position: 'bottomleft' }).addTo(map);
+        new L.Control.Zoom({ position: 'topleft' }).addTo(map);
 
         return map;
     }
