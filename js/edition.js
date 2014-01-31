@@ -380,10 +380,11 @@ jQuery(function() {
                 } else {
                     console.log(key, validator);
                     if (value != '') {
-                        if (properties[key]) {
+			//the tags property should always contain an array
+                        if (properties[key] || key == 'tags') {
                             var array = properties[key];
                             if (jQuery.type(array) !== 'array') {
-                                array = [ array ];
+                                array = array != null ? [ array ] : [];
                                 properties[key] = array;
                             }
                             array.push(value);

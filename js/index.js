@@ -949,7 +949,7 @@ $(window).load(function(){
             var lieuId = $lieu.data('id');
             var lieuData = dataManager.getItemById(lieuId);
 	    if (lieuId)
-            $longDescription.append('<div class="description-field">'+lieuData.properties.description+'</div>');           
+                $longDescription.html('<div class="description-field">'+lieuData.properties.description+'</div>');           
 
 
         var pageUrl = $(location).attr('href') +  '';

@@ -550,6 +550,7 @@ body.lightbox-open {
 
 .lightbox .lightbox-container.lightbox-about .lightbox-content .footer-links img{
 	margin-right: 15px;
+	vertical-align:middle;
 }
 /*lightbox export data*/
 .lightbox .lightbox-container.lightbox-export-data .lightbox-content{
@@ -968,6 +969,7 @@ body.lightbox-open {
 	overflow: auto;
 	height: 100%;
 	*position: relative; /*IE7*/
+	background-color: white;
 }
 
 .desktop.sidebar .sidebar-content .slidable {
